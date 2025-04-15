@@ -6,6 +6,7 @@ public class InputHandler : MonoBehaviour
 {
     public Vector2 move;
     public Vector2 aim;
+    public float zoom;
     [SerializeField] private bool isJumping;
     [SerializeField] private bool isCrouching;
     [SerializeField] private bool isSprinting;
@@ -27,6 +28,7 @@ public class InputHandler : MonoBehaviour
 
     public void Aim(InputAction.CallbackContext ctx) => aim = Camera.main.ScreenToWorldPoint(ctx.ReadValue<Vector2>());
 
+    public void Zoom(InputAction.CallbackContext ctx) => zoom = ctx.ReadValue<float>();
     public void Jump(InputAction.CallbackContext ctx) {
         if (ctx.performed) {
             OnJump?.Invoke();
