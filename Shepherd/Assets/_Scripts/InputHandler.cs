@@ -3,8 +3,11 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(PlayerInput))]
 public class InputHandler : MonoBehaviour
 {
+    private PlayerInput _playerInput;
+    
     public Vector2 move;
     public Vector3 aim;
     public Vector2 zoom;
@@ -13,6 +16,7 @@ public class InputHandler : MonoBehaviour
     [SerializeField] private bool isSprinting;
     [SerializeField] private bool isBarking;
     [SerializeField] private bool isInteracting;
+    [Space(10)]
     [SerializeField] private Camera cam;
 
     [Header("Events")]
@@ -30,13 +34,28 @@ public class InputHandler : MonoBehaviour
     [Space(25)]
     public UnityEvent OnInteract;
 
+    private void Start() {
+        _playerInput = GetComponent<PlayerInput>();
+    }
+
     public void Move(InputAction.CallbackContext ctx) => move = ctx.ReadValue<Vector2>();
 
     public void Aim(InputAction.CallbackContext ctx) {
-        Vector2 mousePos = ctx.ReadValue<Vector2>();
-        Ray ray = cam.ScreenPointToRay(mousePos);
-        Physics.Raycast(ray, out RaycastHit hit);
-        aim = hit.point;
+
+        if (_playerInput.currentControlScheme == "Keyboard&Mouse") {
+            Vector2 mousePos = ctx.ReadValue<Vector2>();
+            Ray ray = cam.ScreenPointToRay(mousePos);
+            Physics.Raycast(ray, out RaycastHit hit);
+            Vector3 hitPoint = hit.point;
+            Vector3 playerPos = transform.position;
+            Vector3 direction = hitPoint - playerPos;
+            aim = new Vector3(direction.normalized.x, 0f, direction.normalized.z);
+        }
+        else {
+            Vector2 aimDir = ctx.ReadValue<Vector2>();
+            aim = new Vector3(aimDir.x, 0f, aimDir.y);
+        }
+        
     }
 
     public void Zoom(InputAction.CallbackContext ctx) => zoom = ctx.ReadValue<Vector2>();
