@@ -38,6 +38,13 @@ public class Movement : MonoBehaviour
         _rb.linearVelocity = new Vector3(xVel, _rb.linearVelocity.y, zVel);
     }
 
+    public void Jump() {
+        if (IsGrounded()) {
+            _rb.linearVelocity = new Vector3(_rb.linearVelocity.x, 0, _rb.linearVelocity.z);
+            _rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        }
+    }
+
     private bool IsGrounded() {
         return Physics.Raycast(transform.position, Vector3.down, checkDistance, groundLayer);
     }
