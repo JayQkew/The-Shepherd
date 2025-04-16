@@ -12,6 +12,8 @@ public class Movement : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float acceleration;
     [SerializeField] private float jumpForce;
+    [SerializeField] private Vector3Int stillFrames;
+    [SerializeField] private Vector3Int maxStillFrames;
     private Vector3 _desiredVelocity;
     
     [Header("Ground Check")]
@@ -26,12 +28,13 @@ public class Movement : MonoBehaviour
 
     private void Update() {
         _desiredVelocity = _inputHandler.move * speed;
+        
         isGrounded = IsGrounded();
     }
 
     private void FixedUpdate() {
         Vector3 currVel = _rb.linearVelocity;
-        
+
         float xVel = Mathf.Lerp(currVel.x, _desiredVelocity.x, acceleration * Time.fixedDeltaTime);
         float zVel = Mathf.Lerp(currVel.z, _desiredVelocity.z, acceleration * Time.fixedDeltaTime);
         
