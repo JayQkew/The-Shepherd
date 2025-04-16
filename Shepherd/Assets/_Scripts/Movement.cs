@@ -5,7 +5,7 @@ using UnityEngine.Serialization;
 [RequireComponent(typeof(Rigidbody))]
 public class Movement : MonoBehaviour
 {
-    public Rigidbody rb;
+    private Rigidbody _rb;
     private InputHandler _inputHandler;
 
     [Header("Movement Stats")]
@@ -20,7 +20,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float checkDistance;
 
     private void Awake() {
-        rb = GetComponent<Rigidbody>();
+        _rb = GetComponent<Rigidbody>();
         _inputHandler = GetComponent<InputHandler>();
     }
 
@@ -30,12 +30,12 @@ public class Movement : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        Vector3 currVel = rb.linearVelocity;
+        Vector3 currVel = _rb.linearVelocity;
         
         float xVel = Mathf.Lerp(currVel.x, _desiredVelocity.x, acceleration * Time.fixedDeltaTime);
         float zVel = Mathf.Lerp(currVel.z, _desiredVelocity.z, acceleration * Time.fixedDeltaTime);
         
-        rb.linearVelocity = new Vector3(xVel, rb.linearVelocity.y, zVel);
+        _rb.linearVelocity = new Vector3(xVel, _rb.linearVelocity.y, zVel);
     }
 
     private bool IsGrounded() {

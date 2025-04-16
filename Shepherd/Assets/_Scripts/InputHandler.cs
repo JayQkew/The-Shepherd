@@ -8,7 +8,7 @@ public class InputHandler : MonoBehaviour
 {
     private PlayerInput _playerInput;
     
-    public Vector2 move;
+    public Vector3 move;
     public Vector3 aim;
     public Vector2 zoom;
     [SerializeField] private bool isJumping;
@@ -38,7 +38,10 @@ public class InputHandler : MonoBehaviour
         _playerInput = GetComponent<PlayerInput>();
     }
 
-    public void Move(InputAction.CallbackContext ctx) => move = ctx.ReadValue<Vector2>();
+    public void Move(InputAction.CallbackContext ctx) {
+        Vector2 input = ctx.ReadValue<Vector2>();
+        move = new Vector3(input.x, 0, input.y);
+    }
 
     public void Aim(InputAction.CallbackContext ctx) {
 
