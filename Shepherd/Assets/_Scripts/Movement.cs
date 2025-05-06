@@ -12,8 +12,6 @@ public class Movement : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float acceleration;
     [SerializeField] private float jumpForce;
-    [SerializeField] private Vector3Int stillFrames;
-    [SerializeField] private Vector3Int maxStillFrames;
     private Vector3 _desiredVelocity;
     
     [Header("Ground Check")]
