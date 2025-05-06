@@ -16,23 +16,22 @@ public class InputHandler : MonoBehaviour
     [SerializeField] private bool isSprinting;
     [SerializeField] private bool isBarking;
     [SerializeField] private bool isInteracting;
+    [SerializeField] private bool isCasting;
     [Space(10)]
     [SerializeField] private Camera cam;
 
     [Header("Events")]
     public UnityEvent OnJump;
-
     [Space(25)]
     public UnityEvent OnCrouch;
-
     [Space(25)]
     public UnityEvent OnSprint;
-
     [Space(25)]
     public UnityEvent OnBark;
-
     [Space(25)]
     public UnityEvent OnInteract;
+    [Space(25)]
+    public UnityEvent OnCast;
 
     private void Start() {
         _playerInput = GetComponent<PlayerInput>();
@@ -110,6 +109,16 @@ public class InputHandler : MonoBehaviour
         }
         else if (ctx.canceled) {
             isInteracting = false;
+        }
+    }
+
+    public void Cast(InputAction.CallbackContext ctx) {
+        if (ctx.performed) {
+            OnCast?.Invoke();
+            isCasting = true;
+        }
+        else if (ctx.canceled) {
+            isCasting = false;
         }
     }
 }

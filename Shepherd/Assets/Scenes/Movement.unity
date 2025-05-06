@@ -1448,6 +1448,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 4e63140f-6cc6-4ba1-970b-5a3fa6e668b8
     m_ActionName: 'Player/Zoom[/Mouse/scroll]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2080037330}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: Cast
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: fe9a8bc4-fb00-4ae8-943e-4b14fdfecdae
+    m_ActionName: 'Player/Cast[/Mouse/rightButton]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
@@ -1473,6 +1489,7 @@ MonoBehaviour:
   isSprinting: 0
   isBarking: 0
   isInteracting: 0
+  isCasting: 0
   cam: {fileID: 330585545}
   OnJump:
     m_PersistentCalls:
@@ -1501,6 +1518,9 @@ MonoBehaviour:
   OnInteract:
     m_PersistentCalls:
       m_Calls: []
+  OnCast:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2080037331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1516,7 +1536,6 @@ MonoBehaviour:
   speed: 20
   acceleration: 2
   jumpForce: 10
-  isGrounded: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -1555,7 +1574,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2080037327}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: e12d2de84915b3049a26090fb626151d, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
