@@ -15,7 +15,6 @@ public class Movement : MonoBehaviour
     private Vector3 _desiredVelocity;
     
     [Header("Ground Check")]
-    [SerializeField] private bool isGrounded;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private float checkDistance;
 
@@ -26,8 +25,6 @@ public class Movement : MonoBehaviour
 
     private void Update() {
         _desiredVelocity = _inputHandler.move * speed;
-        
-        isGrounded = IsGrounded();
     }
 
     private void FixedUpdate() {
