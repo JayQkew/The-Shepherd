@@ -5,13 +5,26 @@ using UnityEngine;
 public class Boids : MonoBehaviour
 {
     private Rigidbody _rb;
+    [HideInInspector] public Vector3 velocity;
     [SerializeField] private float radius;
     [SerializeField] private Boids[] boids;
+    [Header("Forces")]
+    [SerializeField] private float cohesionMult;
+    [SerializeField] private float separationMult;
+    [SerializeField] private float alignmentMult;
+    [Header("Other")]
+    [SerializeField] private float minSeparationDistance;
 
     private void Awake() => _rb = GetComponent<Rigidbody>();
 
     private void FixedUpdate() {
+        velocity = _rb.linearVelocity;
         boids = Neighbours();
+        
+        if(boids.Length <= 0) return;
+        
+        Vector3 totalForce = Cohesion() + Separation() + Alignment();
+        _rb.AddForce(totalForce);
     }
 
     private Boids[] Neighbours() {
@@ -25,8 +38,56 @@ public class Boids : MonoBehaviour
         return neighbours.ToArray();
     }
 
+    private Vector3 Cohesion() {
+        Vector3 totalPos = Vector3.zero;
+        foreach (Boids b in boids) {
+            totalPos += b.transform.position;
+        }
+        Vector3 centerPos = totalPos/boids.Length;
+        Vector3 dir = Vector3.Normalize(centerPos - transform.position);
+        
+        return dir * cohesionMult;
+    }
+    
+    private Vector3 Separation() {
+        Vector3 steeringForce = Vector3.zero;
+        int count = 0;
+        
+        foreach (Boids b in boids) {
+            Vector3 offset = transform.position - b.transform.position;
+            float distance = offset.magnitude;
+            
+            if (distance < minSeparationDistance && distance > 0) {
+                Vector3 repulsionDir = offset.normalized;
+                float repulsionStrength = 1.0f / Mathf.Max(0.1f, distance);
+                steeringForce += repulsionDir * repulsionStrength;
+                count++;
+            }
+        }
+
+        if (count > 0) {
+            steeringForce /= count;
+            steeringForce = steeringForce.normalized - _rb.linearVelocity;
+        }
+        
+        return steeringForce * separationMult;
+    }
+
+    private Vector3 Alignment() {
+        Vector3 aveVelocity = Vector3.zero;
+        foreach (Boids b in boids){
+            aveVelocity += b.velocity;
+        }
+        aveVelocity /= boids.Length;
+        Vector3 targetVelocity = aveVelocity - velocity;
+        
+        return targetVelocity * alignmentMult;
+    }
     private void OnDrawGizmos() {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, radius);
+        
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, minSeparationDistance);
     }
 }
