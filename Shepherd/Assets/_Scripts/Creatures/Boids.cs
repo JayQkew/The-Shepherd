@@ -8,16 +8,11 @@ public class Boids : MonoBehaviour
     [HideInInspector] public Vector3 velocity;
     [SerializeField] private float radius;
     [SerializeField] private Boids[] boids;
-    [Header("Forces")]
-    [SerializeField] private float cohesionMult;
-    [SerializeField] private float separationMult;
-    [SerializeField] private float alignmentMult;
-    [Header("Other")]
-    [SerializeField] private float minSeparationDistance;
+    [SerializeField] private BoidData data;
 
     private void Awake() => _rb = GetComponent<Rigidbody>();
 
-    private void FixedUpdate() {
+    public void ApplyForce() {
         velocity = _rb.linearVelocity;
         boids = Neighbours();
         
@@ -46,7 +41,7 @@ public class Boids : MonoBehaviour
         Vector3 centerPos = totalPos/boids.Length;
         Vector3 dir = Vector3.Normalize(centerPos - transform.position);
         
-        return dir * cohesionMult;
+        return dir * data.cohesion;
     }
     
     private Vector3 Separation() {
@@ -57,7 +52,7 @@ public class Boids : MonoBehaviour
             Vector3 offset = transform.position - b.transform.position;
             float distance = offset.magnitude;
             
-            if (distance < minSeparationDistance && distance > 0) {
+            if (distance < data.minSeparation && distance > 0) {
                 Vector3 repulsionDir = offset.normalized;
                 float repulsionStrength = 1.0f / Mathf.Max(0.1f, distance);
                 steeringForce += repulsionDir * repulsionStrength;
@@ -70,7 +65,7 @@ public class Boids : MonoBehaviour
             steeringForce = steeringForce.normalized - _rb.linearVelocity;
         }
         
-        return steeringForce * separationMult;
+        return steeringForce * data.separation;
     }
 
     private Vector3 Alignment() {
@@ -81,13 +76,13 @@ public class Boids : MonoBehaviour
         aveVelocity /= boids.Length;
         Vector3 targetVelocity = aveVelocity - velocity;
         
-        return targetVelocity * alignmentMult;
+        return targetVelocity * data.alignment;
     }
     private void OnDrawGizmos() {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, radius);
         
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, minSeparationDistance);
+        Gizmos.DrawWireSphere(transform.position, data.minSeparation);
     }
 }

@@ -150,9 +150,7 @@ MonoBehaviour:
   velocity: {x: 0, y: 0, z: 0}
   radius: 5
   boids: []
-  cohesionMult: 5
-  separationMult: 1
-  alignmentMult: 1
+  data: {fileID: 11400000, guid: 5174544759737e6478c45d3eed1ffddb, type: 2}
   minSeparationDistance: 2.5
 --- !u!54 &2088826080556547742
 Rigidbody:
