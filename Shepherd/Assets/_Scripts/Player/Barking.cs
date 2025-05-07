@@ -11,13 +11,10 @@ public class Barking : MonoBehaviour
     [SerializeField] private float range;
     [SerializeField] private GameObject[] hitObjects;
 
-    private void Awake() {
-        _inputHandler = GetComponent<InputHandler>();
-    }
+    private void Awake() => _inputHandler = GetComponent<InputHandler>();
 
     public void Bark() {
         hitObjects = ConeCast();
-
         foreach (GameObject hit in hitObjects) {
             IBarkable b = hit.GetComponent<IBarkable>();
             if (b != null) b.BarkedAt(transform.position);
@@ -55,7 +52,6 @@ public class Barking : MonoBehaviour
         
         float aimAngle = Mathf.Atan2(_inputHandler.aim.x, _inputHandler.aim.z) * Mathf.Rad2Deg;
         float halfRange = range * 0.5f;
-        
         float maxAngle = aimAngle + halfRange;
         float minAngle = aimAngle - halfRange;
 
