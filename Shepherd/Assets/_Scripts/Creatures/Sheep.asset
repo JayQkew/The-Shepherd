@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 647fd1305bc6823488998ab96d35be9c, type: 3}
   m_Name: Sheep
   m_EditorClassIdentifier: 
+  radius: 10
   cohesion: 5
   separation: 2.5
   alignment: 1

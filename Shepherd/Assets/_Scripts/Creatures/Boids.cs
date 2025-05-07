@@ -6,7 +6,6 @@ public class Boids : MonoBehaviour
 {
     private Rigidbody _rb;
     [HideInInspector] public Vector3 velocity;
-    [SerializeField] private float radius;
     [SerializeField] private Boids[] boids;
     [SerializeField] private BoidData data;
 
@@ -23,7 +22,7 @@ public class Boids : MonoBehaviour
     }
 
     private Boids[] Neighbours() {
-        Collider[] cols = Physics.OverlapSphere(transform.position, radius);
+        Collider[] cols = Physics.OverlapSphere(transform.position, data.radius);
         List<Boids> neighbours = new List<Boids>();
         
         foreach (Collider col in cols) {
@@ -80,7 +79,7 @@ public class Boids : MonoBehaviour
     }
     private void OnDrawGizmos() {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, radius);
+        Gizmos.DrawWireSphere(transform.position, data.radius);
         
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, data.minSeparation);
