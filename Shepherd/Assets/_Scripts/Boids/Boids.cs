@@ -21,6 +21,10 @@ public class Boids : MonoBehaviour
         _rb.AddForce(totalForce);
     }
 
+    /// <summary>
+    /// Gets all nearby boids within the boids radius (red)
+    /// </summary>
+    /// <returns>array of nearby boids</returns>
     private Boids[] Neighbours() {
         Collider[] cols = Physics.OverlapSphere(transform.position, data.radius);
         List<Boids> neighbours = new List<Boids>();
@@ -32,6 +36,10 @@ public class Boids : MonoBehaviour
         return neighbours.ToArray();
     }
 
+    /// <summary>
+    /// Gets the middle most position of surrounding boids
+    /// </summary>
+    /// <returns>the strength of the force towards the center</returns>
     private Vector3 Cohesion() {
         Vector3 totalPos = Vector3.zero;
         foreach (Boids b in boids) {
@@ -43,6 +51,10 @@ public class Boids : MonoBehaviour
         return dir * data.cohesion;
     }
     
+    /// <summary>
+    /// the point furthest away from all surrounding boids
+    /// </summary>
+    /// <returns>the direction the boid should travel to avoid nearby boids</returns>
     private Vector3 Separation() {
         Vector3 steeringForce = Vector3.zero;
         int count = 0;
@@ -67,6 +79,10 @@ public class Boids : MonoBehaviour
         return steeringForce * data.separation;
     }
 
+    /// <summary>
+    /// gets the average velocity of the surrounding boids moves in the average direction
+    /// </summary>
+    /// <returns>direction that is the average of surrounding boids</returns>
     private Vector3 Alignment() {
         Vector3 aveVelocity = Vector3.zero;
         foreach (Boids b in boids){
