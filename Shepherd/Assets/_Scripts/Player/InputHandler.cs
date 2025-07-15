@@ -2,11 +2,12 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(PlayerInput))]
 public class InputHandler : MonoBehaviour
 {
-    private PlayerInput _playerInput;
+    private PlayerInput playerInput;
     
     public Vector3 move;
     public Vector3 aim;
@@ -21,20 +22,20 @@ public class InputHandler : MonoBehaviour
     [SerializeField] private Camera cam;
 
     [Header("Events")]
-    public UnityEvent OnJump;
+    public UnityEvent onJump;
     [Space(25)]
-    public UnityEvent OnCrouch;
+    public UnityEvent onCrouch;
     [Space(25)]
-    public UnityEvent OnSprint;
+    public UnityEvent onSprint;
     [Space(25)]
-    public UnityEvent OnBark;
+    public UnityEvent onBark;
     [Space(25)]
-    public UnityEvent OnInteract;
+    public UnityEvent onInteract;
     [Space(25)]
-    public UnityEvent OnCast;
+    public UnityEvent onCast;
 
     private void Start() {
-        _playerInput = GetComponent<PlayerInput>();
+        playerInput = GetComponent<PlayerInput>();
     }
 
     public void Move(InputAction.CallbackContext ctx) {
@@ -44,7 +45,7 @@ public class InputHandler : MonoBehaviour
 
     public void Aim(InputAction.CallbackContext ctx) {
 
-        if (_playerInput.currentControlScheme == "Keyboard&Mouse") {
+        if (playerInput.currentControlScheme == "Keyboard&Mouse") {
             Vector2 mousePos = ctx.ReadValue<Vector2>();
             Ray ray = cam.ScreenPointToRay(mousePos);
             Physics.Raycast(ray, out RaycastHit hit);
@@ -64,7 +65,7 @@ public class InputHandler : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext ctx) {
         if (ctx.performed) {
-            OnJump?.Invoke();
+            onJump?.Invoke();
             isJumping = true;
         }
         else if (ctx.canceled) {
@@ -74,7 +75,7 @@ public class InputHandler : MonoBehaviour
 
     public void Crouch(InputAction.CallbackContext ctx) {
         if (ctx.performed) {
-            OnCrouch?.Invoke();
+            onCrouch?.Invoke();
             isCrouching = true;
         }
         else if (ctx.canceled) {
@@ -84,7 +85,7 @@ public class InputHandler : MonoBehaviour
 
     public void Sprint(InputAction.CallbackContext ctx) {
         if (ctx.performed) {
-            OnSprint?.Invoke();
+            onSprint?.Invoke();
             isSprinting = true;
         }
         else if (ctx.canceled) {
@@ -94,7 +95,7 @@ public class InputHandler : MonoBehaviour
 
     public void Bark(InputAction.CallbackContext ctx) {
         if (ctx.performed) {
-            OnBark?.Invoke();
+            onBark?.Invoke();
             isBarking = true;
         }
         else if (ctx.canceled) {
@@ -104,7 +105,7 @@ public class InputHandler : MonoBehaviour
 
     public void Interact(InputAction.CallbackContext ctx) {
         if (ctx.performed) {
-            OnInteract?.Invoke();
+            onInteract?.Invoke();
             isInteracting = true;
         }
         else if (ctx.canceled) {
@@ -114,7 +115,7 @@ public class InputHandler : MonoBehaviour
 
     public void Cast(InputAction.CallbackContext ctx) {
         if (ctx.performed) {
-            OnCast?.Invoke();
+            onCast?.Invoke();
             isCasting = true;
         }
         else if (ctx.canceled) {
