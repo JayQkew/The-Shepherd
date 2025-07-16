@@ -22,7 +22,7 @@ public class SpriteManager : MonoBehaviour
         SpriteRenderer sr = t.GetComponent<SpriteRenderer>();
         sr.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
         sr.receiveShadows = true;
-        sr.material = spriteShadowMat;
+        // sr.material = spriteShadowMat;
         t.transform.rotation = spriteRotation;
     }
 
