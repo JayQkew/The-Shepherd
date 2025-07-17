@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 89486839}
   - component: {fileID: 89486842}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -218,10 +218,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12f69e27e2f4f734a930bc0c1361ae49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offset: {x: -0.15, y: 0, z: -0.15}
   distance: 0
-  distanceScaleRatio: {x: 0, y: 0}
+  distanceScaleRatio: {x: 0.5, y: 7.5}
   maxScale: {x: 0, y: 0, z: 0}
-  minScale: {x: 0, y: 0, z: 0}
+  minScale: {x: 0.5, y: 0.5, z: 0.5}
   castLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -1643,12 +1644,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 442827823, guid: 50ec382af69abf143ac4d70eeef93690, type: 3}
+  m_Sprite: {fileID: -427201785, guid: 277dc19c58d6bdf48982c65d3da7e1d5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

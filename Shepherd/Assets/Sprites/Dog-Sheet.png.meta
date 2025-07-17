@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b17253d051db939469b4ec60a52662e5
+guid: 277dc19c58d6bdf48982c65d3da7e1d5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -136,7 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sheep_0
+      name: Dog-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -151,8 +151,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b78086716fb83746bbda564a7f86e35
-      internalID: 594140768
+      spriteID: 995540957443bcc4ca81e8d99387c755
+      internalID: -427201785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac236859966241546aa34c20b80d52ba
+      internalID: 904446590
       vertices: []
       indices: 
       edges: []
@@ -161,7 +183,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: ada0c65e309453549a8f9d9ea2fe60e1
+    spriteID: 4f6dea876e8f6f240be01efb5ee6a7b9
     internalID: 0
     vertices: []
     indices: 
@@ -171,7 +193,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      sheep_0: 594140768
+      Dog-Sheet_0: -427201785
+      Dog-Sheet_1: 904446590
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
