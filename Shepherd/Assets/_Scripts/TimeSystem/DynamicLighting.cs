@@ -23,6 +23,11 @@ public class DynamicLighting : MonoBehaviour
         if (TimeManager.Instance != null) {
             float t = Mathf.Lerp(0, 1, TimeManager.Instance.currTime / TimeManager.Instance.maxTime);
             light.color = gradient.Evaluate(t);
+            
+            float xAngle = 25 + (Mathf.Cos(t * 2 * Mathf.PI) + 1)/ 2 * 25;
+            float yAngle = Mathf.Lerp(0, 360, t) - 80;
+            
+            transform.eulerAngles = new Vector3(xAngle, yAngle, transform.eulerAngles.z);
         }
     }
 
@@ -36,11 +41,12 @@ public class DynamicLighting : MonoBehaviour
 
         //Sunrise
         float curr = 0;
+        curr += twilightTime / totalSpanTime;
         colorKeys[0] = new GradientColorKey(colors[0], curr);
         Debug.Log(curr);
 
         //Day
-        curr += TimeManager.Instance.sunRise.span / totalSpanTime;
+        curr += (TimeManager.Instance.sunRise.span - twilightTime) / totalSpanTime;
         colorKeys[1] = new GradientColorKey(colors[1], curr);
         Debug.Log(curr);
 
