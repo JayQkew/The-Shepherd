@@ -6,6 +6,7 @@ public class TimeManager : MonoBehaviour
 {
     public static TimeManager Instance { get; private set; }
     public float currTime;
+    public float maxTime;
     public uint dayCount;
     private TimeBaseState currState;
 
@@ -29,6 +30,7 @@ public class TimeManager : MonoBehaviour
     private void Start() {
         currState = sunRise;
         currState.EnterState(this);
+        maxTime = sunRise.span + day.span + night.span + sunSet.span;
     }
 
     private void Update() {

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Day : TimeBaseState
 {
     [SerializeField] private float curr;
-    [SerializeField] private float span;
+    public float span;
     public override void EnterState(TimeManager manager) {
         Debug.Log("Enter Day");
     }
