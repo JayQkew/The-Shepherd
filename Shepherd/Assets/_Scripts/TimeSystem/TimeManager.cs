@@ -44,6 +44,18 @@ public class TimeManager : MonoBehaviour
         currState = newState;
         currState.EnterState(this);
     }
+
+    [ContextMenu("Update Time")]
+    public void UpdateMaxTime() {
+        Instance = this;
+        maxTime = sunRise.span + day.span + night.span + sunSet.span;
+    }    
+    private void OnValidate() {
+        if (Application.isPlaying && TimeManager.Instance != null) {
+            Instance = this;
+            maxTime = sunRise.span + day.span + night.span + sunSet.span;
+        }
+    }
 }
 
 public abstract class TimeBaseState
