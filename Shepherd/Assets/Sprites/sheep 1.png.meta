@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 50ec382af69abf143ac4d70eeef93690
+guid: d4485693952877348af570cd57893eac
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -136,45 +136,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: dog run sprites 2_0
+      name: sheep 1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 512
-        width: 634
-        height: 512
+        x: 26
+        y: 63
+        width: 460
+        height: 363
       alignment: 9
-      pivot: {x: 0.623505, y: 0.2901873}
+      pivot: {x: 0.5, y: 0.4}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1edd72fa4f05bde4893d2ec8610f2193
-      internalID: 442827823
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dog run sprites 2_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 634
-        height: 512
-      alignment: 9
-      pivot: {x: 0.5428487, y: 0.2901873}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 419636f6455fa9d45b28bea3d2914dd9
-      internalID: 964073420
+      spriteID: f536abc00436e2a449f421c0f5b68116
+      internalID: 495936088
       vertices: []
       indices: 
       edges: []
@@ -183,7 +161,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 00f79cd22239c244aaf8f04b1e91f060
+    spriteID: 80ee56d74fada504a9d1cd5ee7b21818
     internalID: 0
     vertices: []
     indices: 
@@ -193,8 +171,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      dog run sprites 2_0: 442827823
-      dog run sprites 2_1: 964073420
+      sheep 1_0: 495936088
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
