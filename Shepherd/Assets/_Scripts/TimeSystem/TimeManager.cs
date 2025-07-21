@@ -1,16 +1,20 @@
 using System;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 public class TimeManager : MonoBehaviour
 {
     public static TimeManager Instance { get; private set; }
-    [SerializeField] private TimeState state;
     public float currTime;
     public uint dayCount;
-
     private TimeBaseState currState;
+
+    [Header("States")]
+    public SunRise sunRise = new SunRise();
+    public Day day = new Day();
+    public SunSet sunSet = new SunSet();
+    public Night night = new Night();
+    
     
     private void Awake() {
         if (Instance == null) {
@@ -22,25 +26,27 @@ public class TimeManager : MonoBehaviour
         }
     }
 
+    private void Start() {
+        currState = sunRise;
+        currState.EnterState(this);
+    }
+
     private void Update() {
         currTime += Time.deltaTime;
         
         currState.UpdateState(this);
     }
+
+    public void SwitchState(TimeBaseState newState) {
+        currState.ExitState(this);
+        currState = newState;
+        currState.EnterState(this);
+    }
 }
 
-[Serializable]
 public abstract class TimeBaseState
 {
     public abstract void EnterState(TimeManager manager);
     public abstract void UpdateState(TimeManager manager);
     public abstract void ExitState(TimeManager manager);
-}
-
-public enum TimeState
-{
-    SunRise,
-    Day,
-    SunSet,
-    Night
 }
