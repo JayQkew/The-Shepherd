@@ -9,6 +9,9 @@ public class Boids : MonoBehaviour
     [SerializeField] private Boids[] boids;
     [SerializeField] private BoidData data;
 
+    [Space(10)]
+    [SerializeField] private bool showGizmos;
+
     private void Awake() => _rb = GetComponent<Rigidbody>();
 
     public void ApplyForce() {
@@ -94,10 +97,12 @@ public class Boids : MonoBehaviour
         return targetVelocity * data.alignment;
     }
     private void OnDrawGizmos() {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, data.radius);
-        
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, data.minSeparation);
+        if (showGizmos) {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, data.radius);
+            
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(transform.position, data.minSeparation);
+        }
     }
 }
