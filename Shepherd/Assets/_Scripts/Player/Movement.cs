@@ -9,7 +9,8 @@ public class Movement : MonoBehaviour
     private InputHandler inputHandler;
 
     [Header("Movement Stats")]
-    [SerializeField] private float speed;
+    [SerializeField] private float maxSpeed;
+    [SerializeField] private float sprintMaxSpeed;
     [SerializeField] private float acceleration;
     [SerializeField] private float jumpForce;
     private Vector3 desiredVelocity;
@@ -24,7 +25,8 @@ public class Movement : MonoBehaviour
     }
 
     private void Update() {
-        desiredVelocity = inputHandler.move * speed;
+        float mult = inputHandler.isSprinting ?  sprintMaxSpeed : maxSpeed;
+        desiredVelocity = inputHandler.move * mult;
     }
 
     private void FixedUpdate() {

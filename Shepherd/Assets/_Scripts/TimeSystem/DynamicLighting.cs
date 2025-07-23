@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class DynamicLighting : MonoBehaviour
 {
@@ -9,31 +10,38 @@ public class DynamicLighting : MonoBehaviour
     private float twilightTime = 0.1f;
 
     [SerializeField, Tooltip("SunRise, Day, SunSet, Night")]
-    private Color[] colors = new Color[4];
+    private Color[] lightColors = new Color[4];
 
-    [SerializeField] private Gradient gradient;
+    [SerializeField] private Color[] skyColors = new Color[4];
+
+    [SerializeField] private Gradient lightGradient;
+    [SerializeField] private Gradient skyGradient;
 
     private void Awake() {
         light = GetComponent<Light>();
 
-        SetLightGradient();
+        SetGradient(lightGradient, lightColors);
+        SetGradient(skyGradient, skyColors);
     }
 
     private void Update() {
         if (TimeManager.Instance != null) {
             float t = Mathf.Lerp(0, 1, TimeManager.Instance.currTime / TimeManager.Instance.maxTime);
-            light.color = gradient.Evaluate(t);
-            
-            float xAngle = 25 + (Mathf.Cos(t * 2 * Mathf.PI) + 1)/ 2 * 25;
-            float yAngle = Mathf.Lerp(0, 360, t) - 80;
-            
-            transform.eulerAngles = new Vector3(xAngle, yAngle, transform.eulerAngles.z);
+            light.color = lightGradient.Evaluate(t);
+            RenderSettings.skybox.SetColor("_Tint", skyGradient.Evaluate(t));
+            LightAngle(t);
         }
     }
 
-    private void SetLightGradient() {
+    private void LightAngle(float t) {
+        float xAngle = 25 + (Mathf.Cos(t * 2 * Mathf.PI) + 1) / 2 * 25;
+        float yAngle = Mathf.Lerp(0, 360, t) - 80;
+
+        transform.eulerAngles = new Vector3(xAngle, yAngle, transform.eulerAngles.z);
+    }
+
+    private void SetGradient(Gradient gradient, Color[] colors) {
         if (TimeManager.Instance == null) return;
-        gradient = new Gradient();
 
         float totalSpanTime = TimeManager.Instance.maxTime + twilightTime;
 
@@ -84,13 +92,15 @@ public class DynamicLighting : MonoBehaviour
     [ContextMenu("Update Gradient")]
     public void UpdateGradient() {
         light = GetComponent<Light>();
-        SetLightGradient();
+        SetGradient(lightGradient, lightColors);
+        SetGradient(skyGradient, skyColors);
     }
 
     private void OnValidate() {
         if (Application.isPlaying && TimeManager.Instance != null) {
             light = GetComponent<Light>();
-            SetLightGradient();
+            SetGradient(lightGradient, lightColors);
+            SetGradient(skyGradient, skyColors);
         }
     }
 }

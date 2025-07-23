@@ -14,7 +14,7 @@ public class InputHandler : MonoBehaviour
     public Vector2 zoom;
     [SerializeField] private bool isJumping;
     [SerializeField] private bool isCrouching;
-    [SerializeField] private bool isSprinting;
+    public bool isSprinting;
     [SerializeField] private bool isBarking;
     [SerializeField] private bool isInteracting;
     [SerializeField] private bool isCasting;
