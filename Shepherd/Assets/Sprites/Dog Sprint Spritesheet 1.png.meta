@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: da676e11a524ff84a868d0784261d8d7
+guid: 0c049945e11d69040b7bf8dbc6996d3d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -136,78 +136,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Dog Sprint Spritesheet_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1024
-        width: 770
-        height: 512
-      alignment: 9
-      pivot: {x: 0.5, y: 0.2901873}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4f3ea11f6bd6fa84899ff424e1ad69f3
-      internalID: 423067540
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Dog Sprint Spritesheet_1
-      rect:
-        serializedVersion: 2
-        x: 770
-        y: 1024
-        width: 770
-        height: 512
-      alignment: 9
-      pivot: {x: 0.5, y: 0.2901873}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 99951c2da5632a04f8fa924cb9b74671
-      internalID: 1839528823
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Dog Sprint Spritesheet_2
-      rect:
-        serializedVersion: 2
-        x: 1540
-        y: 1024
-        width: 770
-        height: 512
-      alignment: 9
-      pivot: {x: 0.5, y: 0.2901873}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 98a8a1e5f4ce9bb4d950ca8806bf9992
-      internalID: 541153603
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Dog Sprint Spritesheet_3
+      name: Dog Sprint Spritesheet 1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 512
-        width: 770
+        width: 650
         height: 512
       alignment: 9
       pivot: {x: 0.5, y: 0.2901873}
@@ -217,19 +151,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b88053e26f5f6c4fa37527290cbe389
-      internalID: 1317469361
+      spriteID: 1834d0fde6a1d204a82995ada33b4455
+      internalID: 1549778707
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dog Sprint Spritesheet_4
+      name: Dog Sprint Spritesheet 1_1
       rect:
         serializedVersion: 2
-        x: 770
+        x: 650
         y: 512
-        width: 770
+        width: 650
         height: 512
       alignment: 9
       pivot: {x: 0.5, y: 0.2901873}
@@ -239,19 +173,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2f771a9bb3555240a15f82d572b0cb3
-      internalID: -873945065
+      spriteID: 2e096e8e3f485504ab2bfda9c59bf0f1
+      internalID: 1863453791
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dog Sprint Spritesheet_5
+      name: Dog Sprint Spritesheet 1_2
       rect:
         serializedVersion: 2
-        x: 1540
+        x: 1300
         y: 512
-        width: 770
+        width: 650
         height: 512
       alignment: 9
       pivot: {x: 0.5, y: 0.2901873}
@@ -261,19 +195,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ea74aa9afd09d84a8b29339c0562c70
-      internalID: 126611296
+      spriteID: c82a5874a8dbbe64392f8c000b143eb7
+      internalID: -609570407
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dog Sprint Spritesheet_6
+      name: Dog Sprint Spritesheet 1_3
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 770
+        width: 650
         height: 512
       alignment: 9
       pivot: {x: 0.5, y: 0.2901873}
@@ -283,19 +217,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ddf6d7edff8a823438022d13f309421d
-      internalID: -1962231530
+      spriteID: 6ae81f8b014f41547a848163656fe4a5
+      internalID: 238867227
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dog Sprint Spritesheet_7
+      name: Dog Sprint Spritesheet 1_4
       rect:
         serializedVersion: 2
-        x: 770
+        x: 650
         y: 0
-        width: 770
+        width: 650
         height: 512
       alignment: 9
       pivot: {x: 0.5, y: 0.2901873}
@@ -305,8 +239,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ccf16438daced54408a2c4bee1429341
-      internalID: 1778342023
+      spriteID: 1f00e7683412f104fa060ed9ef26c5ca
+      internalID: 764926155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog Sprint Spritesheet 1_5
+      rect:
+        serializedVersion: 2
+        x: 1300
+        y: 0
+        width: 650
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2901873}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 786439bebaec1c649bf621b21e4e4792
+      internalID: -1626792300
       vertices: []
       indices: 
       edges: []
@@ -315,7 +271,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 7be43ce5033f3d548be9126d33684021
+    spriteID: 73d9413504417744cb29ed0a90f186a4
     internalID: 0
     vertices: []
     indices: 
@@ -325,15 +281,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Dog Sprint Spritesheet_0: 423067540
-      Dog Sprint Spritesheet_1: 1839528823
-      Dog Sprint Spritesheet_2: 541153603
-      Dog Sprint Spritesheet_3: 1317469361
-      Dog Sprint Spritesheet_4: -873945065
-      Dog Sprint Spritesheet_5: 126611296
-      Dog Sprint Spritesheet_6: -1962231530
-      Dog Sprint Spritesheet_7: 1778342023
-      Dog Sprint Spritesheet_8: -421966533
+      Dog Sprint Spritesheet 1_0: 1549778707
+      Dog Sprint Spritesheet 1_1: 1863453791
+      Dog Sprint Spritesheet 1_2: -609570407
+      Dog Sprint Spritesheet 1_3: 238867227
+      Dog Sprint Spritesheet 1_4: 764926155
+      Dog Sprint Spritesheet 1_5: -1626792300
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
