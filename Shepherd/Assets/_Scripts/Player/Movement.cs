@@ -18,6 +18,7 @@ public class Movement : MonoBehaviour
     [Header("Ground Check")]
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private float checkDistance;
+    public bool grounded;
 
     private void Awake() {
         rb = GetComponent<Rigidbody>();
@@ -27,6 +28,8 @@ public class Movement : MonoBehaviour
     private void Update() {
         float mult = inputHandler.isSprinting ?  sprintMaxSpeed : maxSpeed;
         desiredVelocity = inputHandler.move * mult;
+        
+        grounded = IsGrounded();
     }
 
     private void FixedUpdate() {
@@ -39,7 +42,7 @@ public class Movement : MonoBehaviour
     }
 
     public void Jump() {
-        if (IsGrounded()) {
+        if (grounded) {
             rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z);
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
