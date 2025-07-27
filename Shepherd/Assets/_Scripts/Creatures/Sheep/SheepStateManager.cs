@@ -4,9 +4,10 @@ public class SheepStateManager : MonoBehaviour
 {
     private SheepBaseState currState;
     
-    public SheepIdle sheepIdle = new SheepIdle();
+    public SheepIdle SheepIdle = new SheepIdle();
+    public SheepMove SheepMove = new SheepMove();
     private void Start() {
-        currState = sheepIdle;
+        currState = SheepIdle;
         currState.EnterState(this);
     }
 
@@ -49,11 +50,11 @@ public abstract class SheepParentState : SheepBaseState
     }
 
     public override void UpdateState(SheepStateManager manager) {
-        HandleParentStateLogic(manager);
+        HandleParenUpdateLogic(manager);
         currSubstate?.UpdateState(manager);
     }
     
-    protected abstract void HandleParentStateLogic(SheepStateManager manager);
-    protected virtual void HandleParentEnterLogic(SheepStateManager manager) {}
-    protected virtual void HandleParentExitLogic(SheepStateManager manager) {}
+    protected abstract void HandleParentEnterLogic(SheepStateManager manager);
+    protected abstract void HandleParenUpdateLogic(SheepStateManager manager);
+    protected abstract void HandleParentExitLogic(SheepStateManager manager);
 }

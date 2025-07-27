@@ -1003,10 +1003,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4642858316876984763, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
-      propertyPath: showGizmos
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1355,12 +1351,12 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1813140398}
-  - {fileID: 775520629}
   - {fileID: 340036452}
-  - {fileID: 470413417}
   - {fileID: 476825256}
-  - {fileID: 296418374}
   - {fileID: 2142343972}
+  - {fileID: 775520629}
+  - {fileID: 470413417}
+  - {fileID: 296418374}
   - {fileID: 276961433}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
