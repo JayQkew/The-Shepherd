@@ -11,7 +11,6 @@ public class SheepMove : SheepParentState
     }
     
     protected override void HandleParenUpdateLogic(SheepStateManager manager) {
-        Debug.Log("Sheep Move Parent Update");
     }
     
     protected override void HandleParentExitLogic(SheepStateManager manager) {

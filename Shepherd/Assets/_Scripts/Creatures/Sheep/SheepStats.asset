@@ -12,5 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0ba4f722cc1cbd43b5f546f90c47241, type: 3}
   m_Name: SheepStats
   m_EditorClassIdentifier: 
-  runTime: 0
-  walkRadius: 0
+  idleTime:
+    _min: 1
+    _max: 2
+  chillTime:
+    _min: 1
+    _max: 2
+  sleepTime:
+    _min: 1
+    _max: 2
+  runTime: 1.5
+  walkRadius: 4
+  walkSpeed:
+    _min: 5
+    _max: 6

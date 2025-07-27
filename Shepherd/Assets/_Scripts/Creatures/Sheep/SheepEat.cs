@@ -16,7 +16,6 @@ public class SheepEat : SheepBaseState
         if (eatTimer.IsFinished) {
             manager.SwitchState(manager.RandomState());
         }
-        Debug.Log("Updating Sheep Eat");
     }
 
     public override void ExitState(SheepStateManager manager) {

@@ -10,11 +10,11 @@ public class SheepIdle : SheepParentState
     public SheepSleep SleepState = new SheepSleep();
     
     protected override void HandleParentEnterLogic(SheepStateManager manager) {
+        currSubstate = ChillState;
         Debug.Log("Sheep Idle Parent Enter");
     }
     
     protected override void HandleParenUpdateLogic(SheepStateManager manager) {
-        Debug.Log("Sheep Idle Parent Update");
     }
     
     protected override void HandleParentExitLogic(SheepStateManager manager) {

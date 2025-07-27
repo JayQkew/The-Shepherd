@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 
+[Serializable]
 public class SheepSleep : SheepBaseState
 {
     public Timer sleepTimer;
@@ -14,7 +16,6 @@ public class SheepSleep : SheepBaseState
         if (sleepTimer.IsFinished) {
             manager.SwitchState((manager.RandomState()));
         }
-        Debug.Log("Updating Sheep Sleep");
     }
 
     public override void ExitState(SheepStateManager manager) {

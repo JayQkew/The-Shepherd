@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 
+[Serializable]
 public class SheepRun : SheepBaseState
 {
     public override void EnterState(SheepStateManager manager) {
