@@ -10,4 +10,5 @@ public class SheepStats : ScriptableObject
     [Space(10)]
     public float runTime;
     public float walkRadius;
+    public MinMax walkSpeed;
 }

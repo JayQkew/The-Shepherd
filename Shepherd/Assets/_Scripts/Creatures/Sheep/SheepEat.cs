@@ -8,10 +8,14 @@ public class SheepEat : SheepBaseState
     public override void EnterState(SheepStateManager manager) {
         Debug.Log("Entering Sheep Eat");
         eatTimer.maxTime = manager.stats.idleTime.RandomValue();
+        eatTimer.Reset();
     }
 
     public override void UpdateState(SheepStateManager manager) {
         eatTimer.Update();
+        if (eatTimer.IsFinished) {
+            manager.SwitchState(manager.RandomState());
+        }
         Debug.Log("Updating Sheep Eat");
     }
 

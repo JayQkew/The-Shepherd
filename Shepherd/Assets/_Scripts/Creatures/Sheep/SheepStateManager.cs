@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SheepStateManager : MonoBehaviour
 {
-    private SheepBaseState currState;
+    public SheepBaseState currState;
     public SheepStats stats;
     
     public SheepIdle SheepIdle = new SheepIdle();
@@ -20,6 +20,18 @@ public class SheepStateManager : MonoBehaviour
         currState.ExitState(this);
         currState = newState;
         currState.EnterState(this);
+    }
+    
+    public SheepBaseState RandomState() {
+        SheepBaseState[] states =
+        {
+            SheepIdle.EatState,
+            SheepIdle.ChillState,
+            SheepIdle.SleepState,
+            SheepMove.WalkState
+        };
+        
+        return states[Random.Range(0, states.Length)];
     }
 }
 
