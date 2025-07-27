@@ -5,15 +5,19 @@ using UnityEngine;
 [Serializable]
 public class SheepIdle : SheepParentState
 {
+    public SheepEat EatState = new SheepEat();
+    public SheepChill ChillState = new SheepChill();
+    public SheepSleep SleepState = new SheepSleep();
+    
     protected override void HandleParentEnterLogic(SheepStateManager manager) {
-        throw new System.NotImplementedException();
+        Debug.Log("Sheep Idle Parent Enter");
     }
     
     protected override void HandleParenUpdateLogic(SheepStateManager manager) {
-        throw new System.NotImplementedException();
+        Debug.Log("Sheep Idle Parent Update");
     }
     
     protected override void HandleParentExitLogic(SheepStateManager manager) {
-        throw new System.NotImplementedException();
+        Debug.Log("Sheep Idle Parent Exit");
     }
 }
