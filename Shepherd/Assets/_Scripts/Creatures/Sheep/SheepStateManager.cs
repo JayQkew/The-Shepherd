@@ -3,6 +3,7 @@ using UnityEngine;
 public class SheepStateManager : MonoBehaviour
 {
     private SheepBaseState currState;
+    public SheepStats stats;
     
     public SheepIdle SheepIdle = new SheepIdle();
     public SheepMove SheepMove = new SheepMove();
