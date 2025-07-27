@@ -1,5 +1,5 @@
 using UnityEngine;
-[CreateAssetMenu(fileName = "BoidData", menuName = "Creatures/BoidData")]
+[CreateAssetMenu(fileName = "BoidData", menuName = "BoidData")]
 public class BoidData : ScriptableObject
 {
     [Tooltip("The radius of effect (Red)")] 
