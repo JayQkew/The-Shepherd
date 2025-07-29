@@ -16,6 +16,42 @@ public class StateMachineTemplateGenerator : EditorWindow
     private string absolutePath;
     
     private Vector2 scrollPos;
+    
+    private string[] stateClasses;
+
+    private Dictionary<string, string> CreateReplacements()
+    {
+        string CapitalizeFirst(string input)
+        {
+            if (string.IsNullOrEmpty(input)) return input;
+            return char.ToUpper(input[0]) + input.Substring(1);
+        }
+        
+        string UncapitalizeFirst(string input)
+        {
+            if (string.IsNullOrEmpty(input)) return input;
+            return char.ToLower(input[0]) + input.Substring(1);
+        }
+        
+        Dictionary<string, string> replacements = new Dictionary<string, string>
+        {
+            {"{stateManagerClass}", CapitalizeFirst(stateMachineName) + "StateManager"},
+            {"{baseClass}", CapitalizeFirst(stateMachineName) + "BaseState"},
+            {"{firstState}", CapitalizeFirst(stateMachineName) + CapitalizeFirst(stateNames[0])}
+        };
+
+        stateClasses = new string[stateNames.Count];
+        
+        string allStateClasses = "";
+        for (int i = 0; i < stateNames.Count; i++) {
+            stateClasses[i] = CapitalizeFirst(stateMachineName) + CapitalizeFirst(stateNames[i]);
+            allStateClasses += $"public {stateClasses[i]} {UncapitalizeFirst(stateClasses[i])} = new {stateClasses[i]}();/n";
+        }
+        
+        replacements.Add("{allStateClasses}", allStateClasses);
+        
+        return replacements;
+    }
 
     [MenuItem("Tools/State Machine Template")]
     public static void ShowWindow() {
@@ -102,6 +138,15 @@ public class StateMachineTemplateGenerator : EditorWindow
         }
 
         AssetDatabase.Refresh();
+    }
+
+    private string ProcessTemplate(string template, Dictionary<string, string> replacements) {    
+        string result = template;
+        foreach (var kvp in replacements)
+        {
+            result = result.Replace(kvp.Key, kvp.Value);
+        }
+        return result;
     }
 
     private string GetTemplate(string className) {

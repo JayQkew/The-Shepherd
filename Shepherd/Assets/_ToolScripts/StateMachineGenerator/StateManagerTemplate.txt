@@ -8,7 +8,7 @@ public class {stateManagerClass} : MonoBehaviour
     {allStateClasses}
 
     private void Start() {{
-        currState = {allStateClasses[0]};
+        currState = {firstState};
         currState.ExitState(this);
     }}
 
@@ -25,7 +25,7 @@ public class {stateManagerClass} : MonoBehaviour
 
 public abstract class {baseClass}
 {{
-    public abstract void EnterState(StateManagerTemplate manager);
-    public abstract void UpdateState(StateManagerTemplate manager);
-    public abstract void ExitState(StateManagerTemplate manager);
+    public abstract void EnterState({stateManagerClass} manager);
+    public abstract void UpdateState({stateManagerClass} manager);
+    public abstract void ExitState({stateManagerClass} manager);
 }}
