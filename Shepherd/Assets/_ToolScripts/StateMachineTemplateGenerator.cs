@@ -7,7 +7,9 @@ public class StateMachineTemplateGenerator : EditorWindow
 {
     private string folderName = "StateMachine";
     private List<string> stateNames = new List<string> { "State1", "State2", "State3" };
+    
     private string folderPath = "no path selected";
+    private string absolutePath;
     
     private Vector2 scrollPos;
 
@@ -28,7 +30,7 @@ public class StateMachineTemplateGenerator : EditorWindow
         GUILayout.BeginHorizontal();
         EditorGUILayout.LabelField("Folder Path");
         if (GUILayout.Button("Get Path")) {
-            string absolutePath = EditorUtility.OpenFolderPanel("Select folder", Application.dataPath, "");
+            absolutePath = EditorUtility.OpenFolderPanel("Select folder", Application.dataPath, "");
             if (!string.IsNullOrEmpty(absolutePath) && absolutePath.StartsWith(Application.dataPath)) {
                 folderPath = "Assets" + absolutePath.Substring(Application.dataPath.Length);
             } else {
@@ -66,19 +68,30 @@ public class StateMachineTemplateGenerator : EditorWindow
         }
     }
 
-    private void GenerateScripts() {
-        if (folderPath == "no path selected" || folderName == "") {
+    private void GenerateScripts()
+    {
+        if (folderPath == "no path selected" || string.IsNullOrWhiteSpace(folderName))
+        {
+            Debug.LogWarning("Please select a valid folder and enter a folder name.");
             return;
         }
 
-        if (Directory.Exists(folderPath) && !AssetDatabase.IsValidFolder(folderPath)) {
-            AssetDatabase.CreateFolder(folderPath, folderName);
+        string newFolderPath = Path.Combine(folderPath, folderName);
+
+        if (!AssetDatabase.IsValidFolder(newFolderPath))
+        {
+            string parent = Path.GetDirectoryName(newFolderPath).Replace("\\", "/");
+            string newName = Path.GetFileName(newFolderPath);
+            AssetDatabase.CreateFolder(parent, newName);
         }
 
-        foreach (var name in stateNames) {
-            string scriptPath = Path.Combine(folderPath, $"{name}.cs");
+        foreach (var name in stateNames)
+        {
+            string unityPath = Path.Combine(newFolderPath, $"{name}.cs").Replace("\\", "/");              
+            string systemPath = Path.Combine(Application.dataPath, unityPath.Substring("Assets/".Length));
+
             string scriptContent = GetTemplate(name);
-            File.WriteAllText(scriptPath, scriptContent);
+            File.WriteAllText(systemPath, scriptContent);
         }
 
         AssetDatabase.Refresh();
