@@ -28,7 +28,12 @@ public class StateMachineTemplateGenerator : EditorWindow
         GUILayout.BeginHorizontal();
         EditorGUILayout.LabelField("Folder Path");
         if (GUILayout.Button("Get Path")) {
-            folderPath = EditorUtility.OpenFolderPanel("Select folder", folderPath, "");
+            string absolutePath = EditorUtility.OpenFolderPanel("Select folder", Application.dataPath, "");
+            if (!string.IsNullOrEmpty(absolutePath) && absolutePath.StartsWith(Application.dataPath)) {
+                folderPath = "Assets" + absolutePath.Substring(Application.dataPath.Length);
+            } else {
+                EditorUtility.DisplayDialog("Invalid Path", "Please select a folder inside the Assets folder.", "OK");
+            }
         }
         GUILayout.EndHorizontal();
         EditorGUILayout.LabelField(folderPath);
@@ -62,13 +67,16 @@ public class StateMachineTemplateGenerator : EditorWindow
     }
 
     private void GenerateScripts() {
-        string path = Path.Combine("Assets", folderName);
-        if (!AssetDatabase.IsValidFolder(path)) {
-            AssetDatabase.CreateFolder("Assets", folderName);
+        if (folderPath == "no path selected" || folderName == "") {
+            return;
+        }
+
+        if (Directory.Exists(folderPath) && !AssetDatabase.IsValidFolder(folderPath)) {
+            AssetDatabase.CreateFolder(folderPath, folderName);
         }
 
         foreach (var name in stateNames) {
-            string scriptPath = Path.Combine(path, $"{name}.cs");
+            string scriptPath = Path.Combine(folderPath, $"{name}.cs");
             string scriptContent = GetTemplate(name);
             File.WriteAllText(scriptPath, scriptContent);
         }
