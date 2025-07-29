@@ -5,8 +5,12 @@ using UnityEngine;
 
 public class StateMachineTemplateGenerator : EditorWindow
 {
+    private string stateMachineName;
     private string folderName = "StateMachine";
     private List<string> stateNames = new List<string> { "State1", "State2", "State3" };
+    
+    [SerializeField] public TextAsset stateManagerTemplate;
+    [SerializeField] public TextAsset stateTemplate;
     
     private string folderPath = "no path selected";
     private string absolutePath;
@@ -22,6 +26,7 @@ public class StateMachineTemplateGenerator : EditorWindow
         GUILayout.Label("Generate State Machine Template", EditorStyles.boldLabel);
         GUILayout.Space(10);
 
+        stateMachineName = EditorGUILayout.TextField("Name", stateMachineName);
         folderName = EditorGUILayout.TextField("Folder Name", folderName);
         GUILayout.Space(10);
         
@@ -64,7 +69,9 @@ public class StateMachineTemplateGenerator : EditorWindow
         GUILayout.Space(25);
 
         if (GUILayout.Button("Create Folder", GUILayout.Height(50))) {
-            GenerateScripts();
+            //GenerateScripts();
+            Debug.Log(stateManagerTemplate.text);
+            Debug.Log(stateTemplate.text);
         }
     }
 
