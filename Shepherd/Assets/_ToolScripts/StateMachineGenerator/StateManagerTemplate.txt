@@ -1,0 +1,31 @@
+using System;
+using UnityEngine;
+
+public class {stateManagerClass} : MonoBehaviour
+{{
+    public BaseState currState;
+
+    {allStateClasses}
+
+    private void Start() {{
+        currState = {allStateClasses[0]};
+        currState.ExitState(this);
+    }}
+
+    private void Update() {{
+        currState.UpdateState(this);
+    }}
+
+    public void SwitchState({baseClass} newState) {{
+        currState.ExitState(this);
+        currState = newState;
+        currState.EnterState(this);
+    }}
+}}
+
+public abstract class {baseClass}
+{{
+    public abstract void EnterState(StateManagerTemplate manager);
+    public abstract void UpdateState(StateManagerTemplate manager);
+    public abstract void ExitState(StateManagerTemplate manager);
+}}
