@@ -18,41 +18,7 @@ public class StateMachineTemplateGenerator : EditorWindow
     private Vector2 scrollPos;
     
     private string[] stateClasses;
-
-    private Dictionary<string, string> CreateReplacements()
-    {
-        string CapitalizeFirst(string input)
-        {
-            if (string.IsNullOrEmpty(input)) return input;
-            return char.ToUpper(input[0]) + input.Substring(1);
-        }
-        
-        string UncapitalizeFirst(string input)
-        {
-            if (string.IsNullOrEmpty(input)) return input;
-            return char.ToLower(input[0]) + input.Substring(1);
-        }
-        
-        Dictionary<string, string> replacements = new Dictionary<string, string>
-        {
-            {"{stateManagerClass}", CapitalizeFirst(stateMachineName) + "StateManager"},
-            {"{baseClass}", CapitalizeFirst(stateMachineName) + "BaseState"},
-            {"{firstState}", CapitalizeFirst(stateMachineName) + CapitalizeFirst(stateNames[0])}
-        };
-
-        stateClasses = new string[stateNames.Count];
-        
-        string allStateClasses = "";
-        for (int i = 0; i < stateNames.Count; i++) {
-            stateClasses[i] = CapitalizeFirst(stateMachineName) + CapitalizeFirst(stateNames[i]);
-            allStateClasses += $"public {stateClasses[i]} {UncapitalizeFirst(stateClasses[i])} = new {stateClasses[i]}();/n";
-        }
-        
-        replacements.Add("{allStateClasses}", allStateClasses);
-        
-        return replacements;
-    }
-
+    
     [MenuItem("Tools/State Machine Template")]
     public static void ShowWindow() {
         GetWindow<StateMachineTemplateGenerator>();
@@ -105,9 +71,7 @@ public class StateMachineTemplateGenerator : EditorWindow
         GUILayout.Space(25);
 
         if (GUILayout.Button("Create Folder", GUILayout.Height(50))) {
-            //GenerateScripts();
-            Debug.Log(stateManagerTemplate.text);
-            Debug.Log(stateTemplate.text);
+            GenerateScripts();
         }
     }
 
@@ -128,16 +92,79 @@ public class StateMachineTemplateGenerator : EditorWindow
             AssetDatabase.CreateFolder(parent, newName);
         }
 
-        foreach (var name in stateNames)
-        {
-            string unityPath = Path.Combine(newFolderPath, $"{name}.cs").Replace("\\", "/");              
-            string systemPath = Path.Combine(Application.dataPath, unityPath.Substring("Assets/".Length));
+        // Generate State Manager file
+        Dictionary<string, string> managerReplacements = CreateReplacements();
+        string managerContent = ProcessTemplate(stateManagerTemplate.text, managerReplacements);
+    
+        string managerFileName = $"{CapitalizeFirst(stateMachineName)}StateManager.cs";
+        string managerUnityPath = Path.Combine(newFolderPath, managerFileName).Replace("\\", "/");
+        string managerSystemPath = Path.Combine(Application.dataPath, managerUnityPath.Substring("Assets/".Length));
+    
+        File.WriteAllText(managerSystemPath, managerContent);
 
-            string scriptContent = GetTemplate(name);
-            File.WriteAllText(systemPath, scriptContent);
+        // Generate individual state files
+        foreach (var stateName in stateNames)
+        {
+            Dictionary<string, string> stateReplacements = CreateStateReplacements(stateName);
+            string stateContent = ProcessTemplate(stateTemplate.text, stateReplacements);
+        
+            // The file name should match the class name
+            string stateClassName = $"{stateMachineName}{stateName}";
+            string stateFileName = $"{CapitalizeFirst(stateClassName)}.cs";
+        
+            string stateUnityPath = Path.Combine(newFolderPath, stateFileName).Replace("\\", "/");
+            string stateSystemPath = Path.Combine(Application.dataPath, stateUnityPath.Substring("Assets/".Length));
+        
+            File.WriteAllText(stateSystemPath, stateContent);
         }
 
         AssetDatabase.Refresh();
+    }
+    
+    private Dictionary<string, string> CreateStateReplacements(string stateName)
+    {
+        return new Dictionary<string, string>
+        {
+            {"{stateClass}", CapitalizeFirst(stateMachineName) + CapitalizeFirst(stateName)},
+            {"{baseState}", CapitalizeFirst(stateMachineName) + "BaseState"},
+            {"{stateManagerClass}", CapitalizeFirst(stateMachineName) + "StateManager"},
+            {"{stateName}", CapitalizeFirst(stateName)}
+        };
+    }
+
+    private Dictionary<string, string> CreateReplacements()
+    {
+    
+        Dictionary<string, string> replacements = new Dictionary<string, string>
+        {
+            {"{stateManagerClass}", CapitalizeFirst(stateMachineName) + "StateManager"},
+            {"{baseClass}", CapitalizeFirst(stateMachineName) + "BaseState"},
+            {"{firstState}", UncapitalizeFirst(stateMachineName + CapitalizeFirst(stateNames[0]))}
+        };
+
+        stateClasses = new string[stateNames.Count];
+    
+        string allStateClasses = "";
+        for (int i = 0; i < stateNames.Count; i++) {
+            stateClasses[i] = CapitalizeFirst(stateMachineName) + CapitalizeFirst(stateNames[i]);
+            allStateClasses += $"    public {stateClasses[i]} {UncapitalizeFirst(stateClasses[i])} = new {stateClasses[i]}();\n";
+        }
+    
+        replacements.Add("{allStateClasses}", allStateClasses.TrimEnd('\n'));
+    
+        return replacements;
+    }
+    
+    string CapitalizeFirst(string input)
+    {
+        if (string.IsNullOrEmpty(input)) return input;
+        return char.ToUpper(input[0]) + input.Substring(1);
+    }
+    
+    string UncapitalizeFirst(string input)
+    {
+        if (string.IsNullOrEmpty(input)) return input;
+        return char.ToLower(input[0]) + input.Substring(1);
     }
 
     private string ProcessTemplate(string template, Dictionary<string, string> replacements) {    
@@ -147,16 +174,5 @@ public class StateMachineTemplateGenerator : EditorWindow
             result = result.Replace(kvp.Key, kvp.Value);
         }
         return result;
-    }
-
-    private string GetTemplate(string className) {
-        return
-            $@"using UnityEngine;
-public class {className} : MonoBehaviour
-{{
-    void Start(){{
-        Debug.Log(""Hello World"");
-    }}
-}}";
     }
 }

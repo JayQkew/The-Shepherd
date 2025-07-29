@@ -2,30 +2,30 @@ using System;
 using UnityEngine;
 
 public class {stateManagerClass} : MonoBehaviour
-{{
-    public BaseState currState;
+{
+    public {baseClass} currState;
 
     {allStateClasses}
 
-    private void Start() {{
+    private void Start() {
         currState = {firstState};
         currState.ExitState(this);
-    }}
+    }
 
-    private void Update() {{
+    private void Update() {
         currState.UpdateState(this);
-    }}
+    }
 
-    public void SwitchState({baseClass} newState) {{
+    public void SwitchState({baseClass} newState) {
         currState.ExitState(this);
         currState = newState;
         currState.EnterState(this);
-    }}
-}}
+    }
+}
 
 public abstract class {baseClass}
-{{
+{
     public abstract void EnterState({stateManagerClass} manager);
     public abstract void UpdateState({stateManagerClass} manager);
     public abstract void ExitState({stateManagerClass} manager);
-}}
+}

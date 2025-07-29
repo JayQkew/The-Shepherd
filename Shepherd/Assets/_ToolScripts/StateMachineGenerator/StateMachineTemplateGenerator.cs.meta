@@ -5,8 +5,8 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - m_ViewDataDictionary: {instanceID: 0}
-  - stateManagerTemplate: {fileID: 11500000, guid: 44b66d574293f204baca40a8cc034150, type: 3}
-  - stateTemplate: {fileID: 11500000, guid: ed7f893dfc68d54489acc8edd6e3e926, type: 3}
+  - stateManagerTemplate: {fileID: 4900000, guid: 44b66d574293f204baca40a8cc034150, type: 3}
+  - stateTemplate: {fileID: 4900000, guid: ed7f893dfc68d54489acc8edd6e3e926, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

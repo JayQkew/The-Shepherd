@@ -3,16 +3,16 @@ using UnityEngine;
 
 [Serializable]
 public class {stateClass} : {baseState}
-{{
-    public override void EnterState({stateManagerClass} manager) {{
+{
+    public override void EnterState({stateManagerClass} manager) {
         Debug.Log("Enter -- {stateClass}");
-    }}
+    }
 
-    public override void UpdateState({stateManagerClass} manager) {{
+    public override void UpdateState({stateManagerClass} manager) {
         Debug.Log("Update -- {stateClass}");
-    }}
+    }
 
-    public override void ExitState({stateManagerClass} manager) {{
+    public override void ExitState({stateManagerClass} manager) {
         Debug.Log("Exit -- {stateClass}");
-    }}
-}}
+    }
+}
