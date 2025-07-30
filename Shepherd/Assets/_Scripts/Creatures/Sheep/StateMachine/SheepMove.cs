@@ -2,17 +2,17 @@ using System;
 using UnityEngine;
 
 [Serializable]
-public class SheepRun : SheepBaseState
+public class SheepMove : SheepBaseState
 {
     public override void EnterState(SheepStateManager manager) {
-        Debug.Log("Entering Sheep Run");
+        Debug.Log("Enter -- SheepMove");
     }
 
     public override void UpdateState(SheepStateManager manager) {
-        Debug.Log("Updating Sheep Run");
+        Debug.Log("Update -- SheepMove");
     }
 
     public override void ExitState(SheepStateManager manager) {
-        Debug.Log("Exiting Sheep Run");
+        Debug.Log("Exit -- SheepMove");
     }
 }

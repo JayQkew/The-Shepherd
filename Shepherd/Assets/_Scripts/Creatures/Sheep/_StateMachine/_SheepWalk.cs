@@ -3,12 +3,12 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 [Serializable]
-public class SheepWalk : SheepBaseState
+public class _SheepWalk : _SheepBaseState
 {
     public Vector3 targetPos;
     public float speed;
     private Rigidbody rb;
-    public override void EnterState(SheepStateManager manager) {
+    public override void EnterState(_SheepStateManager manager) {
         Debug.Log("Entering Sheep Walk");
         
         if(!rb) rb = manager.GetComponent<Rigidbody>();
@@ -17,7 +17,7 @@ public class SheepWalk : SheepBaseState
         speed = manager.stats.walkSpeed.RandomValue();
     }
 
-    public override void UpdateState(SheepStateManager manager) {
+    public override void UpdateState(_SheepStateManager manager) {
         Vector3 direction = (targetPos - manager.transform.position).normalized;
         
         float distanceToTarget = Vector3.Distance(manager.transform.position, targetPos);
@@ -31,7 +31,7 @@ public class SheepWalk : SheepBaseState
         rb.linearVelocity = new Vector3(moveForce.x, rb.linearVelocity.y, moveForce.z);
     }
 
-    public override void ExitState(SheepStateManager manager) {
+    public override void ExitState(_SheepStateManager manager) {
         Debug.Log("Exiting Sheep Walk");
     }
 }
