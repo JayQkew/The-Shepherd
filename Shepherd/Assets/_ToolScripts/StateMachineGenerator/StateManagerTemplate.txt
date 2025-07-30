@@ -5,7 +5,7 @@ public class {stateManagerClass} : MonoBehaviour
 {
     public {baseClass} currState;
 
-    {allStateClasses}
+{allStateClasses}
 
     private void Start() {
         currState = {firstState};
