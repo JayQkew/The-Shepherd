@@ -123,6 +123,9 @@ public class StateMachineTemplateGenerator : EditorWindow
         AssetDatabase.Refresh();
     }
 
+    /// <summary>
+    /// Creates a replacement dictionary base on the state
+    /// </summary>
     private Dictionary<string, string> CreateStateReplacements(string stateName) {
         return new Dictionary<string, string>
         {
@@ -133,6 +136,9 @@ public class StateMachineTemplateGenerator : EditorWindow
         };
     }
 
+    /// <summary>
+    /// Creates a replacement dictionary for the StateManager
+    /// </summary>
     private Dictionary<string, string> CreateReplacements() {
         Dictionary<string, string> replacements = new Dictionary<string, string>
         {
@@ -155,6 +161,17 @@ public class StateMachineTemplateGenerator : EditorWindow
         return replacements;
     }
 
+    /// <summary>
+    /// Replaces the keywords with the keywords created with Replacement methods
+    /// </summary>
+    private string ProcessTemplate(string template, Dictionary<string, string> replacements) {
+        string result = template;
+        foreach (KeyValuePair<string, string> kvp in replacements) {
+            result = result.Replace(kvp.Key, kvp.Value);
+        }
+        return result;
+    }
+    
     string CapitalizeFirst(string input) {
         if (string.IsNullOrEmpty(input)) return input;
         return char.ToUpper(input[0]) + input.Substring(1);
@@ -163,14 +180,5 @@ public class StateMachineTemplateGenerator : EditorWindow
     string UncapitalizeFirst(string input) {
         if (string.IsNullOrEmpty(input)) return input;
         return char.ToLower(input[0]) + input.Substring(1);
-    }
-
-    private string ProcessTemplate(string template, Dictionary<string, string> replacements) {
-        string result = template;
-        foreach (var kvp in replacements) {
-            result = result.Replace(kvp.Key, kvp.Value);
-        }
-
-        return result;
     }
 }
