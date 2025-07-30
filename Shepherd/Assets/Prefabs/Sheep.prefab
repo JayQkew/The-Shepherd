@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2618985539871644832}
   - component: {fileID: 2805361568288454968}
-  - component: {fileID: 2584826922295276140}
+  - component: {fileID: 1860983336886597979}
   - component: {fileID: 4642858316876984763}
   - component: {fileID: 2088826080556547742}
   - component: {fileID: 7207902761964510733}
@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barkForce: 10
---- !u!114 &2584826922295276140
+--- !u!114 &1860983336886597979
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -59,10 +59,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 2499075382680790307}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e31932c630583346a0965b86426acd9, type: 3}
+  m_Script: {fileID: 11500000, guid: 94994497148b2f940b0169541979ad29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: c3f74505ba93f084d8bcf1049dea3409, type: 2}
+  sheepIdle:
+    idleTimer:
+      maxTime: 0
+  sheepEat:
+    eatTimer:
+      maxTime: 0
+  sheepSleep:
+    sleepTimer:
+      maxTime: 0
+  sheepMove:
+    targetPos: {x: 0, y: 0, z: 0}
+    speed: 5
 --- !u!114 &4642858316876984763
 MonoBehaviour:
   m_ObjectHideFlags: 0

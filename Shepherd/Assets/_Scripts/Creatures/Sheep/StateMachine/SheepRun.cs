@@ -9,7 +9,6 @@ public class SheepRun : SheepBaseState
     }
 
     public override void UpdateState(SheepStateManager manager) {
-        Debug.Log("Update -- SheepRun");
     }
 
     public override void ExitState(SheepStateManager manager) {

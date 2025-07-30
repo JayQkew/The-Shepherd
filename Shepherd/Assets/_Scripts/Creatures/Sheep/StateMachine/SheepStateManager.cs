@@ -5,6 +5,7 @@ using Random = UnityEngine.Random;
 public class SheepStateManager : MonoBehaviour
 {
     public SheepBaseState currState;
+    public SheepStats stats;
 
     public SheepIdle sheepIdle = new SheepIdle();
     public SheepEat sheepEat = new SheepEat();
@@ -14,7 +15,7 @@ public class SheepStateManager : MonoBehaviour
 
     private void Start() {
         currState = sheepIdle;
-        currState.ExitState(this);
+        currState.EnterState(this);
     }
 
     private void Update() {

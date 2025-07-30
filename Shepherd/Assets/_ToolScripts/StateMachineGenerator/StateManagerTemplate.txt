@@ -9,7 +9,7 @@ public class {stateManagerClass} : MonoBehaviour
 
     private void Start() {
         currState = {firstState};
-        currState.ExitState(this);
+        currState.EnterState(this);
     }
 
     private void Update() {

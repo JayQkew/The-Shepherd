@@ -4,12 +4,18 @@ using UnityEngine;
 [Serializable]
 public class SheepSleep : SheepBaseState
 {
+    public Timer sleepTimer;
     public override void EnterState(SheepStateManager manager) {
+        sleepTimer.maxTime = manager.stats.sleepTime.RandomValue();
+        sleepTimer.Reset();
         Debug.Log("Enter -- SheepSleep");
     }
 
     public override void UpdateState(SheepStateManager manager) {
-        Debug.Log("Update -- SheepSleep");
+        sleepTimer.Update();
+        if (sleepTimer.IsFinished) {
+            manager.SwitchState((manager.GetRandomState()));
+        }
     }
 
     public override void ExitState(SheepStateManager manager) {

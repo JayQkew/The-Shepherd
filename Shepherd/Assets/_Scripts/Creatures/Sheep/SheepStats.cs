@@ -5,7 +5,6 @@ using UnityEngine.Serialization;
 public class SheepStats : ScriptableObject
 {
     public MinMax idleTime;
-    public MinMax chillTime;
     public MinMax sleepTime;
     [Space(10)]
     public float runTime;
