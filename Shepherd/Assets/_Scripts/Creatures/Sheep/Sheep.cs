@@ -5,6 +5,11 @@ public class Sheep : MonoBehaviour, IBarkable
 {
     private Rigidbody rb;
     [SerializeField] private float barkForce;
+    
+    [SerializeField] private float food;
+    
+    [SerializeField] private float maxWeight;
+    [SerializeField] private float weightRatio;
 
     private void Awake() {
         rb = GetComponent<Rigidbody>();
