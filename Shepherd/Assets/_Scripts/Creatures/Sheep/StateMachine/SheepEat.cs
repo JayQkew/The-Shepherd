@@ -19,6 +19,7 @@ public class SheepEat : SheepBaseState
     }
 
     public override void ExitState(SheepStateManager manager) {
+        manager.GetComponent<Sheep>().Eat();
         Debug.Log("Exit -- SheepEat");
     }
 }
