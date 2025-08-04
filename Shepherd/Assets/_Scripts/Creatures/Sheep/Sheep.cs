@@ -9,8 +9,15 @@ public class Sheep : MonoBehaviour, IBarkable
     private Rigidbody rb;
     [SerializeField] private float barkForce;
     
-    [SerializeField] private float weight;
+    [Header("Wool")]
     [SerializeField] private float wool;
+    [SerializeField] private float woolCurrTime;
+    [SerializeField] private float woolGrowTime;
+    [SerializeField] private float weight;
+    [SerializeField] private float currWeight;
+    [SerializeField] private float maxWeight;
+    
+    [Header("Eating")]
     [SerializeField] private float food;
     [SerializeField] private MinMax eat;
 
@@ -21,9 +28,6 @@ public class Sheep : MonoBehaviour, IBarkable
     [SerializeField] private bool canPoop;
     [SerializeField] private float poopDelay;
     [SerializeField] private float poopThreshold;
-    
-    [SerializeField] private float currWeight;
-    [SerializeField] private float maxWeight;
 
     private void Awake() {
         rb = GetComponent<Rigidbody>();
@@ -36,9 +40,22 @@ public class Sheep : MonoBehaviour, IBarkable
         Debug.Log("Barked At");
     }
 
-    public void WoolToWeight() {
+    private void Update() {
+        GrowWool();
+        WoolToWeight();
+    }
+
+    private void WoolToWeight() {
         weight = 1 - wool;
+        weight = Mathf.Clamp(weight, 0.1f, 1f);
         currWeight = weight * maxWeight;
+        rb.mass = currWeight;
+    }
+
+    private void GrowWool() {
+        woolCurrTime += Time.deltaTime;
+        woolCurrTime = Mathf.Clamp(woolCurrTime, 0, woolGrowTime);
+        wool = woolCurrTime / woolGrowTime;
     }
 
     public void Eat() {
@@ -54,10 +71,8 @@ public class Sheep : MonoBehaviour, IBarkable
 
     private void Poop() {
         food -= Random.Range(0.3f, food);
-        Debug.Log(name + " just POOOOOOPED");
         Rigidbody poopRb = Instantiate(poopPref, poopSpawn.position, Quaternion.identity, transform).GetComponent<Rigidbody>();
         poopRb.AddForce(poopForce * poopSpawn.up, ForceMode.Impulse);
-        //play poop effects
     }
 
     private IEnumerator PoopDelay() {
