@@ -13,9 +13,8 @@ public class Sheep : MonoBehaviour, IBarkable
     [SerializeField] private float wool;
     [SerializeField] private float woolCurrTime;
     [SerializeField] private float woolGrowTime;
-    [SerializeField] private float weight;
     [SerializeField] private float currWeight;
-    [SerializeField] private float maxWeight;
+    [SerializeField] private MinMax weight;
     
     [Header("Eating")]
     [SerializeField] private float food;
@@ -42,20 +41,13 @@ public class Sheep : MonoBehaviour, IBarkable
 
     private void Update() {
         GrowWool();
-        WoolToWeight();
     }
-
-    private void WoolToWeight() {
-        weight = 1 - wool;
-        weight = Mathf.Clamp(weight, 0.1f, 1f);
-        currWeight = weight * maxWeight;
-        rb.mass = currWeight;
-    }
-
+    
     private void GrowWool() {
         woolCurrTime += Time.deltaTime;
         woolCurrTime = Mathf.Clamp(woolCurrTime, 0, woolGrowTime);
         wool = woolCurrTime / woolGrowTime;
+        rb.mass = weight.Lerp(wool);
     }
 
     public void Eat() {
