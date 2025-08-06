@@ -59,6 +59,8 @@ MonoBehaviour:
   weight:
     _min: 2.5
     _max: 2
+  radius: 5.75
+  forceMult: 10
 --- !u!114 &6914229483481004525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,7 +127,7 @@ MonoBehaviour:
   velocity: {x: 0, y: 0, z: 0}
   boids: []
   data: {fileID: 11400000, guid: 5174544759737e6478c45d3eed1ffddb, type: 2}
-  showGizmos: 1
+  showGizmos: 0
 --- !u!54 &2088826080556547742
 Rigidbody:
   m_ObjectHideFlags: 0

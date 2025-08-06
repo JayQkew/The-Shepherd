@@ -63,16 +63,17 @@ public class Sheep : MonoBehaviour, IBarkable
         Collider[] cols = Physics.OverlapSphere(origin, radius);
         if (cols.Length == 0) return;
 
-        foreach (Collider col in cols) {
-            if (col.gameObject == gameObject) continue;
-            Rigidbody targetRb = col.GetComponent<Rigidbody>();
-            if (targetRb) {
-                Vector3 dir = (col.transform.position - origin).normalized;
+        foreach (Collider c in cols) {
+            if (c.gameObject == gameObject) continue;
+            Rigidbody targetRb = c.GetComponent<Rigidbody>();
+            if (targetRb != null) {
+                Vector3 dir = (c.transform.position - origin).normalized;
                 float distance = Vector3.Distance(origin, targetRb.transform.position);
                 float fallOff = Mathf.Clamp01(1 - distance / radius);
 
                 float force = forceMult * fallOff;
                 targetRb.AddForce(dir * force, ForceMode.Impulse);
+                Debug.Log("HELLOOOOOO");
             }
         }
     }

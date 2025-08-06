@@ -716,17 +716,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1373270919}
     m_Modifications:
-    - target: {fileID: 1860983336886597979, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2499075382680790307, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
       propertyPath: m_Name
       value: Sheep (3)
       objectReference: {fileID: 0}
     - target: {fileID: 2618985539871644832, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.98
+      value: 0.82
       objectReference: {fileID: 0}
     - target: {fileID: 2618985539871644832, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -734,7 +730,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2618985539871644832, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.5
+      value: 1.39
       objectReference: {fileID: 0}
     - target: {fileID: 2618985539871644832, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -763,18 +759,6 @@ PrefabInstance:
     - target: {fileID: 2618985539871644832, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2805361568288454968, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
-      propertyPath: maxWeight
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2805361568288454968, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
-      propertyPath: weightRatio
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4642858316876984763, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
-      propertyPath: showGizmos
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -795,7 +779,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2618985539871644832, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.24
       objectReference: {fileID: 0}
     - target: {fileID: 2618985539871644832, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -803,7 +787,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2618985539871644832, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5
+      value: 2.69
       objectReference: {fileID: 0}
     - target: {fileID: 2618985539871644832, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -832,10 +816,6 @@ PrefabInstance:
     - target: {fileID: 2618985539871644832, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2805361568288454968, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
-      propertyPath: woolGrowTime
-      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1669,17 +1649,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1373270919}
     m_Modifications:
-    - target: {fileID: 1860983336886597979, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2499075382680790307, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
       propertyPath: m_Name
       value: Sheep (2)
       objectReference: {fileID: 0}
     - target: {fileID: 2618985539871644832, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.98
+      value: -1.4
       objectReference: {fileID: 0}
     - target: {fileID: 2618985539871644832, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1687,7 +1663,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2618985539871644832, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5
+      value: 1.57
       objectReference: {fileID: 0}
     - target: {fileID: 2618985539871644832, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1716,18 +1692,6 @@ PrefabInstance:
     - target: {fileID: 2618985539871644832, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2805361568288454968, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
-      propertyPath: maxWeight
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2805361568288454968, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
-      propertyPath: weightRatio
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4642858316876984763, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
-      propertyPath: showGizmos
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1783,10 +1747,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1373270919}
     m_Modifications:
-    - target: {fileID: 1860983336886597979, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2499075382680790307, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
       propertyPath: m_Name
       value: Sheep (5)
@@ -1830,18 +1790,6 @@ PrefabInstance:
     - target: {fileID: 2618985539871644832, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2805361568288454968, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
-      propertyPath: maxWeight
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2805361568288454968, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
-      propertyPath: weightRatio
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4642858316876984763, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
-      propertyPath: showGizmos
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2290,10 +2238,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1373270919}
     m_Modifications:
-    - target: {fileID: 1860983336886597979, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2499075382680790307, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
       propertyPath: m_Name
       value: Sheep (4)
@@ -2337,18 +2281,6 @@ PrefabInstance:
     - target: {fileID: 2618985539871644832, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2805361568288454968, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
-      propertyPath: maxWeight
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2805361568288454968, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
-      propertyPath: weightRatio
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4642858316876984763, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
-      propertyPath: showGizmos
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
