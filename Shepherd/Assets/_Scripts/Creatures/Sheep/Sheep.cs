@@ -52,29 +52,4 @@ public class Sheep : MonoBehaviour, IBarkable
         wool = woolCurrTime / woolGrowTime;
         rb.mass = weight.Lerp(wool);
     }
-
-    public void Eat() {
-        food += eat.RandomValue();
-        canPoop = food >= poopThreshold;
-        
-        if (Mathf.Approximately(food, 1)) Poop();
-        else if (food >= poopThreshold && canPoop) {
-            float rand = Random.Range(0f, 1f);
-            if (rand <= food) StartCoroutine(PoopDelay());
-        }
-    }
-
-    private void Poop() {
-        food -= Random.Range(0.3f, food);
-        Rigidbody poopRb = Instantiate(poopPref, poopSpawn.position, Quaternion.identity, transform).GetComponent<Rigidbody>();
-        poopRb.AddForce(poopForce * poopSpawn.up, ForceMode.Impulse);
-    }
-
-    private IEnumerator PoopDelay() {
-        canPoop = false;
-        float rand = Random.Range(0f, 1f);
-        yield return new WaitForSeconds(rand * poopDelay);
-        Poop();
-        canPoop = true;
-    }
 }

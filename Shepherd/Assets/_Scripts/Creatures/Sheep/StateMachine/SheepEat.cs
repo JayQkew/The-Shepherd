@@ -20,7 +20,7 @@ public class SheepEat : SheepBaseState
     }
 
     public override void ExitState(SheepStateManager manager) {
-        manager.GetComponent<Sheep>().Eat();
+        manager.GetComponent<Food>().Eat();
         Debug.Log("Exit -- SheepEat");
     }
 }
