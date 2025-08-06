@@ -16,9 +16,9 @@ public class Boids : MonoBehaviour
     private void Awake() => rb = GetComponent<Rigidbody>();
 
     public void ApplyForce() {
+        boids = Neighbours();
         if (activeBoids && boids.Length > 0) {
             velocity = rb.linearVelocity;
-            boids = Neighbours();
             
             Vector3 totalForce = Cohesion() + Separation() + Alignment();
             rb.AddForce(totalForce);

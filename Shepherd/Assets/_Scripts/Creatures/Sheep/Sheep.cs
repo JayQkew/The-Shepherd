@@ -38,6 +38,7 @@ public class Sheep : MonoBehaviour, IBarkable
     public void BarkedAt(Vector3 sourcePosition) {
         Vector3 dir = (transform.position - sourcePosition).normalized;
         rb.AddForce(dir * 10, ForceMode.Impulse);
+        sheepStateManager.SwitchState(sheepStateManager.sheepRun);
         Debug.Log("Barked At");
     }
 
