@@ -7,6 +7,7 @@ using Random = UnityEngine.Random;
 public class Sheep : MonoBehaviour, IBarkable
 {
     private Rigidbody rb;
+    private SheepStateManager sheepStateManager;
     [SerializeField] private float barkForce;
     
     [Header("Wool")]
@@ -30,6 +31,7 @@ public class Sheep : MonoBehaviour, IBarkable
 
     private void Awake() {
         rb = GetComponent<Rigidbody>();
+        sheepStateManager = GetComponent<SheepStateManager>();
         canPoop = true;
     }
 

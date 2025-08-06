@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Boids : MonoBehaviour
 {
-    private Rigidbody _rb;
+    private Rigidbody rb;
+    public bool activeBoids;
     [HideInInspector] public Vector3 velocity;
     [SerializeField] private Boids[] boids;
     [SerializeField] private BoidData data;
@@ -12,16 +13,16 @@ public class Boids : MonoBehaviour
     [Space(10)]
     [SerializeField] private bool showGizmos;
 
-    private void Awake() => _rb = GetComponent<Rigidbody>();
+    private void Awake() => rb = GetComponent<Rigidbody>();
 
     public void ApplyForce() {
-        velocity = _rb.linearVelocity;
-        boids = Neighbours();
-        
-        if(boids.Length <= 0) return;
-        
-        Vector3 totalForce = Cohesion() + Separation() + Alignment();
-        _rb.AddForce(totalForce);
+        if (activeBoids && boids.Length > 0) {
+            velocity = rb.linearVelocity;
+            boids = Neighbours();
+            
+            Vector3 totalForce = Cohesion() + Separation() + Alignment();
+            rb.AddForce(totalForce);
+        }
     }
 
     /// <summary>
@@ -76,7 +77,7 @@ public class Boids : MonoBehaviour
 
         if (count > 0) {
             steeringForce /= count;
-            steeringForce = steeringForce.normalized - _rb.linearVelocity;
+            steeringForce = steeringForce.normalized - rb.linearVelocity;
         }
         
         return steeringForce * data.separation;
