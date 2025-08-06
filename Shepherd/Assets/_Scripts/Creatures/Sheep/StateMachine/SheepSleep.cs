@@ -6,6 +6,7 @@ public class SheepSleep : SheepBaseState
 {
     public Timer sleepTimer;
     public override void EnterState(SheepStateManager manager) {
+        manager.GetComponent<Boids>().activeBoids = false;
         sleepTimer.maxTime = manager.stats.sleepTime.RandomValue();
         sleepTimer.Reset();
         Debug.Log("Enter -- SheepSleep");

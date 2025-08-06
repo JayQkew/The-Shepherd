@@ -6,6 +6,7 @@ public class SheepEat : SheepBaseState
 {
     public Timer eatTimer;
     public override void EnterState(SheepStateManager manager) {
+        manager.GetComponent<Boids>().activeBoids = false;
         eatTimer.maxTime = manager.stats.idleTime.RandomValue();
         eatTimer.Reset();
         Debug.Log("Enter -- SheepEat");
