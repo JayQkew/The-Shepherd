@@ -6,6 +6,7 @@ public class SheepEat : SheepBaseState
 {
     public Timer eatTimer;
     public override void EnterState(SheepStateManager manager) {
+        manager.GetComponent<Food>()?.Eat();
         manager.GetComponent<Boids>().activeBoids = false;
         eatTimer.maxTime = manager.stats.idleTime.RandomValue();
         eatTimer.Reset();
@@ -20,7 +21,6 @@ public class SheepEat : SheepBaseState
     }
 
     public override void ExitState(SheepStateManager manager) {
-        manager.GetComponent<Food>().Eat();
         Debug.Log("Exit -- SheepEat");
     }
 }

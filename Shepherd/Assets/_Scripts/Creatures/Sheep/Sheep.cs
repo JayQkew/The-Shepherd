@@ -7,6 +7,7 @@ using Random = UnityEngine.Random;
 public class Sheep : MonoBehaviour, IBarkable
 {
     private Rigidbody rb;
+    private SphereCollider col;
     private SheepStateManager sheepStateManager;
     [SerializeField] private float barkForce;
     
@@ -16,23 +17,17 @@ public class Sheep : MonoBehaviour, IBarkable
     [SerializeField] private float woolGrowTime;
     [SerializeField] private float currWeight;
     [SerializeField] private MinMax weight;
-    
-    [Header("Eating")]
-    [SerializeField] private float food;
-    [SerializeField] private MinMax eat;
 
-    [Header("Poop")]
-    [SerializeField] private GameObject poopPref;
-    [SerializeField] private Transform poopSpawn;
-    [SerializeField] private float poopForce;
-    [SerializeField] private bool canPoop;
-    [SerializeField] private float poopDelay;
-    [SerializeField] private float poopThreshold;
+    [Header("Explosion")]
+    [SerializeField] private float radius;
+    [SerializeField] private float forceMult;
 
+    private float prevWool;
     private void Awake() {
         rb = GetComponent<Rigidbody>();
+        col = GetComponent<SphereCollider>();
         sheepStateManager = GetComponent<SheepStateManager>();
-        canPoop = true;
+        prevWool = wool;
     }
 
     public void BarkedAt(Vector3 sourcePosition) {
@@ -44,6 +39,7 @@ public class Sheep : MonoBehaviour, IBarkable
 
     private void Update() {
         GrowWool();
+        WoolCheck();
     }
     
     private void GrowWool() {
@@ -51,5 +47,39 @@ public class Sheep : MonoBehaviour, IBarkable
         woolCurrTime = Mathf.Clamp(woolCurrTime, 0, woolGrowTime);
         wool = woolCurrTime / woolGrowTime;
         rb.mass = weight.Lerp(wool);
+    }
+
+    /// <summary>
+    /// Checks for when the Sheep wool meets a threshold
+    /// </summary>
+    private void WoolCheck() {
+        if (prevWool < 0.3f && wool >= 0.3f) PuffExplosion();
+        if (prevWool < 0.6f && wool >= 0.6f) PuffExplosion();
+        prevWool = wool;
+    }
+
+    private void PuffExplosion() {
+        Vector3 origin = transform.position + new Vector3(0, -col.radius, 0);
+        Collider[] cols = Physics.OverlapSphere(origin, radius);
+        if (cols.Length == 0) return;
+
+        foreach (Collider col in cols) {
+            if (col.gameObject == gameObject) continue;
+            Rigidbody targetRb = col.GetComponent<Rigidbody>();
+            if (targetRb) {
+                Vector3 dir = (col.transform.position - origin).normalized;
+                float distance = Vector3.Distance(origin, targetRb.transform.position);
+                float fallOff = Mathf.Clamp01(1 - distance / radius);
+
+                float force = forceMult * fallOff;
+                targetRb.AddForce(dir * force, ForceMode.Impulse);
+            }
+        }
+    }
+
+    private void OnDrawGizmos() {
+        col = GetComponent<SphereCollider>();
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position + new Vector3(0, -col.radius, 0), radius);
     }
 }

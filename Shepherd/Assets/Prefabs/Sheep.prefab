@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2618985539871644832}
   - component: {fileID: 2805361568288454968}
+  - component: {fileID: 6914229483481004525}
   - component: {fileID: 1860983336886597979}
   - component: {fileID: 4642858316876984763}
   - component: {fileID: 2088826080556547742}
@@ -58,6 +59,18 @@ MonoBehaviour:
   weight:
     _min: 2.5
     _max: 2
+--- !u!114 &6914229483481004525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2499075382680790307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 005b4bdea0e6b6b44b0f61b978a87ff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   food: 0
   eat:
     _min: 0.15
@@ -112,7 +125,7 @@ MonoBehaviour:
   velocity: {x: 0, y: 0, z: 0}
   boids: []
   data: {fileID: 11400000, guid: 5174544759737e6478c45d3eed1ffddb, type: 2}
-  showGizmos: 0
+  showGizmos: 1
 --- !u!54 &2088826080556547742
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Food : MonoBehaviour
 {
@@ -14,7 +16,11 @@ public class Food : MonoBehaviour
     [SerializeField] private bool canPoop;
     [SerializeField] private float poopDelay;
     [SerializeField] private float poopThreshold;
-    
+
+    private void Awake() {
+        canPoop = true;
+    }
+
     public void Eat() {
         food += eat.RandomValue();
         canPoop = food >= poopThreshold;

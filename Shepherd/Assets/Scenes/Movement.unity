@@ -833,9 +833,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4642858316876984763, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
-      propertyPath: showGizmos
-      value: 1
+    - target: {fileID: 2805361568288454968, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
+      propertyPath: woolGrowTime
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

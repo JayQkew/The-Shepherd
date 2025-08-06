@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SheepBoid
   m_EditorClassIdentifier: 
   radius: 10
-  cohesion: 5
+  cohesion: 7.5
   separation: 2.5
   alignment: 1
   minSeparation: 2.5
