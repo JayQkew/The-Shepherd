@@ -54,7 +54,7 @@ MonoBehaviour:
   barkForce: 10
   wool: 0
   woolCurrTime: 0
-  woolGrowTime: 5
+  woolGrowTime: 30
   currWeight: 0
   weight:
     _min: 2.5
@@ -256,6 +256,10 @@ PrefabInstance:
       propertyPath: rb
       value: 
       objectReference: {fileID: 2088826080556547742}
+    - target: {fileID: 7409938050129940959, guid: 37e6650fc5d9e3b4c8e45a4be9ed9180, type: 3}
+      propertyPath: flipThresh
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
