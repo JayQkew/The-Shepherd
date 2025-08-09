@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 
-[RequireComponent(typeof(SpriteRenderer))]
 public class GUI : MonoBehaviour
 {
     private void Start() {

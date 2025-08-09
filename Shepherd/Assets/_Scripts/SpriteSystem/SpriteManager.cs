@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.Serialization;
 
 public class SpriteManager : MonoBehaviour
@@ -24,6 +25,10 @@ public class SpriteManager : MonoBehaviour
 
         if (parentSr) ProcessGUI(parentSr);
         if (childrenSr.Length > 0) {
+            SortingGroup sg = t.GetComponent<SortingGroup>();
+            if(!sg) sg = t.AddComponent<SortingGroup>();
+            
+            sg.sortingOrder = 0;
             foreach (SpriteRenderer sr in childrenSr) {
                 ProcessGUI(sr);
             }
