@@ -19,11 +19,23 @@ public class SpriteManager : MonoBehaviour
 
     public void AddGUI(Transform t) {
         guis.Add(t);
-        SpriteRenderer sr = t.GetComponent<SpriteRenderer>();
+        SpriteRenderer parentSr = t.GetComponent<SpriteRenderer>();
+        SpriteRenderer[] childrenSr = t.gameObject.GetComponentsInChildren<SpriteRenderer>();
+
+        if (parentSr) ProcessGUI(parentSr);
+        if (childrenSr.Length > 0) {
+            foreach (SpriteRenderer sr in childrenSr) {
+                ProcessGUI(sr);
+            }
+        }
+        
+        t.transform.rotation = spriteRotation; // only rotate the parent (not the children seperately)
+    }
+
+    private void ProcessGUI(SpriteRenderer sr) {
         sr.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
         sr.receiveShadows = true;
         sr.material = spriteShadowMat;
-        t.transform.rotation = spriteRotation;
     }
 
     public void RemoveGUI(Transform t) => guis.Remove(t);
