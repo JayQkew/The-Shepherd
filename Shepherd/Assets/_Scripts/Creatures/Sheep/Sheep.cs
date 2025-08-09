@@ -9,6 +9,7 @@ public class Sheep : MonoBehaviour, IBarkable
     private Rigidbody rb;
     private SphereCollider col;
     private SheepStateManager sheepStateManager;
+    private SheepGUI gui;
     [SerializeField] private float barkForce;
     
     [Header("Wool")]
@@ -27,6 +28,7 @@ public class Sheep : MonoBehaviour, IBarkable
         rb = GetComponent<Rigidbody>();
         col = GetComponent<SphereCollider>();
         sheepStateManager = GetComponent<SheepStateManager>();
+        gui = GetComponent<SheepGUI>();
         prevWool = wool;
     }
 
@@ -53,8 +55,16 @@ public class Sheep : MonoBehaviour, IBarkable
     /// Checks for when the Sheep wool meets a threshold
     /// </summary>
     private void WoolCheck() {
-        if (prevWool < 0.3f && wool >= 0.3f) PuffExplosion();
-        if (prevWool < 0.6f && wool >= 0.6f) PuffExplosion();
+        if (wool <= 0.1f) gui.ChangeWool(SheepGUI.WoolLength.Small);
+        if (prevWool < 0.3f && wool >= 0.3f) {
+            gui.ChangeWool(SheepGUI.WoolLength.Medium);
+            PuffExplosion();
+        }
+        if (prevWool < 0.6f && wool >= 0.6f) {
+            gui.ChangeWool(SheepGUI.WoolLength.Large);
+            PuffExplosion();
+        }
+        
         prevWool = wool;
     }
 
@@ -78,7 +88,6 @@ public class Sheep : MonoBehaviour, IBarkable
 
                     float force = forceMult * fallOff;
                     targetRb.AddForce(dir * force, ForceMode.Impulse);
-                    Debug.Log("HELLOOOOOO");
                 }
             }
         }
