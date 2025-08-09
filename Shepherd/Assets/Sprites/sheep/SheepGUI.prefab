@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2458358637760819650}
   - component: {fileID: 6109696289105193674}
   m_Layer: 0
-  m_Name: 'Paint Layer 3 '
+  m_Name: Small Wool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,6 +87,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2810161602327503639
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7615572385886596607}
+  m_Layer: 0
+  m_Name: PoopSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7615572385886596607
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2810161602327503639}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: 0.5, w: 0.8660254}
+  m_LocalPosition: {x: -0.718, y: 0.789, z: 0.08500004}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6508964604440441009}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 60}
 --- !u!1 &4214586857510324836
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,7 +129,7 @@ GameObject:
   - component: {fileID: 5475218710090840140}
   - component: {fileID: 4135609713711379389}
   m_Layer: 0
-  m_Name: 'Paint Layer 1 '
+  m_Name: Med Wool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -185,7 +216,7 @@ GameObject:
   - component: {fileID: 7086469234144788553}
   - component: {fileID: 6056059724235217051}
   m_Layer: 0
-  m_Name: 'Paint Layer 4 '
+  m_Name: Large Wool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -272,7 +303,7 @@ GameObject:
   - component: {fileID: 3339800595210246691}
   - component: {fileID: 4629789351460019972}
   m_Layer: 0
-  m_Name: 'Paint Layer 2 '
+  m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -337,7 +368,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: -7928554646635878104, guid: acf9add2169840b438254429f503556a, type: 3}
+  m_Sprite: {fileID: -4534863322234999850, guid: e2a37f2d084ae67499126d4b8f3e8274, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -359,6 +390,7 @@ GameObject:
   - component: {fileID: 6508964604440441009}
   - component: {fileID: 3678372855818811093}
   - component: {fileID: 2419583179422201689}
+  - component: {fileID: 7409938050129940959}
   m_Layer: 0
   m_Name: SheepGUI
   m_TagString: Untagged
@@ -384,6 +416,7 @@ Transform:
   - {fileID: 7086469234144788553}
   - {fileID: 5475218710090840140}
   - {fileID: 2458358637760819650}
+  - {fileID: 7615572385886596607}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3678372855818811093
@@ -410,6 +443,20 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortAtRoot: 0
+--- !u!114 &7409938050129940959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6757154995795898826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9183d96a3ded494d9044708d811ee28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  flipThresh: 0.1
 --- !u!1 &7444374573892344219
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,7 +468,7 @@ GameObject:
   - component: {fileID: 8158246197643746076}
   - component: {fileID: 5958375913685925343}
   m_Layer: 0
-  m_Name: 'Paint Layer 5 '
+  m_Name: SideBurns
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

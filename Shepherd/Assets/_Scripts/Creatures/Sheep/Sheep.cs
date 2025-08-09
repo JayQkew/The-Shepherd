@@ -74,7 +74,6 @@ public class Sheep : MonoBehaviour, IBarkable
         if (cols.Length == 0) return;
 
         foreach (Collider c in cols) {
-            if (c.gameObject == gameObject) continue;
             IBarkable barkable = c.GetComponent<IBarkable>();
             if (barkable != null) {
                 barkable.BarkedAt(origin);
