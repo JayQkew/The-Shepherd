@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: SheepStats
   m_EditorClassIdentifier: 
   idleTime:
-    _min: 1
-    _max: 2
+    _min: 5
+    _max: 10
   eatTime:
     _min: 2.5
     _max: 3.5
   sleepTime:
-    _min: 1
-    _max: 2
+    _min: 5
+    _max: 10
   suppAnimTimer:
     _min: 2.5
     _max: 5
@@ -33,3 +33,6 @@ MonoBehaviour:
   walkSpeed:
     _min: 1
     _max: 1.5
+  woolTime:
+    _min: 60
+    _max: 90
