@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
 using UnityEngine;
-using UnityEngine.Serialization;
-using Random = UnityEngine.Random;
 
 public class Sheep : MonoBehaviour, IBarkable
 {
@@ -14,8 +10,8 @@ public class Sheep : MonoBehaviour, IBarkable
     
     [Header("Wool")]
     [SerializeField] private float wool;
-    [SerializeField] private float woolCurrTime;
-    [SerializeField] private float woolGrowTime;
+    
+    [SerializeField] private Timer woolTimer;
     [SerializeField] private float currWeight;
     [SerializeField] private MinMax weight;
 
@@ -29,6 +25,7 @@ public class Sheep : MonoBehaviour, IBarkable
         col = GetComponent<SphereCollider>();
         sheepStateManager = GetComponent<SheepStateManager>();
         gui = GetComponent<SheepGUI>();
+        woolTimer.SetMaxTime(sheepStateManager.stats.woolTime.RandomValue());
         prevWool = wool;
     }
 
@@ -45,9 +42,8 @@ public class Sheep : MonoBehaviour, IBarkable
     }
     
     private void GrowWool() {
-        woolCurrTime += Time.deltaTime;
-        woolCurrTime = Mathf.Clamp(woolCurrTime, 0, woolGrowTime);
-        wool = woolCurrTime / woolGrowTime;
+        woolTimer.Update();
+        wool = woolTimer.Progress;
         rb.mass = weight.Lerp(wool);
     }
 

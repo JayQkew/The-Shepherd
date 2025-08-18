@@ -6,11 +6,11 @@ using UnityEngine.Events;
 public struct Timer
 {
     public float maxTime;
-    public float currTime { get; private set; }
+    public float currTime;
     
     public Timer(float maxTime) {
         this.maxTime = maxTime;
-        this.currTime = 0f;
+        currTime = 0f;
     }
     
     public void Update() {

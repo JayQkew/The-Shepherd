@@ -8,8 +8,12 @@ public class SheepStats : ScriptableObject
     public MinMax eatTime;
     public MinMax sleepTime;
     public MinMax suppAnimTimer;
-    [Space(10)]
+    
+    [Space(20)]
     public MinMax runTime;
     public MinMax walkTime;
     public MinMax walkSpeed;
+
+    [Space(20)]
+    public MinMax woolTime;
 }

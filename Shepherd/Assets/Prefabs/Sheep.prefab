@@ -75,8 +75,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   food: 0
   eat:
-    _min: 0
-    _max: 0.3
+    _min: 1
+    _max: 1
   poopPref: {fileID: 2216268445079033729, guid: 0efe031abce038344abe0512a930f866, type: 3}
   poopSpawn: {fileID: 2313992611410932371}
   poopForce: 5
