@@ -8,6 +8,7 @@ public class TimeManager : MonoBehaviour
     public float currTime;
     public float maxTime;
     public uint dayCount;
+    public TimeState timeState;
     private TimeBaseState currState;
 
     [Header("States")]
@@ -51,7 +52,7 @@ public class TimeManager : MonoBehaviour
         maxTime = sunRise.span + day.span + night.span + sunSet.span;
     }    
     private void OnValidate() {
-        if (Application.isPlaying && TimeManager.Instance != null) {
+        if (Application.isPlaying && Instance != null) {
             Instance = this;
             maxTime = sunRise.span + day.span + night.span + sunSet.span;
         }
@@ -63,4 +64,12 @@ public abstract class TimeBaseState
     public abstract void EnterState(TimeManager manager);
     public abstract void UpdateState(TimeManager manager);
     public abstract void ExitState(TimeManager manager);
+}
+
+public enum TimeState
+{
+    Sunrise,
+    Day,
+    Sunset,
+    Night
 }

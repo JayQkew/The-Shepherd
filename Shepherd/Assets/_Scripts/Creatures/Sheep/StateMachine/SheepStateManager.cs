@@ -34,14 +34,18 @@ public class SheepStateManager : MonoBehaviour
     }
 
     public SheepBaseState GetRandomState() {
-        SheepBaseState[] states =
+        SheepBaseState[] dayStates =
         {
             sheepIdle,
             sheepEat,
             sheepSleep,
             sheepMove
         };
-        
+
+        SheepBaseState[] nightState = { sheepSleep };
+
+        SheepBaseState[] states = TimeManager.Instance.timeState == TimeState.Night ? nightState : dayStates;
+
         return states[Random.Range(0, states.Length)];
     }
 }

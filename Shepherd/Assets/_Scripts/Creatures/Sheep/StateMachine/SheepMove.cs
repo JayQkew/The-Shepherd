@@ -12,6 +12,7 @@ public class SheepMove : SheepBaseState
     public Timer moveTimer;
     
     public override void EnterState(SheepStateManager manager) {
+        manager.gui.PlayAnim("Idle");
         if(!rb) rb = manager.GetComponent<Rigidbody>();
         
         dir = Random.insideUnitCircle.normalized;

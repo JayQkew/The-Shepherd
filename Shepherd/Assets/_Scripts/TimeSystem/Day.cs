@@ -7,7 +7,7 @@ public class Day : TimeBaseState
     [SerializeField] private float curr;
     public float span;
     public override void EnterState(TimeManager manager) {
-        Debug.Log("Enter Day");
+        manager.timeState = TimeState.Day;
     }
 
     public override void UpdateState(TimeManager manager) {

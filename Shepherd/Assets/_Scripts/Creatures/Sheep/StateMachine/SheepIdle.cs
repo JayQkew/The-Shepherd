@@ -6,6 +6,7 @@ public class SheepIdle : SheepBaseState
 {
     public Timer idleTimer;
     public override void EnterState(SheepStateManager manager) {
+        manager.gui.PlayAnim("Idle");
         manager.GetComponent<Boids>().activeBoids = false;
         idleTimer.maxTime = manager.stats.idleTime.RandomValue();
         idleTimer.Reset();

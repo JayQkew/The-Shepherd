@@ -7,7 +7,7 @@ public class SunRise : TimeBaseState
     [SerializeField] private float curr;
     public float span;
     public override void EnterState(TimeManager manager) {
-        Debug.Log("Enter SunRise");
+        manager.timeState = TimeState.Sunrise;
         manager.dayCount++;
     }
 

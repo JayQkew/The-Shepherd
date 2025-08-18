@@ -7,7 +7,7 @@ public class SunSet : TimeBaseState
     [SerializeField] private float curr;
     public float span;
     public override void EnterState(TimeManager manager) {
-        Debug.Log("Enter SunSet");
+        manager.timeState = TimeState.Sunset;
     }
 
     public override void UpdateState(TimeManager manager) {

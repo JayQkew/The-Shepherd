@@ -20,6 +20,5 @@ public class SheepSleep : SheepBaseState
     }
 
     public override void ExitState(SheepStateManager manager) {
-        manager.gui.PlayAnim("Idle");
     }
 }
