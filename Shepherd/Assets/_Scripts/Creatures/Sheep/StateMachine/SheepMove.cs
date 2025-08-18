@@ -28,7 +28,7 @@ public class SheepMove : SheepBaseState
             manager.SwitchState(manager.GetRandomState());
             return;
         }
-        rb.AddForce(moveForce, ForceMode.Force);
+        rb.AddForce(moveForce, ForceMode.Acceleration);
     }
 
     public override void ExitState(SheepStateManager manager) {
