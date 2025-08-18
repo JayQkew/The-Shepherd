@@ -1,4 +1,7 @@
+using System;
 using UnityEngine;
+using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 public class SheepGUI : MonoBehaviour
 {
@@ -9,10 +12,14 @@ public class SheepGUI : MonoBehaviour
     [SerializeField] private GameObject[] largeWool;
 
     [SerializeField] private Animator anim;
-    [SerializeField] private MinMax chillTimer;
-    [SerializeField] private Timer chillAnimTimer;
-    [SerializeField] private string[] chillAnims;
+    [SerializeField] private Timer suppAnimTimer;
+    [SerializeField] private string[] suppAnims;
     
+    private SheepStateManager stateManager;
+
+    private void Awake() {
+        stateManager = GetComponent<SheepStateManager>();
+    }
 
     public void ChangeWool(WoolLength woolLength) {
         switch (woolLength) {
@@ -40,12 +47,12 @@ public class SheepGUI : MonoBehaviour
 
     public void PlayAnim(string state) => anim.SetTrigger(state);
 
-    public void UpdateChillAnims() {
-        chillAnimTimer.Update();
-        if (chillAnimTimer.IsFinished) {
+    public void UpdateSuppAnims() {
+        suppAnimTimer.Update();
+        if (suppAnimTimer.IsFinished) {
             // choose a random chill animation to play
-            anim.SetTrigger(chillAnims[Random.Range(0, chillAnims.Length)]);
-            chillAnimTimer.SetMaxTime(chillTimer.RandomValue());
+            anim.SetTrigger(suppAnims[Random.Range(0, suppAnims.Length)]);
+            suppAnimTimer.SetMaxTime(stateManager.stats.suppAnimTimer.RandomValue());
         }
     }
     

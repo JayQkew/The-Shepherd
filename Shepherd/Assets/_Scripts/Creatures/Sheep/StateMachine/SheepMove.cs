@@ -23,7 +23,7 @@ public class SheepMove : SheepBaseState
 
     public override void UpdateState(SheepStateManager manager) {
         moveTimer.Update();
-        manager.gui.UpdateChillAnims();
+        manager.gui.UpdateSuppAnims();
         Vector3 moveForce = new Vector3(dir.x, 0, dir.z) * speed;
         if (moveTimer.IsFinished) {
             manager.SwitchState(manager.GetRandomState());

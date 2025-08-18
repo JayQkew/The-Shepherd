@@ -21,6 +21,9 @@ MonoBehaviour:
   sleepTime:
     _min: 1
     _max: 2
+  suppAnimTimer:
+    _min: 2.5
+    _max: 5
   runTime:
     _min: 1
     _max: 3

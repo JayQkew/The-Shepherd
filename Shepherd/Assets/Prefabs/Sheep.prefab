@@ -156,13 +156,9 @@ MonoBehaviour:
   - {fileID: 3385789389773735671}
   - {fileID: 283806288831332076}
   anim: {fileID: 5319423606494271013}
-  chillTimer:
-    _min: 2.5
-    _max: 5
-  chillAnimTimer:
+  suppAnimTimer:
     maxTime: 0
-  chillAnims:
-  - Blink
+  suppAnims:
   - Blink
   - Blink
   - Meh
