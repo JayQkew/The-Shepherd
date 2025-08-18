@@ -6,12 +6,17 @@ public class SheepStateManager : MonoBehaviour
 {
     public SheepBaseState currState;
     public SheepStats stats;
+    public SheepGUI gui;
 
     public SheepIdle sheepIdle = new SheepIdle();
     public SheepEat sheepEat = new SheepEat();
     public SheepSleep sheepSleep = new SheepSleep();
     public SheepMove sheepMove = new SheepMove();
     public SheepRun sheepRun = new SheepRun();
+
+    private void Awake() {
+        gui = GetComponent<SheepGUI>();
+    }
 
     private void Start() {
         currState = sheepIdle;

@@ -8,6 +8,8 @@ public class SheepGUI : MonoBehaviour
     [SerializeField] private GameObject[] mediumWool;
     [SerializeField] private GameObject[] largeWool;
 
+    [SerializeField] private Animator anim;
+
     public void ChangeWool(WoolLength woolLength) {
         switch (woolLength) {
             case WoolLength.Small:
@@ -32,6 +34,7 @@ public class SheepGUI : MonoBehaviour
         }
     }
 
+    public void PlayAnim(string state) => anim.SetTrigger(state);
     public enum WoolLength
     {
         Small,
