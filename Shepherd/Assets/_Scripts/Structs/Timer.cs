@@ -28,6 +28,9 @@ public struct Timer
     
     public float Progress => maxTime > 0 ? currTime / maxTime : 0f;
     
+    /// <summary>
+    /// sets the new max time and also resets the timer
+    /// </summary>
     public void SetMaxTime(float newMaxTime, bool resetTimer = true) {
         maxTime = newMaxTime;
         if (resetTimer) {

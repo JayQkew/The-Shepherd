@@ -14,6 +14,7 @@ public class SheepRun : SheepBaseState
 
     public override void UpdateState(SheepStateManager manager) {
         runTimer.Update();
+        manager.gui.UpdateChillAnims();
         if (runTimer.IsFinished) {
             manager.SwitchState(manager.GetRandomState());
         }

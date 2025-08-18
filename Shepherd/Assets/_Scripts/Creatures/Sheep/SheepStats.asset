@@ -15,6 +15,9 @@ MonoBehaviour:
   idleTime:
     _min: 1
     _max: 2
+  eatTime:
+    _min: 2
+    _max: 3
   sleepTime:
     _min: 1
     _max: 2

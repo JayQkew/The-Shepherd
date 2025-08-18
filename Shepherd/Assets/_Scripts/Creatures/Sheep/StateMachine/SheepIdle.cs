@@ -13,6 +13,7 @@ public class SheepIdle : SheepBaseState
 
     public override void UpdateState(SheepStateManager manager) {
         idleTimer.Update();
+        manager.gui.UpdateChillAnims();
         if (idleTimer.IsFinished) {
             manager.SwitchState(manager.GetRandomState());
         }
