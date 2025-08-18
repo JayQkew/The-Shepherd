@@ -17,7 +17,7 @@ public class SheepMove : SheepBaseState
         dir = Random.insideUnitCircle.normalized;
         speed = manager.stats.walkSpeed.RandomValue();
         
-        moveTimer.maxTime = manager.stats.walkSpeed.RandomValue();
+        moveTimer.maxTime = manager.stats.walkTime.RandomValue();
         moveTimer.Reset();
     }
 

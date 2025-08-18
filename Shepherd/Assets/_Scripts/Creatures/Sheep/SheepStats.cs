@@ -8,6 +8,6 @@ public class SheepStats : ScriptableObject
     public MinMax sleepTime;
     [Space(10)]
     public MinMax runTime;
-    public float walkRadius;
+    public MinMax walkTime;
     public MinMax walkSpeed;
 }
