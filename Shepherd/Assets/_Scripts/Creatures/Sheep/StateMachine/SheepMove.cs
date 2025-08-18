@@ -6,32 +6,31 @@ using Random = UnityEngine.Random;
 [Serializable]
 public class SheepMove : SheepBaseState
 {
-    public Vector3 targetPos;
+    public Vector3 dir;
     public float speed;
     private Rigidbody rb;
+    public Timer moveTimer;
+    
     public override void EnterState(SheepStateManager manager) {
         if(!rb) rb = manager.GetComponent<Rigidbody>();
-        Vector2 randomPos = Random.insideUnitCircle * manager.stats.walkRadius;
-        targetPos = new Vector3(randomPos.x + manager.transform.position.x, manager.transform.position.y,  randomPos.y + manager.transform.position.z );
+        
+        dir = Random.insideUnitCircle.normalized;
         speed = manager.stats.walkSpeed.RandomValue();
-        Debug.Log("Enter -- SheepMove");
+        
+        moveTimer.maxTime = manager.stats.walkSpeed.RandomValue();
+        moveTimer.Reset();
     }
 
     public override void UpdateState(SheepStateManager manager) {
-        Vector3 direction = (targetPos - manager.transform.position).normalized;
-        
-        float distanceToTarget = Vector3.Distance(manager.transform.position, targetPos);
-        if (distanceToTarget <= 0.1f) {
-            rb.linearVelocity = Vector3.zero;
+        moveTimer.Update();
+        Vector3 moveForce = new Vector3(dir.x, 0, dir.z) * speed;
+        if (moveTimer.IsFinished) {
             manager.SwitchState(manager.GetRandomState());
             return;
         }
-        
-        Vector3 moveForce = direction * speed;
-        rb.linearVelocity = new Vector3(moveForce.x, rb.linearVelocity.y, moveForce.z);
+        rb.AddForce(moveForce, ForceMode.Force);
     }
 
     public override void ExitState(SheepStateManager manager) {
-        Debug.Log("Exit -- SheepMove");
     }
 }

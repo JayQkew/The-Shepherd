@@ -10,7 +10,6 @@ public class SheepRun : SheepBaseState
         manager.GetComponent<Boids>().activeBoids = true;
         runTimer.maxTime = manager.stats.runTime.RandomValue();
         runTimer.Reset();
-        Debug.Log("Enter -- SheepRun");
     }
 
     public override void UpdateState(SheepStateManager manager) {
@@ -22,6 +21,5 @@ public class SheepRun : SheepBaseState
 
     public override void ExitState(SheepStateManager manager) {
         manager.GetComponent<Boids>().activeBoids = false;
-        Debug.Log("Exit -- SheepRun");
     }
 }
