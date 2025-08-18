@@ -16,8 +16,8 @@ MonoBehaviour:
     _min: 1
     _max: 2
   eatTime:
-    _min: 2
-    _max: 3
+    _min: 2.5
+    _max: 3.5
   sleepTime:
     _min: 1
     _max: 2

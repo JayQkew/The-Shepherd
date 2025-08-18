@@ -37,6 +37,9 @@ public class SheepStateManager : MonoBehaviour
         SheepBaseState[] dayStates =
         {
             sheepIdle,
+            sheepIdle,
+            sheepIdle,
+            sheepEat,
             sheepEat,
             sheepSleep,
             sheepMove

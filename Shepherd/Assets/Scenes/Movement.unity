@@ -166,6 +166,7 @@ MonoBehaviour:
   currTime: 0
   maxTime: 210
   dayCount: 0
+  timeState: 0
   sunRise:
     curr: 0
     span: 30
