@@ -19,6 +19,6 @@ public class Night : TimeBaseState
 
     public override void ExitState(TimeManager manager) {
         curr = 0;
-        manager.currTime = 0;
+        manager.time.Reset();
     }
 }

@@ -26,7 +26,7 @@ public class DynamicLighting : MonoBehaviour
 
     private void Update() {
         if (TimeManager.Instance != null) {
-            float t = Mathf.Lerp(0, 1, TimeManager.Instance.currTime / TimeManager.Instance.maxTime);
+            float t = Mathf.Lerp(0, 1, TimeManager.Instance.time.Progress);
             light.color = lightGradient.Evaluate(t);
             RenderSettings.skybox.SetColor("_Tint", skyGradient.Evaluate(t));
             LightAngle(t);
@@ -43,7 +43,7 @@ public class DynamicLighting : MonoBehaviour
     private void SetGradient(Gradient gradient, Color[] colors) {
         if (TimeManager.Instance == null) return;
 
-        float totalSpanTime = TimeManager.Instance.maxTime + twilightTime;
+        float totalSpanTime = TimeManager.Instance.time.maxTime + twilightTime;
 
         GradientColorKey[] colorKeys = new GradientColorKey[7];
 

@@ -5,8 +5,7 @@ using UnityEngine.Serialization;
 public class TimeManager : MonoBehaviour
 {
     public static TimeManager Instance { get; private set; }
-    public float currTime;
-    public float maxTime;
+    public Timer time;
     public uint dayCount;
     public TimeState timeState;
     private TimeBaseState currState;
@@ -31,12 +30,11 @@ public class TimeManager : MonoBehaviour
     private void Start() {
         currState = sunRise;
         currState.EnterState(this);
-        maxTime = sunRise.span + day.span + night.span + sunSet.span;
+        time.SetMaxTime(sunRise.span + day.span + night.span + sunSet.span);
     }
 
     private void Update() {
-        currTime += Time.deltaTime;
-        
+        time.Update();
         currState.UpdateState(this);
     }
 
@@ -49,12 +47,12 @@ public class TimeManager : MonoBehaviour
     [ContextMenu("Update Time")]
     public void UpdateMaxTime() {
         Instance = this;
-        maxTime = sunRise.span + day.span + night.span + sunSet.span;
+        time.SetMaxTime(sunRise.span + day.span + night.span + sunSet.span);
     }    
     private void OnValidate() {
         if (Application.isPlaying && Instance != null) {
             Instance = this;
-            maxTime = sunRise.span + day.span + night.span + sunSet.span;
+            time.SetMaxTime(sunRise.span + day.span + night.span + sunSet.span);
         }
     }
 }
