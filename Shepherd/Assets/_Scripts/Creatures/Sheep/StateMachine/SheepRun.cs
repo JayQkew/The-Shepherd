@@ -9,8 +9,7 @@ public class SheepRun : SheepBaseState
     public override void EnterState(SheepStateManager manager) {
         manager.gui.PlayAnim("Idle");
         manager.GetComponent<Boids>().activeBoids = true;
-        runTimer.maxTime = manager.stats.runTime.RandomValue();
-        runTimer.Reset();
+        runTimer.SetMaxTime(manager.stats.runTime.RandomValue());
     }
 
     public override void UpdateState(SheepStateManager manager) {

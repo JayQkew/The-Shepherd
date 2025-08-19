@@ -9,8 +9,7 @@ public class SheepEat : SheepBaseState
         manager.gui.PlayAnim("Eat");
         manager.GetComponent<Food>()?.Eat();
         manager.GetComponent<Boids>().activeBoids = false;
-        eatTimer.maxTime = manager.stats.eatTime.RandomValue();
-        eatTimer.Reset();
+        eatTimer.SetMaxTime(manager.stats.eatTime.RandomValue());
     }
 
     public override void UpdateState(SheepStateManager manager) {

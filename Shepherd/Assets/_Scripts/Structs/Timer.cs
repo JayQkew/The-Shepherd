@@ -20,9 +20,7 @@ public struct Timer
         }
     }
     
-    public void Reset() {
-        currTime = 0f;
-    }
+    public void Reset() => currTime = 0f;
     
     public bool IsFinished => currTime >= maxTime;
     
@@ -33,8 +31,6 @@ public struct Timer
     /// </summary>
     public void SetMaxTime(float newMaxTime, bool resetTimer = true) {
         maxTime = newMaxTime;
-        if (resetTimer) {
-            Reset();
-        }
+        if (resetTimer) Reset();
     }
 }
