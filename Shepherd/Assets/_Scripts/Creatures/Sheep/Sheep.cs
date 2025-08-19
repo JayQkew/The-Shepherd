@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Sheep : MonoBehaviour, IBarkable
 {
@@ -18,6 +19,7 @@ public class Sheep : MonoBehaviour, IBarkable
     [Header("Explosion")]
     [SerializeField] private float radius;
     [SerializeField] private float forceMult;
+    [SerializeField] private UnityEvent onExplode;
 
     private float prevWool;
     private void Awake() {
@@ -86,6 +88,8 @@ public class Sheep : MonoBehaviour, IBarkable
                 }
             }
         }
+        
+        onExplode?.Invoke();
     }
 
     private void OnDrawGizmos() {
