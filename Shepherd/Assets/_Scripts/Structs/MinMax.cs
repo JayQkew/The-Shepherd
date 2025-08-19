@@ -37,10 +37,6 @@ public struct MinMax
         return Random.Range(min, max);
     }
 
-    public float RandomValueInclusive() {
-        return Random.Range(min, max + float.Epsilon);
-    }
-
     public float Lerp(float t) {
         return Mathf.Lerp(min, max, t);
     }
