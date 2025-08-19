@@ -4,21 +4,20 @@ using UnityEngine;
 [Serializable]
 public class SunRise : TimeBaseState
 {
-    [SerializeField] private float curr;
-    public float span;
+    public Timer time;
     public override void EnterState(TimeManager manager) {
         manager.timeState = TimeState.Sunrise;
         manager.dayCount++;
     }
 
     public override void UpdateState(TimeManager manager) {
-        curr += Time.deltaTime;
-        if (curr >= span) {
+        time.Update();
+        if (time.IsFinished) {
             manager.SwitchState(manager.day);
         }
     }
 
     public override void ExitState(TimeManager manager) {
-        curr = 0;
+        time.Reset();
     }
 }

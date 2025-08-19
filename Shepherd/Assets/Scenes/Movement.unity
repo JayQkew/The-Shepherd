@@ -163,22 +163,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a39c865d6decf0746b6b919f9ff4788b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currTime: 0
-  maxTime: 210
+  time:
+    maxTime: 210
+    currTime: 0
   dayCount: 0
   timeState: 0
   sunRise:
-    curr: 0
-    span: 30
+    time:
+      maxTime: 30
+      currTime: 0
   day:
-    curr: 0
-    span: 90
+    time:
+      maxTime: 90
+      currTime: 0
   sunSet:
-    curr: 0
-    span: 20
+    time:
+      maxTime: 20
+      currTime: 0
   night:
-    curr: 0
-    span: 70
+    time:
+      maxTime: 70
+      currTime: 0
 --- !u!4 &120751288 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2618985539871644832, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
@@ -1662,6 +1667,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1373270919}
     m_Modifications:
+    - target: {fileID: 1860983336886597979, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
+      propertyPath: sheepEat.eatTimer.maxTime
+      value: -1746.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1860983336886597979, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
+      propertyPath: sheepSleep.sleepTimer.maxTime
+      value: 607.93
+      objectReference: {fileID: 0}
     - target: {fileID: 2499075382680790307, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
       propertyPath: m_Name
       value: Sheep (2)

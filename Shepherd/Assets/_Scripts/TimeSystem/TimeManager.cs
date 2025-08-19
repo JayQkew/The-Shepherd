@@ -30,7 +30,7 @@ public class TimeManager : MonoBehaviour
     private void Start() {
         currState = sunRise;
         currState.EnterState(this);
-        time.SetMaxTime(sunRise.span + day.span + night.span + sunSet.span);
+        time.SetMaxTime(sunRise.time.maxTime + day.time.maxTime + night.time.maxTime + sunSet.time.maxTime);
     }
 
     private void Update() {
@@ -47,12 +47,12 @@ public class TimeManager : MonoBehaviour
     [ContextMenu("Update Time")]
     public void UpdateMaxTime() {
         Instance = this;
-        time.SetMaxTime(sunRise.span + day.span + night.span + sunSet.span);
+        time.SetMaxTime(sunRise.time.maxTime + day.time.maxTime + night.time.maxTime + sunSet.time.maxTime);
     }    
     private void OnValidate() {
         if (Application.isPlaying && Instance != null) {
             Instance = this;
-            time.SetMaxTime(sunRise.span + day.span + night.span + sunSet.span);
+            time.SetMaxTime(sunRise.time.maxTime + day.time.maxTime + night.time.maxTime + sunSet.time.maxTime);
         }
     }
 }

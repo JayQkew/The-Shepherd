@@ -53,15 +53,15 @@ public class DynamicLighting : MonoBehaviour
         colorKeys[0] = new GradientColorKey(colors[0], curr);
 
         //Day
-        curr += (TimeManager.Instance.sunRise.span - twilightTime) / totalSpanTime;
+        curr += (TimeManager.Instance.sunRise.time.maxTime - twilightTime) / totalSpanTime;
         colorKeys[1] = new GradientColorKey(colors[1], curr);
 
         //Day
-        curr += TimeManager.Instance.day.span / totalSpanTime;
+        curr += TimeManager.Instance.day.time.maxTime / totalSpanTime;
         colorKeys[2] = new GradientColorKey(colors[1], curr);
 
         //Sunset
-        curr += TimeManager.Instance.sunSet.span / totalSpanTime;
+        curr += TimeManager.Instance.sunSet.time.maxTime / totalSpanTime;
         colorKeys[3] = new GradientColorKey(colors[2], curr);
 
         //Night
@@ -69,7 +69,7 @@ public class DynamicLighting : MonoBehaviour
         colorKeys[4] = new GradientColorKey(colors[3], curr);
 
         //Night
-        curr += (TimeManager.Instance.night.span - twilightTime) / totalSpanTime;
+        curr += (TimeManager.Instance.night.time.maxTime - twilightTime) / totalSpanTime;
         colorKeys[5] = new GradientColorKey(colors[3], curr);
 
         //Sunrise
