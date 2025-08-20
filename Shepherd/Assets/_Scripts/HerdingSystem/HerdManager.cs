@@ -22,7 +22,7 @@ public class HerdManager : MonoBehaviour
     }
 
     public void AddHerdAnimal(HerdAnimal herdAnimal) {
-        if (herdAnimal == null) return;
+        if (herdAnimal == null || allHerdAnimals.Contains(herdAnimal)) return;
     
         allHerdAnimals.Add(herdAnimal);
 
@@ -46,8 +46,11 @@ public class HerdManager : MonoBehaviour
         for (int i = 0; i < targets.Count; i++) {
             HerdTarget herdTarget = targets[i];
             if (herdTarget.destination == herdArea.areaName) {
-                herdTarget.curr = herdArea.animalsIn.Count;
+                if(herdArea.animalsByType.TryGetValue(herdTarget.animal, out List<HerdAnimal> animals)){
+                    herdTarget.curr = animals.Count;
+                }
             }
+            targets[i] = herdTarget;
         }
     }
 }

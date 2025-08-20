@@ -17,6 +17,7 @@ public class HerdArea : MonoBehaviour
                 animalsByType[animal.animalName] = new List<HerdAnimal>();
             }
             animalsByType[animal.animalName].Add(animal);
+            HerdManager.Instance.CheckTargets(this);
         }
     }
 
@@ -28,6 +29,7 @@ public class HerdArea : MonoBehaviour
             if (animalsByType.TryGetValue(animal.animalName, out var list)) {
                 list.Remove(animal);
             }
+            HerdManager.Instance.CheckTargets(this);
         }
     }
 }

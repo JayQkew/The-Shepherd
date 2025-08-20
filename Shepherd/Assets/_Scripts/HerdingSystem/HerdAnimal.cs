@@ -6,7 +6,7 @@ public class HerdAnimal : MonoBehaviour
     public HerdAnimalName animalName;
     public HerdAreaName currHerdArea;
 
-    private void OnEnable() {
+    private void Start() {
         HerdManager.Instance.AddHerdAnimal(this);
     }
 
