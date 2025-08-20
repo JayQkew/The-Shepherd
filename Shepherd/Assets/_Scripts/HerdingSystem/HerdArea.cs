@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HerdArea : MonoBehaviour
 {
-    [SerializeField] private HerdAreaName areaName;
+    public HerdAreaName areaName;
     public List<HerdAnimal> animalsIn = new List<HerdAnimal>();
 
     private void OnTriggerEnter(Collider other) {

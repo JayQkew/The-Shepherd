@@ -1719,6 +1719,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f6c6de0f20c5f443af476e3c45dac8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targets:
+  - destination: 0
+    animal: 0
+    target: 0
+    curr: 0
   allHerdAnimals: []
 --- !u!4 &1193918555 stripped
 Transform:

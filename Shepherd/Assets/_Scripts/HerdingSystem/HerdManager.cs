@@ -6,6 +6,8 @@ public class HerdManager : MonoBehaviour
 {
     public static HerdManager Instance { get; private set; }
     
+    public List<HerdTarget> targets;
+    
     public List<HerdAnimal> allHerdAnimals = new List<HerdAnimal>();
     
     public Dictionary<HerdAnimalName, List<HerdAnimal>> animalsByType = new Dictionary<HerdAnimalName, List<HerdAnimal>>();
@@ -37,6 +39,15 @@ public class HerdManager : MonoBehaviour
 
         if (animalsByType.TryGetValue(herdAnimal.animalName, out var list)) {
             list.Remove(herdAnimal);
+        }
+    }
+
+    public void CheckTargets(HerdArea herdArea) {
+        for (int i = 0; i < targets.Count; i++) {
+            HerdTarget herdTarget = targets[i];
+            if (herdTarget.destination == herdArea.areaName) {
+                herdTarget.curr = herdArea.animalsIn.Count;
+            }
         }
     }
 }
