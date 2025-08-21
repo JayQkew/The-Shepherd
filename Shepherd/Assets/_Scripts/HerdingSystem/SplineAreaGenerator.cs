@@ -7,20 +7,20 @@ public class SplineAreaGenerator : MonoBehaviour
     [SerializeField] private SplineContainer perimeterSpline;
     [SerializeField] private SplineContainer areaSpline;
 
+    [SerializeField] private Collider col;
+
     [SerializeField, Range(0f, 1f)] private float scale = 0.9f;
 
     private void Awake() {
         perimeterSpline = transform.parent.GetComponent<SplineContainer>();
         areaSpline = GetComponent<SplineContainer>();
+        col = GetComponent<Collider>();
+        col.isTrigger = true;
     }
 
     private void OnValidate() {
         if (perimeterSpline != null && areaSpline != null)
             CopyScaledSpline(perimeterSpline.Spline, areaSpline.Spline, scale);
-    }
-    
-    private void UpdateAreaSpline() {
-        CopyScaledSpline(perimeterSpline.Spline, areaSpline.Spline, scale);
     }
 
     private void CopyScaledSpline(Spline source, Spline target, float scale) {
