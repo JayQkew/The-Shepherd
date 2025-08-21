@@ -20,6 +20,7 @@ public class Sheep : MonoBehaviour, IBarkable
     [SerializeField] private float radius;
     [SerializeField] private float forceMult;
     [SerializeField] private UnityEvent onExplode;
+    [SerializeField]private bool showGizmos;
 
     private float prevWool;
     private void Awake() {
@@ -93,8 +94,10 @@ public class Sheep : MonoBehaviour, IBarkable
     }
 
     private void OnDrawGizmos() {
-        col = GetComponent<SphereCollider>();
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position + new Vector3(0, -col.radius, 0), radius);
+        if (showGizmos) {
+            col = GetComponent<SphereCollider>();
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(transform.position + new Vector3(0, -col.radius, 0), radius);
+        }
     }
 }
