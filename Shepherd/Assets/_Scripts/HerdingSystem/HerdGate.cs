@@ -8,13 +8,16 @@ public class HerdGate : MonoBehaviour
     [SerializeField] private BezierKnot meetingKnot;
     [SerializeField] private BezierKnot[] openKnots;
     [SerializeField] private float animationDuration = 1f;
+    [SerializeField] private GameObject herdAssist;
 
     private Timer gateTimer;
     private BezierKnot start0, start1;   // starting knots for animation
     private BezierKnot target0, target1; // target knots for animation
     private bool isAnimating;
+    [SerializeField] private SplineAreaGenerator splineAreaGenerator;
 
     private void Awake() {
+        splineAreaGenerator = GetComponentInChildren<SplineAreaGenerator>();
         splineContainer = GetComponent<SplineContainer>();
     }
 
@@ -40,6 +43,7 @@ public class HerdGate : MonoBehaviour
                 // snap to target when done
                 splineContainer.Spline[0] = target0;
                 splineContainer.Spline[^1] = target1;
+                splineAreaGenerator.CopyScaledSpline();
                 isAnimating = false;
             }
         }
@@ -54,6 +58,8 @@ public class HerdGate : MonoBehaviour
             splineContainer.Spline[^1].Rotation,
             0.5f
         );
+        
+        herdAssist.transform.localPosition = meetingKnot.Position;
     }
 
     [ContextMenu("OpenGate")]
@@ -72,7 +78,7 @@ public class HerdGate : MonoBehaviour
         target0 = newTarget0;
         target1 = newTarget1;
 
-        gateTimer.SetMaxTime(animationDuration, resetTimer: true);
+        gateTimer.SetMaxTime(animationDuration);
         isAnimating = true;
     }
 

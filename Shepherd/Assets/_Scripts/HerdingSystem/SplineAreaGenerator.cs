@@ -38,4 +38,20 @@ public class SplineAreaGenerator : MonoBehaviour
 
         target.Closed = source.Closed;
     }
+    
+    public void CopyScaledSpline() {
+        areaSpline.Spline.Clear();
+
+        foreach (BezierKnot knot in perimeterSpline.Spline) {
+            Vector3 scaledPos = knot.Position * scale;
+            Vector3 scaledTangentIn = knot.TangentIn * scale;
+            Vector3 scaledTangentOut = knot.TangentOut * scale;
+
+            BezierKnot newKnot = new BezierKnot(scaledPos, scaledTangentIn, scaledTangentOut, knot.Rotation);
+
+            areaSpline.Spline.Add(newKnot);
+        }
+
+        areaSpline.Spline.Closed = perimeterSpline.Spline.Closed;
+    }
 }
