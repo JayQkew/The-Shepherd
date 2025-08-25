@@ -3505,6 +3505,7 @@ MonoBehaviour:
         y: 0.99973
         z: 0
         w: 0.023239665
+  animationDuration: 1
 --- !u!4 &2125108607 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2618985539871644832, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
@@ -3617,19 +3618,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2116834613091774400, guid: ca66e79085b05424c999662a59ed899d, type: 3}
       propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[5].Position.x
-      value: -18.88
+      value: -20.57
       objectReference: {fileID: 0}
     - target: {fileID: 2116834613091774400, guid: ca66e79085b05424c999662a59ed899d, type: 3}
       propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[5].Position.z
-      value: -8.58
+      value: -8.030001
       objectReference: {fileID: 0}
     - target: {fileID: 2116834613091774400, guid: ca66e79085b05424c999662a59ed899d, type: 3}
       propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[6].Position.x
-      value: -22.68
+      value: -21.3
       objectReference: {fileID: 0}
     - target: {fileID: 2116834613091774400, guid: ca66e79085b05424c999662a59ed899d, type: 3}
       propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[6].Position.z
-      value: 3.5
+      value: 2.6099987
       objectReference: {fileID: 0}
     - target: {fileID: 2116834613091774400, guid: ca66e79085b05424c999662a59ed899d, type: 3}
       propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[0].TangentIn.z
@@ -3653,11 +3654,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2116834613091774400, guid: ca66e79085b05424c999662a59ed899d, type: 3}
       propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[5].TangentIn.z
-      value: -3.748026
+      value: -3.8462956
       objectReference: {fileID: 0}
     - target: {fileID: 2116834613091774400, guid: ca66e79085b05424c999662a59ed899d, type: 3}
       propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[6].TangentIn.z
-      value: -4.3766656
+      value: -4.4238553
       objectReference: {fileID: 0}
     - target: {fileID: 2116834613091774400, guid: ca66e79085b05424c999662a59ed899d, type: 3}
       propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[0].TangentOut.z
@@ -3681,11 +3682,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2116834613091774400, guid: ca66e79085b05424c999662a59ed899d, type: 3}
       propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[5].TangentOut.z
-      value: 3.748026
+      value: 3.8462956
       objectReference: {fileID: 0}
     - target: {fileID: 2116834613091774400, guid: ca66e79085b05424c999662a59ed899d, type: 3}
       propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[6].TangentOut.z
-      value: 4.3766656
+      value: 4.4238553
       objectReference: {fileID: 0}
     - target: {fileID: 2116834613091774400, guid: ca66e79085b05424c999662a59ed899d, type: 3}
       propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[1].Rotation.value.w
@@ -3721,19 +3722,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2116834613091774400, guid: ca66e79085b05424c999662a59ed899d, type: 3}
       propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[5].Rotation.value.w
-      value: 0.8952609
+      value: 0.9392475
       objectReference: {fileID: 0}
     - target: {fileID: 2116834613091774400, guid: ca66e79085b05424c999662a59ed899d, type: 3}
       propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[5].Rotation.value.y
-      value: -0.4455423
+      value: -0.3432408
       objectReference: {fileID: 0}
     - target: {fileID: 2116834613091774400, guid: ca66e79085b05424c999662a59ed899d, type: 3}
       propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[6].Rotation.value.w
-      value: 0.9641322
+      value: 0.9803755
       objectReference: {fileID: 0}
     - target: {fileID: 2116834613091774400, guid: ca66e79085b05424c999662a59ed899d, type: 3}
       propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[6].Rotation.value.y
-      value: 0.26542252
+      value: 0.19713907
       objectReference: {fileID: 0}
     - target: {fileID: 3217271735235470932, guid: ca66e79085b05424c999662a59ed899d, type: 3}
       propertyPath: m_LocalPosition.x
