@@ -3625,11 +3625,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2116834613091774400, guid: ca66e79085b05424c999662a59ed899d, type: 3}
       propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[6].Position.x
-      value: -20.34
+      value: -22.68
       objectReference: {fileID: 0}
     - target: {fileID: 2116834613091774400, guid: ca66e79085b05424c999662a59ed899d, type: 3}
       propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[6].Position.z
-      value: 2.5499992
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 2116834613091774400, guid: ca66e79085b05424c999662a59ed899d, type: 3}
       propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[0].TangentIn.z
@@ -3820,6 +3820,18 @@ PrefabInstance:
       value: -8.2368
       objectReference: {fileID: 0}
     - target: {fileID: 9188924380375046458, guid: ca66e79085b05424c999662a59ed899d, type: 3}
+      propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[6].Position.x
+      value: -21.7728
+      objectReference: {fileID: 0}
+    - target: {fileID: 9188924380375046458, guid: ca66e79085b05424c999662a59ed899d, type: 3}
+      propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[6].Position.z
+      value: 3.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 9188924380375046458, guid: ca66e79085b05424c999662a59ed899d, type: 3}
+      propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[0].TangentIn.z
+      value: -3.04944
+      objectReference: {fileID: 0}
+    - target: {fileID: 9188924380375046458, guid: ca66e79085b05424c999662a59ed899d, type: 3}
       propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[1].TangentIn.z
       value: -5.8032465
       objectReference: {fileID: 0}
@@ -3849,7 +3861,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9188924380375046458, guid: ca66e79085b05424c999662a59ed899d, type: 3}
       propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[6].TangentIn.z
-      value: -3.9259198
+      value: -4.2015986
+      objectReference: {fileID: 0}
+    - target: {fileID: 9188924380375046458, guid: ca66e79085b05424c999662a59ed899d, type: 3}
+      propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[0].TangentOut.z
+      value: 3.04944
       objectReference: {fileID: 0}
     - target: {fileID: 9188924380375046458, guid: ca66e79085b05424c999662a59ed899d, type: 3}
       propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[1].TangentOut.z
@@ -3873,7 +3889,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9188924380375046458, guid: ca66e79085b05424c999662a59ed899d, type: 3}
       propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[6].TangentOut.z
-      value: 3.9259198
+      value: 4.2015986
       objectReference: {fileID: 0}
     - target: {fileID: 9188924380375046458, guid: ca66e79085b05424c999662a59ed899d, type: 3}
       propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[1].Rotation.value.w
@@ -3917,11 +3933,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9188924380375046458, guid: ca66e79085b05424c999662a59ed899d, type: 3}
       propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[6].Rotation.value.w
-      value: 0.9303591
+      value: 0.9641322
       objectReference: {fileID: 0}
     - target: {fileID: 9188924380375046458, guid: ca66e79085b05424c999662a59ed899d, type: 3}
       propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[6].Rotation.value.y
-      value: 0.36664945
+      value: 0.26542252
       objectReference: {fileID: 0}
     - target: {fileID: 9188924380375046458, guid: ca66e79085b05424c999662a59ed899d, type: 3}
       propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[6].Rotation.value.z
