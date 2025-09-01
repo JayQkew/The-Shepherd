@@ -15,8 +15,7 @@ public class Food : MonoBehaviour
     [SerializeField] private float poopForce;
     [SerializeField] private float poopDelay;
     [SerializeField] private float poopThreshold;
-
-
+    
     public void Eat() {
         food += eat.RandomValue();
         if (food >= 1) Poop();
