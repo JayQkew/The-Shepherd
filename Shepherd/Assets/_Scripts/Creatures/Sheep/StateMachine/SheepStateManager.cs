@@ -1,10 +1,13 @@
 using System;
+using _Scripts.Creatures.Sheep;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class SheepStateManager : MonoBehaviour
 {
-    public SheepBaseState currState;
+    private SheepBaseState currState;
+    [HideInInspector] public Sheep sheep;
+    [HideInInspector] public Boids boids;
     public SheepStats stats;
     public SheepGUI gui;
 
@@ -16,6 +19,8 @@ public class SheepStateManager : MonoBehaviour
 
     private void Awake() {
         gui = GetComponent<SheepGUI>();
+        sheep = GetComponent<Sheep>();
+        boids = GetComponent<Boids>();
     }
 
     private void Start() {

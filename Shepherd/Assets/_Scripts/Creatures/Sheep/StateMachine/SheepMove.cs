@@ -13,7 +13,8 @@ public class SheepMove : SheepBaseState
     
     public override void EnterState(SheepStateManager manager) {
         manager.gui.PlayAnim("Idle");
-        if(!rb) rb = manager.GetComponent<Rigidbody>();
+        manager.boids.activeBoids = true;
+        if (!rb) rb = manager.sheep.rb;
         
         dir = Random.insideUnitCircle.normalized;
         speed = manager.stats.walkSpeed.RandomValue();

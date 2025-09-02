@@ -8,8 +8,8 @@ public class SheepEat : SheepBaseState
     public Timer eatTimer;
     public override void EnterState(SheepStateManager manager) {
         manager.gui.PlayAnim("Eat");
-        manager.GetComponent<Sheep>().food?.Eat();
-        manager.GetComponent<Boids>().activeBoids = false;
+        manager.sheep.food.Eat();
+        manager.boids.activeBoids = false;
         eatTimer.SetMaxTime(manager.stats.eatTime.RandomValue());
     }
 

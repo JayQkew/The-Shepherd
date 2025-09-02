@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd1b3414da9da8145addf72ba422e735, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimalData: {fileID: 11400000, guid: 32ade72638ff9684689010ce0d1204d4, type: 2}
+  animalData: {fileID: 11400000, guid: 32ade72638ff9684689010ce0d1204d4, type: 2}
   animalName: 0
   rb: {fileID: 2088826080556547742}
   col: {fileID: 7207902761964510733}
