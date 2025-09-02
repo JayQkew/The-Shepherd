@@ -23,6 +23,7 @@ namespace _Scripts.TimeSystem
             }
             else {
                 onPhaseEnd.Invoke();
+                timer.Reset();
             }
         }
     }

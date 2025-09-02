@@ -19,8 +19,49 @@ public class TimeManager : MonoBehaviour
         }
     }
 
+    private void Start() {
+        currPhase = DayPhaseName.Sunrise;
+    }
+
     private void Update() {
+        UpdateTime();
+        
+        if (time.IsFinished) {
+            time.Reset();
+            dayCount++;
+        }
+    }
+
+    private void UpdateTime() {
         time.Update();
+        switch (currPhase) {
+            case DayPhaseName.Sunrise:
+                dayPhases[0].UpdateTimer();
+                if (dayPhases[0].timer.IsFinished) {
+                    currPhase = DayPhaseName.Day;
+                }
+                break;
+            case DayPhaseName.Day:
+                dayPhases[1].UpdateTimer();
+                if (dayPhases[1].timer.IsFinished) {
+                    currPhase = DayPhaseName.Sunset;
+                }
+                break;
+            case DayPhaseName.Sunset:
+                dayPhases[2].UpdateTimer();
+                if (dayPhases[2].timer.IsFinished) {
+                    currPhase = DayPhaseName.Night;
+                }
+                break;
+            case DayPhaseName.Night:
+                dayPhases[3].UpdateTimer();
+                if (dayPhases[3].timer.IsFinished) {
+                    currPhase = DayPhaseName.Sunrise;
+                }
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
     }
 
     private void TotalTime() {
@@ -44,4 +85,12 @@ public enum DayPhaseName
     Day,
     Sunset,
     Night
+}
+
+public enum SeasonName
+{
+    Summer,
+    Autumn,
+    Winter,
+    Spring
 }

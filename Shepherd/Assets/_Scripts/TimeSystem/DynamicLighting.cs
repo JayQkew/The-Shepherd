@@ -1,4 +1,5 @@
 using System;
+using _Scripts.TimeSystem;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -16,6 +17,8 @@ public class DynamicLighting : MonoBehaviour
 
     [SerializeField] private Gradient lightGradient;
     [SerializeField] private Gradient skyGradient;
+    
+    [SerializeField] private SeasonColors[] seasonColours;
 
     private void Awake() {
         SetGradient(lightGradient, lightColors);
@@ -35,7 +38,7 @@ public class DynamicLighting : MonoBehaviour
         float xAngle = 25 + (Mathf.Cos(t * 2 * Mathf.PI) + 1) / 2 * 25;
         float yAngle = Mathf.Lerp(0, 360, t) - 80;
 
-        transform.eulerAngles = new Vector3(xAngle, yAngle, transform.eulerAngles.z);
+        light.transform.eulerAngles = new Vector3(xAngle, yAngle, transform.eulerAngles.z);
     }
 
     private void SetGradient(Gradient gradient, Color[] colors) {
