@@ -13,6 +13,10 @@ namespace _Scripts.Creatures.Sheep
         [SerializeField] private UnityEvent[] woolEvents = new UnityEvent[3];
 
         public Wool(MinMax woolTime) {
+            Init(woolTime);
+        }
+
+        public void Init(MinMax woolTime) {
             woolTimer.SetMaxTime(woolTime.RandomValue());
             prevWool = woolValue;
         }
