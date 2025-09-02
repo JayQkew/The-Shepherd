@@ -12,10 +12,7 @@ namespace _Scripts.Creatures
         
         [Header("Wool")]
         [SerializeField] private float wool;
-        
         [SerializeField] private Timer woolTimer;
-        [SerializeField] private float currWeight;
-        [SerializeField] private MinMax weight;
     
         [Header("Explosion")]
         [SerializeField] private float radius;
@@ -25,6 +22,7 @@ namespace _Scripts.Creatures
     
         private float prevWool;
         private void Awake() {
+            base.Awake();
             sheepStateManager = GetComponent<SheepStateManager>();
             gui = GetComponent<SheepGUI>();
             woolTimer.SetMaxTime(sheepStateManager.stats.woolTime.RandomValue());
@@ -46,7 +44,7 @@ namespace _Scripts.Creatures
         private void GrowWool() {
             woolTimer.Update();
             wool = woolTimer.Progress;
-            rb.mass = weight.Lerp(wool);
+            rb.mass = AnimalData.mass.Lerp(wool);
         }
     
         /// <summary>
