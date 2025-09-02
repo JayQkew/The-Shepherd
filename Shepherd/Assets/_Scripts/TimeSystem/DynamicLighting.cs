@@ -4,10 +4,10 @@ using UnityEngine.Serialization;
 
 public class DynamicLighting : MonoBehaviour
 {
-    private Light light;
+    [SerializeField] private Light light;
 
     [SerializeField, Tooltip("Gap between night and sunset and sunrise")]
-    private float twilightTime = 0.1f;
+    private float transitionTime = 10f;
 
     [SerializeField, Tooltip("SunRise, Day, SunSet, Night")]
     private Color[] lightColors = new Color[4];
@@ -18,15 +18,13 @@ public class DynamicLighting : MonoBehaviour
     [SerializeField] private Gradient skyGradient;
 
     private void Awake() {
-        light = GetComponent<Light>();
-
         SetGradient(lightGradient, lightColors);
         SetGradient(skyGradient, skyColors);
     }
 
     private void Update() {
         if (TimeManager.Instance != null) {
-            float t = Mathf.Lerp(0, 1, TimeManager.Instance.time.Progress);
+            float t = TimeManager.Instance.time.Progress;
             light.color = lightGradient.Evaluate(t);
             RenderSettings.skybox.SetColor("_Tint", skyGradient.Evaluate(t));
             LightAngle(t);
@@ -43,37 +41,41 @@ public class DynamicLighting : MonoBehaviour
     private void SetGradient(Gradient gradient, Color[] colors) {
         if (TimeManager.Instance == null) return;
 
-        float totalSpanTime = TimeManager.Instance.time.maxTime + twilightTime;
+        float totalSpanTime = TimeManager.Instance.time.maxTime + transitionTime * 2;
 
-        GradientColorKey[] colorKeys = new GradientColorKey[7];
+        GradientColorKey[] colorKeys = new GradientColorKey[8];
 
-        //Sunrise
+        //Sunrise - end
         float curr = 0;
-        curr += twilightTime / totalSpanTime;
+        curr += (TimeManager.Instance.dayPhases[0].timer.maxTime - transitionTime / 2) / totalSpanTime;
         colorKeys[0] = new GradientColorKey(colors[0], curr);
 
-        //Day
-        // curr += (TimeManager.Instance.sunRise.time.maxTime - twilightTime) / totalSpanTime;
+        //Day - start
+        curr += transitionTime / totalSpanTime;
         colorKeys[1] = new GradientColorKey(colors[1], curr);
 
-        //Day
-        // curr += TimeManager.Instance.day.time.maxTime / totalSpanTime;
+        //Day - end
+        curr += (TimeManager.Instance.dayPhases[1].timer.maxTime - transitionTime / 2) / totalSpanTime;
         colorKeys[2] = new GradientColorKey(colors[1], curr);
 
-        //Sunset
-        // curr += TimeManager.Instance.sunSet.time.maxTime / totalSpanTime;
+        //Sunset - start
+        curr += transitionTime / totalSpanTime;
         colorKeys[3] = new GradientColorKey(colors[2], curr);
 
-        //Night
-        curr += twilightTime / totalSpanTime;
-        colorKeys[4] = new GradientColorKey(colors[3], curr);
+        //Sunset - end
+        curr += (TimeManager.Instance.dayPhases[2].timer.maxTime - transitionTime / 2) / totalSpanTime;
+        colorKeys[4] = new GradientColorKey(colors[2], curr);
 
-        //Night
-        // curr += (TimeManager.Instance.night.time.maxTime - twilightTime) / totalSpanTime;
+        //Night - start
+        curr += transitionTime / totalSpanTime;
         colorKeys[5] = new GradientColorKey(colors[3], curr);
+        
+        //Night - end
+        curr += (TimeManager.Instance.dayPhases[3].timer.maxTime - transitionTime / 2) / totalSpanTime;
+        colorKeys[6] = new GradientColorKey(colors[3], curr);
 
-        //Sunrise
-        colorKeys[6] = new GradientColorKey(colors[0], 1.0f);
+        //Sunrise - start
+        colorKeys[7] = new GradientColorKey(colors[0], 1.0f);
 
         GradientAlphaKey[] alphaKeys = new GradientAlphaKey[2];
         alphaKeys[0] = new GradientAlphaKey(1.0f, 0.0f);
@@ -82,18 +84,14 @@ public class DynamicLighting : MonoBehaviour
         gradient.SetKeys(colorKeys, alphaKeys);
     }
 
-    [ContextMenu("Update Gradient")]
-    public void UpdateGradient() {
-        light = GetComponent<Light>();
+    private void UpdateGradient() {
         SetGradient(lightGradient, lightColors);
         SetGradient(skyGradient, skyColors);
     }
 
     private void OnValidate() {
-        if (Application.isPlaying && TimeManager.Instance != null) {
-            light = GetComponent<Light>();
-            SetGradient(lightGradient, lightColors);
-            SetGradient(skyGradient, skyColors);
+        if (TimeManager.Instance != null) {
+            UpdateGradient();
         }
     }
 }

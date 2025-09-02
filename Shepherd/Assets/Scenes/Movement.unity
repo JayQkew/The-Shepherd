@@ -134,6 +134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 17736215}
   - component: {fileID: 17736216}
+  - component: {fileID: 17736217}
   m_Layer: 0
   m_Name: Time
   m_TagString: Untagged
@@ -169,27 +170,135 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time:
-    maxTime: 210
+    maxTime: 300
     currTime: 0
   dayCount: 0
-  dayPhaseName: 0
+  currPhase: 0
   dayPhases:
   - phase: 0
     timer:
-      maxTime: 0
+      maxTime: 30
       currTime: 0
+    onPhaseStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onPhaseEnd:
+      m_PersistentCalls:
+        m_Calls: []
   - phase: 1
     timer:
-      maxTime: 0
+      maxTime: 120
       currTime: 0
+    onPhaseStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onPhaseEnd:
+      m_PersistentCalls:
+        m_Calls: []
   - phase: 2
     timer:
-      maxTime: 0
+      maxTime: 30
       currTime: 0
+    onPhaseStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onPhaseEnd:
+      m_PersistentCalls:
+        m_Calls: []
   - phase: 3
     timer:
-      maxTime: 0
+      maxTime: 120
       currTime: 0
+    onPhaseStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onPhaseEnd:
+      m_PersistentCalls:
+        m_Calls: []
+--- !u!114 &17736217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17736214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c027a94e35088384799daf0fff5be2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light: {fileID: 410087040}
+  transitionTime: 30
+  lightColors:
+  - {r: 1, g: 0.31764707, b: 0, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 0.10980392, b: 0.25490198, a: 1}
+  - {r: 0.3254902, g: 0.3254902, b: 1, a: 1}
+  skyColors:
+  - {r: 0.95283014, g: 0.33131522, b: 0.22921851, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 0.6886792, g: 0.17857963, b: 0.09420614, a: 1}
+  - {r: 0.14122735, g: 0.028390896, b: 0.20754719, a: 1}
+  lightGradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 0.31764707, b: 0, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 1, g: 1, b: 1, a: 0}
+    key3: {r: 1, g: 0.10980392, b: 0.25490198, a: 0}
+    key4: {r: 1, g: 0.10980392, b: 0.25490198, a: 0}
+    key5: {r: 0.3254902, g: 0.3254902, b: 1, a: 0}
+    key6: {r: 0.3254902, g: 0.3254902, b: 1, a: 0}
+    key7: {r: 1, g: 0.31764707, b: 0, a: 0}
+    ctime0: 2731
+    ctime1: 8192
+    ctime2: 27306
+    ctime3: 32768
+    ctime4: 35498
+    ctime5: 40959
+    ctime6: 60074
+    ctime7: 65535
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 8
+    m_NumAlphaKeys: 2
+  skyGradient:
+    serializedVersion: 2
+    key0: {r: 0.95283014, g: 0.33131522, b: 0.22921851, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 1, g: 1, b: 1, a: 0}
+    key3: {r: 0.6886792, g: 0.17857963, b: 0.09420614, a: 0}
+    key4: {r: 0.6886792, g: 0.17857963, b: 0.09420614, a: 0}
+    key5: {r: 0.14122735, g: 0.028390896, b: 0.20754719, a: 0}
+    key6: {r: 0.14122735, g: 0.028390896, b: 0.20754719, a: 0}
+    key7: {r: 0.95283014, g: 0.33131522, b: 0.22921851, a: 0}
+    ctime0: 2731
+    ctime1: 8192
+    ctime2: 27306
+    ctime3: 32768
+    ctime4: 35498
+    ctime5: 40959
+    ctime6: 60074
+    ctime7: 65535
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 8
+    m_NumAlphaKeys: 2
 --- !u!4 &120751288 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2618985539871644832, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
@@ -456,7 +565,6 @@ GameObject:
   - component: {fileID: 410087041}
   - component: {fileID: 410087040}
   - component: {fileID: 410087042}
-  - component: {fileID: 410087043}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -567,89 +675,6 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
---- !u!114 &410087043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 410087039}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c027a94e35088384799daf0fff5be2a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  twilightTime: 10
-  lightColors:
-  - {r: 1, g: 0.31764707, b: 0, a: 1}
-  - {r: 1, g: 1, b: 1, a: 1}
-  - {r: 1, g: 0.10980392, b: 0.25490198, a: 1}
-  - {r: 0.3254902, g: 0.3254902, b: 1, a: 1}
-  skyColors:
-  - {r: 0.95283014, g: 0.33131522, b: 0.22921851, a: 1}
-  - {r: 1, g: 1, b: 1, a: 1}
-  - {r: 0.6886792, g: 0.17857963, b: 0.09420614, a: 1}
-  - {r: 0.14122735, g: 0.028390896, b: 0.20754719, a: 1}
-  lightGradient:
-    serializedVersion: 2
-    key0: {r: 1, g: 0.31764707, b: 0, a: 1}
-    key1: {r: 1, g: 1, b: 1, a: 1}
-    key2: {r: 1, g: 1, b: 1, a: 0}
-    key3: {r: 1, g: 0.10980392, b: 0.25490198, a: 0}
-    key4: {r: 0.3254902, g: 0.3254902, b: 1, a: 0}
-    key5: {r: 0.3254902, g: 0.3254902, b: 1, a: 0}
-    key6: {r: 1, g: 0.31764707, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 2979
-    ctime1: 8937
-    ctime2: 35746
-    ctime3: 41704
-    ctime4: 44683
-    ctime5: 62556
-    ctime6: 65535
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 0
-    m_ColorSpace: -1
-    m_NumColorKeys: 7
-    m_NumAlphaKeys: 2
-  skyGradient:
-    serializedVersion: 2
-    key0: {r: 0.95283014, g: 0.33131522, b: 0.22921851, a: 1}
-    key1: {r: 1, g: 1, b: 1, a: 1}
-    key2: {r: 1, g: 1, b: 1, a: 0}
-    key3: {r: 0.6886792, g: 0.17857963, b: 0.09420614, a: 0}
-    key4: {r: 0.14122735, g: 0.028390896, b: 0.20754719, a: 0}
-    key5: {r: 0.14122735, g: 0.028390896, b: 0.20754719, a: 0}
-    key6: {r: 0.95283014, g: 0.33131522, b: 0.22921851, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 2979
-    ctime1: 8937
-    ctime2: 35746
-    ctime3: 41704
-    ctime4: 44683
-    ctime5: 62556
-    ctime6: 65535
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 0
-    m_ColorSpace: -1
-    m_NumColorKeys: 7
-    m_NumAlphaKeys: 2
 --- !u!1 &426241487
 GameObject:
   m_ObjectHideFlags: 0

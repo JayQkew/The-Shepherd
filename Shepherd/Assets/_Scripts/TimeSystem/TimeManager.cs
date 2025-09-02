@@ -8,7 +8,7 @@ public class TimeManager : MonoBehaviour
     public static TimeManager Instance { get; private set; }
     public Timer time;
     public uint dayCount;
-    public DayPhaseName dayPhaseName;
+    public DayPhaseName currPhase;
 
     public DayPhase[] dayPhases;
     
@@ -17,23 +17,24 @@ public class TimeManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(this);
         }
-        else {
-            Destroy(this);
-        }
     }
 
     private void Update() {
         time.Update();
     }
 
-    [ContextMenu("Update Time")]
-    public void UpdateMaxTime() {
-        Instance = this;
-    }    
+    private void TotalTime() {
+        time.maxTime = 0;
+        foreach (DayPhase dayPhase in dayPhases) {
+            time.maxTime += dayPhase.timer.maxTime;
+        }
+    }  
+    
     private void OnValidate() {
-        if (Application.isPlaying && Instance != null) {
+        if (Instance == null) {
             Instance = this;
         }
+        TotalTime();
     }
 }
 

@@ -57,7 +57,7 @@ namespace _Scripts.Creatures.Sheep.StateMachine
 
             SheepBaseState[] nightState = { sheepSleep };
 
-            SheepBaseState[] states = TimeManager.Instance.dayPhaseName == DayPhaseName.Night ? nightState : dayStates;
+            SheepBaseState[] states = TimeManager.Instance.currPhase == DayPhaseName.Night ? nightState : dayStates;
 
             return states[Random.Range(0, states.Length)];
         }
