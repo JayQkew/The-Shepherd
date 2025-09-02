@@ -8,7 +8,7 @@ namespace _Scripts.Creatures
     [RequireComponent(typeof(SphereCollider))]
     public class Animal : MonoBehaviour
     {
-        [SerializeField] protected AnimalData AnimalData;
+        [SerializeField] protected AnimalData animalData;
         public AnimalName animalName;
         public Rigidbody rb;
         public SphereCollider col;
@@ -20,9 +20,9 @@ namespace _Scripts.Creatures
 
         protected void Start() {
             rb.constraints = RigidbodyConstraints.FreezeRotation;
-            rb.mass = AnimalData.mass.RandomValue();
-            rb.useGravity = AnimalData.useGravity;
-            rb.linearDamping = AnimalData.linearDamping;
+            rb.mass = animalData.mass.RandomValue();
+            rb.useGravity = animalData.useGravity;
+            rb.linearDamping = animalData.linearDamping;
         }
 
         public override string ToString() {

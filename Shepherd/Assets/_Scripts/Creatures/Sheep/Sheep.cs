@@ -30,7 +30,7 @@ namespace _Scripts.Creatures.Sheep
     
         private void Update() {
             wool.WoolUpdate();
-            rb.mass = AnimalData.mass.Lerp(wool.woolValue);
+            rb.mass = animalData.mass.Lerp(wool.woolValue);
         }
 
         public void PuffExplosion() => explosion.PuffExplosion();

@@ -1560,12 +1560,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2805361568288454968, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
-      propertyPath: barkForce
-      value: 9.85
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6914229483481004525, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
