@@ -21,15 +21,15 @@ public class SheepGUI : MonoBehaviour
         stateManager = GetComponent<SheepStateManager>();
     }
 
-    public void ChangeWool(WoolLength woolLength) {
+    public void ChangeWool(int woolLength) {
         switch (woolLength) {
-            case WoolLength.Small:
+            case 0:
                 ActivateWool(smallWool);
                 break;
-            case WoolLength.Medium:
+            case 1:
                 ActivateWool(mediumWool);
                 break;
-            case WoolLength.Large:
+            case 2:
                 ActivateWool(largeWool);
                 break;
         }

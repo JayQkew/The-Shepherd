@@ -1,18 +1,16 @@
-using _Scripts.Creatures;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
-namespace _Scripts.Creatures
+namespace _Scripts.Creatures.Sheep
 {
     public class Sheep : Animal, IBarkable
     {
         private SheepStateManager sheepStateManager;
-        private SheepGUI gui;
         [SerializeField] private float barkForce;
-        
-        [Header("Wool")]
-        [SerializeField] private float wool;
-        [SerializeField] private Timer woolTimer;
+
+        [Space(20)]
+        [SerializeField] private Wool wool;
     
         [Header("Explosion")]
         [SerializeField] private float radius;
@@ -20,13 +18,9 @@ namespace _Scripts.Creatures
         [SerializeField] private UnityEvent onExplode;
         [SerializeField]private bool showGizmos;
     
-        private float prevWool;
         private void Awake() {
             base.Awake();
             sheepStateManager = GetComponent<SheepStateManager>();
-            gui = GetComponent<SheepGUI>();
-            woolTimer.SetMaxTime(sheepStateManager.stats.woolTime.RandomValue());
-            prevWool = wool;
         }
     
         public void BarkedAt(Vector3 sourcePosition) {
@@ -37,34 +31,11 @@ namespace _Scripts.Creatures
         }
     
         private void Update() {
-            GrowWool();
-            WoolCheck();
-        }
-        
-        private void GrowWool() {
-            woolTimer.Update();
-            wool = woolTimer.Progress;
-            rb.mass = AnimalData.mass.Lerp(wool);
+            wool.WoolUpdate();
+            rb.mass = AnimalData.mass.Lerp(wool.woolValue);
         }
     
-        /// <summary>
-        /// Checks for when the Sheep wool meets a threshold
-        /// </summary>
-        private void WoolCheck() {
-            if (wool <= 0.1f) gui.ChangeWool(SheepGUI.WoolLength.Small);
-            if (prevWool < 0.3f && wool >= 0.3f) {
-                gui.ChangeWool(SheepGUI.WoolLength.Medium);
-                PuffExplosion();
-            }
-            if (prevWool < 0.6f && wool >= 0.6f) {
-                gui.ChangeWool(SheepGUI.WoolLength.Large);
-                PuffExplosion();
-            }
-            
-            prevWool = wool;
-        }
-    
-        private void PuffExplosion() {
+        public void PuffExplosion() {
             Vector3 origin = transform.position + new Vector3(0, -col.radius, 0);
             Collider[] cols = Physics.OverlapSphere(origin, radius);
             if (cols.Length == 0) return;
