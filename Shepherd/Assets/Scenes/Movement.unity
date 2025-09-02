@@ -172,22 +172,23 @@ MonoBehaviour:
     maxTime: 210
     currTime: 0
   dayCount: 0
-  timeState: 0
-  sunRise:
-    time:
-      maxTime: 30
+  dayPhaseName: 0
+  dayPhases:
+  - phase: 0
+    timer:
+      maxTime: 0
       currTime: 0
-  day:
-    time:
-      maxTime: 90
+  - phase: 1
+    timer:
+      maxTime: 0
       currTime: 0
-  sunSet:
-    time:
-      maxTime: 20
+  - phase: 2
+    timer:
+      maxTime: 0
       currTime: 0
-  night:
-    time:
-      maxTime: 70
+  - phase: 3
+    timer:
+      maxTime: 0
       currTime: 0
 --- !u!4 &120751288 stripped
 Transform:
