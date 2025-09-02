@@ -1,4 +1,5 @@
 using System;
+using _Scripts.Creatures.Sheep.StateMachine;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;

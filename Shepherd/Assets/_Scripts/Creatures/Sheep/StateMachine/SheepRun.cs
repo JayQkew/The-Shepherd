@@ -1,26 +1,28 @@
 using System;
-using UnityEngine;
 
-[Serializable]
-public class SheepRun : SheepBaseState
+namespace _Scripts.Creatures.Sheep.StateMachine
 {
-    public Timer runTimer;
+    [Serializable]
+    public class SheepRun : SheepBaseState
+    {
+        public Timer runTimer;
 
-    public override void EnterState(SheepStateManager manager) {
-        manager.gui.PlayAnim("Idle");
-        manager.boids.activeBoids = true;
-        runTimer.SetMaxTime(manager.stats.runTime.RandomValue());
-    }
-
-    public override void UpdateState(SheepStateManager manager) {
-        runTimer.Update();
-        manager.gui.UpdateSuppAnims();
-        if (runTimer.IsFinished) {
-            manager.SwitchState(manager.GetRandomState());
+        public override void EnterState(SheepStateManager manager) {
+            manager.gui.PlayAnim("Idle");
+            manager.boids.activeBoids = true;
+            runTimer.SetMaxTime(manager.stats.runTime.RandomValue());
         }
-    }
 
-    public override void ExitState(SheepStateManager manager) {
-        manager.boids.activeBoids = false;
+        public override void UpdateState(SheepStateManager manager) {
+            runTimer.Update();
+            manager.gui.UpdateSuppAnims();
+            if (runTimer.IsFinished) {
+                manager.SwitchState(manager.GetRandomState());
+            }
+        }
+
+        public override void ExitState(SheepStateManager manager) {
+            manager.boids.activeBoids = false;
+        }
     }
 }

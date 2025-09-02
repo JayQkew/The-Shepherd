@@ -1,66 +1,72 @@
-using System;
-using _Scripts.Creatures.Sheep;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class SheepStateManager : MonoBehaviour
+namespace _Scripts.Creatures.Sheep.StateMachine
 {
-    private SheepBaseState currState;
-    [HideInInspector] public Sheep sheep;
-    [HideInInspector] public Boids boids;
-    public SheepStats stats;
-    public SheepGUI gui;
+    public class SheepStateManager : MonoBehaviour
+    {
+        private SheepBaseState currState;
+        [HideInInspector] public Sheep sheep;
+        [HideInInspector] public Boids boids;
+        public SheepStats stats;
+        public SheepGUI gui;
 
-    public SheepIdle sheepIdle = new SheepIdle();
-    public SheepEat sheepEat = new SheepEat();
-    public SheepSleep sheepSleep = new SheepSleep();
-    public SheepMove sheepMove = new SheepMove();
-    public SheepRun sheepRun = new SheepRun();
+        [Space(10)]
+        public SheepIdle sheepIdle;
+        [Space(10)]
+        public SheepEat sheepEat;
+        [Space(10)]
+        public SheepSleep sheepSleep;
+        [Space(10)]
+        public SheepMove sheepMove;
+        [Space(10)]
+        public SheepRun sheepRun;
 
-    private void Awake() {
-        gui = GetComponent<SheepGUI>();
-        sheep = GetComponent<Sheep>();
-        boids = GetComponent<Boids>();
+        private void Awake() {
+            gui = GetComponent<SheepGUI>();
+            sheep = GetComponent<Sheep>();
+            boids = GetComponent<Boids>();
+        }
+
+        private void Start() {
+            currState = sheepIdle;
+            currState.EnterState(this);
+        }
+
+        private void Update() {
+            currState.UpdateState(this);
+        }
+
+        public void SwitchState(SheepBaseState newState) {
+            currState.ExitState(this);
+            currState = newState;
+            currState.EnterState(this);
+        }
+
+        public SheepBaseState GetRandomState() {
+            SheepBaseState[] dayStates =
+            {
+                sheepIdle,
+                sheepIdle,
+                sheepIdle,
+                sheepEat,
+                sheepEat,
+                sheepSleep,
+                sheepMove
+            };
+
+            SheepBaseState[] nightState = { sheepSleep };
+
+            SheepBaseState[] states = TimeManager.Instance.dayPhaseName == DayPhaseName.Night ? nightState : dayStates;
+
+            return states[Random.Range(0, states.Length)];
+        }
     }
 
-    private void Start() {
-        currState = sheepIdle;
-        currState.EnterState(this);
+    public abstract class SheepBaseState
+    {
+        public abstract void EnterState(SheepStateManager manager);
+        public abstract void UpdateState(SheepStateManager manager);
+        public abstract void ExitState(SheepStateManager manager);
     }
-
-    private void Update() {
-        currState.UpdateState(this);
-    }
-
-    public void SwitchState(SheepBaseState newState) {
-        currState.ExitState(this);
-        currState = newState;
-        currState.EnterState(this);
-    }
-
-    public SheepBaseState GetRandomState() {
-        SheepBaseState[] dayStates =
-        {
-            sheepIdle,
-            sheepIdle,
-            sheepIdle,
-            sheepEat,
-            sheepEat,
-            sheepSleep,
-            sheepMove
-        };
-
-        SheepBaseState[] nightState = { sheepSleep };
-
-        SheepBaseState[] states = TimeManager.Instance.timeState == TimeState.Night ? nightState : dayStates;
-
-        return states[Random.Range(0, states.Length)];
-    }
-}
-
-public abstract class SheepBaseState
-{
-    public abstract void EnterState(SheepStateManager manager);
-    public abstract void UpdateState(SheepStateManager manager);
-    public abstract void ExitState(SheepStateManager manager);
 }
