@@ -964,6 +964,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2805361568288454968, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
+      propertyPath: explosion.radius
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2805361568288454968, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
       propertyPath: _wool.woolEvents.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -1115,7 +1119,8 @@ PrefabInstance:
       propertyPath: _wool.woolEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6914229483481004525, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1556,10 +1561,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2805361568288454968, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
-      propertyPath: _wool.woolTimer.maxTime
-      value: 0
+      propertyPath: barkForce
+      value: 9.85
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6914229483481004525, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

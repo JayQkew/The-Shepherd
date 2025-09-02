@@ -6,7 +6,7 @@ public class HerdArea : MonoBehaviour
 {
     public HerdAreaName areaName;
     public List<HerdAnimal> animalsIn = new List<HerdAnimal>();
-    public Dictionary<HerdAnimalName, List<HerdAnimal>> animalsByType = new Dictionary<HerdAnimalName, List<HerdAnimal>>();
+    public Dictionary<AnimalName, List<HerdAnimal>> animalsByType = new Dictionary<AnimalName, List<HerdAnimal>>();
 
     private void OnTriggerEnter(Collider other) {
         HerdAnimal animal = other.GetComponent<HerdAnimal>();

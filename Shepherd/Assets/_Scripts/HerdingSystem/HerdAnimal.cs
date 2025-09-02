@@ -1,10 +1,9 @@
 using System;
+using _Scripts.Creatures;
 using UnityEngine;
 
-public class HerdAnimal : MonoBehaviour
+public class HerdAnimal : Animal
 {
-    public Rigidbody rb;
-    public HerdAnimalName animalName;
     public HerdAreaName currHerdArea;
 
     private void Awake() {
@@ -12,6 +11,7 @@ public class HerdAnimal : MonoBehaviour
     }
 
     private void Start() {
+        base.Start();
         HerdManager.Instance.AddHerdAnimal(this);
     }
 

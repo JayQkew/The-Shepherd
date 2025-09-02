@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2618985539871644832}
   - component: {fileID: 2805361568288454968}
-  - component: {fileID: 6914229483481004525}
   - component: {fileID: 1860983336886597979}
   - component: {fileID: 4642858316876984763}
   - component: {fileID: 5800402879710512925}
@@ -58,6 +57,15 @@ MonoBehaviour:
   rb: {fileID: 2088826080556547742}
   col: {fileID: 7207902761964510733}
   barkForce: 10
+  food:
+    food: 0
+    eat:
+      _min: 0.05
+      _max: 0.3
+    poop:
+      poopPref: {fileID: 2216268445079033729, guid: 0efe031abce038344abe0512a930f866, type: 3}
+      poopSpawn: {fileID: 2313992611410932371}
+      poopForce: 5
   wool:
     woolValue: 0
     woolTimer:
@@ -148,27 +156,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &6914229483481004525
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2499075382680790307}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 005b4bdea0e6b6b44b0f61b978a87ff8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  food: 0
-  eat:
-    _min: 0.05
-    _max: 0.3
-  poopPref: {fileID: 2216268445079033729, guid: 0efe031abce038344abe0512a930f866, type: 3}
-  poopSpawn: {fileID: 2313992611410932371}
-  poopForce: 5
-  poopDelay: 5
-  poopThreshold: 0.65
 --- !u!114 &1860983336886597979
 MonoBehaviour:
   m_ObjectHideFlags: 0

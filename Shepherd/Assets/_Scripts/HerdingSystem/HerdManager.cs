@@ -10,7 +10,7 @@ public class HerdManager : MonoBehaviour
     
     public List<HerdAnimal> allHerdAnimals = new List<HerdAnimal>();
     
-    public Dictionary<HerdAnimalName, List<HerdAnimal>> animalsByType = new Dictionary<HerdAnimalName, List<HerdAnimal>>();
+    public Dictionary<AnimalName, List<HerdAnimal>> animalsByType = new Dictionary<AnimalName, List<HerdAnimal>>();
 
     private void Awake() {
         if (Instance == null) {
@@ -62,7 +62,7 @@ public enum HerdAreaName
     Field
 }
 
-public enum HerdAnimalName
+public enum AnimalName
 {
     Sheep,
     Ducken

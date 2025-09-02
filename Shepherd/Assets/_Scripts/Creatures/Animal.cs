@@ -9,8 +9,7 @@ namespace _Scripts.Creatures
     public class Animal : MonoBehaviour
     {
         [SerializeField] protected AnimalData AnimalData;
-        public string animalName;
-        [Space(20)]
+        public AnimalName animalName;
         public Rigidbody rb;
         public SphereCollider col;
     
@@ -19,7 +18,7 @@ namespace _Scripts.Creatures
             col = GetComponent<SphereCollider>();
         }
 
-        private void Start() {
+        protected void Start() {
             rb.constraints = RigidbodyConstraints.FreezeRotation;
             rb.mass = AnimalData.mass.RandomValue();
             rb.useGravity = AnimalData.useGravity;
@@ -27,7 +26,7 @@ namespace _Scripts.Creatures
         }
 
         public override string ToString() {
-            return $"{base.ToString()} : [{animalName}]";
+            return $"{base.ToString()} : [{animalName.ToString()}]";
         }
     }
 }

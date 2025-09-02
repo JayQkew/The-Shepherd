@@ -1,29 +1,28 @@
 using System;
-using System.Collections;
 using UnityEngine;
-using Random = UnityEngine.Random;
+using Object = UnityEngine.Object;
 
-public class Food : MonoBehaviour
+namespace _Scripts.Creatures
 {
-    [Header("Eating")]
-    [SerializeField] private float food;
-    [SerializeField] private MinMax eat;
+    [Serializable]
+    public class Food
+    {
+        private Transform transform;
+        [SerializeField] private float food;
+        [SerializeField] private MinMax eat;
+        [Space(10)]
+        [SerializeField] private Poop poop;
 
-    [Header("Poop")]
-    [SerializeField] private GameObject poopPref;
-    [SerializeField] private Transform poopSpawn;
-    [SerializeField] private float poopForce;
-    [SerializeField] private float poopDelay;
-    [SerializeField] private float poopThreshold;
+        public void Init(Transform trans) {
+            transform = trans;
+        }
     
-    public void Eat() {
-        food += eat.RandomValue();
-        if (food >= 1) Poop();
-    }
-    
-    private void Poop() {
-        food = 0;
-        Rigidbody poopRb = Instantiate(poopPref, poopSpawn.position, Quaternion.identity, transform).GetComponent<Rigidbody>();
-        poopRb.AddForce(poopForce * poopSpawn.up, ForceMode.Impulse);
+        public void Eat() {
+            food += eat.RandomValue();
+            if (food >= 1) {
+                food = 0;
+                poop.ShootPoop();
+            }
+        }
     }
 }

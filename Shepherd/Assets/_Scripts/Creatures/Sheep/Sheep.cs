@@ -3,10 +3,12 @@ using UnityEngine.Events;
 
 namespace _Scripts.Creatures.Sheep
 {
-    public class Sheep : Animal, IBarkable
+    public class Sheep : HerdAnimal, IBarkable
     {
         private SheepStateManager sheepStateManager;
         [SerializeField] private float barkForce;
+        [Space(20)]
+        public Food food;
         [Space(20)]
         [SerializeField] private Wool wool;
         [Space(20)]

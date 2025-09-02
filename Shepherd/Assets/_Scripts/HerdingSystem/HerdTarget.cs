@@ -5,7 +5,7 @@ using UnityEngine;
 public struct HerdTarget
 {
     public HerdAreaName destination;
-    public HerdAnimalName animal;
+    public AnimalName animal;
     public int target;
     public int curr;
     public bool TargetMet => curr >= target;
