@@ -10,8 +10,10 @@ public class TimeManager : MonoBehaviour
     public uint dayCount;
     public DayPhaseName currPhase;
     public SeasonName currSeason;
-
+    [Space(20)]
     public DayPhase[] dayPhases;
+    [Space(20)]
+    public Season[] seasons;
     
     private void Awake() {
         if (Instance == null) {
@@ -22,47 +24,16 @@ public class TimeManager : MonoBehaviour
 
     private void Start() {
         currPhase = DayPhaseName.Sunrise;
+        seasons[0].onSeasonStart.Invoke();
     }
 
     private void Update() {
-        UpdateTime();
+        time.Update();
+        UpdateDayTime(dayPhases[(int)currPhase]);
         
         if (time.IsFinished) {
             time.Reset();
         }
-    }
-
-    private void UpdateTime() {
-        time.Update();
-        // switch (currPhase) {
-        //     case DayPhaseName.Sunrise:
-        //         dayPhases[0].UpdateTimer();
-        //         if (dayPhases[0].timer.IsFinished) {
-        //             currPhase = DayPhaseName.Day;
-        //         }
-        //         break;
-        //     case DayPhaseName.Day:
-        //         dayPhases[1].UpdateTimer();
-        //         if (dayPhases[1].timer.IsFinished) {
-        //             currPhase = DayPhaseName.Sunset;
-        //         }
-        //         break;
-        //     case DayPhaseName.Sunset:
-        //         dayPhases[2].UpdateTimer();
-        //         if (dayPhases[2].timer.IsFinished) {
-        //             currPhase = DayPhaseName.Night;
-        //         }
-        //         break;
-        //     case DayPhaseName.Night:
-        //         dayPhases[3].UpdateTimer();
-        //         if (dayPhases[3].timer.IsFinished) {
-        //             currPhase = DayPhaseName.Sunrise;
-        //         }
-        //         break;
-        //     default:
-        //         throw new ArgumentOutOfRangeException();
-        // }
-        UpdateDayTime(dayPhases[(int)currPhase]);
     }
 
     private void UpdateDayTime(DayPhase dayPhase) {
@@ -86,8 +57,10 @@ public class TimeManager : MonoBehaviour
 
     private void SeasonCheck() {
         if (dayCount % 3 == 0) {
+            seasons[(int)currSeason].onSeasonEnd.Invoke();
             int nextSeason = ((int)currSeason + 1) % 4;
             currSeason = (SeasonName)nextSeason;
+            seasons[nextSeason].onSeasonStart.Invoke();
         }
     }
 

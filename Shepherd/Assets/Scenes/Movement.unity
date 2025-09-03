@@ -170,24 +170,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time:
-    maxTime: 300
+    maxTime: 4
     currTime: 0
   dayCount: 0
   currPhase: 0
+  currSeason: 0
   dayPhases:
   - phase: 0
     timer:
-      maxTime: 30
+      maxTime: 1
       currTime: 0
     onPhaseStart:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 17736216}
+          m_TargetAssemblyTypeName: TimeManager, Assembly-CSharp
+          m_MethodName: TestEvents
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Start pf the DAY
+            m_BoolArgument: 0
+          m_CallState: 2
     onPhaseEnd:
       m_PersistentCalls:
         m_Calls: []
   - phase: 1
     timer:
-      maxTime: 120
+      maxTime: 1
       currTime: 0
     onPhaseStart:
       m_PersistentCalls:
@@ -197,7 +210,7 @@ MonoBehaviour:
         m_Calls: []
   - phase: 2
     timer:
-      maxTime: 30
+      maxTime: 1
       currTime: 0
     onPhaseStart:
       m_PersistentCalls:
@@ -207,12 +220,53 @@ MonoBehaviour:
         m_Calls: []
   - phase: 3
     timer:
-      maxTime: 120
+      maxTime: 1
       currTime: 0
     onPhaseStart:
       m_PersistentCalls:
         m_Calls: []
     onPhaseEnd:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 17736216}
+          m_TargetAssemblyTypeName: TimeManager, Assembly-CSharp
+          m_MethodName: TestEvents
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: End of the DAY
+            m_BoolArgument: 0
+          m_CallState: 2
+  seasons:
+  - season: 0
+    onSeasonStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onSeasonEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  - season: 1
+    onSeasonStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onSeasonEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  - season: 2
+    onSeasonStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onSeasonEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  - season: 3
+    onSeasonStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onSeasonEnd:
       m_PersistentCalls:
         m_Calls: []
 --- !u!114 &17736217
@@ -228,7 +282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   light: {fileID: 410087040}
-  transitionTime: 30
+  transitionTime: 0.25
   lightColors:
   - {r: 1, g: 0.31764707, b: 0, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
@@ -249,13 +303,13 @@ MonoBehaviour:
     key5: {r: 0.3254902, g: 0.3254902, b: 1, a: 0}
     key6: {r: 0.3254902, g: 0.3254902, b: 1, a: 0}
     key7: {r: 1, g: 0.31764707, b: 0, a: 0}
-    ctime0: 2731
-    ctime1: 8192
-    ctime2: 27306
+    ctime0: 12743
+    ctime1: 16384
+    ctime2: 29127
     ctime3: 32768
-    ctime4: 35498
-    ctime5: 40959
-    ctime6: 60074
+    ctime4: 45510
+    ctime5: 49151
+    ctime6: 61894
     ctime7: 65535
     atime0: 0
     atime1: 65535
@@ -279,13 +333,13 @@ MonoBehaviour:
     key5: {r: 0.14122735, g: 0.028390896, b: 0.20754719, a: 0}
     key6: {r: 0.14122735, g: 0.028390896, b: 0.20754719, a: 0}
     key7: {r: 0.95283014, g: 0.33131522, b: 0.22921851, a: 0}
-    ctime0: 2731
-    ctime1: 8192
-    ctime2: 27306
+    ctime0: 12743
+    ctime1: 16384
+    ctime2: 29127
     ctime3: 32768
-    ctime4: 35498
-    ctime5: 40959
-    ctime6: 60074
+    ctime4: 45510
+    ctime5: 49151
+    ctime6: 61894
     ctime7: 65535
     atime0: 0
     atime1: 65535
@@ -299,51 +353,6 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 8
     m_NumAlphaKeys: 2
-  seasonColours:
-  - season: 0
-    lightColours:
-    - {r: 1, g: 0.31764707, b: 0, a: 1}
-    - {r: 1, g: 1, b: 1, a: 1}
-    - {r: 1, g: 0.10980392, b: 0.25490198, a: 1}
-    - {r: 0.3254902, g: 0.3254902, b: 1, a: 1}
-    skyColours:
-    - {r: 0.95283014, g: 0.33131522, b: 0.22921851, a: 1}
-    - {r: 1, g: 1, b: 1, a: 1}
-    - {r: 0.6886792, g: 0.17857963, b: 0.09420614, a: 1}
-    - {r: 0.14122735, g: 0.028390896, b: 0.20754719, a: 1}
-  - season: 1
-    lightColours:
-    - {r: 1, g: 0.31764707, b: 0, a: 1}
-    - {r: 1, g: 1, b: 1, a: 1}
-    - {r: 1, g: 0.10980392, b: 0.25490198, a: 1}
-    - {r: 0.3254902, g: 0.3254902, b: 1, a: 1}
-    skyColours:
-    - {r: 0.95283014, g: 0.33131522, b: 0.22921851, a: 1}
-    - {r: 1, g: 1, b: 1, a: 1}
-    - {r: 0.6886792, g: 0.17857963, b: 0.09420614, a: 1}
-    - {r: 0.14122735, g: 0.028390896, b: 0.20754719, a: 1}
-  - season: 2
-    lightColours:
-    - {r: 1, g: 0.31764707, b: 0, a: 1}
-    - {r: 1, g: 1, b: 1, a: 1}
-    - {r: 1, g: 0.10980392, b: 0.25490198, a: 1}
-    - {r: 0.3254902, g: 0.3254902, b: 1, a: 1}
-    skyColours:
-    - {r: 0.95283014, g: 0.33131522, b: 0.22921851, a: 1}
-    - {r: 1, g: 1, b: 1, a: 1}
-    - {r: 0.6886792, g: 0.17857963, b: 0.09420614, a: 1}
-    - {r: 0.14122735, g: 0.028390896, b: 0.20754719, a: 1}
-  - season: 3
-    lightColours:
-    - {r: 1, g: 0.31764707, b: 0, a: 1}
-    - {r: 1, g: 1, b: 1, a: 1}
-    - {r: 1, g: 0.10980392, b: 0.25490198, a: 1}
-    - {r: 0.3254902, g: 0.3254902, b: 1, a: 1}
-    skyColours:
-    - {r: 0.95283014, g: 0.33131522, b: 0.22921851, a: 1}
-    - {r: 1, g: 1, b: 1, a: 1}
-    - {r: 0.6886792, g: 0.17857963, b: 0.09420614, a: 1}
-    - {r: 0.14122735, g: 0.028390896, b: 0.20754719, a: 1}
 --- !u!4 &120751288 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2618985539871644832, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}

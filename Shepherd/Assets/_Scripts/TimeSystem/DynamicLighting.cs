@@ -5,6 +5,7 @@ using UnityEngine.Serialization;
 
 public class DynamicLighting : MonoBehaviour
 {
+    private static readonly int Tint = Shader.PropertyToID("_Tint");
     [SerializeField] private Light light;
 
     [SerializeField, Tooltip("Gap between night and sunset and sunrise")]
@@ -12,14 +13,11 @@ public class DynamicLighting : MonoBehaviour
 
     [SerializeField, Tooltip("SunRise, Day, SunSet, Night")]
     private Color[] lightColors = new Color[4];
-
     [SerializeField] private Color[] skyColors = new Color[4];
 
     [SerializeField] private Gradient lightGradient;
     [SerializeField] private Gradient skyGradient;
     
-    [SerializeField] private SeasonColors[] seasonColours;
-
     private void Awake() {
         UpdateGradient();
     }
@@ -28,7 +26,7 @@ public class DynamicLighting : MonoBehaviour
         if (TimeManager.Instance != null) {
             float t = TimeManager.Instance.time.Progress;
             light.color = lightGradient.Evaluate(t);
-            RenderSettings.skybox.SetColor("_Tint", skyGradient.Evaluate(t));
+            RenderSettings.skybox.SetColor(Tint, skyGradient.Evaluate(t));
             LightAngle(t);
         }
     }
