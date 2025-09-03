@@ -21,8 +21,7 @@ public class DynamicLighting : MonoBehaviour
     [SerializeField] private SeasonColors[] seasonColours;
 
     private void Awake() {
-        SetGradient(lightGradient, lightColors);
-        SetGradient(skyGradient, skyColors);
+        UpdateGradient();
     }
 
     private void Update() {

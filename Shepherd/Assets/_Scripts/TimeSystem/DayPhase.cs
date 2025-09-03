@@ -15,15 +15,14 @@ namespace _Scripts.TimeSystem
         [SerializeField] private UnityEvent onPhaseEnd;
 
         public void UpdateTimer() {
-            if (!timer.IsFinished) {
-                if (timer.Progress == 0) {
-                    onPhaseStart.Invoke();
-                }
-                timer.Update();
+            if (timer.Progress == 0) {
+                onPhaseStart.Invoke();
             }
-            else {
+            
+            timer.Update();
+            
+            if (timer.IsFinished) {
                 onPhaseEnd.Invoke();
-                timer.Reset();
             }
         }
     }
