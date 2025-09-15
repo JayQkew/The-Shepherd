@@ -32,8 +32,9 @@ public class DynamicLighting : MonoBehaviour
     }
 
     private void LightAngle(float t) {
-        float xAngle = 25 + (Mathf.Cos(t * 2 * Mathf.PI) + 1) / 2 * 25;
-        float yAngle = Mathf.Lerp(0, 360, t) - 80;
+        float xAngle = 15 + Mathf.Abs(Mathf.Sin(t * 2 * Mathf.PI)) * 15;
+        
+        float yAngle = Mathf.Lerp(-90f, 90f, Mathf.Repeat(t * 2, 1f));
 
         light.transform.eulerAngles = new Vector3(xAngle, yAngle, transform.eulerAngles.z);
     }
