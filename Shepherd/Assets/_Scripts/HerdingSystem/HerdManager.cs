@@ -57,13 +57,12 @@ namespace HerdingSystem
         }
 
         public void GenerateMissions() {
+            missions.Clear();
             // generate a mission for every animal type
             foreach (Animal animal in animalsByType.Keys) {
-                // how many destinations and creatures are there?
                 List<HerdDestination> herdDestinations = AvailableDestinations(animal);
                 int animals = animalsByType[animal].Count;
                 
-                // how many missions do you want for this creature?
                 int numMissions = Random.Range(1, herdDestinations.Count + 1);
                 for (int i = 0; i < numMissions; i++) {
                     int target = 0;
