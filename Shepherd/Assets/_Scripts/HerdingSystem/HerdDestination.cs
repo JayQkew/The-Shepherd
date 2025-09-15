@@ -1,10 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace HerdingSystem
 {
-    public class HerdArea : MonoBehaviour
+    public class HerdDestination : MonoBehaviour
     {
         public Destination destination;
         public Animal canHost;

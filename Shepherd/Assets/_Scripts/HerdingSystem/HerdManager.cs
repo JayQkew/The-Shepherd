@@ -8,7 +8,7 @@ namespace HerdingSystem
         public static HerdManager Instance { get; private set; }
     
         public List<HerdMission> missions;
-    
+        public List<HerdDestination> destinations = new List<HerdDestination>();
         public List<HerdAnimal> allHerdAnimals = new List<HerdAnimal>();
 
         private Dictionary<Animal, List<HerdAnimal>> animalsByType = new Dictionary<Animal, List<HerdAnimal>>();
@@ -44,11 +44,11 @@ namespace HerdingSystem
             }
         }
 
-        public void CheckMissions(HerdArea herdArea) {
+        public void CheckMissions(HerdDestination herdDestination) {
             for (int i = 0; i < missions.Count; i++) {
                 HerdMission herdMission = missions[i];
-                if (herdMission.destination == herdArea.destination) {
-                    if(herdArea.animalsByType.TryGetValue(herdMission.animal, out List<HerdAnimal> animals)){
+                if (herdMission.destination == herdDestination.destination) {
+                    if(herdDestination.animalsByType.TryGetValue(herdMission.animal, out List<HerdAnimal> animals)){
                         herdMission.curr = animals.Count;
                     }
                 }
@@ -59,24 +59,44 @@ namespace HerdingSystem
         public void GenerateMissions() {
             // generate a mission for every animal type
             foreach (Animal animal in animalsByType.Keys) {
+                // how many destinations and creatures are there?
+                List<HerdDestination> herdDestinations = AvailableDestinations(animal);
+                int animals = animalsByType[animal].Count;
                 
-            }
-            
-            // how many herd areas are there?
-            // how many herd creatures are there?
-            int destinations = 2;
-            int animals = allHerdAnimals.Count;
-            
-            // how many missions do you want?
-            int numMissions = Random.Range(1, destinations + 1);
-            // generate a mission for each area
-            
-            // select an animal
+                // how many missions do you want for this creature?
+                int numMissions = Random.Range(1, herdDestinations.Count + 1);
+                for (int i = 0; i < numMissions; i++) {
+                    int target = 0;
+                    if (i == numMissions - 1) {
+                        target = animals;
+                    }
+                    else {
+                        target = Random.Range(0, animals);
+                        animals -= target;
+                    }
 
-            for (int i = 0; i < numMissions; i++) {
-                int target = Random.Range(0, animals);
+                    HerdDestination herdDestination = herdDestinations[Random.Range(0, herdDestinations.Count)];
+
+                    HerdMission herdMission = new HerdMission(
+                        herdDestination.destination,
+                        animal,
+                        target);
+                    
+                    herdDestinations.Remove(herdDestination);
+                    missions.Add(herdMission);
+                }
             }
-            
+        }
+
+        private List<HerdDestination> AvailableDestinations(Animal animal) {
+            List<HerdDestination> herdDestinations = new List<HerdDestination>();
+            Debug.Log(destinations.Count);
+            foreach (HerdDestination destination in destinations) {
+                if (destination.canHost.HasFlag(animal)) {
+                    herdDestinations.Add(destination);
+                }
+            }
+            return herdDestinations;
         }
     }
 

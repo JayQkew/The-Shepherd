@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f36e2c78d1817345a4b3ffdd45e0f9a, type: 3}
   m_Name: Herding Assist Data
   m_EditorClassIdentifier: 
-  centeringForce: 0
-  pushforce: 0
+  centeringForce: 0.3
+  pushforce: 1

@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animalData: {fileID: 11400000, guid: 32ade72638ff9684689010ce0d1204d4, type: 2}
-  animalName: 0
+  animal: 1
   rb: {fileID: 2088826080556547742}
   col: {fileID: 7207902761964510733}
   currHerdArea: 0
@@ -168,6 +168,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94994497148b2f940b0169541979ad29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sheep: {fileID: 0}
+  boids: {fileID: 0}
   stats: {fileID: 11400000, guid: c3f74505ba93f084d8bcf1049dea3409, type: 2}
   gui: {fileID: 0}
   sheepIdle:

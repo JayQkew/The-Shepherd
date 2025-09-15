@@ -67,8 +67,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: 1
-  centerMult: 0.3
-  pushMult: 1
+  data: {fileID: 0}
   pushZone: 1.9
 --- !u!1 &3295393493092814734
 GameObject:
@@ -591,7 +590,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bd4a64605a1d1546b17126b94483c14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaName: 1
+  destination: 0
+  canHost: 0
   animalsIn: []
 --- !u!114 &9188924380375046458
 MonoBehaviour:
