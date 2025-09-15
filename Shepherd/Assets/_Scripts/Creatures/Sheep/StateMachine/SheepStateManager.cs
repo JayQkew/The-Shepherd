@@ -1,7 +1,8 @@
+using TimeSystem;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace _Scripts.Creatures.Sheep.StateMachine
+namespace Creatures.Sheep
 {
     public class SheepStateManager : MonoBehaviour
     {

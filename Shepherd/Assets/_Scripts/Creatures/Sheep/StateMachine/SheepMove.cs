@@ -3,7 +3,7 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 
-namespace _Scripts.Creatures.Sheep.StateMachine
+namespace Creatures.Sheep
 {
     [Serializable]
     public class SheepMove : SheepBaseState

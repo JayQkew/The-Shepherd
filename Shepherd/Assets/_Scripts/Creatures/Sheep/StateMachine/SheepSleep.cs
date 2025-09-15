@@ -1,6 +1,6 @@
 using System;
 
-namespace _Scripts.Creatures.Sheep.StateMachine
+namespace Creatures.Sheep
 {
     [Serializable]
     public class SheepSleep : SheepBaseState

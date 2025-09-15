@@ -1,9 +1,8 @@
 using System;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 
-namespace _Scripts.TimeSystem
+namespace TimeSystem
 {
     [Serializable]
     public class DayPhase

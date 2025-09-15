@@ -1,8 +1,8 @@
-using _Scripts.Creatures.Sheep.StateMachine;
+using _Scripts.Creatures;
+using _Scripts.Creatures.Sheep;
 using UnityEngine;
-using UnityEngine.Events;
 
-namespace _Scripts.Creatures.Sheep
+namespace Creatures.Sheep
 {
     public class Sheep : HerdAnimal, IBarkable
     {

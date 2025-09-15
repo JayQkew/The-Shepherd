@@ -1,5 +1,6 @@
 using System;
 using _Scripts.Creatures;
+using _Scripts.HerdingSystem;
 using UnityEngine;
 
 public class HerdAnimal : Animal

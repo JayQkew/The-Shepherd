@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using _Scripts.HerdingSystem;
 using UnityEngine;
 
 public class HerdArea : MonoBehaviour
