@@ -1,6 +1,6 @@
 using System;
 
-namespace _Scripts.HerdingSystem
+namespace HerdingSystem
 {
     [Serializable]
     public class HerdTarget

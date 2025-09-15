@@ -1,22 +1,23 @@
-using System;
-using _Scripts.Creatures;
-using _Scripts.HerdingSystem;
+using Creatures;
 using UnityEngine;
 
-public class HerdAnimal : Animal
+namespace HerdingSystem
 {
-    public HerdAreaName currHerdArea;
+    public class HerdAnimal : Animal
+    {
+        public HerdAreaName currHerdArea;
 
-    private void Awake() {
-        rb = GetComponent<Rigidbody>();
-    }
+        private void Awake() {
+            rb = GetComponent<Rigidbody>();
+        }
 
-    private void Start() {
-        base.Start();
-        HerdManager.Instance.AddHerdAnimal(this);
-    }
+        private void Start() {
+            base.Start();
+            HerdManager.Instance.AddHerdAnimal(this);
+        }
 
-    private void OnDisable() {
-        HerdManager.Instance.RemoveHerdAnimal(this);
+        private void OnDisable() {
+            HerdManager.Instance.RemoveHerdAnimal(this);
+        }
     }
 }

@@ -1,7 +1,6 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace _Scripts.Creatures
+namespace Creatures
 {
     [CreateAssetMenu(fileName = "Animal Data",menuName = "Creatures/AnimalData")]
 

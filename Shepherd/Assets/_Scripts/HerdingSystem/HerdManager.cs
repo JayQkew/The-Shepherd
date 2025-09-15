@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace _Scripts.HerdingSystem
+namespace HerdingSystem
 {
     public class HerdManager : MonoBehaviour
     {

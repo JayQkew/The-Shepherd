@@ -1,9 +1,7 @@
-using System;
-using _Scripts.HerdingSystem;
+using HerdingSystem;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace _Scripts.Creatures
+namespace Creatures
 {
     [RequireComponent(typeof(Rigidbody))]
     [RequireComponent(typeof(SphereCollider))]
