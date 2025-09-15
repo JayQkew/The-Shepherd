@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace HerdingSystem
@@ -7,11 +8,17 @@ namespace HerdingSystem
         private Collider col;
         [SerializeField] private HerdDirection direction;
         [Space(10)]
-        [SerializeField] private float centerMult;
-        [SerializeField] private float pushMult;
+        [SerializeField] private HerdAssistData data;
+        private float centerMult;
+        private float pushMult;
 
         [Space(10)]
         [SerializeField] private float pushZone;
+
+        private void Awake() {
+            centerMult = data.centeringForce;
+            pushMult = data.pushforce;
+        }
 
         private void PushDirection(Rigidbody rb, Vector3 dir, float forceMult) {
             Vector3 localForce = dir.normalized;

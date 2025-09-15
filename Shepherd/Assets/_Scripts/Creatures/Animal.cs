@@ -1,5 +1,6 @@
 using HerdingSystem;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Creatures
 {
@@ -8,7 +9,7 @@ namespace Creatures
     public class Animal : MonoBehaviour
     {
         [SerializeField] protected AnimalData animalData;
-        public AnimalName animalName;
+        [FormerlySerializedAs("animalName")] public HerdingSystem.Animal animal;
         public Rigidbody rb;
         public SphereCollider col;
     
@@ -25,7 +26,7 @@ namespace Creatures
         }
 
         public override string ToString() {
-            return $"{base.ToString()} : [{animalName.ToString()}]";
+            return $"{base.ToString()} : [{animal.ToString()}]";
         }
     }
 }
