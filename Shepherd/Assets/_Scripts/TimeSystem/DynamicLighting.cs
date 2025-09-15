@@ -17,6 +17,7 @@ public class DynamicLighting : MonoBehaviour
 
     [SerializeField] private Gradient lightGradient;
     [SerializeField] private Gradient skyGradient;
+    [SerializeField] private AnimationCurve intensityCurve;
     
     private void Awake() {
         UpdateGradient();
@@ -28,12 +29,12 @@ public class DynamicLighting : MonoBehaviour
             light.color = lightGradient.Evaluate(t);
             RenderSettings.skybox.SetColor(Tint, skyGradient.Evaluate(t));
             LightAngle(t);
+            light.intensity = intensityCurve.Evaluate(t);
         }
     }
 
     private void LightAngle(float t) {
         float xAngle = 15 + Mathf.Abs(Mathf.Sin(t * 2 * Mathf.PI)) * 15;
-        
         float yAngle = Mathf.Lerp(-90f, 90f, Mathf.Repeat(t * 2, 1f));
 
         light.transform.eulerAngles = new Vector3(xAngle, yAngle, transform.eulerAngles.z);
