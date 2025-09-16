@@ -2053,7 +2053,13 @@ MonoBehaviour:
   - {fileID: 274547525}
   - {fileID: 2027249992}
   allHerdAnimals: []
-  pen: {fileID: 0}
+  herdingTickets:
+  - {fileID: 11400000, guid: 05ae05c6e63ce744a9a99b084b298878, type: 2}
+  - {fileID: 11400000, guid: acae145237d9d3141a9cdef251f4008a, type: 2}
+  - {fileID: 11400000, guid: d425a76357fd9544da37b01b2ef2a1e4, type: 2}
+  - {fileID: 11400000, guid: d29a6357529ee6343956fe45ab5275ae, type: 2}
+  - {fileID: 11400000, guid: e73c930585027ae4ebf22f31c9ebadfe, type: 2}
+  - {fileID: 11400000, guid: a6b6ca764c3aeef4dba22264e227a9e7, type: 2}
 --- !u!4 &1193918555 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2618985539871644832, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
