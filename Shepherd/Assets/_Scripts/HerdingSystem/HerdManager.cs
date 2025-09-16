@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TimeSystem;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace HerdingSystem
 {
@@ -109,25 +111,17 @@ namespace HerdingSystem
                 HerdingTicket ticket = GetHerdingTicket();
                 
                 List<HerdDestination> herdDestinations = AvailableDestinations(animal);
-                int animals = animalsByType[animal].Count;
+                int totalAnimals = animalsByType[animal].Count;
                 
-                int numMissions = Random.Range(1, herdDestinations.Count + 1);
+                int numMissions = ticket.weights.Count;
                 for (int i = 0; i < numMissions; i++) {
-                    int target = 0;
-                    if (i == numMissions - 1) {
-                        target = animals;
-                    }
-                    else {
-                        target = Random.Range(1, animals);
-                        animals -= target;
-                    }
-
                     HerdDestination herdDestination = herdDestinations[Random.Range(0, herdDestinations.Count)];
+                    int numAnimals = Mathf.RoundToInt(totalAnimals / ticket.weights[i]);
                     
                     HerdMission herdMission = new HerdMission(
                         herdDestination,
                         animal,
-                        target);
+                        numAnimals);
                     
                     herdDestinations.Remove(herdDestination);
                     missions.Add(herdMission);
@@ -189,6 +183,8 @@ namespace HerdingSystem
                     herdDestinations.Add(destination);
                 }
             }
+
+            herdDestinations.Remove(pen); // ensures that the pen is never chosen
             return herdDestinations;
         }
     }
