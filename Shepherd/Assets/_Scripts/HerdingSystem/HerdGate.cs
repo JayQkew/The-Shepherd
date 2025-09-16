@@ -27,6 +27,7 @@ namespace HerdingSystem
             openKnots[0] = splineContainer.Spline[0];
             openKnots[1] = splineContainer.Spline[^1];
             CalculateMeetingKnot();
+            CloseGate();
         }
 
         private void Update() {
@@ -64,12 +65,12 @@ namespace HerdingSystem
         }
 
         [ContextMenu("OpenGate")]
-        private void OpenGate() {
+        public void OpenGate() {
             StartGateAnimation(openKnots[0], openKnots[1]);
         }
 
         [ContextMenu("CloseGate")]
-        private void CloseGate() {
+        public void CloseGate() {
             StartGateAnimation(meetingKnot, meetingKnot);
         }
 

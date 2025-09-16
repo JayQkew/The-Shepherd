@@ -44,16 +44,32 @@ namespace HerdingSystem
             }
         }
 
-        public void CheckMissions(HerdDestination herdDestination) {
+        public void UpdateMissions(HerdDestination herdDestination) {
             for (int i = 0; i < missions.Count; i++) {
                 HerdMission herdMission = missions[i];
-                if (herdMission.destination == herdDestination.destination) {
+                if (herdMission.herdDestination == herdDestination) {
                     if(herdDestination.animalsByType.TryGetValue(herdMission.animal, out List<HerdAnimal> animals)){
                         herdMission.curr = animals.Count;
                     }
                 }
                 missions[i] = herdMission;
             }
+
+            if (AllMissionsComplete()) {
+                foreach (var mission in missions) {
+                    mission.herdDestination.GetComponentInParent<HerdGate>().CloseGate();
+                }
+            }
+        }
+
+        private bool AllMissionsComplete() {
+            bool allMissionsComplete = true;
+
+            foreach (var mission in missions) {
+                allMissionsComplete &= mission.TargetMet;
+            }
+            
+            return allMissionsComplete;
         }
 
         public void GenerateMissions() {
@@ -70,14 +86,16 @@ namespace HerdingSystem
                         target = animals;
                     }
                     else {
-                        target = Random.Range(0, animals);
+                        target = Random.Range(1, animals);
                         animals -= target;
                     }
 
                     HerdDestination herdDestination = herdDestinations[Random.Range(0, herdDestinations.Count)];
+                    
+                    herdDestination.GetComponentInParent<HerdGate>().OpenGate();
 
                     HerdMission herdMission = new HerdMission(
-                        herdDestination.destination,
+                        herdDestination,
                         animal,
                         target);
                     

@@ -13,13 +13,18 @@ namespace HerdingSystem
         private void OnTriggerEnter(Collider other) {
             HerdAnimal animal = other.GetComponent<HerdAnimal>();
             if (animal) {
-                animalsIn.Add(other.GetComponent<HerdAnimal>());
+                if (animalsIn.Contains(animal)) return;
+                animalsIn.Add(animal);
+                
                 animal.currHerdArea = destination;
                 if (!animalsByType.ContainsKey(animal.animal)) {
                     animalsByType[animal.animal] = new List<HerdAnimal>();
                 }
+
+                if (animalsByType[animal.animal].Contains(animal)) return;
                 animalsByType[animal.animal].Add(animal);
-                HerdManager.Instance.CheckMissions(this);
+                
+                HerdManager.Instance.UpdateMissions(this);
             }
         }
 
@@ -31,7 +36,7 @@ namespace HerdingSystem
                 if (animalsByType.TryGetValue(animal.animal, out var list)) {
                     list.Remove(animal);
                 }
-                HerdManager.Instance.CheckMissions(this);
+                HerdManager.Instance.UpdateMissions(this);
             }
         }
     }
