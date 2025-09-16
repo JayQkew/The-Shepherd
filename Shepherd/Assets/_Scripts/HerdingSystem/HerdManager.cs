@@ -11,6 +11,7 @@ namespace HerdingSystem
         public List<HerdDestination> destinations = new List<HerdDestination>();
         public List<HerdAnimal> allHerdAnimals = new List<HerdAnimal>();
         public HerdDestination pen;
+        [SerializeField] private List<HerdingTicket> herdingTickets = new List<HerdingTicket>(); 
 
         private Dictionary<Animal, List<HerdAnimal>> animalsByType = new Dictionary<Animal, List<HerdAnimal>>();
 
@@ -88,7 +89,7 @@ namespace HerdingSystem
 
         public void GenerateMissions() {
             missions.Clear();
-            // generate a mission for every animal type
+            // generate missions for every animal type
             foreach (Animal animal in animalsByType.Keys) {
                 List<HerdDestination> herdDestinations = AvailableDestinations(animal);
                 int animals = animalsByType[animal].Count;

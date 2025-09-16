@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 647fd1305bc6823488998ab96d35be9c, type: 3}
-  m_Name: SheepBoid
+  m_Script: {fileID: 11500000, guid: 31d1dcb12256b3b469c2efec7ba4984a, type: 3}
+  m_Name: Medium 1
   m_EditorClassIdentifier: 
-  radius: 10
-  cohesion: 7.5
-  separation: 3.5
-  alignment: 1
-  minSeparation: 2.5
+  difficulty: 1
+  weights:
+  - 0.25
+  - 0.75
