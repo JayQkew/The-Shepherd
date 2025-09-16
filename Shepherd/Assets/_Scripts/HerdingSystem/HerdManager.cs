@@ -10,6 +10,7 @@ namespace HerdingSystem
         public List<HerdMission> missions;
         public List<HerdDestination> destinations = new List<HerdDestination>();
         public List<HerdAnimal> allHerdAnimals = new List<HerdAnimal>();
+        public HerdDestination pen;
 
         private Dictionary<Animal, List<HerdAnimal>> animalsByType = new Dictionary<Animal, List<HerdAnimal>>();
 
@@ -19,6 +20,12 @@ namespace HerdingSystem
             }
             else {
                 Destroy(gameObject);
+            }
+
+            foreach (HerdDestination destination in destinations) {
+                if (destination.destination == Destination.Pen) {
+                    pen = destination;
+                }
             }
         }
 
@@ -55,11 +62,7 @@ namespace HerdingSystem
                 missions[i] = herdMission;
             }
 
-            if (AllMissionsComplete()) {
-                foreach (var mission in missions) {
-                    mission.herdDestination.GetComponentInParent<HerdGate>().CloseGate();
-                }
-            }
+            MissionGateControl(!AllMissionsComplete());
         }
 
         private bool AllMissionsComplete() {
@@ -70,6 +73,17 @@ namespace HerdingSystem
             }
             
             return allMissionsComplete;
+        }
+
+        public void PenMission() {
+            missions.Clear();
+            HerdMission penMission = new HerdMission(
+                pen,
+                Animal.Sheep,
+                animalsByType[Animal.Sheep].Count
+            );
+            missions.Add(penMission);
+            pen.GetComponentInParent<HerdGate>().OpenGate();
         }
 
         public void GenerateMissions() {
@@ -92,8 +106,6 @@ namespace HerdingSystem
 
                     HerdDestination herdDestination = herdDestinations[Random.Range(0, herdDestinations.Count)];
                     
-                    herdDestination.GetComponentInParent<HerdGate>().OpenGate();
-
                     HerdMission herdMission = new HerdMission(
                         herdDestination,
                         animal,
@@ -103,8 +115,21 @@ namespace HerdingSystem
                     missions.Add(herdMission);
                 }
             }
+            
+            MissionGateControl(true);
         }
 
+        public void MissionGateControl(bool open) {
+            foreach (HerdMission mission in missions) {
+                if (open) {
+                    mission.herdDestination.GetComponentInParent<HerdGate>().OpenGate();
+                }
+                else {
+                    mission.herdDestination.GetComponentInParent<HerdGate>().CloseGate();
+                }
+            }
+        }
+        
         private List<HerdDestination> AvailableDestinations(Animal animal) {
             List<HerdDestination> herdDestinations = new List<HerdDestination>();
             Debug.Log(destinations.Count);
