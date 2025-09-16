@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Linq;
+using TimeSystem;
 using UnityEngine;
 
 namespace HerdingSystem
@@ -10,8 +12,15 @@ namespace HerdingSystem
         public List<HerdMission> missions;
         public List<HerdDestination> destinations = new List<HerdDestination>();
         public List<HerdAnimal> allHerdAnimals = new List<HerdAnimal>();
-        public HerdDestination pen;
-        [SerializeField] private List<HerdingTicket> herdingTickets = new List<HerdingTicket>(); 
+        private HerdDestination pen;
+        [SerializeField] private List<HerdingTicket> herdingTickets = new List<HerdingTicket>();
+        
+        private Dictionary<TicketDifficulty, List<HerdingTicket>> ticketDifficulties = new Dictionary<TicketDifficulty, List<HerdingTicket>>
+        {
+            { TicketDifficulty.Easy , new List<HerdingTicket>()},
+            { TicketDifficulty.Medium , new List<HerdingTicket>()},
+            { TicketDifficulty.Hard , new List<HerdingTicket>()},
+        };
 
         private Dictionary<Animal, List<HerdAnimal>> animalsByType = new Dictionary<Animal, List<HerdAnimal>>();
 
@@ -23,10 +32,16 @@ namespace HerdingSystem
                 Destroy(gameObject);
             }
 
+            // finds the pen
             foreach (HerdDestination destination in destinations) {
                 if (destination.destination == Destination.Pen) {
                     pen = destination;
                 }
+            }
+            
+            // puts tickets into dictionary
+            foreach (HerdingTicket ticket in herdingTickets) {
+                ticketDifficulties[ticket.difficulty].Add(ticket);
             }
         }
 
@@ -91,6 +106,8 @@ namespace HerdingSystem
             missions.Clear();
             // generate missions for every animal type
             foreach (Animal animal in animalsByType.Keys) {
+                HerdingTicket ticket = GetHerdingTicket();
+                
                 List<HerdDestination> herdDestinations = AvailableDestinations(animal);
                 int animals = animalsByType[animal].Count;
                 
@@ -118,6 +135,39 @@ namespace HerdingSystem
             }
             
             MissionGateControl(true);
+        }
+
+        /// <summary>
+        /// Gets a herding ticket based on how many days the player has played
+        /// 0 - 5 days = Easy
+        /// 6 - 17 days = Easy + Medium
+        /// 18 - ∞ = Easy + Medium + Hard
+        /// </summary>
+        private HerdingTicket GetHerdingTicket() {
+            uint day = TimeManager.Instance.dayCount;
+            HerdingTicket ticket;
+
+            if (day >= 18) {
+                List<HerdingTicket> tickets = ticketDifficulties[TicketDifficulty.Easy]
+                    .Concat(ticketDifficulties[TicketDifficulty.Medium])
+                    .Concat(ticketDifficulties[TicketDifficulty.Hard])
+                    .ToList();
+                int i = Random.Range(0, tickets.Count);
+                ticket = tickets[i];
+            } 
+            else if (day >= 6) {
+                List<HerdingTicket> tickets = ticketDifficulties[TicketDifficulty.Easy]
+                    .Concat(ticketDifficulties[TicketDifficulty.Medium])
+                    .ToList();
+                int i = Random.Range(0, tickets.Count);
+                ticket = tickets[i];
+            }
+            else {
+                int i = Random.Range(0, ticketDifficulties[TicketDifficulty.Easy].Count);
+                ticket = ticketDifficulties[TicketDifficulty.Easy][i];
+            }
+            
+            return ticket;
         }
 
         public void MissionGateControl(bool open) {

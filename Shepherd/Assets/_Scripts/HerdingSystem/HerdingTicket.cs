@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEditor;
 #endif
 
-
 namespace HerdingSystem
 {
     /// <summary>
