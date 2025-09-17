@@ -6,7 +6,7 @@ namespace HerdingSystem
     public class HerdAssist : MonoBehaviour
     {
         private Collider col;
-        [SerializeField] private HerdDirection direction;
+        public HerdDirection direction;
         [Space(10)]
         [SerializeField] private HerdAssistData data;
         private float centerMult;

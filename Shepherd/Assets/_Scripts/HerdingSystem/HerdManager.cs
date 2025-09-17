@@ -12,7 +12,7 @@ namespace HerdingSystem
         public static HerdManager Instance { get; private set; }
     
         public List<HerdMission> missions;
-        public List<HerdDestination> destinations = new List<HerdDestination>();
+        public HerdDestination[] destinations;
         public List<HerdAnimal> allHerdAnimals = new List<HerdAnimal>();
         private HerdDestination pen;
         [SerializeField] private List<HerdingTicket> herdingTickets = new List<HerdingTicket>();
@@ -33,6 +33,8 @@ namespace HerdingSystem
             else {
                 Destroy(gameObject);
             }
+            
+            destinations = FindObjectsByType<HerdDestination>(FindObjectsSortMode.None);
 
             // finds the pen
             foreach (HerdDestination destination in destinations) {
@@ -101,7 +103,9 @@ namespace HerdingSystem
                 animalsByType[Animal.Sheep].Count
             );
             missions.Add(penMission);
-            pen.GetComponentInParent<HerdGate>().OpenGate();
+            
+            MissionGateControl(true);
+            AreasWithAnimalsGateControl(true);
         }
 
         public void GenerateMissions() {
@@ -116,7 +120,7 @@ namespace HerdingSystem
                 int numMissions = ticket.weights.Count;
                 for (int i = 0; i < numMissions; i++) {
                     HerdDestination herdDestination = herdDestinations[Random.Range(0, herdDestinations.Count)];
-                    int numAnimals = Mathf.RoundToInt(totalAnimals / ticket.weights[i]);
+                    int numAnimals = Mathf.RoundToInt(totalAnimals * ticket.weights[i]);
                     
                     HerdMission herdMission = new HerdMission(
                         herdDestination,
@@ -129,6 +133,7 @@ namespace HerdingSystem
             }
             
             MissionGateControl(true);
+            AreasWithAnimalsGateControl(true);
         }
 
         /// <summary>
@@ -164,20 +169,25 @@ namespace HerdingSystem
             return ticket;
         }
 
+        #region Gate Control
         public void MissionGateControl(bool open) {
             foreach (HerdMission mission in missions) {
-                if (open) {
-                    mission.herdDestination.GetComponentInParent<HerdGate>().OpenGate();
-                }
-                else {
-                    mission.herdDestination.GetComponentInParent<HerdGate>().CloseGate();
+                mission.herdDestination.GetComponentInParent<HerdGate>().GateControl(open);
+            }
+        }
+
+        public void AreasWithAnimalsGateControl(bool open) {
+            foreach (HerdDestination destination in destinations) {
+                if (destination.animalsIn.Count > 0) {
+                    destination.GetComponentInParent<HerdGate>().GateControl(open);
                 }
             }
         }
+        #endregion
         
         private List<HerdDestination> AvailableDestinations(Animal animal) {
             List<HerdDestination> herdDestinations = new List<HerdDestination>();
-            Debug.Log(destinations.Count);
+            Debug.Log(destinations.Length);
             foreach (HerdDestination destination in destinations) {
                 if (destination.canHost.HasFlag(animal)) {
                     herdDestinations.Add(destination);
@@ -193,7 +203,11 @@ namespace HerdingSystem
     {
         None,
         Pen,
-        Field
+        Field1,
+        Field2,
+        Field3,
+        Field4,
+        Field5,
     }
 
     [System.Flags]
