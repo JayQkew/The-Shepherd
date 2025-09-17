@@ -23,7 +23,16 @@ namespace HerdingSystem
         private void PushDirection(Rigidbody rb, Vector3 dir, float forceMult) {
             Vector3 localForce = dir.normalized;
             Vector3 worldForce = transform.TransformDirection(localForce);
+            rb.AddForce(worldForce * forceMult, ForceMode.Force);
+        }
+
+        private void PushLocal(Rigidbody rb, Vector3 dir, float forceMult) {
+            Vector3 worldForce = transform.TransformDirection(dir.normalized);
             rb.AddForce(worldForce * forceMult, ForceMode.Impulse);
+        }
+
+        private void PushWorld(Rigidbody rb, Vector3 dir, float forceMult) {
+            rb.AddForce(dir.normalized * forceMult, ForceMode.Impulse);
         }
 
         private bool InPushZone(Vector3 worldPos) {
@@ -35,10 +44,10 @@ namespace HerdingSystem
             HerdAnimal h = other.gameObject.GetComponent<HerdAnimal>();
             if (h != null && direction != HerdDirection.None) {
                 Vector3 localPos = transform.InverseTransformPoint(h.transform.position);
-                PushDirection(h.rb, new Vector3(-localPos.x, 0, 0), centerMult);
+                PushLocal(h.rb, new Vector3(-localPos.x, 0, 0), centerMult);
                 if (InPushZone(h.transform.position)) {
-                    if(direction == HerdDirection.In) PushDirection(h.rb, -transform.forward, pushMult);
-                    else PushDirection(h.rb, transform.forward, pushMult);
+                    if(direction == HerdDirection.In) PushWorld(h.rb, -transform.forward, pushMult);
+                    else PushWorld(h.rb, transform.forward, pushMult);
                 }
             }
         }
