@@ -82,7 +82,9 @@ namespace HerdingSystem
                 missions[i] = herdMission;
             }
 
-            MissionGateControl(!AllMissionsComplete());
+            if (AllMissionsComplete()) {
+                MissionGateControl(false, HerdAssist.HerdDirection.None);
+            }
         }
 
         private bool AllMissionsComplete() {
@@ -104,8 +106,8 @@ namespace HerdingSystem
             );
             missions.Add(penMission);
             
-            MissionGateControl(true);
-            AreasWithAnimalsGateControl(true);
+            MissionGateControl(true, HerdAssist.HerdDirection.In);
+            AreasWithAnimalsGateControl(true, HerdAssist.HerdDirection.Out);
         }
 
         public void GenerateMissions() {
@@ -132,8 +134,8 @@ namespace HerdingSystem
                 }
             }
             
-            MissionGateControl(true);
-            AreasWithAnimalsGateControl(true);
+            MissionGateControl(true, HerdAssist.HerdDirection.In);
+            AreasWithAnimalsGateControl(true, HerdAssist.HerdDirection.Out);
         }
 
         /// <summary>
@@ -170,16 +172,18 @@ namespace HerdingSystem
         }
 
         #region Gate Control
-        public void MissionGateControl(bool open) {
+        public void MissionGateControl(bool open, HerdAssist.HerdDirection assitDir) {
             foreach (HerdMission mission in missions) {
                 mission.herdDestination.GetComponentInParent<HerdGate>().GateControl(open);
+                mission.herdDestination.transform.parent.GetComponentInChildren<HerdAssist>().direction = assitDir;
             }
         }
 
-        public void AreasWithAnimalsGateControl(bool open) {
+        public void AreasWithAnimalsGateControl(bool open, HerdAssist.HerdDirection assitDir) {
             foreach (HerdDestination destination in destinations) {
                 if (destination.animalsIn.Count > 0) {
                     destination.GetComponentInParent<HerdGate>().GateControl(open);
+                    destination.transform.parent.GetComponentInChildren<HerdAssist>().direction = assitDir;
                 }
             }
         }

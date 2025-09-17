@@ -20,12 +20,6 @@ namespace HerdingSystem
             pushMult = data.pushforce;
         }
 
-        private void PushDirection(Rigidbody rb, Vector3 dir, float forceMult) {
-            Vector3 localForce = dir.normalized;
-            Vector3 worldForce = transform.TransformDirection(localForce);
-            rb.AddForce(worldForce * forceMult, ForceMode.Force);
-        }
-
         private void PushLocal(Rigidbody rb, Vector3 dir, float forceMult) {
             Vector3 worldForce = transform.TransformDirection(dir.normalized);
             rb.AddForce(worldForce * forceMult, ForceMode.Impulse);
@@ -47,7 +41,7 @@ namespace HerdingSystem
                 PushLocal(h.rb, new Vector3(-localPos.x, 0, 0), centerMult);
                 if (InPushZone(h.transform.position)) {
                     if(direction == HerdDirection.In) PushWorld(h.rb, -transform.forward, pushMult);
-                    else PushWorld(h.rb, transform.forward, pushMult);
+                    else if(direction == HerdDirection.Out) PushWorld(h.rb, transform.forward, pushMult);
                 }
             }
         }
