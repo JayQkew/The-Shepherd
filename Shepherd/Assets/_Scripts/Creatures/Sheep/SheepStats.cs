@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Serialization;
+using Utilities;
 
 [CreateAssetMenu(fileName = "SheepStats", menuName = "Creatures/SheepStats")]
 public class SheepStats : ScriptableObject

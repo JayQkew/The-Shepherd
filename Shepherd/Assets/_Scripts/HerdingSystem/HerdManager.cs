@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using TimeSystem;
 using UnityEngine;
@@ -206,11 +207,17 @@ namespace HerdingSystem
     public enum Destination
     {
         None,
+        [Description("Pen")]
         Pen,
+        [Description("Field 1")]
         Field1,
+        [Description("Field 2")]
         Field2,
+        [Description("Field 3")]
         Field3,
+        [Description("Field 4")]
         Field4,
+        [Description("Field 5")]
         Field5,
     }
 
@@ -218,7 +225,9 @@ namespace HerdingSystem
     public enum Animal
     {
         None = 0,
-        Sheep   = 1 << 0,
+        [Description("Sheep")]
+        Sheep   = 1 << 0,        
+        [Description("Ducken")]
         Ducken  = 1 << 1
     }
 }

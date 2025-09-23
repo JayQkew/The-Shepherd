@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Utilities;
 using Object = UnityEngine.Object;
 
 namespace _Scripts.Creatures
