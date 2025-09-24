@@ -11,7 +11,8 @@ namespace HerdingSystem
     public class HerdManager : MonoBehaviour
     {
         public static HerdManager Instance { get; private set; }
-    
+        private HerdUIManager herdUIManager;
+
         public List<HerdMission> missions;
         public HerdDestination[] destinations;
         public List<HerdAnimal> allHerdAnimals = new List<HerdAnimal>();
@@ -36,6 +37,7 @@ namespace HerdingSystem
             }
             
             destinations = FindObjectsByType<HerdDestination>(FindObjectsSortMode.None);
+            herdUIManager = GetComponent<HerdUIManager>();
 
             // finds the pen
             foreach (HerdDestination destination in destinations) {
@@ -78,6 +80,7 @@ namespace HerdingSystem
                 if (herdMission.herdDestination == herdDestination) {
                     if(herdDestination.animalsByType.TryGetValue(herdMission.animal, out List<HerdAnimal> animals)){
                         herdMission.curr = animals.Count;
+                        herdUIManager.missionCards[i].UpdateNumbers();
                     }
                 }
                 missions[i] = herdMission;
@@ -100,19 +103,23 @@ namespace HerdingSystem
 
         public void PenMission() {
             missions.Clear();
+            herdUIManager.RemoveAllMissionCards();
+
             HerdMission penMission = new HerdMission(
                 pen,
                 Animal.Sheep,
                 animalsByType[Animal.Sheep].Count
             );
             missions.Add(penMission);
-            
+            herdUIManager.AddMissionCard(penMission);
+
             MissionGateControl(true, HerdAssist.HerdDirection.In);
             AreasWithAnimalsGateControl(true, HerdAssist.HerdDirection.Out);
         }
 
         public void GenerateMissions() {
             missions.Clear();
+            herdUIManager.RemoveAllMissionCards();
             // generate missions for every animal type
             foreach (Animal animal in animalsByType.Keys) {
                 HerdingTicket ticket = GetHerdingTicket();
@@ -129,6 +136,8 @@ namespace HerdingSystem
                         herdDestination,
                         animal,
                         numAnimals);
+                    
+                    herdUIManager.AddMissionCard(herdMission);
                     
                     herdDestinations.Remove(herdDestination);
                     missions.Add(herdMission);
