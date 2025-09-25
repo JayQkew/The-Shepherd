@@ -25,7 +25,7 @@ namespace Notifications
         public void ShowPopUp(Notification notification) {
             GameObject popUp = Instantiate(popUpPrefab, notificationContainer);
             NotificationPopUp popupScript = popUp.GetComponent<NotificationPopUp>();
-            popupScript.notification = notification;
+            popupScript.Init(notification);
         }
     }
 }

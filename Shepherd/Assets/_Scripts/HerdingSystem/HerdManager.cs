@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.ComponentModel;
+using Notifications;
 using UnityEngine;
+using Utilities;
 using Random = UnityEngine.Random;
 
 namespace HerdingSystem
@@ -109,6 +111,10 @@ namespace HerdingSystem
             );
             missions.Add(penMission);
             herdUIManager.AddMissionCard(penMission);
+            
+            Notification notification = new Notification(
+                "Herding",
+                $"Herd {animalsByType[Animal.Sheep].Count} {Animal.Sheep.StringValue()} to {pen.destination.StringValue()}");
 
             MissionGateControl(true, HerdAssist.HerdDirection.In);
             AreasWithAnimalsGateControl(true, HerdAssist.HerdDirection.Out);
@@ -139,6 +145,8 @@ namespace HerdingSystem
           
                     herdDestinations.Remove(herdDestination);
                     missions.Add(herdMission);
+
+
                 }
 
                 // this is to account for any rounding errors
@@ -147,6 +155,9 @@ namespace HerdingSystem
 
                 foreach (HerdMission mission in missions) {
                     herdUIManager.AddMissionCard(mission);
+                    Notification notification = new Notification(
+                        "Herding",
+                        $"Herd {mission.target} {animal.StringValue()} to {mission.destination.StringValue()}");
                 }
             }
             
