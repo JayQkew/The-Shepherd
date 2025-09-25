@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using TimeSystem;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -17,14 +18,8 @@ namespace HerdingSystem
         public HerdDestination[] destinations;
         public List<HerdAnimal> allHerdAnimals = new List<HerdAnimal>();
         private HerdDestination pen;
-        [SerializeField] private List<HerdingTicket> herdingTickets = new List<HerdingTicket>();
         
-        private Dictionary<TicketDifficulty, List<HerdingTicket>> ticketDifficulties = new Dictionary<TicketDifficulty, List<HerdingTicket>>
-        {
-            { TicketDifficulty.Easy , new List<HerdingTicket>()},
-            { TicketDifficulty.Medium , new List<HerdingTicket>()},
-            { TicketDifficulty.Hard , new List<HerdingTicket>()},
-        };
+        [SerializeField, Space(25)] TicketManager ticketManager;
 
         private Dictionary<Animal, List<HerdAnimal>> animalsByType = new Dictionary<Animal, List<HerdAnimal>>();
 
@@ -47,9 +42,10 @@ namespace HerdingSystem
             }
             
             // puts tickets into dictionary
-            foreach (HerdingTicket ticket in herdingTickets) {
-                ticketDifficulties[ticket.difficulty].Add(ticket);
-            }
+            ticketManager.Init();
+            // foreach (HerdingTicket ticket in herdingTickets) {
+            //     ticketDifficulties[ticket.difficulty].Add(ticket);
+            // }
         }
 
         public void AddAnimal(HerdAnimal herdAnimal) {
@@ -81,6 +77,11 @@ namespace HerdingSystem
                     if(herdDestination.animalsByType.TryGetValue(herdMission.animal, out List<HerdAnimal> animals)){
                         herdMission.curr = animals.Count;
                         herdUIManager.missionCards[i].UpdateNumbers();
+                        
+                        HerdAssist.HerdDirection herdDirection = herdMission.TargetMet ? 
+                            HerdAssist.HerdDirection.Out : HerdAssist.HerdDirection.In;
+                        
+                        herdDestination.transform.parent.GetComponentInChildren<HerdAssist>().direction = herdDirection;
                     }
                 }
                 missions[i] = herdMission;
@@ -122,25 +123,33 @@ namespace HerdingSystem
             herdUIManager.RemoveAllMissionCards();
             // generate missions for every animal type
             foreach (Animal animal in animalsByType.Keys) {
-                HerdingTicket ticket = GetHerdingTicket();
+                HerdingTicket ticket = ticketManager.GetTicket();
                 
                 List<HerdDestination> herdDestinations = AvailableDestinations(animal);
                 int totalAnimals = animalsByType[animal].Count;
                 
                 int numMissions = ticket.weights.Count;
+                int animalSum = 0;
                 for (int i = 0; i < numMissions; i++) {
                     HerdDestination herdDestination = herdDestinations[Random.Range(0, herdDestinations.Count)];
                     int numAnimals = Mathf.RoundToInt(totalAnimals * ticket.weights[i]);
+                    animalSum += numAnimals;
                     
                     HerdMission herdMission = new HerdMission(
                         herdDestination,
                         animal,
                         numAnimals);
-                    
-                    herdUIManager.AddMissionCard(herdMission);
-                    
+          
                     herdDestinations.Remove(herdDestination);
                     missions.Add(herdMission);
+                }
+
+                // this is to account for any rounding errors
+                int diff = totalAnimals - animalSum;
+                missions[numMissions - 1].target += diff;
+
+                foreach (HerdMission mission in missions) {
+                    herdUIManager.AddMissionCard(mission);
                 }
             }
             
@@ -148,48 +157,15 @@ namespace HerdingSystem
             AreasWithAnimalsGateControl(true, HerdAssist.HerdDirection.Out);
         }
 
-        /// <summary>
-        /// Gets a herding ticket based on how many days the player has played
-        /// 0 - 5 days = Easy
-        /// 6 - 17 days = Easy + Medium
-        /// 18 - ∞ = Easy + Medium + Hard
-        /// </summary>
-        private HerdingTicket GetHerdingTicket() {
-            uint day = TimeManager.Instance.dayCount;
-            HerdingTicket ticket;
-
-            if (day >= 18) {
-                List<HerdingTicket> tickets = ticketDifficulties[TicketDifficulty.Easy]
-                    .Concat(ticketDifficulties[TicketDifficulty.Medium])
-                    .Concat(ticketDifficulties[TicketDifficulty.Hard])
-                    .ToList();
-                int i = Random.Range(0, tickets.Count);
-                ticket = tickets[i];
-            } 
-            else if (day >= 6) {
-                List<HerdingTicket> tickets = ticketDifficulties[TicketDifficulty.Easy]
-                    .Concat(ticketDifficulties[TicketDifficulty.Medium])
-                    .ToList();
-                int i = Random.Range(0, tickets.Count);
-                ticket = tickets[i];
-            }
-            else {
-                int i = Random.Range(0, ticketDifficulties[TicketDifficulty.Easy].Count);
-                ticket = ticketDifficulties[TicketDifficulty.Easy][i];
-            }
-            
-            return ticket;
-        }
-
         #region Gate Control
-        public void MissionGateControl(bool open, HerdAssist.HerdDirection assitDir) {
+        private void MissionGateControl(bool open, HerdAssist.HerdDirection assitDir) {
             foreach (HerdMission mission in missions) {
                 mission.herdDestination.GetComponentInParent<HerdGate>().GateControl(open);
                 mission.herdDestination.transform.parent.GetComponentInChildren<HerdAssist>().direction = assitDir;
             }
         }
 
-        public void AreasWithAnimalsGateControl(bool open, HerdAssist.HerdDirection assitDir) {
+        private void AreasWithAnimalsGateControl(bool open, HerdAssist.HerdDirection assitDir) {
             foreach (HerdDestination destination in destinations) {
                 if (destination.animalsIn.Count > 0) {
                     destination.GetComponentInParent<HerdGate>().GateControl(open);

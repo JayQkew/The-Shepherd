@@ -15,5 +15,9 @@ namespace UI
         public void ToggleTimeScale() {
             Time.timeScale = gameObject.activeSelf ? 0f : 1f;
         }
+
+        public void ExitGame() {
+            Application.Quit();
+        }
     }
 }
