@@ -1,9 +1,5 @@
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using TimeSystem;
-using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -121,6 +117,7 @@ namespace HerdingSystem
         public void GenerateMissions() {
             missions.Clear();
             herdUIManager.RemoveAllMissionCards();
+            
             // generate missions for every animal type
             foreach (Animal animal in animalsByType.Keys) {
                 HerdingTicket ticket = ticketManager.GetTicket();
