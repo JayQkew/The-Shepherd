@@ -33,6 +33,10 @@ public class InputHandler : MonoBehaviour
     public UnityEvent onInteract;
     [Space(25)]
     public UnityEvent onCast;
+    [Space(25)]
+    public UnityEvent onPausePressed;
+    [Space(25)]
+    public UnityEvent onMenuPressed;
 
     private void Start() {
         playerInput = GetComponent<PlayerInput>();
@@ -120,6 +124,18 @@ public class InputHandler : MonoBehaviour
         }
         else if (ctx.canceled) {
             isCasting = false;
+        }
+    }
+
+    public void PausePressed(InputAction.CallbackContext ctx) {
+        if (ctx.performed) {
+            onPausePressed?.Invoke();
+        }
+    }
+
+    public void MenuPressed(InputAction.CallbackContext ctx) {
+        if (ctx.performed) {
+            onMenuPressed?.Invoke();
         }
     }
 }

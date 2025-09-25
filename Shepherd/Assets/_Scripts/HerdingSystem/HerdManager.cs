@@ -216,7 +216,7 @@ namespace HerdingSystem
     public enum Destination
     {
         None,
-        [Description("Pen")]
+        [Description("the Pen")]
         Pen,
         [Description("Field 1")]
         Field1,
