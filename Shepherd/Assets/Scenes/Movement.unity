@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time:
-    maxTime: 40
+    maxTime: 300
     currTime: 0
   dayCount: 20
   currPhase: 0
@@ -178,7 +178,7 @@ MonoBehaviour:
   dayPhases:
   - phase: 0
     timer:
-      maxTime: 5
+      maxTime: 45
       currTime: 0
     onPhaseStart:
       m_PersistentCalls:
@@ -200,7 +200,7 @@ MonoBehaviour:
         m_Calls: []
   - phase: 1
     timer:
-      maxTime: 15
+      maxTime: 105
       currTime: 0
     onPhaseStart:
       m_PersistentCalls:
@@ -222,7 +222,7 @@ MonoBehaviour:
           m_CallState: 2
   - phase: 2
     timer:
-      maxTime: 5
+      maxTime: 45
       currTime: 0
     onPhaseStart:
       m_PersistentCalls:
@@ -232,7 +232,7 @@ MonoBehaviour:
         m_Calls: []
   - phase: 3
     timer:
-      maxTime: 15
+      maxTime: 105
       currTime: 0
     onPhaseStart:
       m_PersistentCalls:
@@ -282,7 +282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   light: {fileID: 410087040}
-  transitionTime: 2.5
+  transitionTime: 15
   lightColors:
   - {r: 1, g: 0.31764707, b: 0, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
@@ -303,13 +303,13 @@ MonoBehaviour:
     key5: {r: 0.3254902, g: 0.3254902, b: 1, a: 0}
     key6: {r: 0.3254902, g: 0.3254902, b: 1, a: 0}
     key7: {r: 1, g: 0.31764707, b: 0, a: 0}
-    ctime0: 5461
-    ctime1: 9102
-    ctime2: 29127
-    ctime3: 32768
-    ctime4: 38229
-    ctime5: 41870
-    ctime6: 61894
+    ctime0: 7447
+    ctime1: 10426
+    ctime2: 29789
+    ctime3: 32767
+    ctime4: 40215
+    ctime5: 43194
+    ctime6: 62556
     ctime7: 65535
     atime0: 0
     atime1: 65535
@@ -333,13 +333,13 @@ MonoBehaviour:
     key5: {r: 0.06705808, g: 0.041607343, b: 0.16037738, a: 0}
     key6: {r: 0.06705808, g: 0.041607343, b: 0.16037738, a: 0}
     key7: {r: 0.95283014, g: 0.33131522, b: 0.22921851, a: 0}
-    ctime0: 5461
-    ctime1: 9102
-    ctime2: 29127
-    ctime3: 32768
-    ctime4: 38229
-    ctime5: 41870
-    ctime6: 61894
+    ctime0: 7447
+    ctime1: 10426
+    ctime2: 29789
+    ctime3: 32767
+    ctime4: 40215
+    ctime5: 43194
+    ctime6: 62556
     ctime7: 65535
     atime0: 0
     atime1: 65535
