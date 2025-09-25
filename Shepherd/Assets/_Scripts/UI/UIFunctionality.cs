@@ -7,5 +7,13 @@ namespace UI
         public void ToggleUI() {
             gameObject.SetActive(!gameObject.activeSelf);
         }
+
+        public void ChangeTimeScale(float timeScale) {
+            Time.timeScale = timeScale;
+        }
+
+        public void ToggleTimeScale() {
+            Time.timeScale = gameObject.activeSelf ? 0f : 1f;
+        }
     }
 }
