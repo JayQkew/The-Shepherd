@@ -534,6 +534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31c41468112d95c45b82a58918bd77af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dontDestroyOnLoad: 0
 --- !u!4 &120751288 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2618985539871644832, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
@@ -813,8 +814,9 @@ GameObject:
   - component: {fileID: 335033426}
   - component: {fileID: 335033425}
   - component: {fileID: 335033424}
+  - component: {fileID: 335033427}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: PersistantCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -832,9 +834,10 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2091355279}
   - {fileID: 63475333}
-  - {fileID: 580339396}
   - {fileID: 2005699832}
+  - {fileID: 580339396}
   m_Father: {fileID: 1525553403}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -905,6 +908,19 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 100
   m_TargetDisplay: 0
+--- !u!114 &335033427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335033422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31c41468112d95c45b82a58918bd77af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dontDestroyOnLoad: 1
 --- !u!1 &350441610
 GameObject:
   m_ObjectHideFlags: 0
@@ -1882,7 +1898,7 @@ GameObject:
   - component: {fileID: 580339396}
   - component: {fileID: 580339397}
   m_Layer: 0
-  m_Name: Pause
+  m_Name: PauseScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1920,6 +1936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31c41468112d95c45b82a58918bd77af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dontDestroyOnLoad: 0
 --- !u!4 &627998032 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2618985539871644832, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
@@ -2453,7 +2470,6 @@ Transform:
   - {fileID: 1734781909}
   - {fileID: 17736215}
   - {fileID: 1145774890}
-  - {fileID: 1685411294}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1031256971 stripped
@@ -2673,7 +2689,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1145774890}
   - component: {fileID: 1145774891}
-  - component: {fileID: 1145774892}
   m_Layer: 0
   m_Name: Herd
   m_TagString: Untagged
@@ -2721,21 +2736,6 @@ MonoBehaviour:
     - {fileID: 11400000, guid: d29a6357529ee6343956fe45ab5275ae, type: 2}
     - {fileID: 11400000, guid: e73c930585027ae4ebf22f31c9ebadfe, type: 2}
     - {fileID: 11400000, guid: a6b6ca764c3aeef4dba22264e227a9e7, type: 2}
---- !u!114 &1145774892
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1145774889}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df8fa90e3d43a9045be09c5afe07471a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  missionCard: {fileID: 4703589444240952587, guid: 29095a7ba70133343990325c47ae02a4, type: 3}
-  missionCardContainer: {fileID: 242101917}
-  missionCards: []
 --- !u!1 &1146715882
 GameObject:
   m_ObjectHideFlags: 0
@@ -3828,12 +3828,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1685411293}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 991737543}
+  m_Father: {fileID: 2091355279}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1685411295
 MonoBehaviour:
@@ -4407,7 +4407,7 @@ GameObject:
   - component: {fileID: 2005699832}
   - component: {fileID: 2005699831}
   m_Layer: 0
-  m_Name: Menu
+  m_Name: MenuScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4425,6 +4425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31c41468112d95c45b82a58918bd77af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dontDestroyOnLoad: 0
 --- !u!224 &2005699832
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5164,6 +5165,58 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd1b3414da9da8145addf72ba422e735, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2091355278
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2091355279}
+  - component: {fileID: 2091355280}
+  m_Layer: 0
+  m_Name: UIManagers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2091355279
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091355278}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1685411294}
+  m_Father: {fileID: 335033423}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2091355280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091355278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df8fa90e3d43a9045be09c5afe07471a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  missionCard: {fileID: 4703589444240952587, guid: 29095a7ba70133343990325c47ae02a4, type: 3}
+  missionCardContainer: {fileID: 242101917}
+  missionCards: []
 --- !u!4 &2125108607 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2618985539871644832, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}

@@ -1,13 +1,24 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace HerdingSystem
 {
-    public class HerdUIManager : MonoBehaviour
+    public class MissionUI : MonoBehaviour
     {
+        public static MissionUI Instance { get; private set; }
         [SerializeField] private GameObject missionCard;
         [SerializeField] private Transform missionCardContainer;
         public List<HerdMissionUI> missionCards = new List<HerdMissionUI>();
+
+        private void Awake() {
+            if (Instance == null) {
+                Instance = this;
+            }
+            else {
+                Destroy(gameObject);
+            }
+        }
 
         public void AddMissionCard(HerdMission mission) {
             GameObject card = Instantiate(missionCard, missionCardContainer);

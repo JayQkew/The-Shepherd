@@ -1,9 +1,18 @@
+using System;
 using UnityEngine;
 
 namespace UI
 {
     public class UIFunctionality : MonoBehaviour
     {
+        public bool dontDestroyOnLoad;
+
+        private void Awake() {
+            if (dontDestroyOnLoad) {
+                DontDestroyOnLoad(gameObject);
+            }
+        }
+
         public void ToggleUI() {
             gameObject.SetActive(!gameObject.activeSelf);
         }

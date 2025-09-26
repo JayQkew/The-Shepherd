@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using Notifications;
 using UnityEngine;
 using Utilities;
@@ -10,7 +11,7 @@ namespace HerdingSystem
     public class HerdManager : MonoBehaviour
     {
         public static HerdManager Instance { get; private set; }
-        private HerdUIManager herdUIManager;
+        private MissionUI missionUI;
 
         public List<HerdMission> missions;
         public HerdDestination[] destinations;
@@ -30,7 +31,7 @@ namespace HerdingSystem
             }
             
             destinations = FindObjectsByType<HerdDestination>(FindObjectsSortMode.None);
-            herdUIManager = GetComponent<HerdUIManager>();
+            missionUI = MissionUI.Instance;
 
             // finds the pen
             foreach (HerdDestination destination in destinations) {
@@ -41,9 +42,6 @@ namespace HerdingSystem
             
             // puts tickets into dictionary
             ticketManager.Init();
-            // foreach (HerdingTicket ticket in herdingTickets) {
-            //     ticketDifficulties[ticket.difficulty].Add(ticket);
-            // }
         }
 
         public void AddAnimal(HerdAnimal herdAnimal) {
@@ -74,7 +72,7 @@ namespace HerdingSystem
                 if (herdMission.herdDestination == herdDestination) {
                     if(herdDestination.animalsByType.TryGetValue(herdMission.animal, out List<HerdAnimal> animals)){
                         herdMission.curr = animals.Count;
-                        herdUIManager.missionCards[i].UpdateNumbers();
+                        missionUI.missionCards[i].UpdateNumbers();
                         
                         HerdAssist.HerdDirection herdDirection = herdMission.TargetMet ? 
                             HerdAssist.HerdDirection.Out : HerdAssist.HerdDirection.In;
@@ -102,7 +100,7 @@ namespace HerdingSystem
 
         public void PenMission() {
             missions.Clear();
-            herdUIManager.RemoveAllMissionCards();
+            missionUI.RemoveAllMissionCards();
 
             HerdMission penMission = new HerdMission(
                 pen,
@@ -110,7 +108,7 @@ namespace HerdingSystem
                 animalsByType[Animal.Sheep].Count
             );
             missions.Add(penMission);
-            herdUIManager.AddMissionCard(penMission);
+            missionUI.AddMissionCard(penMission);
             
             Notification notification = new Notification(
                 "Herding",
@@ -123,7 +121,7 @@ namespace HerdingSystem
 
         public void GenerateMissions() {
             missions.Clear();
-            herdUIManager.RemoveAllMissionCards();
+            missionUI.RemoveAllMissionCards();
             
             // generate missions for every animal type
             foreach (Animal animal in animalsByType.Keys) {
@@ -155,7 +153,7 @@ namespace HerdingSystem
                 missions[numMissions - 1].target += diff;
 
                 foreach (HerdMission mission in missions) {
-                    herdUIManager.AddMissionCard(mission);
+                    missionUI.AddMissionCard(mission);
                     Notification notification = new Notification(
                         "Herding",
                         $"Herd {mission.target} {animal.StringValue()} to {mission.destination.StringValue()}",
@@ -196,6 +194,14 @@ namespace HerdingSystem
 
             herdDestinations.Remove(pen); // ensures that the pen is never chosen
             return herdDestinations;
+        }
+
+        private void UnusedDestinations() {
+            foreach (HerdDestination destination in destinations.ToList()) {
+                foreach (HerdMission mission in missions) {
+                    
+                }
+            }
         }
     }
 
