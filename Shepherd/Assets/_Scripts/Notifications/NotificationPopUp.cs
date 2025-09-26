@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -13,14 +14,16 @@ namespace Notifications
         [SerializeField] private TextMeshProUGUI messageTxt;
         [SerializeField] private Image image;
 
-        public void Init(Notification notif) {
-            notification = notif;
-            titleTxt.text = notif.title;
-            messageTxt.text = notif.message;
+        public void Init(Notification n) {
+            notification = n;
+            titleTxt.text = n.title;
+            messageTxt.text = n.message;
             
-            if (notif.icon != null) {
-                image.sprite = notif.icon;
+            if (n.icon != null) {
+                image.sprite = n.icon;
             }
+
+            n.OnTimerFinished = () => Destroy(gameObject);
         }
     }
 }

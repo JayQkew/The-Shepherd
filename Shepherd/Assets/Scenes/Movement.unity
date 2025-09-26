@@ -172,7 +172,7 @@ MonoBehaviour:
   time:
     maxTime: 300
     currTime: 0
-  dayCount: 0
+  dayCount: 30
   currPhase: 0
   currSeason: 0
   dayPhases:
@@ -3794,6 +3794,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notificationContainer: {fileID: 63475333}
   popUpPrefab: {fileID: 2949252881669572333, guid: 0e8393950d0d93b4dbcf9ae3be502999, type: 3}
+  notifications: []
 --- !u!1 &1734781908
 GameObject:
   m_ObjectHideFlags: 0

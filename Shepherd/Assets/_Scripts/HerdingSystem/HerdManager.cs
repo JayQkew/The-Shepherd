@@ -114,7 +114,8 @@ namespace HerdingSystem
             
             Notification notification = new Notification(
                 "Herding",
-                $"Herd {animalsByType[Animal.Sheep].Count} {Animal.Sheep.StringValue()} to {pen.destination.StringValue()}");
+                $"Herd {animalsByType[Animal.Sheep].Count} {Animal.Sheep.StringValue()} to {pen.destination.StringValue()}",
+                5);
 
             MissionGateControl(true, HerdAssist.HerdDirection.In);
             AreasWithAnimalsGateControl(true, HerdAssist.HerdDirection.Out);
@@ -157,7 +158,8 @@ namespace HerdingSystem
                     herdUIManager.AddMissionCard(mission);
                     Notification notification = new Notification(
                         "Herding",
-                        $"Herd {mission.target} {animal.StringValue()} to {mission.destination.StringValue()}");
+                        $"Herd {mission.target} {animal.StringValue()} to {mission.destination.StringValue()}",
+                        5);
                 }
             }
             
