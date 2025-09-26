@@ -6,6 +6,7 @@ namespace TimeSystem
     public class TimeManager : MonoBehaviour
     {
         public static TimeManager Instance { get; private set; }
+        public Timer yearTimer;
         public Timer time;
         public uint dayCount;
         public DayPhaseName currPhase;
@@ -29,6 +30,7 @@ namespace TimeSystem
 
         private void Update() {
             time.Update();
+            yearTimer.Update();
             UpdateDayTime(dayPhases[(int)currPhase]);
         
             if (time.IsFinished) {
@@ -51,10 +53,6 @@ namespace TimeSystem
             }
         }
 
-        public void TestEvents(string test) {
-            Debug.Log(test);
-        }
-
         private void SeasonCheck() {
             if (dayCount % 3 == 0) {
                 seasons[(int)currSeason].onSeasonEnd.Invoke();
@@ -69,6 +67,7 @@ namespace TimeSystem
             foreach (DayPhase dayPhase in dayPhases) {
                 time.maxTime += dayPhase.timer.maxTime;
             }
+            yearTimer.maxTime = time.maxTime * 12;
         }  
     
         private void OnValidate() {

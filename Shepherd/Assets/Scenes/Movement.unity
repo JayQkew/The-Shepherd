@@ -242,6 +242,7 @@ MonoBehaviour:
         m_Calls: []
   seasons:
   - season: 0
+    hueShift: 15
     onSeasonStart:
       m_PersistentCalls:
         m_Calls: []
@@ -249,6 +250,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   - season: 1
+    hueShift: -5
     onSeasonStart:
       m_PersistentCalls:
         m_Calls: []
@@ -256,6 +258,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   - season: 2
+    hueShift: -15
     onSeasonStart:
       m_PersistentCalls:
         m_Calls: []
@@ -263,6 +266,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   - season: 3
+    hueShift: 5
     onSeasonStart:
       m_PersistentCalls:
         m_Calls: []
@@ -402,6 +406,58 @@ MonoBehaviour:
       inWeight: 1
       outWeight: 0
     m_PreInfinity: 1
+    m_PostInfinity: 1
+    m_RotationOrder: 4
+  volume: {fileID: 832575518}
+  hueShiftCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 14.968369
+      inSlope: 0.008178022
+      outSlope: 0.008178022
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 1
+    - serializedVersion: 3
+      time: 0.2
+      value: -5
+      inSlope: -74.92092
+      outSlope: -74.92092
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.4
+      value: -15
+      inSlope: 24.999996
+      outSlope: 24.999996
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.6
+      value: 5
+      inSlope: 62.499996
+      outSlope: 62.499996
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 15
+      inSlope: -0.013609501
+      outSlope: -0.013609501
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 1
+      outWeight: 0
+    m_PreInfinity: 2
     m_PostInfinity: 1
     m_RotationOrder: 4
 --- !u!1 &63475332

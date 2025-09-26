@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 namespace TimeSystem
 {
@@ -17,18 +19,33 @@ namespace TimeSystem
         [SerializeField] private Gradient lightGradient;
         [SerializeField] private Gradient skyGradient;
         [SerializeField] private AnimationCurve intensityCurve;
+        [Space(25)]
+        [SerializeField] private Volume volume;
+        [SerializeField] private AnimationCurve hueShiftCurve;
+        private ColorAdjustments colorAdjustments;
     
         private void Awake() {
             UpdateGradient();
+
+            if (volume != null) {
+                volume.profile.TryGet(out colorAdjustments);
+            }
         }
 
         private void Update() {
             if (TimeManager.Instance != null) {
                 float t = TimeManager.Instance.time.Progress;
+                float yearT = TimeManager.Instance.yearTimer.Progress;
                 light.color = lightGradient.Evaluate(t);
                 RenderSettings.skybox.SetColor(Tint, skyGradient.Evaluate(t));
                 LightAngle(t);
                 light.intensity = intensityCurve.Evaluate(t);
+                
+                ClampedFloatParameter hueShift = new ClampedFloatParameter(
+                    hueShiftCurve.Evaluate(yearT),
+                    colorAdjustments.hueShift.min,
+                    colorAdjustments.hueShift.max);
+                colorAdjustments.hueShift = hueShift;
             }
         }
 
