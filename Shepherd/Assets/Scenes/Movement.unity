@@ -169,10 +169,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a39c865d6decf0746b6b919f9ff4788b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  yearTimer:
+    maxTime: 3600
+    currTime: 0
   time:
     maxTime: 300
     currTime: 0
-  dayCount: 30
+  dayCount: 0
   currPhase: 0
   currSeason: 0
   dayPhases:
@@ -242,7 +245,6 @@ MonoBehaviour:
         m_Calls: []
   seasons:
   - season: 0
-    hueShift: 15
     onSeasonStart:
       m_PersistentCalls:
         m_Calls: []
@@ -250,7 +252,6 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   - season: 1
-    hueShift: -5
     onSeasonStart:
       m_PersistentCalls:
         m_Calls: []
@@ -258,7 +259,6 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   - season: 2
-    hueShift: -15
     onSeasonStart:
       m_PersistentCalls:
         m_Calls: []
@@ -266,7 +266,6 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   - season: 3
-    hueShift: 5
     onSeasonStart:
       m_PersistentCalls:
         m_Calls: []
@@ -286,7 +285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   light: {fileID: 410087040}
-  transitionTime: 15
+  transitionTime: 20
   lightColors:
   - {r: 1, g: 0.31764707, b: 0, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
@@ -307,13 +306,13 @@ MonoBehaviour:
     key5: {r: 0.3254902, g: 0.3254902, b: 1, a: 0}
     key6: {r: 0.3254902, g: 0.3254902, b: 1, a: 0}
     key7: {r: 1, g: 0.31764707, b: 0, a: 0}
-    ctime0: 7447
-    ctime1: 10426
-    ctime2: 29789
-    ctime3: 32767
-    ctime4: 40215
-    ctime5: 43194
-    ctime6: 62556
+    ctime0: 6746
+    ctime1: 10601
+    ctime2: 28913
+    ctime3: 32768
+    ctime4: 39514
+    ctime5: 43369
+    ctime6: 61680
     ctime7: 65535
     atime0: 0
     atime1: 65535
@@ -337,13 +336,13 @@ MonoBehaviour:
     key5: {r: 0.06705808, g: 0.041607343, b: 0.16037738, a: 0}
     key6: {r: 0.06705808, g: 0.041607343, b: 0.16037738, a: 0}
     key7: {r: 0.95283014, g: 0.33131522, b: 0.22921851, a: 0}
-    ctime0: 7447
-    ctime1: 10426
-    ctime2: 29789
-    ctime3: 32767
-    ctime4: 40215
-    ctime5: 43194
-    ctime6: 62556
+    ctime0: 6746
+    ctime1: 10601
+    ctime2: 28913
+    ctime3: 32768
+    ctime4: 39514
+    ctime5: 43369
+    ctime6: 61680
     ctime7: 65535
     atime0: 0
     atime1: 65535
@@ -413,8 +412,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
-      value: 14.968369
+      time: 0.14285715
+      value: 15
       inSlope: 0.008178022
       outSlope: 0.008178022
       tangentMode: 0
@@ -422,28 +421,28 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 1
     - serializedVersion: 3
-      time: 0.2
+      time: 0.42857143
       value: -5
-      inSlope: -74.92092
-      outSlope: -74.92092
+      inSlope: -52.500004
+      outSlope: -52.500004
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.4
+      time: 0.71428573
       value: -15
-      inSlope: 24.999996
-      outSlope: 24.999996
+      inSlope: 52.500008
+      outSlope: 52.500008
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.6
+      time: 0.85714287
       value: 5
-      inSlope: 62.499996
-      outSlope: 62.499996
+      inSlope: 105.000015
+      outSlope: 105.000015
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -457,7 +456,7 @@ MonoBehaviour:
       weightedMode: 0
       inWeight: 1
       outWeight: 0
-    m_PreInfinity: 2
+    m_PreInfinity: 1
     m_PostInfinity: 1
     m_RotationOrder: 4
 --- !u!1 &63475332

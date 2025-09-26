@@ -45,7 +45,8 @@ namespace TimeSystem
                     hueShiftCurve.Evaluate(yearT),
                     colorAdjustments.hueShift.min,
                     colorAdjustments.hueShift.max);
-                colorAdjustments.hueShift = hueShift;
+                
+                colorAdjustments.hueShift.value = hueShift.value;
             }
         }
 
