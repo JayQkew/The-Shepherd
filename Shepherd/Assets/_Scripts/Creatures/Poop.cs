@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace _Scripts.Creatures
+namespace Creatures
 {
     [Serializable]
     public class Poop
@@ -12,7 +12,7 @@ namespace _Scripts.Creatures
         [SerializeField] private float poopForce;
 
         public void ShootPoop() {
-            Rigidbody poopRb = Object.Instantiate(poopPref, poopSpawn.position, Quaternion.identity, poopSpawn)
+            Rigidbody poopRb = Object.Instantiate(poopPref, poopSpawn.position, Quaternion.identity)
                 .GetComponent<Rigidbody>();
             poopRb.AddForce(poopForce * poopSpawn.up, ForceMode.Impulse);
         }
