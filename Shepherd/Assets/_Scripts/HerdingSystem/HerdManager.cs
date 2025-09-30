@@ -123,6 +123,8 @@ namespace HerdingSystem
             missions.Clear();
             missionUI.RemoveAllMissionCards();
             
+            List<HerdDestination> allDestinations = destinations.ToList();
+            
             // generate missions for every animal type
             foreach (Animal animal in animalsByType.Keys) {
                 HerdingTicket ticket = ticketManager.GetTicket();
@@ -142,6 +144,7 @@ namespace HerdingSystem
                         animal,
                         numAnimals);
           
+                    allDestinations.Remove(herdDestination);
                     herdDestinations.Remove(herdDestination);
                     missions.Add(herdMission);
 
@@ -159,6 +162,10 @@ namespace HerdingSystem
                         $"Herd {mission.target} {animal.StringValue()} to {mission.destination.StringValue()}",
                         5);
                 }
+            }
+
+            foreach (HerdDestination destination in allDestinations) {
+                destination.transform.parent.GetComponentInChildren<HerdAssist>().direction = HerdAssist.HerdDirection.None;
             }
             
             MissionGateControl(true, HerdAssist.HerdDirection.In);
@@ -194,14 +201,6 @@ namespace HerdingSystem
 
             herdDestinations.Remove(pen); // ensures that the pen is never chosen
             return herdDestinations;
-        }
-
-        private void UnusedDestinations() {
-            foreach (HerdDestination destination in destinations.ToList()) {
-                foreach (HerdMission mission in missions) {
-                    
-                }
-            }
         }
     }
 
