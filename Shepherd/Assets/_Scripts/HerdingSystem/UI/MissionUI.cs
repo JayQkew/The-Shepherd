@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace HerdingSystem
@@ -26,7 +27,7 @@ namespace HerdingSystem
             missionUI.Init(mission);
             missionCards.Add(missionUI);
         }
-
+        
         public void RemoveMissionCard(GameObject card) {
             HerdMissionUI missionUI = card.GetComponent<HerdMissionUI>();
             missionCards.Remove(missionUI);
