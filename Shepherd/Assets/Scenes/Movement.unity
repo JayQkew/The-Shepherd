@@ -2546,6 +2546,7 @@ MonoBehaviour:
   mainCam: {fileID: 330585545}
   indicatorParent: {fileID: 962532034}
   indicatorPrefab: {fileID: 3368680017126251132, guid: e3a40f93db3467f4dbbe7b96d7b8ff3e, type: 3}
+  player: {fileID: 2080037328}
 --- !u!1 &991737542
 GameObject:
   m_ObjectHideFlags: 0

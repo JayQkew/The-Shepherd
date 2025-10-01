@@ -18,6 +18,7 @@ namespace OffScreenIndicator
         [SerializeField] private Camera mainCam;
         [SerializeField] private Transform indicatorParent;
         [SerializeField] private GameObject indicatorPrefab;
+        [SerializeField] private Transform player;
         
         private RectTransform canvasRect;
 
@@ -41,6 +42,7 @@ namespace OffScreenIndicator
 
             foreach (OsiTarget target in targetIndicators.Keys) {
                 FollowTarget(target);
+                TargetDistance(target, player);
             }
         }
 
@@ -109,8 +111,21 @@ namespace OffScreenIndicator
                 
                 targetIndicators[target].rectTransform.anchoredPosition = canvasPos;
                 targetIndicators[target].Rotate(canvasPos);
+                targetIndicators[target].Distance();
             }
-            
+            // else {
+            //     Vector2 canvasPos = new Vector2(
+            //         (screenPos.x - 0.5f) * canvasRect.sizeDelta.x,
+            //         (screenPos.y - 0.5f) * canvasRect.sizeDelta.y);
+            //     
+            //     targetIndicators[target].rectTransform.anchoredPosition = canvasPos;
+            // }
+        }
+
+        private float TargetDistance(OsiTarget target, Transform reference) {
+            float dist = Vector3.Distance(target.transform.position, reference.position);
+            target.distance = dist;
+            return dist;
         }
     }
 }

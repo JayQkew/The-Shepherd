@@ -7,6 +7,7 @@ namespace OffScreenIndicator
     {
         public string description;
         public bool subscribeOnStart = false;
+        public float distance;
 
         private void Start() {
             if (subscribeOnStart) {

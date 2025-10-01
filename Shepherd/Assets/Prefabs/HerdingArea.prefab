@@ -947,3 +947,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: 
   subscribeOnStart: 0
+  distance: 0

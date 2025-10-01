@@ -88,6 +88,11 @@ namespace HerdingSystem
 
             if (AllMissionsComplete()) {
                 MissionGateControl(false, HerdAssist.HerdDirection.None);
+                GateControl(false, HerdAssist.HerdDirection.None);
+                Notification notification = new Notification(
+                    "Herding",
+                    "All herding missions complete",
+                    5);
             }
         }
 
@@ -161,7 +166,7 @@ namespace HerdingSystem
                     Notification notification = new Notification(
                         "Herding",
                         $"Herd {mission.target} {animal.StringValue()} to {mission.destination.StringValue()}",
-                        5);
+                        10);
                 }
             }
 
@@ -194,6 +199,13 @@ namespace HerdingSystem
                     destination.herdGate.GateControl(open);
                     destination.herdAssist.direction = assitDir;
                 }
+            }
+        }
+
+        private void GateControl(bool open, HerdAssist.HerdDirection assitDir) {
+            foreach (HerdDestination destination in destinations) {
+                destination.herdGate.GateControl(open);
+                destination.herdAssist.direction = assitDir;
             }
         }
 
