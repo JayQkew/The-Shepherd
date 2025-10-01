@@ -309,11 +309,11 @@ MonoBehaviour:
     probability: 0
     Probability: 33
   - prefab: {fileID: 0}
-    Prefab: {fileID: 3162123658905399421, guid: 8f829f10b12fba84f8e49d3f1a6c21c7, type: 3}
+    Prefab: {fileID: 510405514948871917, guid: e13266ea803f6fc4889f9e5b0f39eac3, type: 3}
     probability: 0
     Probability: 33
   - prefab: {fileID: 0}
-    Prefab: {fileID: -7099652151871287892, guid: 8f829f10b12fba84f8e49d3f1a6c21c7, type: 3}
+    Prefab: {fileID: 2091793023630852160, guid: 9919c2541ea675d4192c7045c9216631, type: 3}
     probability: 0
     Probability: 33
   m_Method: 0
@@ -347,7 +347,7 @@ MonoBehaviour:
     space: 0
   m_DeprecatedInstances: []
   m_AutoRefresh: 1
-  m_Seed: -1993266955
+  m_Seed: 433086663
 --- !u!33 &8912482318205040616
 MeshFilter:
   m_ObjectHideFlags: 0
