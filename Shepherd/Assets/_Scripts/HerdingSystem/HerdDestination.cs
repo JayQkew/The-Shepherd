@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using OffScreenIndicator;
 using UnityEngine;
 
 namespace HerdingSystem
@@ -9,6 +10,10 @@ namespace HerdingSystem
         public Animal canHost;
         public List<HerdAnimal> animalsIn = new List<HerdAnimal>();
         public Dictionary<Animal, List<HerdAnimal>> animalsByType = new Dictionary<Animal, List<HerdAnimal>>();
+
+        public HerdGate herdGate;
+        public HerdAssist herdAssist;
+        public OsiTarget osiTarget;
 
         private void OnTriggerEnter(Collider other) {
             HerdAnimal animal = other.GetComponent<HerdAnimal>();

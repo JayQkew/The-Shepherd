@@ -5,11 +5,13 @@ namespace OffScreenIndicator
 {
     public class OsiIndicator : MonoBehaviour
     {
+        [SerializeField] private OsiTarget target;
         public RectTransform rectTransform;
         [SerializeField] private RectTransform pointer;
         [SerializeField] private TextMeshProUGUI text;
 
-        public void Init(string desc) {
+        public void Init(string desc, OsiTarget t) {
+            target = t;
             rectTransform = GetComponent<RectTransform>();
             text.text = desc;
         }

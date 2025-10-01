@@ -535,6 +535,9 @@ MonoBehaviour:
   destination: 0
   canHost: 0
   animalsIn: []
+  herdGate: {fileID: 616477900068520547}
+  herdAssist: {fileID: 2790069107585772896}
+  osiTarget: {fileID: 4867783084134277628}
 --- !u!114 &9188924380375046458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -833,6 +836,7 @@ GameObject:
   - component: {fileID: 1231152969875734474}
   - component: {fileID: 2711262417166958722}
   - component: {fileID: 741339272621316296}
+  - component: {fileID: 4867783084134277628}
   m_Layer: 0
   m_Name: Gate
   m_TagString: Untagged
@@ -929,3 +933,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4867783084134277628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8626942618572143425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7517ceb58642e04c9170514475acc70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: 
+  subscribeOnStart: 0

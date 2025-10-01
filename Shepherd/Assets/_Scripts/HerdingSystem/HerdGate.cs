@@ -1,3 +1,4 @@
+using OffScreenIndicator;
 using UnityEngine;
 using UnityEngine.Splines;
 

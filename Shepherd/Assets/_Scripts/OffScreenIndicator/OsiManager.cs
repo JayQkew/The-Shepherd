@@ -9,7 +9,6 @@ namespace OffScreenIndicator
     {
         public static OsiManager Instance { get; private set; }
 
-        [SerializeField] private List<Transform> targets;
         private List<OsiIndicator> indicators;
         private Dictionary<OsiTarget, OsiIndicator> targetIndicators = new Dictionary<OsiTarget, OsiIndicator>();
         [Space(10)]
@@ -17,6 +16,7 @@ namespace OffScreenIndicator
         [Space(10)]
         [SerializeField] private Canvas canvas;
         [SerializeField] private Camera mainCam;
+        [SerializeField] private Transform indicatorParent;
         [SerializeField] private GameObject indicatorPrefab;
         
         private RectTransform canvasRect;
@@ -37,7 +37,7 @@ namespace OffScreenIndicator
         }
 
         private void Update() {
-            if (targets.Count == 0 || mainCam == null) return;
+            if (targetIndicators.Count == 0 || mainCam == null) return;
 
             foreach (OsiTarget target in targetIndicators.Keys) {
                 FollowTarget(target);
@@ -48,9 +48,7 @@ namespace OffScreenIndicator
         /// Adding a target for an off-screen indicator
         /// </summary>
         public void AddTarget(Transform target) {
-            targets.Add(target);
-            
-            GameObject newIndicator = Instantiate(indicatorPrefab, transform);
+            GameObject newIndicator = Instantiate(indicatorPrefab, indicatorParent);
             OsiIndicator indicator = newIndicator.GetComponent<OsiIndicator>();
             
             OsiTarget osiTarget = target.GetComponent<OsiTarget>();
@@ -58,21 +56,30 @@ namespace OffScreenIndicator
                 osiTarget = target.AddComponent<OsiTarget>();
             }
             
-            indicator.Init(osiTarget.description);
+            indicator.Init(osiTarget.description, osiTarget);
             targetIndicators.TryAdd(osiTarget, indicator);
         }
 
         public void AddTarget(OsiTarget target) {
-            targets.Add(target.transform);
-            
-            GameObject newIndicator = Instantiate(indicatorPrefab, transform);
+            GameObject newIndicator = Instantiate(indicatorPrefab, indicatorParent);
             OsiIndicator indicator = newIndicator.GetComponent<OsiIndicator>();
-            indicator.Init(target.description);
+            indicator.Init(target.description, target);
             
             targetIndicators.TryAdd(target, indicator);
         }
 
-        public void FollowTarget(OsiTarget target) {
+        public void RemoveTarget(Transform target) {
+            OsiTarget osiTarget = target.GetComponent<OsiTarget>();
+            Destroy(targetIndicators[osiTarget].gameObject);
+            targetIndicators.Remove(osiTarget);
+        }
+
+        public void RemoveTarget(OsiTarget target) {
+            Destroy(targetIndicators[target].gameObject);
+            targetIndicators.Remove(target);
+        }
+
+        private void FollowTarget(OsiTarget target) {
             Vector3 screenPos = mainCam.WorldToViewportPoint(target.transform.position);
             
             bool isOffScreen = screenPos.z < 0 || 
