@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Timers;
+using Utilities;
 using TimeSystem;
 using UnityEngine;
 
@@ -12,6 +12,7 @@ namespace Climate
 
         public float globalTemp;
         private float targetTemp;
+        [SerializeField] private Timer tempThrottle;
         public HashSet<TempAffector> tempAffectors = new();
         public HashSet<TempReceptor> tempReceptors = new();
 
@@ -34,6 +35,17 @@ namespace Climate
         private void Update() {
             if (TimeManager.Instance.currPhase == DayPhaseName.Sunrise) {
                 globalTemp = Mathf.Lerp(globalTemp, targetTemp, TimeManager.Instance.currDayPhase.timer.Progress);
+            }
+            
+            tempThrottle.Update();
+            if (tempThrottle.IsFinished) {
+                foreach (TempAffector affector in tempAffectors) {
+                    affector.FindReceptors();
+                }
+
+                foreach (TempReceptor receptor in tempReceptors) {
+                    receptor.CalcTemp();
+                }
             }
         }
 

@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,11 +8,13 @@ namespace Climate
         public float tempModifier;
         public float radius;
         [SerializeField] private LayerMask layerMask;
+
         [Space(20)]
         [SerializeField] private bool showGizmos;
+
         private Collider[] colliders = new Collider[4];
         private HashSet<TempReceptor> affectedReceptors = new();
-        
+
 
         private void Start() {
             ClimateManager.Instance.tempAffectors.Add(this);
@@ -24,16 +25,29 @@ namespace Climate
             while (true) {
                 size = Physics.OverlapSphereNonAlloc(transform.position, radius, colliders, layerMask);
                 if (size < colliders.Length) break;
-                colliders = new Collider[colliders.Length*2];
+                colliders = new Collider[colliders.Length * 2];
             }
+
+            HashSet<TempReceptor> currentReceptors = new HashSet<TempReceptor>();
 
             for (int i = 0; i < size; i++) {
                 TempReceptor receptor = colliders[i].GetComponent<TempReceptor>();
                 if (receptor != null) {
-                    receptor.affectors.Add(this);
-                    affectedReceptors.Add(receptor);
+                    currentReceptors.Add(receptor);
+
+                    if (!receptor.affectors.Contains(this)) {
+                        receptor.affectors.Add(this);
+                    }
                 }
             }
+
+            foreach (TempReceptor receptor in affectedReceptors) {
+                if (receptor != null && !currentReceptors.Contains(receptor)) {
+                    receptor.affectors.Remove(this);
+                }
+            }
+
+            affectedReceptors = currentReceptors;
         }
 
         private void OnDisable() {
@@ -42,6 +56,7 @@ namespace Climate
                     receptor.affectors.Remove(this);
                 }
             }
+
             affectedReceptors.Clear();
         }
 

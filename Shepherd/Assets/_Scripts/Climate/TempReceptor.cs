@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,12 +14,16 @@ namespace Climate
 
         public float CalcTemp() {
             currTemp = ClimateManager.Instance.globalTemp;
-            
+
             foreach (TempAffector affector in affectors) {
                 currTemp += affector.tempModifier;
             }
-            
+
             return currTemp;
+        }
+
+        private void OnDestroy() {
+            ClimateManager.Instance.tempReceptors.Remove(this);
         }
     }
 }
