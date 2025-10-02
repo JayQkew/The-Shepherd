@@ -5,6 +5,8 @@ namespace Creatures.Ducken
 {
     public class Ducken : HerdAnimal, IBarkable
     {
+        [Header("Ducken")]
+        public Form currForm;
         private DuckenStateManager duckenStateManager;
 
         protected override void Awake() {
@@ -14,5 +16,12 @@ namespace Creatures.Ducken
         public void BarkedAt(Vector3 sourcePosition) {
             throw new System.NotImplementedException();
         }
+    }
+
+    public enum Form
+    {
+        Ducken,
+        Chicken,
+        Duck
     }
 }

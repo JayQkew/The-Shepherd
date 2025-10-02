@@ -5,9 +5,11 @@ namespace HerdingSystem
 {
     public class HerdAnimal : Creatures.Animal
     {
+        [Header("Herd Animal")]
         public Destination currHerdArea;
 
         protected override void Awake() {
+            base.Awake();
             rb = GetComponent<Rigidbody>();
         }
 

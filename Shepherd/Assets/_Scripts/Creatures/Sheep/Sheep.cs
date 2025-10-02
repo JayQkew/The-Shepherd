@@ -7,7 +7,9 @@ namespace Creatures.Sheep
 {
     public class Sheep : HerdAnimal, IBarkable
     {
+        [Header("Sheep")]
         private SheepStateManager sheepStateManager;
+        [Space(20)]
         [SerializeField] private float barkForce;
         [Space(20)]
         public Food food;

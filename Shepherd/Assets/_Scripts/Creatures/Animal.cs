@@ -8,10 +8,11 @@ namespace Creatures
     [RequireComponent(typeof(SphereCollider))]
     public class Animal : MonoBehaviour
     {
+        [Header("Animal")]
         [SerializeField] protected AnimalData animalData;
-        [FormerlySerializedAs("animalName")] public HerdingSystem.Animal animal;
-        public Rigidbody rb;
-        public SphereCollider col;
+        public HerdingSystem.Animal animal;
+        [HideInInspector] public Rigidbody rb;
+        [HideInInspector] public SphereCollider col;
     
         protected virtual void Awake() {
             rb = GetComponent<Rigidbody>();
