@@ -15,6 +15,7 @@ namespace Boids
         [Space(10)]
         [SerializeField] private bool showGizmos;
 
+        private Collider[] colliderBuffer = new Collider[4];
         private void Awake() => rb = GetComponent<Rigidbody>();
 
         public void ApplyForce() {
@@ -32,11 +33,11 @@ namespace Boids
         /// </summary>
         /// <returns>array of nearby boids</returns>
         private Boids[] Neighbours() {
-            Collider[] cols = Physics.OverlapSphere(transform.position, data.radius);
+            int hitCount = Physics.OverlapSphereNonAlloc(transform.position, data.radius, colliderBuffer);
             List<Boids> neighbours = new List<Boids>();
         
-            foreach (Collider col in cols) {
-                Boids b = col.GetComponent<Boids>();
+            for (int i = 0; i < hitCount; i++) {
+                Boids b = colliderBuffer[i].GetComponent<Boids>();
                 if (b && b != this && data.affectedAnimals.HasFlag(b.data.animal)) neighbours.Add(b);
             }
             return neighbours.ToArray();
