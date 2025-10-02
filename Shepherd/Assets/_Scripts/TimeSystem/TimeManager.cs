@@ -13,6 +13,7 @@ namespace TimeSystem
         public uint dayCount;
         public DayPhaseName currPhase;
         [Space(20)]
+        public DayPhase currDayPhase;
         public DayPhase[] dayPhases;
         
         [Space(20)]
@@ -46,6 +47,7 @@ namespace TimeSystem
                 int nextPhase = ((int)dayPhase.phase + 1) % 4;
             
                 currPhase = (DayPhaseName)nextPhase;
+                currDayPhase = dayPhases[nextPhase];
             
                 if (nextPhase == 0) {
                     dayCount++;
