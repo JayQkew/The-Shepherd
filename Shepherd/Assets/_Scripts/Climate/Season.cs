@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 using Utilities;
 
 namespace Climate
@@ -9,10 +10,23 @@ namespace Climate
     public class Season
     {
         public SeasonName season;
-        public MinMax temp;
+        public float dayTemp;
+        public float currTemp;
+        [SerializeField] private AnimationCurve tempRatio;
+        [SerializeField] private MinMax temp;
         [Space(10)]
         public UnityEvent onSeasonStart;
         public UnityEvent onSeasonEnd;
+
+        public float SetTemp() {
+            dayTemp = temp.RandomValue();
+            return dayTemp;
+        }
+
+        public float GetCurrTemp(float dayProgress) {
+            currTemp = dayTemp * tempRatio.Evaluate(dayProgress);
+            return currTemp;
+        }
     }
     
     public enum SeasonName

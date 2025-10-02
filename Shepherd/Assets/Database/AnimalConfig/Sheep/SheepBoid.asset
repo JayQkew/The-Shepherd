@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 647fd1305bc6823488998ab96d35be9c, type: 3}
   m_Name: SheepBoid
   m_EditorClassIdentifier: 
+  animal: 1
+  affectedAnimals: 1
   radius: 10
   cohesion: 7.5
   separation: 3.5

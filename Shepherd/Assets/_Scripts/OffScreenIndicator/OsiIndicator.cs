@@ -28,5 +28,9 @@ namespace OffScreenIndicator
         public void Distance() {
             distanceTxt.text = target.distance.ToString("0.0") + "m";
         }
+
+        public void TogglePointer(bool active) {
+            pointer.gameObject.SetActive(active);
+        }
     }
 }

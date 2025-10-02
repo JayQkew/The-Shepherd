@@ -18,7 +18,7 @@ namespace Creatures
             col = GetComponent<SphereCollider>();
         }
 
-        protected void Start() {
+        protected virtual void Start() {
             rb.constraints = RigidbodyConstraints.FreezeRotation;
             rb.mass = animalData.mass.RandomValue();
             rb.useGravity = animalData.useGravity;

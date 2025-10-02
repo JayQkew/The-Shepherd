@@ -112,6 +112,7 @@ namespace OffScreenIndicator
                 targetIndicators[target].rectTransform.anchoredPosition = canvasPos;
                 targetIndicators[target].Rotate(canvasPos);
                 targetIndicators[target].Distance();
+                targetIndicators[target].TogglePointer(true);
             }
             else if (target.distance > 0){
                 Vector2 canvasPos = new Vector2(
@@ -119,8 +120,15 @@ namespace OffScreenIndicator
                     (screenPos.y - 0.5f) * canvasRect.sizeDelta.y);
                 
                 targetIndicators[target].rectTransform.anchoredPosition = canvasPos;
-                targetIndicators[target].Rotate(canvasPos);
                 targetIndicators[target].Distance();
+
+                float arrowThresh = 30;
+
+                targetIndicators[target].TogglePointer(target.distance >= arrowThresh);
+
+                if (target.distance >= arrowThresh) {
+                    targetIndicators[target].Rotate(canvasPos);
+                }
             }
             else {
                 targetIndicators[target].gameObject.SetActive(false);
@@ -128,7 +136,7 @@ namespace OffScreenIndicator
         }
 
         private float TargetDistance(OsiTarget target, Transform reference) {
-            float dist = Vector3.Distance(target.transform.position, reference.position);
+            float dist = Vector3.Distance(target.targetTransform.position, reference.position);
             target.distance = dist;
             return dist;
         }

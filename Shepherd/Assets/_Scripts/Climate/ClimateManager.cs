@@ -1,7 +1,6 @@
 using System;
 using TimeSystem;
 using UnityEngine;
-using Utilities;
 
 namespace Climate
 {
@@ -10,7 +9,6 @@ namespace Climate
         public static ClimateManager Instance { get; private set; }
 
         public float globalTemp;
-        [SerializeField] private MinMax tempClamp;
         [Space(20)]
         public SeasonName currSeason;
         public Season[] seasons;
@@ -28,6 +26,8 @@ namespace Climate
         private void Start() {
             timeManager = TimeManager.Instance;
             timeManager.onDayPhaseChange.AddListener(SeasonCheck);
+            currSeason = seasons[0].season;
+            seasons[0].onSeasonStart.Invoke();
         }
 
         private void SeasonCheck() {
@@ -36,6 +36,7 @@ namespace Climate
                 int nextSeason = ((int)currSeason + 1) % 4;
                 currSeason = (SeasonName)nextSeason;
                 seasons[nextSeason].onSeasonStart.Invoke();
+                globalTemp = seasons[nextSeason].SetTemp();
             }
         }
     }

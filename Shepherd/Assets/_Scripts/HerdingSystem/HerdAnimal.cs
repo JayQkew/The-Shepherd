@@ -7,11 +7,11 @@ namespace HerdingSystem
     {
         public Destination currHerdArea;
 
-        private void Awake() {
+        protected override void Awake() {
             rb = GetComponent<Rigidbody>();
         }
 
-        private void Start() {
+        protected override void Start() {
             base.Start();
             HerdManager.Instance.AddAnimal(this);
         }

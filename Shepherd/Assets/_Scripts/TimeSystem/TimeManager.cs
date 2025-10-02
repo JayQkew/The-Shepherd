@@ -14,9 +14,7 @@ namespace TimeSystem
         public DayPhaseName currPhase;
         [Space(20)]
         public DayPhase[] dayPhases;
-        [Space(20)]
-        public Season[] seasons;
-
+        
         [Space(20)]
         public UnityEvent onDayPhaseChange;
     
@@ -29,7 +27,6 @@ namespace TimeSystem
 
         private void Start() {
             currPhase = DayPhaseName.Sunrise;
-            seasons[0].onSeasonStart.Invoke();
         }
 
         private void Update() {
