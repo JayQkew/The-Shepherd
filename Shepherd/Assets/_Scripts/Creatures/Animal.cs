@@ -13,7 +13,7 @@ namespace Creatures
         public Rigidbody rb;
         public SphereCollider col;
     
-        protected void Awake() {
+        protected virtual void Awake() {
             rb = GetComponent<Rigidbody>();
             col = GetComponent<SphereCollider>();
         }

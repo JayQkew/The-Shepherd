@@ -8,7 +8,7 @@ namespace Creatures.Sheep
     {
         private SheepBaseState currState;
         [HideInInspector] public Sheep sheep;
-        [HideInInspector] public Boids boids;
+        [HideInInspector] public Boids.Boids boids;
         public SheepStats stats;
         public SheepGUI gui;
 
@@ -26,7 +26,7 @@ namespace Creatures.Sheep
         private void Awake() {
             gui = GetComponent<SheepGUI>();
             sheep = GetComponent<Sheep>();
-            boids = GetComponent<Boids>();
+            boids = GetComponent<Boids.Boids>();
         }
 
         private void Start() {

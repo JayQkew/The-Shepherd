@@ -1,4 +1,6 @@
+using Climate;
 using UnityEngine;
+using UnityEngine.Events;
 using Utilities;
 
 namespace TimeSystem
@@ -10,11 +12,13 @@ namespace TimeSystem
         public Timer time;
         public uint dayCount;
         public DayPhaseName currPhase;
-        public SeasonName currSeason;
         [Space(20)]
         public DayPhase[] dayPhases;
         [Space(20)]
         public Season[] seasons;
+
+        [Space(20)]
+        public UnityEvent onDayPhaseChange;
     
         private void Awake() {
             if (Instance == null) {
@@ -48,17 +52,8 @@ namespace TimeSystem
             
                 if (nextPhase == 0) {
                     dayCount++;
-                    SeasonCheck();
+                    onDayPhaseChange.Invoke();
                 }
-            }
-        }
-
-        private void SeasonCheck() {
-            if (dayCount % 3 == 0) {
-                seasons[(int)currSeason].onSeasonEnd.Invoke();
-                int nextSeason = ((int)currSeason + 1) % 4;
-                currSeason = (SeasonName)nextSeason;
-                seasons[nextSeason].onSeasonStart.Invoke();
             }
         }
 
@@ -84,13 +79,5 @@ namespace TimeSystem
         Day = 1,
         Sunset = 2,
         Night = 3
-    }
-
-    public enum SeasonName
-    {
-        Summer = 0,
-        Autumn = 1,
-        Winter = 2,
-        Spring = 3
     }
 }

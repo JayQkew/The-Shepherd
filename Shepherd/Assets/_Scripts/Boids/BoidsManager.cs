@@ -1,19 +1,21 @@
-using System;
 using UnityEngine;
 
-public class BoidsManager : MonoBehaviour
+namespace Boids
 {
-    [SerializeField] private Transform boidsParent;
-    [SerializeField] private Boids[] boids;
+    public class BoidsManager : MonoBehaviour
+    {
+        [SerializeField] private Transform boidsParent;
+        [SerializeField] private global::Boids.Boids[] boids;
 
-    private void Start() {
-        // all boids should be a child of boidsParent
-        boids = boidsParent.GetComponentsInChildren<Boids>();
-    }
+        private void Start() {
+            // all boids should be a child of boidsParent
+            boids = boidsParent.GetComponentsInChildren<global::Boids.Boids>();
+        }
 
-    private void FixedUpdate() {
-        foreach (var b in boids) {
-            b.ApplyForce();
+        private void FixedUpdate() {
+            foreach (var b in boids) {
+                b.ApplyForce();
+            }
         }
     }
 }

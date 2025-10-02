@@ -15,8 +15,8 @@ namespace Creatures.Sheep
         [SerializeField] private Wool wool;
         [Space(20)]
         [SerializeField] private Explosion explosion;
-    
-        private void Awake() {
+
+        protected override void Awake() {
             base.Awake();
             sheepStateManager = GetComponent<SheepStateManager>();
             wool.Init(sheepStateManager.stats.woolTime);
