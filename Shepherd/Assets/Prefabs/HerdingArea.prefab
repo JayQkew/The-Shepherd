@@ -85,6 +85,7 @@ GameObject:
   - component: {fileID: 8583309511427675002}
   - component: {fileID: 616477900068520547}
   - component: {fileID: 6175041102419408721}
+  - component: {fileID: 8790970906284682057}
   m_Layer: 0
   m_Name: HerdingArea
   m_TagString: Untagged
@@ -466,6 +467,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 34dbc5c46b3d49242b299220f1df766f, type: 2}
+--- !u!114 &8790970906284682057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3295393493092814734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7517ceb58642e04c9170514475acc70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTransform: {fileID: 6941617816355731858}
+  description: Herding Area
+  subscribeOnStart: 0
+  distance: 0
 --- !u!1 &8099804234157670269
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,7 +554,7 @@ MonoBehaviour:
   animalsIn: []
   herdGate: {fileID: 616477900068520547}
   herdAssist: {fileID: 2790069107585772896}
-  osiTarget: {fileID: 4867783084134277628}
+  osiTarget: {fileID: 8790970906284682057}
 --- !u!114 &9188924380375046458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -836,7 +853,6 @@ GameObject:
   - component: {fileID: 1231152969875734474}
   - component: {fileID: 2711262417166958722}
   - component: {fileID: 741339272621316296}
-  - component: {fileID: 4867783084134277628}
   m_Layer: 0
   m_Name: Gate
   m_TagString: Untagged
@@ -933,18 +949,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4867783084134277628
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8626942618572143425}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7517ceb58642e04c9170514475acc70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  description: 
-  subscribeOnStart: 0
-  distance: 0

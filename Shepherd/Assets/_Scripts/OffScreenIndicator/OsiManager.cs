@@ -82,7 +82,7 @@ namespace OffScreenIndicator
         }
 
         private void FollowTarget(OsiTarget target) {
-            Vector3 screenPos = mainCam.WorldToViewportPoint(target.transform.position);
+            Vector3 screenPos = mainCam.WorldToViewportPoint(target.targetTransform.position);
             
             bool isOffScreen = screenPos.z < 0 || 
                                screenPos.x < 0 || screenPos.x > 1 ||
