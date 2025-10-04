@@ -42,10 +42,13 @@ namespace Creatures.Ducken
             DuckenBaseState[] dayStates =
             {
                 duckenIdle,
-                duckenIdle,
                 duckenEat,
                 duckenSleep,
-                duckenMove
+                duckenMove,
+                duckenMove,
+                duckenMove,
+                duckenMove,
+                duckenMove,
             };
 
             DuckenBaseState[] nightStates = { duckenSleep };

@@ -1441,7 +1441,6 @@ GameObject:
   - component: {fileID: 155018523}
   - component: {fileID: 155018528}
   - component: {fileID: 155018524}
-  - component: {fileID: 155018530}
   - component: {fileID: 155018529}
   - component: {fileID: 155018527}
   - component: {fileID: 155018531}
@@ -1545,8 +1544,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 659f69f3aa54c9f499ce3b9e4401990d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animalData: {fileID: 0}
-  animal: 0
+  animalData: {fileID: 11400000, guid: 1affc77545d7f494e810ffef784cc06a, type: 2}
+  animal: 2
   rb: {fileID: 0}
   col: {fileID: 0}
   currForm: 0
@@ -1557,7 +1556,7 @@ MonoBehaviour:
       _min: 0
       _max: 0
     poop:
-      poopPref: {fileID: 0}
+      poopPref: {fileID: 2216268445079033729, guid: 0efe031abce038344abe0512a930f866, type: 3}
       poopSpawn: {fileID: 0}
       poopForce: 0
   boid: {fileID: 0}
@@ -1583,34 +1582,6 @@ MonoBehaviour:
     moveTimer:
       maxTime: 0
       currTime: 0
---- !u!114 &155018530
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 155018522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05d856db330e3e24caa868ea7ba7e95e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animalData: {fileID: 11400000, guid: 1affc77545d7f494e810ffef784cc06a, type: 2}
-  animal: 2
-  rb: {fileID: 155018528}
-  col: {fileID: 155018524}
-  currForm: 0
-  stats: {fileID: 0}
-  food:
-    food: 0
-    eat:
-      _min: 0
-      _max: 0
-    poop:
-      poopPref: {fileID: 0}
-      poopSpawn: {fileID: 0}
-      poopForce: 0
-  boid: {fileID: 0}
 --- !u!114 &155018531
 MonoBehaviour:
   m_ObjectHideFlags: 0

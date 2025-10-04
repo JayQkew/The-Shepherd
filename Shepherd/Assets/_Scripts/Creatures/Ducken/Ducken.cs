@@ -21,6 +21,7 @@ namespace Creatures.Ducken
 
         protected override void Awake() {
             base.Awake();
+            boid = GetComponent<Boid>();
             tempReceptor = GetComponent<TempReceptor>();
             tempReceptor.onCalcTemp.AddListener(FormCheck);
         }
