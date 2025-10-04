@@ -1,5 +1,6 @@
 using _Scripts.Creatures;
 using _Scripts.Creatures.Sheep;
+using Boids;
 using HerdingSystem;
 using UnityEngine;
 
@@ -7,29 +8,28 @@ namespace Creatures.Sheep
 {
     public class Sheep : HerdAnimal, IBarkable
     {
+        [Space(25)]
         [Header("Sheep")]
-        private SheepStateManager sheepStateManager;
-        [Space(20)]
+        [Space(10)]
+        public SheepStats stats;
         [SerializeField] private float barkForce;
-        [Space(20)]
         public Food food;
-        [Space(20)]
         [SerializeField] private Wool wool;
-        [Space(20)]
         [SerializeField] private Explosion explosion;
+        [HideInInspector] public Boid boid;
+        public SheepGUI gui;
 
         protected override void Awake() {
             base.Awake();
-            sheepStateManager = GetComponent<SheepStateManager>();
-            wool.Init(sheepStateManager.stats.woolTime);
+            wool.Init(stats.woolTime);
             explosion.Init(transform, col);
+            gui = GetComponent<SheepGUI>();
+            boid = GetComponent<Boid>();
         }
-    
-        public void BarkedAt(Vector3 sourcePosition) {
+
+        public virtual void BarkedAt(Vector3 sourcePosition) {
             Vector3 dir = (transform.position - sourcePosition).normalized;
             rb.AddForce(dir * barkForce, ForceMode.Impulse);
-            sheepStateManager.SwitchState(sheepStateManager.sheepRun);
-            Debug.Log("Barked At");
         }
     
         private void Update() {

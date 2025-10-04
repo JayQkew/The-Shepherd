@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Climate
 {
@@ -7,6 +8,7 @@ namespace Climate
     {
         public float currTemp;
         public HashSet<TempAffector> affectors = new();
+        public UnityEvent onCalcTemp;
 
         private void Start() {
             ClimateManager.Instance.tempReceptors.Add(this);
@@ -18,7 +20,7 @@ namespace Climate
             foreach (TempAffector affector in affectors) {
                 currTemp += affector.tempModifier;
             }
-
+            onCalcTemp?.Invoke();
             return currTemp;
         }
 

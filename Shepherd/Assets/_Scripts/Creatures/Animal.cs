@@ -9,6 +9,7 @@ namespace Creatures
     public class Animal : MonoBehaviour
     {
         [Header("Animal")]
+        [Space(10)]
         [SerializeField] protected AnimalData animalData;
         public HerdingSystem.Animal animal;
         [HideInInspector] public Rigidbody rb;

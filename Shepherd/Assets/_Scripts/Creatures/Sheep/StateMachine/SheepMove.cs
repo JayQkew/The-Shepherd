@@ -14,10 +14,10 @@ namespace Creatures.Sheep
         private Rigidbody rb;
         public Timer moveTimer;
     
-        public override void EnterState(SheepStateManager manager) {
+        public override void EnterState(SheepManager manager) {
             manager.gui.PlayAnim("Idle");
             manager.boid.activeBoids = true;
-            if (!rb) rb = manager.sheep.rb;
+            if (!rb) rb = manager.rb;
         
             dir = Random.insideUnitCircle.normalized;
             speed = manager.stats.walkSpeed.RandomValue();
@@ -25,7 +25,7 @@ namespace Creatures.Sheep
             moveTimer.SetMaxTime(manager.stats.walkTime.RandomValue());
         }
 
-        public override void UpdateState(SheepStateManager manager) {
+        public override void UpdateState(SheepManager manager) {
             moveTimer.Update();
             manager.gui.UpdateSuppAnims();
             Vector3 moveForce = new Vector3(dir.x, 0, dir.z) * speed;
@@ -36,7 +36,7 @@ namespace Creatures.Sheep
             rb.AddForce(moveForce, ForceMode.Acceleration);
         }
 
-        public override void ExitState(SheepStateManager manager) {
+        public override void ExitState(SheepManager manager) {
         }
     }
 }

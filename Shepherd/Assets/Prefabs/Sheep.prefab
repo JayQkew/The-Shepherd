@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2618985539871644832}
-  - component: {fileID: 2805361568288454968}
   - component: {fileID: 1860983336886597979}
   - component: {fileID: 4642858316876984763}
   - component: {fileID: 5800402879710512925}
@@ -39,123 +38,6 @@ Transform:
   - {fileID: 1434249606745485277}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2805361568288454968
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2499075382680790307}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd1b3414da9da8145addf72ba422e735, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animalData: {fileID: 11400000, guid: 32ade72638ff9684689010ce0d1204d4, type: 2}
-  animal: 1
-  rb: {fileID: 2088826080556547742}
-  col: {fileID: 7207902761964510733}
-  currHerdArea: 0
-  barkForce: 10
-  food:
-    food: 0
-    eat:
-      _min: 0.05
-      _max: 0.3
-    poop:
-      poopPref: {fileID: 2216268445079033729, guid: 0efe031abce038344abe0512a930f866, type: 3}
-      poopSpawn: {fileID: 2313992611410932371}
-      poopForce: 5
-  wool:
-    woolValue: 0
-    woolTimer:
-      maxTime: 0
-      currTime: 0
-    woolEvents:
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 5800402879710512925}
-          m_TargetAssemblyTypeName: SheepGUI, Assembly-CSharp
-          m_MethodName: ChangeWool
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 5800402879710512925}
-          m_TargetAssemblyTypeName: SheepGUI, Assembly-CSharp
-          m_MethodName: ChangeWool
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 1
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 2805361568288454968}
-          m_TargetAssemblyTypeName: _Scripts.Creatures.Sheep.Sheep, Assembly-CSharp
-          m_MethodName: PuffExplosion
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 1
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 5800402879710512925}
-          m_TargetAssemblyTypeName: SheepGUI, Assembly-CSharp
-          m_MethodName: ChangeWool
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 2
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 2805361568288454968}
-          m_TargetAssemblyTypeName: _Scripts.Creatures.Sheep.Sheep, Assembly-CSharp
-          m_MethodName: PuffExplosion
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 2
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  explosion:
-    radius: 5.75
-    forceMult: 10
-    onExplode:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 129761381824354925}
-          m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
-          m_MethodName: Play
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!114 &1860983336886597979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,9 +50,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94994497148b2f940b0169541979ad29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sheep: {fileID: 0}
-  boids: {fileID: 0}
+  animalData: {fileID: 11400000, guid: 32ade72638ff9684689010ce0d1204d4, type: 2}
+  animal: 1
+  rb: {fileID: 0}
+  col: {fileID: 0}
+  currHerdArea: 0
   stats: {fileID: 11400000, guid: c3f74505ba93f084d8bcf1049dea3409, type: 2}
+  barkForce: 10
+  food:
+    food: 0
+    eat:
+      _min: 0
+      _max: 0
+    poop:
+      poopPref: {fileID: 0}
+      poopSpawn: {fileID: 0}
+      poopForce: 0
+  wool:
+    woolValue: 0
+    woolTimer:
+      maxTime: 0
+      currTime: 0
+    woolEvents: []
+  explosion:
+    radius: 0
+    forceMult: 0
+    onExplode:
+      m_PersistentCalls:
+        m_Calls: []
+  boid: {fileID: 0}
   gui: {fileID: 0}
   sheepIdle:
     idleTimer:
@@ -362,11 +270,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6508964604440441009, guid: 37e6650fc5d9e3b4c8e45a4be9ed9180, type: 3}
   m_PrefabInstance: {fileID: 5310595778413961068}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &2313992611410932371 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7615572385886596607, guid: 37e6650fc5d9e3b4c8e45a4be9ed9180, type: 3}
-  m_PrefabInstance: {fileID: 5310595778413961068}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3385789389773735671 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7444374573892344219, guid: 37e6650fc5d9e3b4c8e45a4be9ed9180, type: 3}
@@ -444,11 +347,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 597608abdf62b494b96de32055b7b911, type: 3}
---- !u!198 &129761381824354925 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 5352181474527904491, guid: 597608abdf62b494b96de32055b7b911, type: 3}
-  m_PrefabInstance: {fileID: 5443662259246979206}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4168491465006920042 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8237841408596240876, guid: 597608abdf62b494b96de32055b7b911, type: 3}

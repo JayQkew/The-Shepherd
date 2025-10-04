@@ -7,13 +7,13 @@ namespace Creatures.Sheep
     public class SheepIdle : SheepBaseState
     {
         public Timer idleTimer;
-        public override void EnterState(SheepStateManager manager) {
+        public override void EnterState(SheepManager manager) {
             manager.gui.PlayAnim("Idle");
             manager.boid.activeBoids = false;
             idleTimer.SetMaxTime(manager.stats.idleTime.RandomValue());
         }
 
-        public override void UpdateState(SheepStateManager manager) {
+        public override void UpdateState(SheepManager manager) {
             idleTimer.Update();
             manager.gui.UpdateSuppAnims();
             if (idleTimer.IsFinished) {
@@ -21,7 +21,7 @@ namespace Creatures.Sheep
             }
         }
 
-        public override void ExitState(SheepStateManager manager) {
+        public override void ExitState(SheepManager manager) {
         }
     }
 }

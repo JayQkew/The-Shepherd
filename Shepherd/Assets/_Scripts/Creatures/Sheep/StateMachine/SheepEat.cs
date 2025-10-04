@@ -7,21 +7,21 @@ namespace Creatures.Sheep
     public class SheepEat : SheepBaseState
     {
         public Timer eatTimer;
-        public override void EnterState(SheepStateManager manager) {
+        public override void EnterState(SheepManager manager) {
             manager.gui.PlayAnim("Eat");
-            manager.sheep.food.Eat();
+            manager.food.Eat();
             manager.boid.activeBoids = false;
             eatTimer.SetMaxTime(manager.stats.eatTime.RandomValue());
         }
 
-        public override void UpdateState(SheepStateManager manager) {
+        public override void UpdateState(SheepManager manager) {
             eatTimer.Update();
             if (eatTimer.IsFinished) {
                 manager.SwitchState(manager.GetRandomState());
             }
         }
 
-        public override void ExitState(SheepStateManager manager) {
+        public override void ExitState(SheepManager manager) {
             manager.gui.PlayAnim("Idle");
         }
     }

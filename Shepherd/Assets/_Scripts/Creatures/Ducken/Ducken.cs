@@ -10,7 +10,6 @@ namespace Creatures.Ducken
     {
         [Header("Ducken")]
         public Form currForm;
-        public MinMax duckenThresh;
         
         private DuckenStateManager duckenStateManager;
         private DuckenStats stats;
@@ -22,6 +21,7 @@ namespace Creatures.Ducken
             duckenStateManager = GetComponent<DuckenStateManager>();
             stats = duckenStateManager.stats;
             tempReceptor = GetComponent<TempReceptor>();
+            tempReceptor.onCalcTemp.AddListener(FormCheck);
         }
         public void BarkedAt(Vector3 sourcePosition) {
             switch (currForm) {
@@ -39,7 +39,7 @@ namespace Creatures.Ducken
             }
         }
 
-        public void FormCheck() {
+        private void FormCheck() {
             if (tempReceptor.currTemp > stats.duckenThresh.max) {
                 currForm = Form.Chicken;
             } 
@@ -50,7 +50,10 @@ namespace Creatures.Ducken
                 currForm = Form.Ducken;
             }
         }
-        
+
+        private void OnDestroy() {
+            tempReceptor.onCalcTemp.RemoveListener(FormCheck);
+        }
     }
 
     public enum Form

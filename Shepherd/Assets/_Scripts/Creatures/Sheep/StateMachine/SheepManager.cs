@@ -1,19 +1,15 @@
 using TimeSystem;
 using UnityEngine;
-using Boids;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace Creatures.Sheep
 {
-    public class SheepStateManager : MonoBehaviour
+    public class SheepManager : Sheep
     {
         private SheepBaseState currState;
-        [HideInInspector] public Sheep sheep;
-        [HideInInspector] public Boid boid;
-        public SheepStats stats;
-        public SheepGUI gui;
 
+        [Space(25)]
+        [Header("State Manager")]
         [Space(10)]
         public SheepIdle sheepIdle;
         [Space(10)]
@@ -25,13 +21,8 @@ namespace Creatures.Sheep
         [Space(10)]
         public SheepRun sheepRun;
 
-        private void Awake() {
-            gui = GetComponent<SheepGUI>();
-            sheep = GetComponent<Sheep>();
-            boid = GetComponent<Boid>();
-        }
-
-        private void Start() {
+        protected override void Start() {
+            base.Start();
             currState = sheepIdle;
             currState.EnterState(this);
         }
@@ -62,12 +53,17 @@ namespace Creatures.Sheep
 
             return states[Random.Range(0, states.Length)];
         }
+
+        public override void BarkedAt(Vector3 sourcePositions) {
+            base.BarkedAt(sourcePositions);
+            SwitchState(sheepRun);
+        }
     }
 
     public abstract class SheepBaseState
     {
-        public abstract void EnterState(SheepStateManager manager);
-        public abstract void UpdateState(SheepStateManager manager);
-        public abstract void ExitState(SheepStateManager manager);
+        public abstract void EnterState(SheepManager manager);
+        public abstract void UpdateState(SheepManager manager);
+        public abstract void ExitState(SheepManager manager);
     }
 }

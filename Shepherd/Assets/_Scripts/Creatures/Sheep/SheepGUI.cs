@@ -16,10 +16,10 @@ namespace Creatures.Sheep
         [SerializeField] private Timer suppAnimTimer;
         [SerializeField] private string[] suppAnims;
     
-        private SheepStateManager stateManager;
+        private SheepManager manager;
 
         private void Awake() {
-            stateManager = GetComponent<SheepStateManager>();
+            manager = GetComponent<SheepManager>();
         }
 
         public void ChangeWool(int woolLength) {
@@ -53,7 +53,7 @@ namespace Creatures.Sheep
             if (suppAnimTimer.IsFinished) {
                 // choose a random chill animation to play
                 anim.SetTrigger(suppAnims[Random.Range(0, suppAnims.Length)]);
-                suppAnimTimer.SetMaxTime(stateManager.stats.suppAnimTimer.RandomValue());
+                suppAnimTimer.SetMaxTime(manager.stats.suppAnimTimer.RandomValue());
             }
         }
     
