@@ -46,9 +46,7 @@ namespace Creatures.Ducken
                 duckenSleep,
                 duckenMove,
                 duckenMove,
-                duckenMove,
-                duckenMove,
-                duckenMove,
+                duckenMove
             };
 
             DuckenBaseState[] nightStates = { duckenSleep };
@@ -63,16 +61,28 @@ namespace Creatures.Ducken
             switch (currForm) {
                 case Form.Ducken:
                     //follow the source
+                    MoveTo(sourcePosition);
                     break;
                 case Form.Chicken:
                     //jump and run around frantically
+                    rb.AddForce(Vector3.up * 10, ForceMode.Impulse);
+                    SwitchState(duckenMove);
                     break;
                 case Form.Duck:
                     // freeze and turn into ice (slippery)
+                    rb.AddForce(Vector3.up * 5, ForceMode.Impulse);
+                    SwitchState(duckenIdle);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+
+        }
+
+        private void MoveTo(Vector3 targetPos) {
+            currState.ExitState(this);
+            currState = duckenMove.Target(targetPos);
+            currState.EnterState(this);
         }
     }
 
