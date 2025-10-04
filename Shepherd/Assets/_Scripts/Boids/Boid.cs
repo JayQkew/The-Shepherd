@@ -4,12 +4,12 @@ using UnityEngine;
 namespace Boids
 {
     [RequireComponent(typeof(Rigidbody))]
-    public class Boids : MonoBehaviour
+    public class Boid : MonoBehaviour
     {
         private Rigidbody rb;
         public bool activeBoids;
         [HideInInspector] public Vector3 velocity;
-        [SerializeField] private Boids[] boids;
+        [SerializeField] private Boid[] boids;
         [SerializeField] private BoidData data;
 
         [Space(10)]
@@ -32,12 +32,12 @@ namespace Boids
         /// Gets all nearby boids within the boids radius (red)
         /// </summary>
         /// <returns>array of nearby boids</returns>
-        private Boids[] Neighbours() {
+        private Boid[] Neighbours() {
             int hitCount = Physics.OverlapSphereNonAlloc(transform.position, data.radius, colliderBuffer);
-            List<Boids> neighbours = new List<Boids>();
+            List<Boid> neighbours = new List<Boid>();
         
             for (int i = 0; i < hitCount; i++) {
-                Boids b = colliderBuffer[i].GetComponent<Boids>();
+                Boid b = colliderBuffer[i].GetComponent<Boid>();
                 if (b && b != this && data.affectedAnimals.HasFlag(b.data.animal)) neighbours.Add(b);
             }
             return neighbours.ToArray();
@@ -49,7 +49,7 @@ namespace Boids
         /// <returns>the strength of the force towards the center</returns>
         private Vector3 Cohesion() {
             Vector3 totalPos = Vector3.zero;
-            foreach (Boids b in boids) {
+            foreach (Boid b in boids) {
                 totalPos += b.transform.position;
             }
             Vector3 centerPos = totalPos/boids.Length;
@@ -66,7 +66,7 @@ namespace Boids
             Vector3 steeringForce = Vector3.zero;
             int count = 0;
         
-            foreach (Boids b in boids) {
+            foreach (Boid b in boids) {
                 Vector3 offset = transform.position - b.transform.position;
                 float distance = offset.magnitude;
             
@@ -92,7 +92,7 @@ namespace Boids
         /// <returns>direction that is the average of surrounding boids</returns>
         private Vector3 Alignment() {
             Vector3 aveVelocity = Vector3.zero;
-            foreach (Boids b in boids){
+            foreach (Boid b in boids){
                 aveVelocity += b.velocity;
             }
             aveVelocity /= boids.Length;

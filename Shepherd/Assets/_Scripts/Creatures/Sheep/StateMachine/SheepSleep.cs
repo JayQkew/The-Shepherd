@@ -9,7 +9,7 @@ namespace Creatures.Sheep
         public Timer sleepTimer;
         public override void EnterState(SheepStateManager manager) {
             manager.gui.PlayAnim("Sleep");
-            manager.boids.activeBoids = false;
+            manager.boid.activeBoids = false;
             sleepTimer.SetMaxTime(manager.stats.sleepTime.RandomValue());
         }
 

@@ -1,5 +1,7 @@
 using TimeSystem;
 using UnityEngine;
+using Boids;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace Creatures.Sheep
@@ -8,7 +10,7 @@ namespace Creatures.Sheep
     {
         private SheepBaseState currState;
         [HideInInspector] public Sheep sheep;
-        [HideInInspector] public Boids.Boids boids;
+        [HideInInspector] public Boid boid;
         public SheepStats stats;
         public SheepGUI gui;
 
@@ -26,7 +28,7 @@ namespace Creatures.Sheep
         private void Awake() {
             gui = GetComponent<SheepGUI>();
             sheep = GetComponent<Sheep>();
-            boids = GetComponent<Boids.Boids>();
+            boid = GetComponent<Boid>();
         }
 
         private void Start() {
@@ -49,8 +51,6 @@ namespace Creatures.Sheep
             {
                 sheepIdle,
                 sheepIdle,
-                sheepIdle,
-                sheepEat,
                 sheepEat,
                 sheepSleep,
                 sheepMove

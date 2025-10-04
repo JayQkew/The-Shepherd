@@ -10,7 +10,7 @@ namespace Creatures.Sheep
         public override void EnterState(SheepStateManager manager) {
             manager.gui.PlayAnim("Eat");
             manager.sheep.food.Eat();
-            manager.boids.activeBoids = false;
+            manager.boid.activeBoids = false;
             eatTimer.SetMaxTime(manager.stats.eatTime.RandomValue());
         }
 

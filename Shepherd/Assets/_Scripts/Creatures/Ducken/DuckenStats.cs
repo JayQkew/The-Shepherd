@@ -1,22 +1,21 @@
 using UnityEngine;
 using Utilities;
 
-namespace Creatures.Sheep
+namespace Creatures.Ducken
 {
-    [CreateAssetMenu(fileName = "SheepStats", menuName = "Creatures/SheepStats")]
-    public class SheepStats : ScriptableObject
+    [CreateAssetMenu(fileName = "DuckenStats", menuName = "Creatures/DuckenStats")]
+    public class DuckenStats : ScriptableObject
     {
         public MinMax idleTime;
         public MinMax eatTime;
         public MinMax sleepTime;
-        public MinMax suppAnimTimer;
-    
+        
         [Space(20)]
         public MinMax runTime;
         public MinMax walkTime;
         public MinMax walkSpeed;
 
         [Space(20)]
-        public MinMax woolTime;
+        public MinMax duckenThresh;
     }
 }

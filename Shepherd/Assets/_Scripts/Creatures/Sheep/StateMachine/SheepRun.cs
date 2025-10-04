@@ -10,7 +10,7 @@ namespace Creatures.Sheep
 
         public override void EnterState(SheepStateManager manager) {
             manager.gui.PlayAnim("Idle");
-            manager.boids.activeBoids = true;
+            manager.boid.activeBoids = true;
             runTimer.SetMaxTime(manager.stats.runTime.RandomValue());
         }
 
@@ -23,7 +23,7 @@ namespace Creatures.Sheep
         }
 
         public override void ExitState(SheepStateManager manager) {
-            manager.boids.activeBoids = false;
+            manager.boid.activeBoids = false;
         }
     }
 }

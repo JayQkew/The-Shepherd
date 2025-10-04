@@ -1,5 +1,8 @@
+using System;
+using Climate;
 using HerdingSystem;
 using UnityEngine;
+using Utilities;
 
 namespace Creatures.Ducken
 {
@@ -7,15 +10,47 @@ namespace Creatures.Ducken
     {
         [Header("Ducken")]
         public Form currForm;
+        public MinMax duckenThresh;
+        
         private DuckenStateManager duckenStateManager;
+        private DuckenStats stats;
+        private TempReceptor tempReceptor;
+        private Timer tempThrottle;
 
         protected override void Awake() {
             base.Awake();
             duckenStateManager = GetComponent<DuckenStateManager>();
+            stats = duckenStateManager.stats;
+            tempReceptor = GetComponent<TempReceptor>();
         }
         public void BarkedAt(Vector3 sourcePosition) {
-            throw new System.NotImplementedException();
+            switch (currForm) {
+                case Form.Ducken:
+                    //follow the source
+                    break;
+                case Form.Chicken:
+                    //jump and run around frantically
+                    break;
+                case Form.Duck:
+                    // freeze and turn into ice (slippery)
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
+
+        public void FormCheck() {
+            if (tempReceptor.currTemp > stats.duckenThresh.max) {
+                currForm = Form.Chicken;
+            } 
+            else if (tempReceptor.currTemp < stats.duckenThresh.min) {
+                currForm = Form.Duck;
+            }
+            else {
+                currForm = Form.Ducken;
+            }
+        }
+        
     }
 
     public enum Form

@@ -5,11 +5,11 @@ namespace Boids
     public class BoidsManager : MonoBehaviour
     {
         [SerializeField] private Transform boidsParent;
-        [SerializeField] private Boids[] boids;
+        [SerializeField] private Boid[] boids;
 
         private void Start() {
             // all boids should be a child of boidsParent
-            boids = boidsParent.GetComponentsInChildren<global::Boids.Boids>();
+            boids = boidsParent.GetComponentsInChildren<global::Boids.Boid>();
         }
 
         private void FixedUpdate() {

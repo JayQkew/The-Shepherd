@@ -1,3 +1,5 @@
+using Boids;
+using TimeSystem;
 using UnityEngine;
 
 namespace Creatures.Ducken
@@ -5,15 +7,23 @@ namespace Creatures.Ducken
     public class DuckenStateManager : MonoBehaviour
     {
         public DuckenBaseState currState;
+        [HideInInspector] public Ducken ducken;
+        [HideInInspector] public Boid boid;
+        public DuckenStats stats;
 
-        public DuckenEat duckenEat = new DuckenEat();
-        public DuckenIdle duckenIdle = new DuckenIdle();
-        public DuckenSleep duckenSleep = new DuckenSleep();
-        public DuckenRun duckenRun = new DuckenRun();
-        public DuckenMove duckenMove = new DuckenMove();
+        [Space(10)]
+        public DuckenEat duckenEat;
+        [Space(10)]
+        public DuckenIdle duckenIdle;
+        [Space(10)]
+        public DuckenSleep duckenSleep;
+        [Space(10)]
+        public DuckenRun duckenRun;
+        [Space(10)]
+        public DuckenMove duckenMove;
 
         private void Start() {
-            currState = duckenEat;
+            currState = duckenIdle;
             currState.EnterState(this);
         }
 
@@ -25,6 +35,23 @@ namespace Creatures.Ducken
             currState.ExitState(this);
             currState = newState;
             currState.EnterState(this);
+        }
+
+        public DuckenBaseState GetRandomState() {
+            DuckenBaseState[] dayStates =
+            {
+                duckenIdle,
+                duckenIdle,
+                duckenEat,
+                duckenSleep,
+                duckenMove
+            };
+
+            DuckenBaseState[] nightStates = { duckenSleep };
+            
+            DuckenBaseState[] states = TimeManager.Instance.currPhase == DayPhaseName.Night ? nightStates : dayStates;
+            
+            return states[Random.Range(0, states.Length)];
         }
     }
 
