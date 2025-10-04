@@ -12,6 +12,7 @@ namespace Creatures.Ducken
         [Header("Ducken")]
         public Form currForm;
         public DuckenStats stats;
+        public Food food;
 
         private TempReceptor tempReceptor;
         private Timer tempThrottle;

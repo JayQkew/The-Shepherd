@@ -1,21 +1,26 @@
 using System;
 using UnityEngine;
+using Utilities;
 
 namespace Creatures.Ducken
 {
     [Serializable]
     public class DuckenSleep : DuckenBaseState
     {
+        public Timer sleepTimer;
         public override void EnterState(DuckenManager manager) {
-            Debug.Log("Enter -- DuckenSleep");
+            manager.boid.activeBoids = false;
+            sleepTimer.SetMaxTime(manager.stats.sleepTime.RandomValue());
         }
 
         public override void UpdateState(DuckenManager manager) {
-            Debug.Log("Update -- DuckenSleep");
+            sleepTimer.Update();
+            if (sleepTimer.IsFinished) {
+                manager.SwitchRandomState();
+            }
         }
 
         public override void ExitState(DuckenManager manager) {
-            Debug.Log("Exit -- DuckenSleep");
         }
     }
 }

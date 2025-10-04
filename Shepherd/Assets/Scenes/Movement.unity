@@ -1545,6 +1545,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 659f69f3aa54c9f499ce3b9e4401990d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animalData: {fileID: 0}
+  animal: 0
+  rb: {fileID: 0}
+  col: {fileID: 0}
+  currForm: 0
+  stats: {fileID: 11400000, guid: 118d6c6c1d7d45942ac5a3640401396d, type: 2}
+  food:
+    food: 0
+    eat:
+      _min: 0
+      _max: 0
+    poop:
+      poopPref: {fileID: 0}
+      poopSpawn: {fileID: 0}
+      poopForce: 0
+  boid: {fileID: 0}
+  duckenEat:
+    eatTimer:
+      maxTime: 0
+      currTime: 0
+  duckenIdle:
+    idleTimer:
+      maxTime: 0
+      currTime: 0
+  duckenSleep:
+    sleepTimer:
+      maxTime: 0
+      currTime: 0
+  duckenRun:
+    runTimer:
+      maxTime: 0
+      currTime: 0
+  duckenMove:
+    dir: {x: 0, y: 0, z: 0}
+    speed: 0
+    moveTimer:
+      maxTime: 0
+      currTime: 0
 --- !u!114 &155018530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1561,8 +1599,18 @@ MonoBehaviour:
   animal: 2
   rb: {fileID: 155018528}
   col: {fileID: 155018524}
-  currHerdArea: 0
   currForm: 0
+  stats: {fileID: 0}
+  food:
+    food: 0
+    eat:
+      _min: 0
+      _max: 0
+    poop:
+      poopPref: {fileID: 0}
+      poopSpawn: {fileID: 0}
+      poopForce: 0
+  boid: {fileID: 0}
 --- !u!114 &155018531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1576,6 +1624,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currTemp: 0
+  onCalcTemp:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &203413488
 PrefabInstance:
   m_ObjectHideFlags: 0

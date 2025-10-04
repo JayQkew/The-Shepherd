@@ -1,17 +1,24 @@
 using System;
 using UnityEngine;
+using Utilities;
 
 namespace Creatures.Ducken
 {
     [Serializable]
     public class DuckenEat : DuckenBaseState
     {
+        public Timer eatTimer;
         public override void EnterState(DuckenManager manager) {
-            Debug.Log("Enter -- DuckenEat");
+            manager.food.Eat();
+            manager.boid.activeBoids = false;
+            eatTimer.SetMaxTime(manager.stats.eatTime.RandomValue());
         }
 
         public override void UpdateState(DuckenManager manager) {
-            Debug.Log("Update -- DuckenEat");
+            eatTimer.Update();
+            if (eatTimer.IsFinished) {
+                manager.SwitchRandomState();
+            }
         }
 
         public override void ExitState(DuckenManager manager) {

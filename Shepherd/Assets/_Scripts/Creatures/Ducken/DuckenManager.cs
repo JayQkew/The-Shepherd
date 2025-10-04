@@ -38,7 +38,7 @@ namespace Creatures.Ducken
             currState.EnterState(this);
         }
 
-        public DuckenBaseState GetRandomState() {
+        public void SwitchRandomState() {
             DuckenBaseState[] dayStates =
             {
                 duckenIdle,
@@ -51,8 +51,8 @@ namespace Creatures.Ducken
             DuckenBaseState[] nightStates = { duckenSleep };
             
             DuckenBaseState[] states = TimeManager.Instance.currPhase == DayPhaseName.Night ? nightStates : dayStates;
-            
-            return states[Random.Range(0, states.Length)];
+            DuckenBaseState state = states[Random.Range(0, states.Length)];
+            SwitchState(state);
         }
 
         public override void BarkedAt(Vector3 sourcePosition) {
