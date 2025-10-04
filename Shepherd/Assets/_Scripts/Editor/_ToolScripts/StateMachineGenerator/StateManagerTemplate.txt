@@ -5,6 +5,8 @@ public class {stateManagerClass} : MonoBehaviour
 {
     public {baseClass} currState;
 
+    [Space(25)]
+    [Header("State Manager")]
 {allStateClasses}
 
     private void Start() {

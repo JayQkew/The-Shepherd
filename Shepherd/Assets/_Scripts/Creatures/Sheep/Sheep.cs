@@ -1,5 +1,3 @@
-using _Scripts.Creatures;
-using _Scripts.Creatures.Sheep;
 using Boids;
 using HerdingSystem;
 using UnityEngine;

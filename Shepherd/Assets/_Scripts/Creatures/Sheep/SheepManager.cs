@@ -37,6 +37,12 @@ namespace Creatures.Sheep
             currState.EnterState(this);
         }
 
+        public void MoveTo(Vector3 pos) {
+            currState.ExitState(this);
+            currState = sheepMove.Target(pos);
+            currState.EnterState(this);
+        }
+
         public SheepBaseState GetRandomState() {
             SheepBaseState[] dayStates =
             {

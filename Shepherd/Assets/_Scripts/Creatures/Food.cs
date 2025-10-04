@@ -1,10 +1,8 @@
 using System;
-using Creatures;
 using UnityEngine;
 using Utilities;
-using Object = UnityEngine.Object;
 
-namespace _Scripts.Creatures
+namespace Creatures
 {
     [Serializable]
     public class Food

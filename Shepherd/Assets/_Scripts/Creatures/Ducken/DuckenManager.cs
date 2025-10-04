@@ -1,16 +1,16 @@
-using Boids;
+using System;
 using TimeSystem;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Creatures.Ducken
 {
-    public class DuckenStateManager : MonoBehaviour
+    public class DuckenManager : Ducken
     {
-        public DuckenBaseState currState;
-        [HideInInspector] public Ducken ducken;
-        [HideInInspector] public Boid boid;
-        public DuckenStats stats;
+        private DuckenBaseState currState;
 
+        [Space(25)]
+        [Header("State Manager")]
         [Space(10)]
         public DuckenEat duckenEat;
         [Space(10)]
@@ -22,7 +22,8 @@ namespace Creatures.Ducken
         [Space(10)]
         public DuckenMove duckenMove;
 
-        private void Start() {
+        protected override void Start() {
+            base.Start();
             currState = duckenIdle;
             currState.EnterState(this);
         }
@@ -53,12 +54,29 @@ namespace Creatures.Ducken
             
             return states[Random.Range(0, states.Length)];
         }
+
+        public override void BarkedAt(Vector3 sourcePosition) {
+            base.BarkedAt(sourcePosition);
+            switch (currForm) {
+                case Form.Ducken:
+                    //follow the source
+                    break;
+                case Form.Chicken:
+                    //jump and run around frantically
+                    break;
+                case Form.Duck:
+                    // freeze and turn into ice (slippery)
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
     }
 
     public abstract class DuckenBaseState
     {
-        public abstract void EnterState(DuckenStateManager manager);
-        public abstract void UpdateState(DuckenStateManager manager);
-        public abstract void ExitState(DuckenStateManager manager);
+        public abstract void EnterState(DuckenManager manager);
+        public abstract void UpdateState(DuckenManager manager);
+        public abstract void ExitState(DuckenManager manager);
     }
 }

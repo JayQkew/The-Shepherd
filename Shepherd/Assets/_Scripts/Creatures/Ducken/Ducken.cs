@@ -1,4 +1,5 @@
 using System;
+using Boids;
 using Climate;
 using HerdingSystem;
 using UnityEngine;
@@ -6,38 +7,23 @@ using Utilities;
 
 namespace Creatures.Ducken
 {
-    public class Ducken : HerdAnimal, IBarkable
+    public class Ducken : Animal, IBarkable
     {
         [Header("Ducken")]
         public Form currForm;
-        
-        private DuckenStateManager duckenStateManager;
-        private DuckenStats stats;
+        public DuckenStats stats;
+
         private TempReceptor tempReceptor;
         private Timer tempThrottle;
+        [HideInInspector] public Boid boid;
+
 
         protected override void Awake() {
             base.Awake();
-            duckenStateManager = GetComponent<DuckenStateManager>();
-            stats = duckenStateManager.stats;
             tempReceptor = GetComponent<TempReceptor>();
             tempReceptor.onCalcTemp.AddListener(FormCheck);
         }
-        public void BarkedAt(Vector3 sourcePosition) {
-            switch (currForm) {
-                case Form.Ducken:
-                    //follow the source
-                    break;
-                case Form.Chicken:
-                    //jump and run around frantically
-                    break;
-                case Form.Duck:
-                    // freeze and turn into ice (slippery)
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
-        }
+        public virtual void BarkedAt(Vector3 sourcePosition) {}
 
         private void FormCheck() {
             if (tempReceptor.currTemp > stats.duckenThresh.max) {

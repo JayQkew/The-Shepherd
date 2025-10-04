@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace _Scripts.Creatures.Sheep
+namespace Creatures.Sheep
 {
     [Serializable]
     public class Explosion

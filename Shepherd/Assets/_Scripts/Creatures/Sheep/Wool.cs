@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using Utilities;
 
-namespace _Scripts.Creatures.Sheep
+namespace Creatures.Sheep
 {
     [Serializable]
     public class Wool
