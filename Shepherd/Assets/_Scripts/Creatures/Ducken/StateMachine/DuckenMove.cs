@@ -42,8 +42,11 @@ namespace Creatures.Ducken
                     manager.SwitchRandomState();
                     return;
                 }
-                Vector3 moveForce = new Vector3(dir.x, 0, dir.z) * speed;
-                rb.AddForce(moveForce, ForceMode.Acceleration);
+
+                if (manager.IsGrounded()) {
+                    Vector3 moveForce = new Vector3(dir.x, 0, dir.z) * speed;
+                    rb.AddForce(moveForce, ForceMode.Force);
+                }
             }
             else {
                 Debug.Log("moving to target");

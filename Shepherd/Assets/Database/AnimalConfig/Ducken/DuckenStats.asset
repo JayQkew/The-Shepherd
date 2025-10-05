@@ -33,3 +33,5 @@ MonoBehaviour:
   duckenThresh:
     _min: 7
     _max: 23
+  barkForce: 5
+  gravityForce: 10

@@ -17,5 +17,7 @@ namespace Creatures.Ducken
 
         [Space(20)]
         public MinMax duckenThresh;
+        public float barkForce;
+        public float gravityForce;
     }
 }

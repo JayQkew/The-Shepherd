@@ -13,12 +13,16 @@ namespace Creatures.Ducken
         [Header("State Manager")]
         [Space(10)]
         public DuckenEat duckenEat;
+
         [Space(10)]
         public DuckenIdle duckenIdle;
+
         [Space(10)]
         public DuckenSleep duckenSleep;
+
         [Space(10)]
         public DuckenRun duckenRun;
+
         [Space(10)]
         public DuckenMove duckenMove;
 
@@ -50,7 +54,7 @@ namespace Creatures.Ducken
             };
 
             DuckenBaseState[] nightStates = { duckenSleep };
-            
+
             DuckenBaseState[] states = TimeManager.Instance.currPhase == DayPhaseName.Night ? nightStates : dayStates;
             DuckenBaseState state = states[Random.Range(0, states.Length)];
             SwitchState(state);
@@ -65,18 +69,25 @@ namespace Creatures.Ducken
                     break;
                 case Form.Chicken:
                     //jump and run around frantically
-                    rb.AddForce(Vector3.up * 10, ForceMode.Impulse);
+                    if (IsGrounded()) {
+                        Vector3 dir = (transform.position - sourcePosition).normalized;
+                        rb.AddForce(dir * stats.barkForce, ForceMode.Impulse);
+                        rb.AddForce(Vector3.up * 10, ForceMode.Impulse);
+                    }
                     SwitchState(duckenMove);
                     break;
                 case Form.Duck:
                     // freeze and turn into ice (slippery)
-                    rb.AddForce(Vector3.up * 5, ForceMode.Impulse);
+                    if (IsGrounded()) {
+                        Vector3 dir = (transform.position - sourcePosition).normalized;
+                        rb.AddForce(dir * stats.barkForce, ForceMode.Impulse);
+                        rb.AddForce(Vector3.up * 10, ForceMode.Impulse);
+                    }
                     SwitchState(duckenIdle);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-
         }
 
         private void MoveTo(Vector3 targetPos) {
