@@ -13,6 +13,7 @@ namespace Creatures.Ducken
         [Space(20)]
         public MinMax runTime;
         public MinMax walkTime;
+        public MinMax followTime;
         public MinMax walkSpeed;
 
         [Space(20)]

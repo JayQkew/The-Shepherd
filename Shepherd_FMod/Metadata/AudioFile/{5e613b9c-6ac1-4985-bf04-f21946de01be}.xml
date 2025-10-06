@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{5e613b9c-6ac1-4985-bf04-f21946de01be}">
+		<property name="assetPath">
+			<value>SFX/dog-barking/dog-barking-7.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.44997916666666665</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{ac472cf8-7f6f-4e58-ac31-0cb0b86cd4c7}</destination>
+		</relationship>
+	</object>
+</objects>

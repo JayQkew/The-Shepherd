@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{6f842e46-e550-41e8-ac00-0873a8195f69}">
+		<property name="assetPath">
+			<value>SFX/dog-barking/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{ac472cf8-7f6f-4e58-ac31-0cb0b86cd4c7}</destination>
+		</relationship>
+	</object>
+</objects>

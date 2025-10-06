@@ -14,6 +14,7 @@ namespace Creatures.Ducken
 
         [SerializeField] private bool hasTarget;
         private Vector3 targetPos;
+        private Transform target;
         private Rigidbody rb;
 
 
@@ -25,40 +26,39 @@ namespace Creatures.Ducken
             if (!hasTarget) {
                 dir = Random.insideUnitCircle.normalized;
                 speed = manager.stats.walkSpeed.RandomValue();
-                moveTimer.SetMaxTime(manager.stats.walkTime.RandomValue());
             }
 
+            moveTimer.SetMaxTime(hasTarget ? manager.stats.followTime.RandomValue() : manager.stats.walkTime.RandomValue());
 
             Debug.Log(hasTarget ? "DuckenMove has a Target" : "DuckenMove does not have a Target");
         }
 
         public override void UpdateState(DuckenManager manager) {
             // manager.gui.UpdateSuppAnims();
+            moveTimer.Update();
 
             if (!hasTarget) {
-                moveTimer.Update();
-
-                if (moveTimer.IsFinished) {
-                    manager.SwitchRandomState();
-                    return;
-                }
-
                 if (manager.IsGrounded()) {
                     Vector3 moveForce = new Vector3(dir.x, 0, dir.z) * speed;
                     rb.AddForce(moveForce, ForceMode.Force);
                 }
             }
             else {
-                Debug.Log("moving to target");
-                dir = (targetPos - rb.position).normalized;
-                Vector3 move = dir * (speed * Time.deltaTime);
-                rb.MovePosition(rb.position + move);
+                Vector3 targetPosition = target != null ? target.position : targetPos;
+                
+                dir = (targetPosition - rb.position).normalized;
+                rb.linearVelocity = dir * speed;
 
-                float distance = Vector3.Distance(rb.position, targetPos);
+                float distance = Vector3.Distance(rb.position, targetPosition);
                 if (distance < 0.5f) {
                     hasTarget = false;
                     manager.SwitchState(manager.duckenIdle);
                 }
+                
+            }
+
+            if (moveTimer.IsFinished) {
+                manager.SwitchRandomState();
             }
         }
 
@@ -66,9 +66,15 @@ namespace Creatures.Ducken
             hasTarget = false;
         }
 
-        public DuckenMove Target(Vector3 target) {
+        public DuckenMove Target(Vector3 t) {
             hasTarget = true;
-            targetPos = target;
+            targetPos = t;
+            return this;
+        }
+
+        public DuckenMove Target(Transform t) {
+            hasTarget = true;
+            target = t;
             return this;
         }
     }

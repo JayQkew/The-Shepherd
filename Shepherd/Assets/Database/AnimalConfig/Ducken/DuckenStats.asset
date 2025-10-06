@@ -27,6 +27,9 @@ MonoBehaviour:
   walkTime:
     _min: 0.25
     _max: 0.5
+  followTime:
+    _min: 2
+    _max: 3
   walkSpeed:
     _min: 4
     _max: 6

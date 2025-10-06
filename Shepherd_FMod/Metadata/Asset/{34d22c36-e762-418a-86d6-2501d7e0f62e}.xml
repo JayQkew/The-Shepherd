@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{34d22c36-e762-418a-86d6-2501d7e0f62e}">
+		<property name="assetPath">
+			<value>SFX/ducken/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{ac472cf8-7f6f-4e58-ac31-0cb0b86cd4c7}</destination>
+		</relationship>
+	</object>
+</objects>
