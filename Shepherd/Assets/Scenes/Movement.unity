@@ -1162,22 +1162,22 @@ MonoBehaviour:
     currTime: 0
   currSeason: 0
   seasons:
-  - season: 1
+  - season: 0
     dayTemp: 0
     temp:
-      _min: 10
-      _max: 20
+      _min: 25
+      _max: 35
     onSeasonStart:
       m_PersistentCalls:
         m_Calls: []
     onSeasonEnd:
       m_PersistentCalls:
         m_Calls: []
-  - season: 0
+  - season: 1
     dayTemp: 0
     temp:
-      _min: 25
-      _max: 35
+      _min: 10
+      _max: 20
     onSeasonStart:
       m_PersistentCalls:
         m_Calls: []

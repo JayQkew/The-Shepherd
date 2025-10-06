@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{80b8d077-5cb0-472d-819f-b51993dee420}">
 		<property name="name">
-			<value>DuckenSound</value>
+			<value>Quack</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
@@ -30,6 +30,9 @@
 		</relationship>
 		<relationship name="timeline">
 			<destination>{cca3af59-a8be-41fb-beb4-2809f99f133e}</destination>
+		</relationship>
+		<relationship name="banks">
+			<destination>{3d885132-09c2-47ee-9158-cd91df6baed0}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{694afa34-b1f5-480e-aaf0-cc41b2945422}">
