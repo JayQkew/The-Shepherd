@@ -3810,48 +3810,6 @@ MonoBehaviour:
       Data3: 574899616
       Data4: 1166523543
     Path: event:/SFX/DuckenChange
-  <wind>k__BackingField:
-    Guid:
-      Data1: 997353299
-      Data2: 1218805172
-      Data3: -1591232634
-      Data4: -410735022
-    Path: event:/Ambience/Wind
-  <rain>k__BackingField:
-    Guid:
-      Data1: 1611969059
-      Data2: 1275069366
-      Data3: 1980173699
-      Data4: -2085391388
-    Path: event:/Ambience/Rain
-  <thunder>k__BackingField:
-    Guid:
-      Data1: -31140569
-      Data2: 1134020394
-      Data3: -539640644
-      Data4: -125883149
-    Path: event:/Ambience/Thunder
-  <leaves>k__BackingField:
-    Guid:
-      Data1: -408384411
-      Data2: 1229268392
-      Data3: -1921986664
-      Data4: 1504470165
-    Path: event:/Ambience/Leaves
-  <birds>k__BackingField:
-    Guid:
-      Data1: -1915324504
-      Data2: 1103574973
-      Data3: -355071063
-      Data4: -9976531
-    Path: event:/Ambience/Birds
-  <insects>k__BackingField:
-    Guid:
-      Data1: 1546668437
-      Data2: 1104360610
-      Data3: 715461009
-      Data4: 464054056
-    Path: event:/Ambience/Insects
 --- !u!4 &479252591 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6063610665178207097, guid: 74415c2fcb1af124fa62aca079790644, type: 3}
@@ -11226,6 +11184,55 @@ MonoBehaviour:
   volume:
     data: {fileID: 11400000, guid: 8836b0fff322f0446a9e64a34f0cb61d, type: 2}
     volume: {fileID: 832575518}
+  audios:
+  - ambienceType: 1
+    <EventReference>k__BackingField:
+      Guid:
+        Data1: 997353299
+        Data2: 1218805172
+        Data3: -1591232634
+        Data4: -410735022
+      Path: event:/Ambience/Wind
+  - ambienceType: 2
+    <EventReference>k__BackingField:
+      Guid:
+        Data1: 1611969059
+        Data2: 1275069366
+        Data3: 1980173699
+        Data4: -2085391388
+      Path: event:/Ambience/Rain
+  - ambienceType: 4
+    <EventReference>k__BackingField:
+      Guid:
+        Data1: -31140569
+        Data2: 1134020394
+        Data3: -539640644
+        Data4: -125883149
+      Path: event:/Ambience/Thunder
+  - ambienceType: 8
+    <EventReference>k__BackingField:
+      Guid:
+        Data1: -408384411
+        Data2: 1229268392
+        Data3: -1921986664
+        Data4: 1504470165
+      Path: event:/Ambience/Leaves
+  - ambienceType: 16
+    <EventReference>k__BackingField:
+      Guid:
+        Data1: -1915324504
+        Data2: 1103574973
+        Data3: -355071063
+        Data4: -9976531
+      Path: event:/Ambience/Birds
+  - ambienceType: 32
+    <EventReference>k__BackingField:
+      Guid:
+        Data1: 1546668437
+        Data2: 1104360610
+        Data3: 715461009
+        Data4: 464054056
+      Path: event:/Ambience/Insects
 --- !u!1001 &1670566537
 PrefabInstance:
   m_ObjectHideFlags: 0
