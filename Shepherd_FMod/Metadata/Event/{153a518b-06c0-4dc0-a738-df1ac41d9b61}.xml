@@ -5,10 +5,10 @@
 			<value>SheepEat</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
-			<destination>{12ae4245-89b9-4929-a005-822e7aff418c}</destination>
+			<destination>{8cdca824-7aed-4cc3-b3fc-180dee739cc1}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{1ae39d66-737e-4019-889e-76566d83ee32}</destination>
@@ -74,6 +74,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{0f1c547b-de7f-4378-88b4-3ee4810b0228}">
+		<property name="volume">
+			<value>-11</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{220e662f-950a-4b6c-9530-67cff10e3948}</destination>
 		</relationship>
@@ -126,6 +129,7 @@
 	<object class="MixerBusEffectChain" id="{220e662f-950a-4b6c-9530-67cff10e3948}">
 		<relationship name="effects">
 			<destination>{3fd83caf-48e4-48d8-abbb-3ab2847321af}</destination>
+			<destination>{c40c4277-ef8c-416c-ab4c-cc449b1954a1}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{b457541f-a8d7-4135-9c00-e83229401bf2}" />
@@ -137,5 +141,6 @@
 	</object>
 	<object class="MixerBusPanner" id="{a898121f-0fe1-4414-9615-a58dbe2cece0}" />
 	<object class="MixerBusFader" id="{3fd83caf-48e4-48d8-abbb-3ab2847321af}" />
+	<object class="SpatialiserEffect" id="{c40c4277-ef8c-416c-ab4c-cc449b1954a1}" />
 	<object class="MixerBusFader" id="{9adc3c48-b4fd-47af-ad12-2debcc655362}" />
 </objects>

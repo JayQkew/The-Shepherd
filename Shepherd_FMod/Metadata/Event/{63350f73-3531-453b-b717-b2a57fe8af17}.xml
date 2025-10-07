@@ -5,10 +5,10 @@
 			<value>Poof</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
-			<destination>{12ae4245-89b9-4929-a005-822e7aff418c}</destination>
+			<destination>{8cdca824-7aed-4cc3-b3fc-180dee739cc1}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{5cc8687f-a2f1-4052-becc-5275348dc689}</destination>
@@ -90,7 +90,10 @@
 	<object class="MixerBusPanner" id="{0c7d253c-c5bb-4a61-bb64-c4fa06ed0595}" />
 	<object class="SingleSound" id="{4e33a506-af0a-468c-998c-63317401bd15}">
 		<property name="length">
-			<value>0.98399999999999999</value>
+			<value>0.47000000000000003</value>
+		</property>
+		<property name="timelockedOffset">
+			<value>0.20000000000000001</value>
 		</property>
 		<property name="volume">
 			<value>10</value>
@@ -122,6 +125,7 @@
 	<object class="MixerBusEffectChain" id="{77acbfff-64b6-4e55-9ef5-a52a8258bfa9}">
 		<relationship name="effects">
 			<destination>{c96f7e83-b371-442c-a1d1-e8c93dc0bce1}</destination>
+			<destination>{455fbeb4-31d5-438c-ab3b-5609c33b4760}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{72d94c16-8543-4773-85dc-60a1056cdc05}" />
@@ -141,5 +145,6 @@
 	</object>
 	<object class="MixerBusPanner" id="{9cb50e5f-f16d-4f8a-bbc5-cb97c04deb3d}" />
 	<object class="MixerBusFader" id="{c96f7e83-b371-442c-a1d1-e8c93dc0bce1}" />
+	<object class="SpatialiserEffect" id="{455fbeb4-31d5-438c-ab3b-5609c33b4760}" />
 	<object class="MixerBusFader" id="{1250431c-0705-4c30-9e28-6834fa4348af}" />
 </objects>

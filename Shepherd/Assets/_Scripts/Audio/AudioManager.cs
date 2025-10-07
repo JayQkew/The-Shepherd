@@ -11,6 +11,7 @@ namespace Audio
         public static AudioManager Instance { get; private set; }
 
         private List<EventInstance> eventInstances = new();
+        private List<StudioEventEmitter> eventEmitters = new();
         private void Awake() {
             if (Instance == null) {
                 Instance = this;
@@ -31,10 +32,21 @@ namespace Audio
             return eventInstance;
         }
 
+        public StudioEventEmitter InitializeEventEmitter(EventReference eventReference, GameObject emitterGameObject) {
+            StudioEventEmitter emitter = emitterGameObject.GetComponent<StudioEventEmitter>();
+            emitter.EventReference = eventReference;
+            eventEmitters.Add(emitter);
+            return emitter;
+        }
+
         private void CleanUp() {
             foreach (EventInstance instance in eventInstances) {
-                instance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
                 instance.release();
+            }
+
+            foreach (StudioEventEmitter emitter in eventEmitters) {
+                emitter.Stop();
             }
         }
 

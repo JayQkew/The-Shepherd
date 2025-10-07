@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="ParameterPreset" id="{47bab42c-3948-4f9a-9f62-498ec648837f}">
 		<property name="name">
-			<value>Parameter 1</value>
+			<value>wind_intensity</value>
 		</property>
 		<relationship name="folder">
 			<destination>{a49c1e4f-430a-43f4-8037-252861f0755c}</destination>
@@ -13,7 +13,7 @@
 	</object>
 	<object class="GameParameter" id="{3f56db9f-c776-4145-b43c-417a4eda13ba}">
 		<property name="initialValue">
-			<value>0</value>
+			<value>0.5</value>
 		</property>
 	</object>
 </objects>

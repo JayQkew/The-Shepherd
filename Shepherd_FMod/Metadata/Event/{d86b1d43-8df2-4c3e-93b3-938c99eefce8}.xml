@@ -5,10 +5,10 @@
 			<value>Cluck</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
-			<destination>{12ae4245-89b9-4929-a005-822e7aff418c}</destination>
+			<destination>{8cdca824-7aed-4cc3-b3fc-180dee739cc1}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{9d537c4f-be8a-42c4-83af-b83aae79ceb7}</destination>
@@ -92,7 +92,6 @@
 		<property name="length">
 			<value>0.60000000000000009</value>
 		</property>
-		<property name="name" />
 		<relationship name="modulators">
 			<destination>{3a127343-f59f-47cd-bad8-dd756ea73993}</destination>
 		</relationship>
@@ -149,9 +148,11 @@
 	<object class="MixerBusEffectChain" id="{6fd80840-e675-4239-8e07-1a4e3b5b597e}">
 		<relationship name="effects">
 			<destination>{7287e789-a478-47d0-aa4a-3bd22c342597}</destination>
+			<destination>{cc22dbb6-68b0-490f-9896-9810f2f27b4d}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{b1b7ff06-bc63-4156-b915-2d171987e738}" />
 	<object class="MixerBusFader" id="{77832ab8-513c-47ed-9e6a-936af4925cdc}" />
 	<object class="MixerBusFader" id="{7287e789-a478-47d0-aa4a-3bd22c342597}" />
+	<object class="SpatialiserEffect" id="{cc22dbb6-68b0-490f-9896-9810f2f27b4d}" />
 </objects>

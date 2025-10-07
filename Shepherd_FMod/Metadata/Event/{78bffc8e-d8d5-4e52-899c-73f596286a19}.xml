@@ -5,10 +5,10 @@
 			<value>SheepMeh</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
-			<destination>{12ae4245-89b9-4929-a005-822e7aff418c}</destination>
+			<destination>{8cdca824-7aed-4cc3-b3fc-180dee739cc1}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{2024b36d-53a9-4203-96e1-0989445cf71c}</destination>
@@ -72,6 +72,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{20614ad5-7f48-49f8-8760-d69a23eea49c}">
+		<property name="volume">
+			<value>-7.5</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{32200a54-01ed-4342-8937-aaa6bc1edfa7}</destination>
 		</relationship>
@@ -126,6 +129,7 @@
 	<object class="MixerBusEffectChain" id="{32200a54-01ed-4342-8937-aaa6bc1edfa7}">
 		<relationship name="effects">
 			<destination>{ecfa0f87-66b0-498d-8285-f5703fc7de6f}</destination>
+			<destination>{4e26f187-2ebd-4389-bf7b-30ca92a831f5}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{0de5d2cc-24f3-4a08-9fb9-8fcc289bd6ce}" />
@@ -157,7 +161,7 @@
 	</object>
 	<object class="SingleSound" id="{71a2454d-b58d-4dd1-b7dc-3249ca7fe36d}">
 		<property name="volume">
-			<value>7</value>
+			<value>-3</value>
 		</property>
 		<relationship name="audioFile">
 			<destination>{ba359722-7fb4-48c8-b73b-571636a769b9}</destination>
@@ -194,5 +198,6 @@
 	</object>
 	<object class="MixerBusPanner" id="{081f61bd-04af-4930-ab6b-daebde35f8a0}" />
 	<object class="MixerBusFader" id="{ecfa0f87-66b0-498d-8285-f5703fc7de6f}" />
+	<object class="SpatialiserEffect" id="{4e26f187-2ebd-4389-bf7b-30ca92a831f5}" />
 	<object class="MixerBusFader" id="{17301eaf-90c4-4c41-8203-dbec0a129c52}" />
 </objects>

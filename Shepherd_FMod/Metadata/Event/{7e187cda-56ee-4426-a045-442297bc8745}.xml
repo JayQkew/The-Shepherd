@@ -5,10 +5,10 @@
 			<value>DuckenChange</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
-			<destination>{12ae4245-89b9-4929-a005-822e7aff418c}</destination>
+			<destination>{8cdca824-7aed-4cc3-b3fc-180dee739cc1}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{5e116317-ec36-4b44-946f-5912379eb6c5}</destination>
@@ -119,6 +119,7 @@
 	<object class="MixerBusEffectChain" id="{04f7fc2f-5697-4dc8-9c95-d3e8666b586e}">
 		<relationship name="effects">
 			<destination>{c933272f-1cbf-4bae-aeb5-a824bcf61d48}</destination>
+			<destination>{6c2afcc5-4953-42bd-96f7-3da02fec10d2}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{87eb9abb-bff3-48f1-a6a4-305bb60f9f4f}" />
@@ -138,5 +139,6 @@
 	</object>
 	<object class="MixerBusPanner" id="{fa27aee7-dc71-412b-9232-b980360dbc92}" />
 	<object class="MixerBusFader" id="{c933272f-1cbf-4bae-aeb5-a824bcf61d48}" />
+	<object class="SpatialiserEffect" id="{6c2afcc5-4953-42bd-96f7-3da02fec10d2}" />
 	<object class="MixerBusFader" id="{a76ccc01-d1ff-4ef6-9502-4ce0d6498116}" />
 </objects>

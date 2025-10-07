@@ -5,10 +5,10 @@
 			<value>DuckenWalk</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
-			<destination>{12ae4245-89b9-4929-a005-822e7aff418c}</destination>
+			<destination>{8cdca824-7aed-4cc3-b3fc-180dee739cc1}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{016e28e4-34e2-4ae7-a59d-0d6ebde951db}</destination>
@@ -139,6 +139,7 @@
 	<object class="MixerBusEffectChain" id="{9cc2559b-714d-4447-9e4e-a5dd3ccec380}">
 		<relationship name="effects">
 			<destination>{550a2531-b5c2-4fdd-a64b-b3ed0c585302}</destination>
+			<destination>{c12c6aee-8b9f-4155-8239-872a80425471}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{a4c463a2-02c3-49dc-97ba-ec17b4640777}" />
@@ -158,5 +159,6 @@
 	</object>
 	<object class="MixerBusPanner" id="{9bcc8157-da5f-4b03-8148-b9cb0af87f19}" />
 	<object class="MixerBusFader" id="{550a2531-b5c2-4fdd-a64b-b3ed0c585302}" />
+	<object class="SpatialiserEffect" id="{c12c6aee-8b9f-4155-8239-872a80425471}" />
 	<object class="MixerBusFader" id="{cad911e2-14b5-42cd-91c5-f8c667b326e5}" />
 </objects>

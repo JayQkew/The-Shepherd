@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{3865a009-8380-427f-bb40-8b1ab74653d7}">
+		<property name="name">
+			<value>insect_intensity</value>
+		</property>
+		<relationship name="folder">
+			<destination>{a49c1e4f-430a-43f4-8037-252861f0755c}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{f6a33b14-d9f2-41ae-8bff-5729e11c47cb}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{f6a33b14-d9f2-41ae-8bff-5729e11c47cb}">
+		<property name="initialValue">
+			<value>0.5</value>
+		</property>
+	</object>
+</objects>

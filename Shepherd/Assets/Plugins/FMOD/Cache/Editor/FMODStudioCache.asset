@@ -1,5 +1,291 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9194779678897209513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Insects/insect_intensity
+  m_EditorClassIdentifier: 
+  Name: insect_intensity
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0.5
+  ID:
+    data1: 1987709119
+    data2: 2097486647
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-7446568400183472715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Ducken
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Ducken
+  Guid:
+    Data1: -618465506
+    Data2: 1223556016
+    Data3: -695470414
+    Data4: -1381746285
+  Banks:
+  - {fileID: -4623933728860896192}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 200
+--- !u!114 &-6588551568071924421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/SheepEat
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/SheepEat
+  Guid:
+    Data1: 356143499
+    Data2: 1304430272
+    Data3: 450836647
+    Data4: 1637555652
+  Banks:
+  - {fileID: -4623933728860896192}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 14500
+--- !u!114 &-6565924899831561850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambience/Wind
+  m_EditorClassIdentifier: 
+  Path: event:/Ambience/Wind
+  Guid:
+    Data1: 997353299
+    Data2: 1218805172
+    Data3: -1591232634
+    Data4: -410735022
+  Banks:
+  - {fileID: -862112901877289246}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -4991712192172946013}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 279336
+--- !u!114 &-5884502780082854815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Bark
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Bark
+  Guid:
+    Data1: -1906484941
+    Data2: 1173510906
+    Data3: 133133964
+    Data4: 1483294978
+  Banks:
+  - {fileID: -4623933728860896192}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 440
+--- !u!114 &-4991712192172946013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Wind/wind_intensity
+  m_EditorClassIdentifier: 
+  Name: wind_intensity
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0.5
+  ID:
+    data1: 572367439
+    data2: 1469235310
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-4965783856534702269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Poop
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Poop
+  Guid:
+    Data1: -1567592589
+    Data2: 1324661106
+    Data3: 1485545877
+    Data4: 438318375
+  Banks:
+  - {fileID: -4623933728860896192}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 500
+--- !u!114 &-4623933728860896192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/SFX.bank
+  m_EditorClassIdentifier: 
+  Path: ../Shepherd_FMod/Build/Desktop/SFX.bank
+  Name: SFX
+  StudioPath: bank:/SFX
+  lastModified: 638954252187119515
+  FileSizes:
+  - Name: Desktop
+    Value: 616032
+  Exists: 1
+--- !u!114 &-4553014013240413427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambience/Insects
+  m_EditorClassIdentifier: 
+  Path: event:/Ambience/Insects
+  Guid:
+    Data1: 1546668437
+    Data2: 1104360610
+    Data3: 715461009
+    Data4: 464054056
+  Banks:
+  - {fileID: -862112901877289246}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -9194779678897209513}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 129864
+--- !u!114 &-3762552983622248919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Cluck
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Cluck
+  Guid:
+    Data1: -664068797
+    Data2: 1279167986
+    Data3: -1936477293
+    Data4: -386077031
+  Banks:
+  - {fileID: -4623933728860896192}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 600
+--- !u!114 &-2634566441283326118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/SheepMeh
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/SheepMeh
+  Guid:
+    Data1: 2025847950
+    Data2: 1314052309
+    Data3: -176972663
+    Data4: 426387606
+  Banks:
+  - {fileID: -4623933728860896192}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000
 --- !u!114 &-2396919686633065383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,10 +301,109 @@ MonoBehaviour:
   Path: ../Shepherd_FMod/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638953404665719532
+  lastModified: 638954286771996622
   FileSizes:
   - Name: Desktop
-    Value: 822
+    Value: 1814
+  Exists: 1
+--- !u!114 &-1683070720094809599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Poof
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Poof
+  Guid:
+    Data1: 1664421747
+    Data2: 1161508145
+    Data3: -1515055177
+    Data4: 397404287
+  Banks:
+  - {fileID: -4623933728860896192}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 470
+--- !u!114 &-1248612029516236705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambience/Thunder
+  m_EditorClassIdentifier: 
+  Path: event:/Ambience/Thunder
+  Guid:
+    Data1: -31140569
+    Data2: 1134020394
+    Data3: -539640644
+    Data4: -125883149
+  Banks:
+  - {fileID: -862112901877289246}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 6003358813404243150}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 157309
+--- !u!114 &-1221719152981118550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Birds/bird_intensity
+  m_EditorClassIdentifier: 
+  Name: bird_intensity
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0.5
+  ID:
+    data1: 1086684737
+    data2: 4103469589
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-862112901877289246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Ambience.bank
+  m_EditorClassIdentifier: 
+  Path: ../Shepherd_FMod/Build/Desktop/Ambience.bank
+  Name: Ambience
+  StudioPath: bank:/Ambience
+  lastModified: 638954286771956101
+  FileSizes:
+  - Name: Desktop
+    Value: 16768864
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -35,19 +420,261 @@ MonoBehaviour:
   EditorBanks:
   - {fileID: -2396919686633065383}
   - {fileID: 8013575224256464752}
+  - {fileID: -862112901877289246}
+  - {fileID: -4623933728860896192}
   EditorEvents:
-  - {fileID: 8260598251540832554}
+  - {fileID: 4679177830759207994}
+  - {fileID: -1248612029516236705}
+  - {fileID: -6565924899831561850}
+  - {fileID: 4673052740248495303}
+  - {fileID: -4553014013240413427}
+  - {fileID: 5274114931248222807}
+  - {fileID: -7446568400183472715}
+  - {fileID: -5884502780082854815}
+  - {fileID: -3762552983622248919}
+  - {fileID: -1683070720094809599}
+  - {fileID: -4965783856534702269}
+  - {fileID: 3628647608085965717}
+  - {fileID: 4704938089479718467}
+  - {fileID: -6588551568071924421}
+  - {fileID: -2634566441283326118}
+  - {fileID: 5391842292026005806}
+  - {fileID: 1359199452722965318}
   EditorParameters: []
   MasterBanks:
   - {fileID: 8013575224256464752}
   StringsBanks:
   - {fileID: -2396919686633065383}
   cacheVersion: 131849
-  cacheTime: 638953404665719532
+  cacheTime: 638954286771996622
   SerializableEventsDict:
-  - key: event:/NewEvent
+  - key: event:/Ambience/Rain
     index: 0
---- !u!114 &1120207280311489977
+  - key: event:/Ambience/Thunder
+    index: 1
+  - key: event:/Ambience/Wind
+    index: 2
+  - key: event:/Ambience/Leaves
+    index: 3
+  - key: event:/Ambience/Insects
+    index: 4
+  - key: event:/Ambience/Birds
+    index: 5
+  - key: event:/SFX/Ducken
+    index: 6
+  - key: event:/SFX/Bark
+    index: 7
+  - key: event:/SFX/Cluck
+    index: 8
+  - key: event:/SFX/Poof
+    index: 9
+  - key: event:/SFX/Poop
+    index: 10
+  - key: event:/SFX/Quack
+    index: 11
+  - key: event:/SFX/DuckenWalk
+    index: 12
+  - key: event:/SFX/SheepEat
+    index: 13
+  - key: event:/SFX/SheepMeh
+    index: 14
+  - key: event:/SFX/DuckenChange
+    index: 15
+  - key: event:/SFX/RunGrass
+    index: 16
+--- !u!114 &1359199452722965318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/RunGrass
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/RunGrass
+  Guid:
+    Data1: 684621560
+    Data2: 1233704721
+    Data3: 364985780
+    Data4: -1044855585
+  Banks:
+  - {fileID: -4623933728860896192}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 250
+--- !u!114 &3628647608085965717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Quack
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Quack
+  Guid:
+    Data1: -2135371657
+    Data2: 1194155184
+    Data3: 431333249
+    Data4: 551870099
+  Banks:
+  - {fileID: -4623933728860896192}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 800
+--- !u!114 &4673052740248495303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambience/Leaves
+  m_EditorClassIdentifier: 
+  Path: event:/Ambience/Leaves
+  Guid:
+    Data1: -408384411
+    Data2: 1229268392
+    Data3: -1921986664
+    Data4: 1504470165
+  Banks:
+  - {fileID: -862112901877289246}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 6263673697802239186}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 181896
+--- !u!114 &4679177830759207994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambience/Rain
+  m_EditorClassIdentifier: 
+  Path: event:/Ambience/Rain
+  Guid:
+    Data1: 1611969059
+    Data2: 1275069366
+    Data3: 1980173699
+    Data4: -2085391388
+  Banks:
+  - {fileID: -862112901877289246}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 6407535354781317960}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 279336
+--- !u!114 &4704938089479718467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/DuckenWalk
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/DuckenWalk
+  Guid:
+    Data1: 1407802497
+    Data2: 1257044517
+    Data3: -1359157318
+    Data4: -1285415764
+  Banks:
+  - {fileID: -4623933728860896192}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 320
+--- !u!114 &5274114931248222807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambience/Birds
+  m_EditorClassIdentifier: 
+  Path: event:/Ambience/Birds
+  Guid:
+    Data1: -1915324504
+    Data2: 1103574973
+    Data3: -355071063
+    Data4: -9976531
+  Banks:
+  - {fileID: -862112901877289246}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -1221719152981118550}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 210834
+--- !u!114 &5391842292026005806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/DuckenChange
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/DuckenChange
+  Guid:
+    Data1: 2115534042
+    Data2: 1143363310
+    Data3: 574899616
+    Data4: 1166523543
+  Banks:
+  - {fileID: -4623933728860896192}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 146
+--- !u!114 &6003358813404243150
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -57,16 +684,64 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/NewEvent/Parameter 1
+  m_Name: parameter:/Thunder/thunder_intensity
   m_EditorClassIdentifier: 
-  Name: Parameter 1
+  Name: thunder_intensity
   StudioPath: 
   Min: 0
   Max: 1
-  Default: 0
+  Default: 0.5
   ID:
-    data1: 572367439
-    data2: 1469235310
+    data1: 3679169936
+    data2: 2408240983
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &6263673697802239186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Leaves/leaves_intensity
+  m_EditorClassIdentifier: 
+  Name: leaves_intensity
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0.5
+  ID:
+    data1: 508159633
+    data2: 3182550493
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &6407535354781317960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Rain/rain_intensity
+  m_EditorClassIdentifier: 
+  Name: rain_intensity
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0.5
+  ID:
+    data1: 3398623218
+    data2: 3507462275
   Type: 0
   IsGlobal: 0
   Labels: []
@@ -86,36 +761,8 @@ MonoBehaviour:
   Path: ../Shepherd_FMod/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638953404665706236
+  lastModified: 638954286771986613
   FileSizes:
   - Name: Desktop
-    Value: 59360
+    Value: 1074
   Exists: 1
---- !u!114 &8260598251540832554
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/NewEvent
-  m_EditorClassIdentifier: 
-  Path: event:/NewEvent
-  Guid:
-    Data1: 684621560
-    Data2: 1233704721
-    Data3: 364985780
-    Data4: -1044855585
-  Banks:
-  - {fileID: 8013575224256464752}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters:
-  - {fileID: 1120207280311489977}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 2000

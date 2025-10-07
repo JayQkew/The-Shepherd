@@ -3920,7 +3920,7 @@ MonoBehaviour:
       Data2: 1233704721
       Data3: 364985780
       Data4: -1044855585
-    Path: event:/NewEvent
+    Path: event:/RunGrass
 --- !u!4 &479252591 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6063610665178207097, guid: 74415c2fcb1af124fa62aca079790644, type: 3}
