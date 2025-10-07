@@ -199,10 +199,10 @@ MonoBehaviour:
   Path: ../Shepherd_FMod/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638954316838748739
+  lastModified: 638954334480459430
   FileSizes:
   - Name: Desktop
-    Value: 616384
+    Value: 714208
   Exists: 1
 --- !u!114 &-4553014013240413427
 MonoBehaviour:
@@ -301,10 +301,10 @@ MonoBehaviour:
   Path: ../Shepherd_FMod/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638954286771996622
+  lastModified: 638954334478262112
   FileSizes:
   - Name: Desktop
-    Value: 1814
+    Value: 1862
   Exists: 1
 --- !u!114 &-1683070720094809599
 MonoBehaviour:
@@ -400,7 +400,7 @@ MonoBehaviour:
   Path: ../Shepherd_FMod/Build/Desktop/Ambience.bank
   Name: Ambience
   StudioPath: bank:/Ambience
-  lastModified: 638954286771956101
+  lastModified: 638954334478214866
   FileSizes:
   - Name: Desktop
     Value: 16768864
@@ -440,13 +440,14 @@ MonoBehaviour:
   - {fileID: -2634566441283326118}
   - {fileID: 5391842292026005806}
   - {fileID: 1359199452722965318}
+  - {fileID: 6777402026352807364}
   EditorParameters: []
   MasterBanks:
   - {fileID: 8013575224256464752}
   StringsBanks:
   - {fileID: -2396919686633065383}
   cacheVersion: 131849
-  cacheTime: 638954316838748739
+  cacheTime: 638954334480459430
   SerializableEventsDict:
   - key: event:/Ambience/Rain
     index: 0
@@ -482,6 +483,8 @@ MonoBehaviour:
     index: 15
   - key: event:/SFX/RunGrass
     index: 16
+  - key: event:/SFX/WalkGrass
+    index: 17
 --- !u!114 &1359199452722965318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -746,6 +749,33 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &6777402026352807364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/WalkGrass
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/WalkGrass
+  Guid:
+    Data1: 2132218513
+    Data2: 1100635540
+    Data3: -55490385
+    Data4: 1607485790
+  Banks:
+  - {fileID: -4623933728860896192}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 250
 --- !u!114 &8013575224256464752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -761,7 +791,7 @@ MonoBehaviour:
   Path: ../Shepherd_FMod/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638954286771986613
+  lastModified: 638954334478252051
   FileSizes:
   - Name: Desktop
     Value: 1074

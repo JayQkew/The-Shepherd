@@ -14,5 +14,6 @@ namespace Player
         }
 
         public void PlayGrassRun() => audioManager.PlayOneShot(fmodEvents.grassRun);
+        public void PlayGrassWalk() => audioManager.PlayOneShot(fmodEvents.grassWalk);
     }
 }

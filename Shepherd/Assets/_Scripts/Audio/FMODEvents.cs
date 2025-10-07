@@ -9,6 +9,7 @@ namespace Audio
         
         [field: Header("Player Events")]
         [field: SerializeField] public EventReference grassRun { get; private set; }
+        [field: SerializeField] public EventReference grassWalk { get; private set; }
         [field: SerializeField] public EventReference bark { get; private set; }
 
         private void Awake() {

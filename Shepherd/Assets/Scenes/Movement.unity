@@ -3921,6 +3921,13 @@ MonoBehaviour:
       Data3: 364985780
       Data4: -1044855585
     Path: event:/SFX/RunGrass
+  <grassWalk>k__BackingField:
+    Guid:
+      Data1: 2132218513
+      Data2: 1100635540
+      Data3: -55490385
+      Data4: 1607485790
+    Path: event:/SFX/WalkGrass
   <bark>k__BackingField:
     Guid:
       Data1: -1906484941
