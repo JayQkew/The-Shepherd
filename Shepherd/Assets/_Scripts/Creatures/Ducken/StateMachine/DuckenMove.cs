@@ -23,12 +23,16 @@ namespace Creatures.Ducken
             manager.boid.activeBoids = true;
             if (!rb) rb = manager.rb;
 
+            manager.emitter.EventReference = manager.fmodEvents.duckenWalk;
+            manager.emitter.Play();
+            
             if (!hasTarget) {
                 dir = Random.insideUnitCircle.normalized;
                 speed = manager.stats.walkSpeed.RandomValue();
             }
 
             moveTimer.SetMaxTime(hasTarget ? manager.stats.followTime.RandomValue() : manager.stats.walkTime.RandomValue());
+            
 
             Debug.Log(hasTarget ? "DuckenMove has a Target" : "DuckenMove does not have a Target");
         }
@@ -64,6 +68,7 @@ namespace Creatures.Ducken
 
         public override void ExitState(DuckenManager manager) {
             hasTarget = false;
+            manager.emitter.Stop();
         }
 
         public DuckenMove Target(Vector3 t) {

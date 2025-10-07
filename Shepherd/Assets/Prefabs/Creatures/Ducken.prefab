@@ -103,6 +103,9 @@ MonoBehaviour:
   animal: 2
   rb: {fileID: 0}
   col: {fileID: 0}
+  emitter: {fileID: 0}
+  audioManager: {fileID: 0}
+  fmodEvents: {fileID: 0}
   currForm: 0
   stats: {fileID: 11400000, guid: 118d6c6c1d7d45942ac5a3640401396d, type: 2}
   food:
@@ -118,6 +121,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   checkDistance: 0.6
+  soundChance:
+    percentage: 0.5
   boid: {fileID: 0}
   duckenEat:
     eatTimer:

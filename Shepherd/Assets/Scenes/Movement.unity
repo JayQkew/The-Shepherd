@@ -3935,6 +3935,13 @@ MonoBehaviour:
       Data3: 133133964
       Data4: 1483294978
     Path: event:/SFX/Bark
+  <poop>k__BackingField:
+    Guid:
+      Data1: -1567592589
+      Data2: 1324661106
+      Data3: 1485545877
+      Data4: 438318375
+    Path: event:/SFX/Poop
   <sheepMeh>k__BackingField:
     Guid:
       Data1: 2025847950
@@ -3956,6 +3963,41 @@ MonoBehaviour:
       Data3: -1515055177
       Data4: 397404287
     Path: event:/SFX/Poof
+  <duckenSound>k__BackingField:
+    Guid:
+      Data1: -618465506
+      Data2: 1223556016
+      Data3: -695470414
+      Data4: -1381746285
+    Path: event:/SFX/Ducken
+  <duckSound>k__BackingField:
+    Guid:
+      Data1: -2135371657
+      Data2: 1194155184
+      Data3: 431333249
+      Data4: 551870099
+    Path: event:/SFX/Quack
+  <chickenSound>k__BackingField:
+    Guid:
+      Data1: -664068797
+      Data2: 1279167986
+      Data3: -1936477293
+      Data4: -386077031
+    Path: event:/SFX/Cluck
+  <duckenWalk>k__BackingField:
+    Guid:
+      Data1: 1407802497
+      Data2: 1257044517
+      Data3: -1359157318
+      Data4: -1285415764
+    Path: event:/SFX/DuckenWalk
+  <duckenChange>k__BackingField:
+    Guid:
+      Data1: 2115534042
+      Data2: 1143363310
+      Data3: 574899616
+      Data4: 1166523543
+    Path: event:/SFX/DuckenChange
 --- !u!4 &479252591 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6063610665178207097, guid: 74415c2fcb1af124fa62aca079790644, type: 3}

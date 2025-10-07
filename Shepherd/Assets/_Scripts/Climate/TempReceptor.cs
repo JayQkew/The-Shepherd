@@ -9,18 +9,24 @@ namespace Climate
         public float currTemp;
         public HashSet<TempAffector> affectors = new();
         public UnityEvent onCalcTemp;
+        public UnityEvent onTempChange;
 
         private void Start() {
             ClimateManager.Instance.tempReceptors.Add(this);
         }
 
         public float CalcTemp() {
-            currTemp = ClimateManager.Instance.globalTemp;
+            float newTemp  = ClimateManager.Instance.globalTemp;
 
             foreach (TempAffector affector in affectors) {
-                currTemp += affector.tempModifier;
+                newTemp += affector.tempModifier;
             }
             onCalcTemp?.Invoke();
+
+            if (!Mathf.Approximately(newTemp, currTemp)) {
+                onTempChange?.Invoke();
+                currTemp = newTemp;
+            }
             return currTemp;
         }
 

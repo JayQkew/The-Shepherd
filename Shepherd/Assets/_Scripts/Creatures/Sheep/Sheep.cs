@@ -35,8 +35,7 @@ namespace Creatures.Sheep
             rb.AddForce(dir * barkForce, ForceMode.Impulse);
 
             if (mehChance.Roll()) {
-                emitter.EventReference = fmodEvents.sheepMeh;
-                emitter.Play();
+                PlayMeh();
             }
         }
     
@@ -48,6 +47,11 @@ namespace Creatures.Sheep
         public void PuffExplosion() {
             explosion.PuffExplosion();
             emitter.EventReference = fmodEvents.sheepPoof;
+            emitter.Play();
+        }
+
+        public void PlayMeh() {
+            emitter.EventReference = fmodEvents.sheepMeh;
             emitter.Play();
         }
     }
