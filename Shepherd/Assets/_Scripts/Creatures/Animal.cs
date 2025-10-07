@@ -17,9 +17,9 @@ namespace Creatures
         public HerdingSystem.Animal animal;
         [HideInInspector] public Rigidbody rb;
         [HideInInspector] public SphereCollider col;
-        protected StudioEventEmitter emitter;
-        protected AudioManager audioManager;
-        protected FMODEvents fmodEvents;
+        [HideInInspector] public StudioEventEmitter emitter;
+        [HideInInspector] public AudioManager audioManager;
+        [HideInInspector] public FMODEvents fmodEvents;
     
         protected virtual void Awake() {
             rb = GetComponent<Rigidbody>();

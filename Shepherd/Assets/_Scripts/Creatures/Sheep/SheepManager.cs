@@ -27,7 +27,8 @@ namespace Creatures.Sheep
             currState.EnterState(this);
         }
 
-        private void Update() {
+        protected override void Update() {
+            base.Update();
             currState.UpdateState(this);
         }
 

@@ -11,6 +11,10 @@ namespace Creatures.Sheep
             manager.gui.PlayAnim("Eat");
             manager.food.Eat();
             manager.boid.activeBoids = false;
+            
+            manager.emitter.EventReference = manager.fmodEvents.sheepEat;
+            manager.emitter.Play();
+            
             eatTimer.SetMaxTime(manager.stats.eatTime.RandomValue());
         }
 
@@ -22,6 +26,7 @@ namespace Creatures.Sheep
         }
 
         public override void ExitState(SheepManager manager) {
+            manager.emitter.Stop();
             manager.gui.PlayAnim("Idle");
         }
     }

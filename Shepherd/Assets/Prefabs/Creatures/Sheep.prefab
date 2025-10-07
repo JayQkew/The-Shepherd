@@ -55,6 +55,9 @@ MonoBehaviour:
   animal: 1
   rb: {fileID: 0}
   col: {fileID: 0}
+  emitter: {fileID: 0}
+  audioManager: {fileID: 0}
+  fmodEvents: {fileID: 0}
   currHerdArea: 0
   stats: {fileID: 11400000, guid: c3f74505ba93f084d8bcf1049dea3409, type: 2}
   barkForce: 10
@@ -74,7 +77,97 @@ MonoBehaviour:
     woolTimer:
       maxTime: 0
       currTime: 0
-    woolEvents: []
+    woolEvents:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5800402879710512925}
+          m_TargetAssemblyTypeName: Creatures.Sheep.SheepGUI, Assembly-CSharp
+          m_MethodName: ChangeWool
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1860983336886597979}
+          m_TargetAssemblyTypeName: Creatures.Sheep.Sheep, Assembly-CSharp
+          m_MethodName: PuffExplosion
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 5800402879710512925}
+          m_TargetAssemblyTypeName: Creatures.Sheep.SheepGUI, Assembly-CSharp
+          m_MethodName: ChangeWool
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 3564593496925274633}
+          m_TargetAssemblyTypeName: Puff, Assembly-CSharp
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1860983336886597979}
+          m_TargetAssemblyTypeName: Creatures.Sheep.Sheep, Assembly-CSharp
+          m_MethodName: PuffExplosion
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 5800402879710512925}
+          m_TargetAssemblyTypeName: Creatures.Sheep.SheepGUI, Assembly-CSharp
+          m_MethodName: ChangeWool
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 3564593496925274633}
+          m_TargetAssemblyTypeName: Puff, Assembly-CSharp
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   explosion:
     radius: 0
     forceMult: 0
@@ -379,10 +472,64 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 141331248500822098, guid: 597608abdf62b494b96de32055b7b911, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2611894478345943545}
+    - targetCorrespondingSourceObject: {fileID: 141331248500822098, guid: 597608abdf62b494b96de32055b7b911, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3564593496925274633}
   m_SourcePrefab: {fileID: 100100000, guid: 597608abdf62b494b96de32055b7b911, type: 3}
 --- !u!4 &4168491465006920042 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8237841408596240876, guid: 597608abdf62b494b96de32055b7b911, type: 3}
   m_PrefabInstance: {fileID: 5443662259246979206}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5367686016529336532 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 141331248500822098, guid: 597608abdf62b494b96de32055b7b911, type: 3}
+  m_PrefabInstance: {fileID: 5443662259246979206}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2611894478345943545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5367686016529336532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1664421747
+      Data2: 1161508145
+      Data3: -1515055177
+      Data4: 397404287
+    Path: event:/SFX/Poof
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 15
+--- !u!114 &3564593496925274633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5367686016529336532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba0b897bdb7853445ae30958c17c4e91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -40,11 +40,15 @@ namespace Creatures.Sheep
             }
         }
     
-        private void Update() {
+        protected virtual void Update() {
             wool.WoolUpdate();
             rb.mass = animalData.mass.Lerp(wool.woolValue);
         }
 
-        public void PuffExplosion() => explosion.PuffExplosion();
+        public void PuffExplosion() {
+            explosion.PuffExplosion();
+            emitter.EventReference = fmodEvents.sheepPoof;
+            emitter.Play();
+        }
     }
 }

@@ -41,9 +41,6 @@
 		</relationship>
 	</object>
 	<object class="MasterTrack" id="{747ceaa4-296b-4014-a239-9513ddba7e68}">
-		<relationship name="automationTracks">
-			<destination>{f82738c1-ddf6-4f73-b268-af205438e8b4}</destination>
-		</relationship>
 		<relationship name="mixerGroup">
 			<destination>{2f68f7af-79c7-4faa-8965-881fe642b469}</destination>
 		</relationship>
@@ -83,11 +80,6 @@
 		</relationship>
 		<relationship name="mixer">
 			<destination>{cd4d2e06-0be1-4baf-90de-7cea0280c353}</destination>
-		</relationship>
-	</object>
-	<object class="AutomationTrack" id="{f82738c1-ddf6-4f73-b268-af205438e8b4}">
-		<relationship name="automator">
-			<destination>{e3f42272-e0d9-4327-991b-a99bb96801c5}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusEffectChain" id="{30771bd8-14f5-44b3-a412-99684c3e42e2}">
@@ -222,33 +214,9 @@
 	</object>
 	<object class="MixerBusFader" id="{80bde7e0-0bae-4069-bd74-30de1c9597bc}" />
 	<object class="GainEffect" id="{37e31ea2-6ef8-4861-9f41-098b06adefcf}">
-		<relationship name="automators">
-			<destination>{e3f42272-e0d9-4327-991b-a99bb96801c5}</destination>
-		</relationship>
-	</object>
-	<object class="MixerBusFader" id="{ca8353a6-c11f-49c5-9187-228e79849add}" />
-	<object class="Automator" id="{e3f42272-e0d9-4327-991b-a99bb96801c5}">
-		<property name="nameOfPropertyBeingAutomated">
-			<value>gain</value>
-		</property>
-		<relationship name="automationCurves">
-			<destination>{110130db-ef95-4dfa-8346-0302396bbaae}</destination>
-		</relationship>
-	</object>
-	<object class="AutomationCurve" id="{110130db-ef95-4dfa-8346-0302396bbaae}">
-		<relationship name="parameter">
-			<destination>{d8d56ad8-af60-49fe-92fd-c36288121a73}</destination>
-		</relationship>
-		<relationship name="automationPoints">
-			<destination>{118f6e78-6001-48a9-9e70-1f398e6d1438}</destination>
-		</relationship>
-	</object>
-	<object class="AutomationPoint" id="{118f6e78-6001-48a9-9e70-1f398e6d1438}">
-		<property name="position">
-			<value>0.013690476190476189</value>
-		</property>
-		<property name="value">
+		<property name="gain">
 			<value>-10</value>
 		</property>
 	</object>
+	<object class="MixerBusFader" id="{ca8353a6-c11f-49c5-9187-228e79849add}" />
 </objects>
