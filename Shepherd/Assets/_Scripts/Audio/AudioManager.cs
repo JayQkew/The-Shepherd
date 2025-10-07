@@ -38,6 +38,22 @@ namespace Audio
             eventEmitters.Add(emitter);
             return emitter;
         }
+        public StudioEventEmitter InitializeEventEmitter(GameObject emitterGameObject) {
+            StudioEventEmitter emitter = emitterGameObject.GetComponent<StudioEventEmitter>();
+            eventEmitters.Add(emitter);
+            return emitter;
+        }
+
+        // public StudioEventEmitter PlayEmitterOneShot(EventReference eventReference, GameObject emitterGameObject) {
+        //     StudioEventEmitter emitter = emitterGameObject.GetComponent<StudioEventEmitter>();
+        //     if (eventEmitters.Contains(emitter)) {
+        //         emitter.EventReference = eventReference;
+        //         emitter.Play();
+        //     }
+        //     else {
+        //         emitter = CreateInstance(eventReference);
+        //     }
+        // }
 
         private void CleanUp() {
             foreach (EventInstance instance in eventInstances) {

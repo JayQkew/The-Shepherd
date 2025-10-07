@@ -1,6 +1,10 @@
+using Audio;
 using Boids;
+using FMODUnity;
 using HerdingSystem;
+using Unity.VisualScripting;
 using UnityEngine;
+using Utilities;
 
 namespace Creatures.Sheep
 {
@@ -11,12 +15,13 @@ namespace Creatures.Sheep
         [Space(10)]
         public SheepStats stats;
         [SerializeField] private float barkForce;
+        [SerializeField] private Chance mehChance;
         public Food food;
         [SerializeField] private Wool wool;
         [SerializeField] private Explosion explosion;
         [HideInInspector] public Boid boid;
         public SheepGUI gui;
-
+        
         protected override void Awake() {
             base.Awake();
             wool.Init(stats.woolTime);
@@ -28,6 +33,11 @@ namespace Creatures.Sheep
         public virtual void BarkedAt(Vector3 sourcePosition) {
             Vector3 dir = (transform.position - sourcePosition).normalized;
             rb.AddForce(dir * barkForce, ForceMode.Impulse);
+
+            if (mehChance.Roll()) {
+                emitter.EventReference = fmodEvents.sheepMeh;
+                emitter.Play();
+            }
         }
     
         private void Update() {

@@ -3935,6 +3935,27 @@ MonoBehaviour:
       Data3: 133133964
       Data4: 1483294978
     Path: event:/SFX/Bark
+  <sheepMeh>k__BackingField:
+    Guid:
+      Data1: 2025847950
+      Data2: 1314052309
+      Data3: -176972663
+      Data4: 426387606
+    Path: event:/SFX/SheepMeh
+  <sheepEat>k__BackingField:
+    Guid:
+      Data1: 356143499
+      Data2: 1304430272
+      Data3: 450836647
+      Data4: 1637555652
+    Path: event:/SFX/SheepEat
+  <sheepPoof>k__BackingField:
+    Guid:
+      Data1: 1664421747
+      Data2: 1161508145
+      Data3: -1515055177
+      Data4: 397404287
+    Path: event:/SFX/Poof
 --- !u!4 &479252591 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6063610665178207097, guid: 74415c2fcb1af124fa62aca079790644, type: 3}

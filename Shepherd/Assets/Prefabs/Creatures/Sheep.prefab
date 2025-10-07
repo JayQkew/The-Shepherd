@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5800402879710512925}
   - component: {fileID: 2088826080556547742}
   - component: {fileID: 7207902761964510733}
+  - component: {fileID: 941438473703511947}
   m_Layer: 0
   m_Name: Sheep
   m_TagString: Untagged
@@ -57,6 +58,8 @@ MonoBehaviour:
   currHerdArea: 0
   stats: {fileID: 11400000, guid: c3f74505ba93f084d8bcf1049dea3409, type: 2}
   barkForce: 10
+  mehChance:
+    percentage: 0.5
   food:
     food: 0
     eat:
@@ -199,6 +202,37 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &941438473703511947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2499075382680790307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 2025847950
+      Data2: 1314052309
+      Data3: -176972663
+      Data4: 426387606
+    Path: event:/SFX/SheepMeh
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 2.5
+  OverrideMaxDistance: 15
 --- !u!1001 &5310595778413961068
 PrefabInstance:
   m_ObjectHideFlags: 0
