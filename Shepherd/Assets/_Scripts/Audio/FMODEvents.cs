@@ -7,8 +7,9 @@ namespace Audio
     {
         public static FMODEvents Instance { get; private set; }
         
-        [field: Header("FMOD Events")]
-        [field: SerializeField] public EventReference coinCollected { get; private set; }
+        [field: Header("Player Events")]
+        [field: SerializeField] public EventReference grassRun { get; private set; }
+        [field: SerializeField] public EventReference bark { get; private set; }
 
         private void Awake() {
             if (Instance == null) {

@@ -3914,13 +3914,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0bb0d5d328fecd4a9e87299d467d107, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <coinCollected>k__BackingField:
+  <grassRun>k__BackingField:
     Guid:
       Data1: 684621560
       Data2: 1233704721
       Data3: 364985780
       Data4: -1044855585
-    Path: event:/RunGrass
+    Path: event:/SFX/RunGrass
+  <bark>k__BackingField:
+    Guid:
+      Data1: -1906484941
+      Data2: 1173510906
+      Data3: 133133964
+      Data4: 1483294978
+    Path: event:/SFX/Bark
 --- !u!4 &479252591 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6063610665178207097, guid: 74415c2fcb1af124fa62aca079790644, type: 3}
@@ -9854,6 +9861,7 @@ GameObject:
   - component: {fileID: 1495404579}
   - component: {fileID: 1495404578}
   - component: {fileID: 1495404580}
+  - component: {fileID: 1495404582}
   - component: {fileID: 1495404581}
   m_Layer: 0
   m_Name: GUI
@@ -9978,6 +9986,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1495404582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495404576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c06734795a84944fb12c0bb550a0a78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1513648553
 GameObject:
   m_ObjectHideFlags: 0
