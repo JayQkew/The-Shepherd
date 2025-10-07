@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a2dad9a32d1b34f84b71bde82da4c7, type: 3}
+  m_Name: LightingData
+  m_EditorClassIdentifier: 
+  transitionTime: 20
+  lightColors:
+  - {r: 1, g: 0.31764707, b: 0, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 0.10980392, b: 0.25490198, a: 1}
+  - {r: 0.3254902, g: 0.3254902, b: 1, a: 1}
+  skyColors:
+  - {r: 0.95283014, g: 0.33131522, b: 0.22921851, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 0.6886792, g: 0.17857963, b: 0.09420614, a: 1}
+  - {r: 0.06705808, g: 0.041607343, b: 0.16037738, a: 1}
+  intensityCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 12
+      outSlope: 0.021660756
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 1
+    - serializedVersion: 3
+      time: 0.25
+      value: 3
+      inSlope: 0.00080779725
+      outSlope: 0.00080779725
+      tangentMode: 0
+      weightedMode: 3
+      inWeight: 1
+      outWeight: 1
+    - serializedVersion: 3
+      time: 0.5
+      value: 0
+      inSlope: -0.021623237
+      outSlope: 0.02818738
+      tangentMode: 1
+      weightedMode: 2
+      inWeight: 1
+      outWeight: 1
+    - serializedVersion: 3
+      time: 0.75
+      value: 1
+      inSlope: 0.0033580808
+      outSlope: 0.0033580808
+      tangentMode: 0
+      weightedMode: 3
+      inWeight: 1
+      outWeight: 1
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -0.04766925
+      outSlope: -0.04766925
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 1
+      outWeight: 0
+    m_PreInfinity: 1
+    m_PostInfinity: 1
+    m_RotationOrder: 4
