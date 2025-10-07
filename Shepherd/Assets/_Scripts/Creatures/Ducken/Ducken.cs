@@ -1,8 +1,10 @@
 using System;
 using Boids;
 using Climate;
+using Unity.VisualScripting;
 using UnityEngine;
 using Utilities;
+using Timer = Utilities.Timer;
 
 namespace Creatures.Ducken
 {
@@ -29,6 +31,11 @@ namespace Creatures.Ducken
             tempReceptor = GetComponent<TempReceptor>();
             tempReceptor.onTempChange.AddListener(FormCheck);
             gui = GetComponent<DuckenGUI>();
+        }
+
+        protected override void Start() {
+            base.Start();
+            FormCheck();
         }
 
         private void FixedUpdate() {

@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
-using Utilities;
 using TimeSystem;
+using Unity.VisualScripting;
 using UnityEngine;
+using Timer = Utilities.Timer;
 
 namespace Climate
 {
@@ -31,7 +32,23 @@ namespace Climate
                 Destroy(gameObject);
             }
         }
+        
+        private void Start() {
+            timeManager = TimeManager.Instance;
+            globalTemp = seasons[(int)currSeason].SetTemp();
+            timeManager.onDayPhaseChange.AddListener(SeasonCheck);
+            currSeason = seasons[0].season;
+            seasons[0].onSeasonStart.Invoke();
+            
+            foreach (TempAffector affector in tempAffectors) {
+                affector.FindReceptors();
+            }
 
+            foreach (TempReceptor receptor in tempReceptors) {
+                receptor.CalcTemp();
+            }
+        }
+        
         private void Update() {
             if (TimeManager.Instance.currPhase == DayPhaseName.Sunrise) {
                 globalTemp = Mathf.Lerp(globalTemp, targetTemp, TimeManager.Instance.currDayPhase.timer.Progress);
@@ -46,15 +63,8 @@ namespace Climate
                 foreach (TempReceptor receptor in tempReceptors) {
                     receptor.CalcTemp();
                 }
+                tempThrottle.Reset();
             }
-        }
-
-        private void Start() {
-            timeManager = TimeManager.Instance;
-            globalTemp = seasons[(int)currSeason].SetTemp();
-            timeManager.onDayPhaseChange.AddListener(SeasonCheck);
-            currSeason = seasons[0].season;
-            seasons[0].onSeasonStart.Invoke();
         }
 
         private void SeasonCheck() {

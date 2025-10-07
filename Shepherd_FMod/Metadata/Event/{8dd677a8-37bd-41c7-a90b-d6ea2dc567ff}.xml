@@ -59,7 +59,11 @@
 			<destination>{1f990a2b-097b-4b55-869e-ff92103d8688}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{9bdf72f6-37c2-4657-9032-2982be411ae9}" />
+	<object class="EventAutomatableProperties" id="{9bdf72f6-37c2-4657-9032-2982be411ae9}">
+		<property name="maxVoices">
+			<value>1</value>
+		</property>
+	</object>
 	<object class="MarkerTrack" id="{0ae3af01-021d-40ce-9843-0b999b7f11fc}" />
 	<object class="GroupTrack" id="{b680a51e-17f7-4f6e-8066-3c9e21f1239a}">
 		<relationship name="modules">
@@ -206,19 +210,19 @@
 			<value>gain</value>
 		</property>
 		<relationship name="automationCurves">
-			<destination>{16a3df7d-327b-4870-a266-7841dfcef0c4}</destination>
+			<destination>{aeb9b7ad-2c1f-4bbf-bf28-e48e9e4412ea}</destination>
 		</relationship>
 	</object>
-	<object class="AutomationCurve" id="{16a3df7d-327b-4870-a266-7841dfcef0c4}">
+	<object class="AutomationCurve" id="{aeb9b7ad-2c1f-4bbf-bf28-e48e9e4412ea}">
 		<relationship name="parameter">
-			<destination>{c6f353ff-b6ec-4202-9695-a9f1d4a250af}</destination>
+			<destination>{edc28309-b413-4c93-93cf-119e19750313}</destination>
 		</relationship>
 		<relationship name="automationPoints">
-			<destination>{abece8ce-5b9a-43b7-b854-13c50583a0fe}</destination>
-			<destination>{d1e012b0-d930-48f1-b511-6be3d07b1e21}</destination>
+			<destination>{9ccec2dc-4764-4e68-b2e8-1a71ce8157ac}</destination>
+			<destination>{79762939-df56-4eb3-b40f-0e4fdaf7847b}</destination>
 		</relationship>
 	</object>
-	<object class="AutomationPoint" id="{abece8ce-5b9a-43b7-b854-13c50583a0fe}">
+	<object class="AutomationPoint" id="{9ccec2dc-4764-4e68-b2e8-1a71ce8157ac}">
 		<property name="position">
 			<value>0</value>
 		</property>
@@ -226,7 +230,7 @@
 			<value>-10</value>
 		</property>
 	</object>
-	<object class="AutomationPoint" id="{d1e012b0-d930-48f1-b511-6be3d07b1e21}">
+	<object class="AutomationPoint" id="{79762939-df56-4eb3-b40f-0e4fdaf7847b}">
 		<property name="position">
 			<value>1</value>
 		</property>

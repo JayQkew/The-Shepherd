@@ -59,7 +59,11 @@
 			<destination>{1f990a2b-097b-4b55-869e-ff92103d8688}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{0ece0e82-23b2-450b-b061-6c6fe61a4e3d}" />
+	<object class="EventAutomatableProperties" id="{0ece0e82-23b2-450b-b061-6c6fe61a4e3d}">
+		<property name="maxVoices">
+			<value>1</value>
+		</property>
+	</object>
 	<object class="MarkerTrack" id="{9c96fac5-fc67-4da8-8573-4f3ca1007d74}" />
 	<object class="GroupTrack" id="{6fae27ce-d4d1-4a20-937d-13406de493c9}">
 		<relationship name="modules">
@@ -203,27 +207,27 @@
 			<value>gain</value>
 		</property>
 		<relationship name="automationCurves">
-			<destination>{c4727489-5f01-480a-84f0-96e89c645df3}</destination>
+			<destination>{764b2986-f16f-437f-be0c-a95cc781cc38}</destination>
 		</relationship>
 	</object>
-	<object class="AutomationCurve" id="{c4727489-5f01-480a-84f0-96e89c645df3}">
+	<object class="AutomationCurve" id="{764b2986-f16f-437f-be0c-a95cc781cc38}">
 		<relationship name="parameter">
-			<destination>{48a97941-8c38-428d-a21c-ed1c1ef1a1be}</destination>
+			<destination>{edc28309-b413-4c93-93cf-119e19750313}</destination>
 		</relationship>
 		<relationship name="automationPoints">
-			<destination>{da0ae559-bcb4-49c7-8938-4471aaac6174}</destination>
-			<destination>{30f5cf36-559c-4dc3-902f-cf54182c5b7b}</destination>
+			<destination>{333f8408-7165-4d9b-8776-1c59425aba65}</destination>
+			<destination>{3d876c8d-1221-4e14-9f32-74d08287c274}</destination>
 		</relationship>
 	</object>
-	<object class="AutomationPoint" id="{da0ae559-bcb4-49c7-8938-4471aaac6174}">
+	<object class="AutomationPoint" id="{333f8408-7165-4d9b-8776-1c59425aba65}">
 		<property name="position">
-			<value>0</value>
+			<value>0.0098870056497175132</value>
 		</property>
 		<property name="value">
 			<value>-10</value>
 		</property>
 	</object>
-	<object class="AutomationPoint" id="{30f5cf36-559c-4dc3-902f-cf54182c5b7b}">
+	<object class="AutomationPoint" id="{3d876c8d-1221-4e14-9f32-74d08287c274}">
 		<property name="position">
 			<value>1</value>
 		</property>

@@ -11,7 +11,7 @@ namespace Ambience
         [Space(15)]
         public AmbientVolume volume;
         [Space(15)]
-        public AmbientAudio[] audios;
+        public AmbientSoundscape soundscape;
 
         private void Awake() {
             if (Instance == null) {
@@ -21,7 +21,11 @@ namespace Ambience
                 Destroy(this);
             }
             
+        }
+
+        private void Start() {
             volume.Init();
+            soundscape.Init();
         }
 
         private void Update() {

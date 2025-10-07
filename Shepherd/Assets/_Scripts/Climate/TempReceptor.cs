@@ -24,8 +24,9 @@ namespace Climate
             onCalcTemp?.Invoke();
 
             if (!Mathf.Approximately(newTemp, currTemp)) {
-                onTempChange?.Invoke();
                 currTemp = newTemp;
+                onTempChange?.Invoke();
+                Debug.Log($"Temp: {currTemp}");
             }
             return currTemp;
         }

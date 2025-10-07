@@ -970,7 +970,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   globalTemp: 0
   tempThrottle:
-    maxTime: 0
+    maxTime: 0.5
     currTime: 0
   currSeason: 0
   seasons:
@@ -11184,55 +11184,9 @@ MonoBehaviour:
   volume:
     data: {fileID: 11400000, guid: 8836b0fff322f0446a9e64a34f0cb61d, type: 2}
     volume: {fileID: 832575518}
-  audios:
-  - ambienceType: 1
-    <EventReference>k__BackingField:
-      Guid:
-        Data1: 997353299
-        Data2: 1218805172
-        Data3: -1591232634
-        Data4: -410735022
-      Path: event:/Ambience/Wind
-  - ambienceType: 2
-    <EventReference>k__BackingField:
-      Guid:
-        Data1: 1611969059
-        Data2: 1275069366
-        Data3: 1980173699
-        Data4: -2085391388
-      Path: event:/Ambience/Rain
-  - ambienceType: 4
-    <EventReference>k__BackingField:
-      Guid:
-        Data1: -31140569
-        Data2: 1134020394
-        Data3: -539640644
-        Data4: -125883149
-      Path: event:/Ambience/Thunder
-  - ambienceType: 8
-    <EventReference>k__BackingField:
-      Guid:
-        Data1: -408384411
-        Data2: 1229268392
-        Data3: -1921986664
-        Data4: 1504470165
-      Path: event:/Ambience/Leaves
-  - ambienceType: 16
-    <EventReference>k__BackingField:
-      Guid:
-        Data1: -1915324504
-        Data2: 1103574973
-        Data3: -355071063
-        Data4: -9976531
-      Path: event:/Ambience/Birds
-  - ambienceType: 32
-    <EventReference>k__BackingField:
-      Guid:
-        Data1: 1546668437
-        Data2: 1104360610
-        Data3: 715461009
-        Data4: 464054056
-      Path: event:/Ambience/Insects
+  soundscape:
+    data: {fileID: 11400000, guid: 5c4277f5e6fdeb3448254da8a1c0499a, type: 2}
+    sounds: []
 --- !u!1001 &1670566537
 PrefabInstance:
   m_ObjectHideFlags: 0
