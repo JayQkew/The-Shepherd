@@ -8,8 +8,10 @@ namespace Ambience
         public static AmbienceManager Instance { get; private set; }
         
         public AmbientLighting lighting;
-        [Space(10)]
+        [Space(15)]
         public AmbientVolume volume;
+        [Space(15)]
+        public AmbientAudio[] audios;
 
         private void Awake() {
             if (Instance == null) {

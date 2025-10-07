@@ -14,8 +14,8 @@ namespace Ambience
         private ColorAdjustments colorAdjustments;
 
         public void Init() {
-            if (volume == null) {
-                volume.profile.TryGet<ColorAdjustments>(out colorAdjustments);
+            if (volume != null) {
+                volume.profile.TryGet(out colorAdjustments);
             }
         }
 

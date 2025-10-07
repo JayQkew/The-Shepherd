@@ -1,17 +1,16 @@
 using System;
 using TimeSystem;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.Rendering.Universal;
 
 namespace Ambience
 {
     [Serializable]
     public class AmbientLighting
     {
-        private static readonly int Tint = Shader.PropertyToID("_Tint");
         [SerializeField] private LightingData data;
         [SerializeField] private Light light;
+        
+        private static readonly int Tint = Shader.PropertyToID("_Tint");
         
         public void UpdateLighting() {
             if (TimeManager.Instance != null) {

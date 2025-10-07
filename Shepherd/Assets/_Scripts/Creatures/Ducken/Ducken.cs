@@ -67,7 +67,7 @@ namespace Creatures.Ducken
             else {
                 currForm = Form.Ducken;
             }
-
+            
             gui.ChangeSprite(currForm);
         }
 
