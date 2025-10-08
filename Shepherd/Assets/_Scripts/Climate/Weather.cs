@@ -22,7 +22,7 @@ namespace Climate
 
         public void ApplyAmbiance() {
             if (weatherType.HasFlag(WeatherType.Rainy)) {
-                AmbienceManager.Instance.particles.SetAmbientParticles(intensity);
+                AmbienceManager.Instance.particlesModule.SetAmbientParticles(intensity);
             }
         }
     }

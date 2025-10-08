@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Ambience
 {
     [Serializable]
-    public class Soundscape
+    public class SoundModule : Module
     {
         [SerializeField] private SoundscapeData data;
         [SerializeField] private AmbientSound[] sounds;

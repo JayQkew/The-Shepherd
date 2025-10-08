@@ -3,8 +3,8 @@ using System;
 namespace Ambience
 {
     [Serializable]
-    public class VolumeProfile
+    public class VolumeProfile : Profile
     {
-        
+
     }
 }

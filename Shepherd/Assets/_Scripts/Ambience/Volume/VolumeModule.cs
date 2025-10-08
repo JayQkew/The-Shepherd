@@ -7,7 +7,7 @@ using UnityEngine.Rendering.Universal;
 namespace Ambience
 {
     [Serializable]
-    public class Volume
+    public class VolumeModule : Module
     {
         [SerializeField] private VolumeData data;
         [SerializeField] private UnityEngine.Rendering.Volume volume;

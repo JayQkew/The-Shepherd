@@ -3,8 +3,8 @@ using System;
 namespace Ambience
 {
     [Serializable]
-    public class ParticleProfile
+    public class ParticleProfile : Profile
     {
-        
+
     }
 }

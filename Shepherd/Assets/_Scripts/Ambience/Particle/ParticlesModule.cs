@@ -7,7 +7,7 @@ using UnityEngine.Serialization;
 namespace Ambience
 {
     [Serializable]
-    public class Particles
+    public class ParticlesModule : Module
     {
         [SerializeField] private Rain rain;
         [SerializeField] private Snow snow;

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Ambience
 {
@@ -8,15 +9,17 @@ namespace Ambience
     {
         public static AmbienceManager Instance { get; private set; }
         
-        public Lighting lighting;
+        public LightingModule lightingModule;
         [Space(15)]
-        public Volume volume;
+        public VolumeModule volumeModule;
         [Space(15)]
-        public Soundscape soundscape;
+        public SoundModule soundModule;
         [Space(15)]
-        public Particles particles;
+        public ParticlesModule particlesModule;
         [Space(15)]
-        public List<AmbienceProfile> ambienceProfiles = new();
+        public List<AmbienceSource> ambienceSources = new();
+        
+        private List<Module> modules = new();
 
         private void Awake() {
             if (Instance == null) {
@@ -25,16 +28,35 @@ namespace Ambience
             else {
                 Destroy(this);
             }
+            
+            modules.Add(lightingModule);
+            modules.Add(volumeModule);
+            modules.Add(soundModule);
+            modules.Add(particlesModule);
+        }
+
+        public void ProcessProfiles() {
+            foreach (Module module in modules) {
+
+            }
         }
 
         private void Start() {
-            volume.Init();
-            soundscape.Init();
+            volumeModule.Init();
+            soundModule.Init();
         }
 
         private void Update() {
-            lighting.UpdateLighting();
-            volume.UpdateVolume();
+            lightingModule.UpdateLighting();
+            volumeModule.UpdateVolume();
         }
+    }
+
+    public enum AmbienceType
+    {
+        Sound,
+        Volume,
+        Lighting,
+        Particles
     }
 }

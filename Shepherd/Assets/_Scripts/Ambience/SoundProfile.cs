@@ -3,7 +3,7 @@ using System;
 namespace Ambience
 {
     [Serializable]
-    public class SoundProfile
+    public class SoundProfile : Profile
     {
         
     }
