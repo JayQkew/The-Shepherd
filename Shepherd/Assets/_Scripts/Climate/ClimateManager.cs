@@ -46,7 +46,7 @@ namespace Climate
             globalTemp = seasons[(int)currSeason].SetTemp();
             timeManager.onDayPhaseChange.AddListener(SeasonCheck);
             currSeason = seasons[0].season;
-            seasons[0].onSeasonStart.Invoke();
+            seasons[0].Start();
 
             foreach (TempAffector affector in tempAffectors) {
                 affector.FindReceptors();
@@ -78,10 +78,10 @@ namespace Climate
 
         private void SeasonCheck() {
             if (timeManager.dayCount % 3 == 0 && timeManager.dayCount != 0) {
-                seasons[(int)currSeason].onSeasonEnd.Invoke();
+                seasons[(int)currSeason].End();
                 int nextSeason = ((int)currSeason + 1) % 4;
                 currSeason = (SeasonName)nextSeason;
-                seasons[nextSeason].onSeasonStart.Invoke();
+                seasons[nextSeason].Start();
             }
 
             targetTemp = seasons[(int)currSeason].SetTemp();

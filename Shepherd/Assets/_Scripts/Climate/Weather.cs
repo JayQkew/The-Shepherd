@@ -12,6 +12,7 @@ namespace Climate
         public WeatherType weatherType;
         public float tempDelta;
         public float intensity;
+        public AmbienceSource ambienceSource;
 
         public Weather(WeatherTicket data) {
             this.data = data;

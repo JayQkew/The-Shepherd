@@ -1,4 +1,5 @@
 using System;
+using Ambience;
 using UnityEngine;
 using UnityEngine.Events;
 using Utilities;
@@ -14,12 +15,24 @@ namespace Climate
         [Space(10)]
         public WeatherTicket[] weatherTickets;
         [Space(10)]
+        public AmbienceSource ambienceSource;
+        [Space(10)]
         public UnityEvent onSeasonStart;
         public UnityEvent onSeasonEnd;
 
         public float SetTemp() {
             dayTemp = temp.RandomValue();
             return dayTemp;
+        }
+
+        public void Start() {
+            onSeasonStart.Invoke();
+            ambienceSource.Init(season.ToString());
+        }
+
+        public void End() {
+            onSeasonEnd.Invoke();
+            ambienceSource.Destroy();
         }
     }
     

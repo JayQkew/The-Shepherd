@@ -11,6 +11,8 @@ namespace Ambience
     [Serializable]
     public class AmbienceSource
     {
+        [Tooltip("To help identify where it came from")]
+        public string name;
         public SoundProfile soundProfile = new();
         public LightingProfile lightingProfile = new();
         public VolumeProfile volumeProfile = new();
@@ -20,6 +22,19 @@ namespace Ambience
         private bool initialized;
 
         public void Init() {
+            UsedProfiles.Clear();
+            soundProfile.AddIfUsed(UsedProfiles);
+            lightingProfile.AddIfUsed(UsedProfiles);
+            volumeProfile.AddIfUsed(UsedProfiles);
+            particleProfile.AddIfUsed(UsedProfiles);
+            
+            initialized = true;
+            AmbienceManager.Instance.sources.Add(this);
+        }
+        
+        public void Init(string name) {
+            this.name = name;
+            
             UsedProfiles.Clear();
             soundProfile.AddIfUsed(UsedProfiles);
             lightingProfile.AddIfUsed(UsedProfiles);

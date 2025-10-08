@@ -19,7 +19,7 @@ namespace TimeSystem
         public void UpdateTimer() {
             if (timer.Progress == 0) {
                 onPhaseStart.Invoke();
-                ambienceSource.Init();
+                ambienceSource.Init(phase.ToString());
             }
             
             timer.Update();
