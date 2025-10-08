@@ -12,6 +12,8 @@ namespace Climate
         public float dayTemp;
         [SerializeField] private MinMax temp;
         [Space(10)]
+        public WeatherTicket[] weatherTickets;
+        [Space(10)]
         public UnityEvent onSeasonStart;
         public UnityEvent onSeasonEnd;
 

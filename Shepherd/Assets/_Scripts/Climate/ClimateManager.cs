@@ -20,7 +20,8 @@ namespace Climate
         [Space(20)]
         [Header("Seasons")]
         public SeasonName currSeason;
-        public Season[] seasons;
+        public SeasonData seasonData;
+        [SerializeField] private Season[] seasons;
 
         [Space(20)]
         [Header("Weather")]
@@ -36,14 +37,17 @@ namespace Climate
                 Destroy(gameObject);
             }
         }
-        
+
         private void Start() {
             timeManager = TimeManager.Instance;
+            seasons = (Season[])seasonData.seasons.Clone();
+
+
             globalTemp = seasons[(int)currSeason].SetTemp();
             timeManager.onDayPhaseChange.AddListener(SeasonCheck);
             currSeason = seasons[0].season;
             seasons[0].onSeasonStart.Invoke();
-            
+
             foreach (TempAffector affector in tempAffectors) {
                 affector.FindReceptors();
             }
@@ -52,12 +56,12 @@ namespace Climate
                 receptor.CalcTemp();
             }
         }
-        
+
         private void Update() {
             if (TimeManager.Instance.currPhase == DayPhaseName.Sunrise) {
                 globalTemp = Mathf.Lerp(globalTemp, targetTemp, TimeManager.Instance.currDayPhase.timer.Progress);
             }
-            
+
             tempThrottle.Update();
             if (tempThrottle.IsFinished) {
                 foreach (TempAffector affector in tempAffectors) {
@@ -67,6 +71,7 @@ namespace Climate
                 foreach (TempReceptor receptor in tempReceptors) {
                     receptor.CalcTemp();
                 }
+
                 tempThrottle.Reset();
             }
         }

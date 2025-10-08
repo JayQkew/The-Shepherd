@@ -973,51 +973,10 @@ MonoBehaviour:
     maxTime: 0.5
     currTime: 0
   currSeason: 0
-  seasons:
-  - season: 0
-    dayTemp: 0
-    temp:
-      _min: 25
-      _max: 35
-    onSeasonStart:
-      m_PersistentCalls:
-        m_Calls: []
-    onSeasonEnd:
-      m_PersistentCalls:
-        m_Calls: []
-  - season: 1
-    dayTemp: 0
-    temp:
-      _min: 10
-      _max: 20
-    onSeasonStart:
-      m_PersistentCalls:
-        m_Calls: []
-    onSeasonEnd:
-      m_PersistentCalls:
-        m_Calls: []
-  - season: 2
-    dayTemp: 0
-    temp:
-      _min: -5
-      _max: 5
-    onSeasonStart:
-      m_PersistentCalls:
-        m_Calls: []
-    onSeasonEnd:
-      m_PersistentCalls:
-        m_Calls: []
-  - season: 3
-    dayTemp: 0
-    temp:
-      _min: 10
-      _max: 20
-    onSeasonStart:
-      m_PersistentCalls:
-        m_Calls: []
-    onSeasonEnd:
-      m_PersistentCalls:
-        m_Calls: []
+  seasonData: {fileID: 11400000, guid: 682ed0ad7ad20ff4ebe2bb0cea0e077f, type: 2}
+  seasons: []
+  weatherManager:
+    currWeatherType: 0
 --- !u!4 &111122547 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6282168105920215044, guid: e13266ea803f6fc4889f9e5b0f39eac3, type: 3}
@@ -16081,6 +16040,8 @@ MonoBehaviour:
     snow:
       particles: {fileID: 0}
       intensity: 0
+      snowData: {fileID: 0}
+      thresh: 0
 --- !u!1001 &1670566537
 PrefabInstance:
   m_ObjectHideFlags: 0
