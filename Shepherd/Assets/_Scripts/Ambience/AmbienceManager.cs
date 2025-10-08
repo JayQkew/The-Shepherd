@@ -12,6 +12,8 @@ namespace Ambience
         public AmbientVolume volume;
         [Space(15)]
         public AmbientSoundscape soundscape;
+        [Space(15)]
+        public AmbientParticles particles;
 
         private void Awake() {
             if (Instance == null) {

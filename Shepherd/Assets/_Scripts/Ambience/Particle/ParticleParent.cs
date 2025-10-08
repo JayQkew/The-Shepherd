@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Ambience
 {
-    public class AmbienceParticles : MonoBehaviour
+    public class ParticleParent : MonoBehaviour
     {
         [SerializeField] private Transform follow;
         [SerializeField] private Vector3 offset;

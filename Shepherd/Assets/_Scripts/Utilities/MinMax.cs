@@ -109,6 +109,13 @@ namespace Utilities
         public bool Contains(int value) {
             return value >= min && value <= max;
         }
+        
+        public int Lerp(float t) {
+            float val = Mathf.Lerp(min, max, t);
+            int lerp = Mathf.RoundToInt(val);
+            
+            return Clamp(lerp);
+        }
 
         public int Range => max - min;
         public float Mid => (min + max) * 0.5f;
