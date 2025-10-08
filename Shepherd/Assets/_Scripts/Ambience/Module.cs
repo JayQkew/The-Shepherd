@@ -6,7 +6,7 @@ namespace Ambience
 {
     public abstract class Module
     {
-        public AmbienceType AmbienceType;
+        public abstract AmbienceType AmbienceType { get;  }
         public List<Profile> Profiles = new();
     }
 }

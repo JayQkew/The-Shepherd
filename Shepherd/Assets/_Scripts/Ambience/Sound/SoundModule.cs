@@ -8,6 +8,8 @@ namespace Ambience
     [Serializable]
     public class SoundModule : Module
     {
+        public override AmbienceType AmbienceType => AmbienceType.Sound;
+        
         [SerializeField] private SoundscapeData data;
         [SerializeField] private AmbientSound[] sounds;
 

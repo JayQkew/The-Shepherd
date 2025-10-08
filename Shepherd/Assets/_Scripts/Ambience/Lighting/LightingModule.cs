@@ -7,6 +7,8 @@ namespace Ambience
     [Serializable]
     public class LightingModule : Module
     {
+        public override AmbienceType AmbienceType => AmbienceType.Lighting;
+
         [SerializeField] private LightingData data;
         [SerializeField] private Light light;
         [SerializeField] private Gradient lightGradient;

@@ -11,12 +11,13 @@ namespace Ambience
     [Serializable]
     public class AmbienceSource
     {
-        public SoundProfile soundProfile;
-        public LightingProfile lightingProfile;
-        public VolumeProfile volumeProfile;
-        public ParticleProfile particleProfile;
+        public SoundProfile soundProfile = new();
+        public LightingProfile lightingProfile = new();
+        public VolumeProfile volumeProfile = new();
+        public ParticleProfile particleProfile = new();
 
         public List<Profile> UsedProfiles = new();
+        private bool initialized;
 
         public void Init() {
             UsedProfiles.Clear();
@@ -25,7 +26,13 @@ namespace Ambience
             volumeProfile.AddIfUsed(UsedProfiles);
             particleProfile.AddIfUsed(UsedProfiles);
             
+            initialized = true;
             AmbienceManager.Instance.sources.Add(this);
+        }
+
+        public void Destroy() {
+            if (!initialized) return;
+            AmbienceManager.Instance.sources.Remove(this);
         }
 
         /// <summary>

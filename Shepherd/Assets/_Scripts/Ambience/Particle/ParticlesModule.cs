@@ -1,14 +1,14 @@
 using System;
-using System.Collections.Generic;
 using Climate;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Ambience
 {
     [Serializable]
     public class ParticlesModule : Module
     {
+        public override AmbienceType AmbienceType => AmbienceType.Particles;
+
         [SerializeField] private Rain rain;
         [SerializeField] private Snow snow;
 

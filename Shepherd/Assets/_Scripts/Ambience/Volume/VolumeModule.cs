@@ -9,8 +9,10 @@ namespace Ambience
     [Serializable]
     public class VolumeModule : Module
     {
+        public override AmbienceType AmbienceType => AmbienceType.Volume;
+
         [SerializeField] private VolumeData data;
-        [SerializeField] private UnityEngine.Rendering.Volume volume;
+        [SerializeField] private Volume volume;
         private ColorAdjustments colorAdjustments;
 
         public void Init() {

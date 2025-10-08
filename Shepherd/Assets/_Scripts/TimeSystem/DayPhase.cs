@@ -1,4 +1,5 @@
 using System;
+using Ambience;
 using UnityEngine;
 using UnityEngine.Events;
 using Utilities;
@@ -10,6 +11,7 @@ namespace TimeSystem
     {
         public DayPhaseName phase;
         public Timer timer;
+        public AmbienceSource ambienceSource;
         [Space(20)]
         [SerializeField] private UnityEvent onPhaseStart;
         [SerializeField] private UnityEvent onPhaseEnd;
@@ -17,12 +19,14 @@ namespace TimeSystem
         public void UpdateTimer() {
             if (timer.Progress == 0) {
                 onPhaseStart.Invoke();
+                ambienceSource.Init();
             }
             
             timer.Update();
             
             if (timer.IsFinished) {
                 onPhaseEnd.Invoke();
+                ambienceSource.Destroy();
             }
         }
     }
