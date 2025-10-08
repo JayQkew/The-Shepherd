@@ -11,62 +11,8 @@ namespace Ambience
         public float transitionTime;
         [Header("Colours")]
         [Tooltip("SunRise, Day, SunSet, Night")] public Color[] lightColors;
-        public Gradient lightGradient;
         [Space(10)]
         [Tooltip("SunRise, Day, SunSet, Night")] public Color[] skyColors;
-        public Gradient skyGradient;
         public AnimationCurve intensityCurve;
-
-        private void SetGradient(Gradient gradient, Color[] colors) {
-            if (TimeManager.Instance == null) return;
-
-            float totalSpanTime = TimeManager.Instance.time.maxTime + transitionTime * 2;
-
-            GradientColorKey[] colorKeys = new GradientColorKey[8];
-
-            //Sunrise - end
-            float curr = 0;
-            curr += (TimeManager.Instance.dayPhases[0].timer.maxTime - transitionTime / 2) / totalSpanTime;
-            colorKeys[0] = new GradientColorKey(colors[0], curr);
-
-            //Day - start
-            curr += transitionTime / totalSpanTime;
-            colorKeys[1] = new GradientColorKey(colors[1], curr);
-
-            //Day - end
-            curr += (TimeManager.Instance.dayPhases[1].timer.maxTime - transitionTime / 2) / totalSpanTime;
-            colorKeys[2] = new GradientColorKey(colors[1], curr);
-
-            //Sunset - start
-            curr += transitionTime / totalSpanTime;
-            colorKeys[3] = new GradientColorKey(colors[2], curr);
-
-            //Sunset - end
-            curr += (TimeManager.Instance.dayPhases[2].timer.maxTime - transitionTime / 2) / totalSpanTime;
-            colorKeys[4] = new GradientColorKey(colors[2], curr);
-
-            //Night - start
-            curr += transitionTime / totalSpanTime;
-            colorKeys[5] = new GradientColorKey(colors[3], curr);
-        
-            //Night - end
-            curr += (TimeManager.Instance.dayPhases[3].timer.maxTime - transitionTime / 2) / totalSpanTime;
-            colorKeys[6] = new GradientColorKey(colors[3], curr);
-
-            //Sunrise - start
-            colorKeys[7] = new GradientColorKey(colors[0], 1.0f);
-
-            GradientAlphaKey[] alphaKeys = new GradientAlphaKey[2];
-            alphaKeys[0] = new GradientAlphaKey(1.0f, 0.0f);
-            alphaKeys[1] = new GradientAlphaKey(1.0f, 1.0f);
-
-            gradient.SetKeys(colorKeys, alphaKeys);
-        }
-        private void OnValidate() {
-            if (TimeManager.Instance != null) {
-                SetGradient(lightGradient, lightColors);
-                SetGradient(skyGradient, skyColors);
-            }
-        }
     }
 }

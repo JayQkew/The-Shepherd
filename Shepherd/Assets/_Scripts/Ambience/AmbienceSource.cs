@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace Ambience
@@ -24,7 +25,27 @@ namespace Ambience
             volumeProfile.AddIfUsed(UsedProfiles);
             particleProfile.AddIfUsed(UsedProfiles);
             
-            AmbienceManager.Instance.ambienceSources.Add(this);
+            AmbienceManager.Instance.sources.Add(this);
+        }
+
+        /// <summary>
+        /// adds the profiles in UsedProfiles into their respective modules
+        /// </summary>
+        public void Process(List<Module> modules) {
+            foreach (Module module in modules) {
+                module.Profiles.Clear();
+            }
+            
+            foreach (Profile profile in UsedProfiles) {
+                foreach (Module module in modules) {
+                    if (module.AmbienceType == profile.AmbienceType) {
+                        module.Profiles.Add(profile);
+                        break;
+                    }
+                }
+            }
         }
     }
 }
+
+

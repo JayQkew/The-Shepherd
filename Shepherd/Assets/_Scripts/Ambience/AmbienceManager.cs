@@ -17,7 +17,7 @@ namespace Ambience
         [Space(15)]
         public ParticlesModule particlesModule;
         [Space(15)]
-        public List<AmbienceSource> ambienceSources = new();
+        public List<AmbienceSource> sources = new();
         
         private List<Module> modules = new();
 
@@ -35,9 +35,9 @@ namespace Ambience
             modules.Add(particlesModule);
         }
 
-        public void ProcessProfiles() {
-            foreach (Module module in modules) {
-
+        public void ProcessSources() {
+            foreach (AmbienceSource source in sources) {
+                source.Process(modules);
             }
         }
 
@@ -49,6 +49,10 @@ namespace Ambience
         private void Update() {
             lightingModule.UpdateLighting();
             volumeModule.UpdateVolume();
+        }
+
+        private void OnValidate() {
+            lightingModule.OnValidate();
         }
     }
 
