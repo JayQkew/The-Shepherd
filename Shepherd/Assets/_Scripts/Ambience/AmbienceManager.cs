@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Ambience
@@ -7,13 +8,15 @@ namespace Ambience
     {
         public static AmbienceManager Instance { get; private set; }
         
-        public AmbientLighting lighting;
+        public Lighting lighting;
         [Space(15)]
-        public AmbientVolume volume;
+        public Volume volume;
         [Space(15)]
-        public AmbientSoundscape soundscape;
+        public Soundscape soundscape;
         [Space(15)]
-        public AmbientParticles particles;
+        public Particles particles;
+        [Space(15)]
+        public List<AmbienceProfile> ambienceProfiles = new();
 
         private void Awake() {
             if (Instance == null) {

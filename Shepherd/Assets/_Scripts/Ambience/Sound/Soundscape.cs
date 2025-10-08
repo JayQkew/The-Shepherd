@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Ambience
 {
     [Serializable]
-    public class AmbientSoundscape
+    public class Soundscape
     {
         [SerializeField] private SoundscapeData data;
         [SerializeField] private AmbientSound[] sounds;
@@ -45,6 +45,10 @@ namespace Ambience
             foreach (AmbientSound sound in sounds) {
                 sound.EventInstance.stop(STOP_MODE.IMMEDIATE);
             }
+        }
+
+        public void ConvertIntensity(float intensity) {
+            throw new NotImplementedException();
         }
     }
 }

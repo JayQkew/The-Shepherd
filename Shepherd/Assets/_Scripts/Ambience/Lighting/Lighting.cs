@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Ambience
 {
     [Serializable]
-    public class AmbientLighting
+    public class Lighting
     {
         [SerializeField] private LightingData data;
         [SerializeField] private Light light;

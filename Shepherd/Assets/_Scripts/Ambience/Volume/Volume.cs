@@ -7,10 +7,10 @@ using UnityEngine.Rendering.Universal;
 namespace Ambience
 {
     [Serializable]
-    public class AmbientVolume
+    public class Volume
     {
         [SerializeField] private VolumeData data;
-        [SerializeField] private Volume volume;
+        [SerializeField] private UnityEngine.Rendering.Volume volume;
         private ColorAdjustments colorAdjustments;
 
         public void Init() {
