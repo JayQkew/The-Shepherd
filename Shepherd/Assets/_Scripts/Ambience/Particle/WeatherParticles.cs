@@ -9,4 +9,9 @@ namespace Ambience
         public ParticleSystem particles;
         public float intensity;
     }
+
+    public interface IWeatherIntensity
+    {
+        void SetIntensity(float intensity);
+    }
 }

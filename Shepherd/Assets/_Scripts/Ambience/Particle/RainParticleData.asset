@@ -13,17 +13,17 @@ MonoBehaviour:
   m_Name: RainParticleData
   m_EditorClassIdentifier: 
   lifetime:
-    _min: 0
-    _max: 0
+    _min: 1.5
+    _max: 0.75
   startSpeed:
-    _min: 0
-    _max: 0
+    _min: 10
+    _max: 20
   emissionRate:
-    _min: 0
-    _max: 0
+    _min: 500
+    _max: 3000
   sizeX:
-    _min: 0
-    _max: 0
+    _min: 0.05
+    _max: 0.1
   sizeY:
-    _min: 0
-    _max: 0
+    _min: 0.1
+    _max: 0.2

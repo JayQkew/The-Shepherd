@@ -1,16 +1,14 @@
 using System;
 using UnityEngine;
-using UnityEngine.Serialization;
-using Utilities;
 
 namespace Ambience
 {
     [Serializable]
-    public class Rain : WeatherParticles
+    public class Rain : WeatherParticles, IWeatherIntensity
     {
         [SerializeField] private RainParticleData rainData;
 
-        public void SetRainIntensity(float i) {
+        public void SetIntensity(float i) {
             intensity = i;
             ParticleSystem.MainModule main = particles.main;
             main.startLifetime = rainData.lifetime.Lerp(intensity);

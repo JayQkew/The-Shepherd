@@ -18,9 +18,13 @@ namespace Climate
         public HashSet<TempReceptor> tempReceptors = new();
 
         [Space(20)]
+        [Header("Seasons")]
         public SeasonName currSeason;
-
         public Season[] seasons;
+
+        [Space(20)]
+        [Header("Weather")]
+        public WeatherManager weatherManager;
 
         private TimeManager timeManager;
 

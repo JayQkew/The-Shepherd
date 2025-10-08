@@ -22,7 +22,6 @@ namespace Ambience
             else {
                 Destroy(this);
             }
-            
         }
 
         private void Start() {
