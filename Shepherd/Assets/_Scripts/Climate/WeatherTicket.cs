@@ -1,14 +1,17 @@
 using System;
 using UnityEngine;
 using Utilities;
+using Random = System.Random;
 
 namespace Climate
 {
-    [Serializable]
-    public class WeatherTicket
+    [CreateAssetMenu(fileName = "NewWeatherTicket", menuName = "Climate/WeatherTicket")]
+    public class WeatherTicket : ScriptableObject
     {
         public WeatherType weatherType;
         public MinMax tempDelta;
-        public MinMax intensity;
+        public float TempDelta(float intensity) {
+            return tempDelta.Lerp(intensity);
+        }
     }
 }
