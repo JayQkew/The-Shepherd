@@ -11,17 +11,23 @@ namespace Ambience
         protected List<Profile> Profiles = new();
         [SerializeField] private int numProfiles;
 
-        public void AddToProfiles(Profile profile) {
+        public void AddProfile(Profile profile) {
             if (Profiles.Contains(profile)) return;
             Profiles.Add(profile);
             numProfiles = Profiles.Count;
         }
 
-        public void RemoveFromProfiles(Profile profile) {
+        public void RemoveProfile(Profile profile) {
             Profiles.Remove(profile);
             numProfiles = Profiles.Count;
         }
 
-        public abstract void ProcessProfiles();
+        public virtual void TotalProfiles() {
+            Debug.Log("Totaling Profiles");
+        }
+
+        public virtual void ApplyProfiles() {
+            Debug.Log("Applying Profiles");
+        }
     }
 }

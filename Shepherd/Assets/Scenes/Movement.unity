@@ -16172,11 +16172,11 @@ MonoBehaviour:
       m_ColorSpace: -1
       m_NumColorKeys: 8
       m_NumAlphaKeys: 2
-    lightProfile:
+    lightProfileData:
       Use: 0
       color: {r: 1, g: 1, b: 1, a: 1}
       intensity: 1
-    skyboxProfile:
+    skyboxProfileData:
       Use: 0
       color: {r: 1, g: 1, b: 1, a: 1}
   volumeModule:

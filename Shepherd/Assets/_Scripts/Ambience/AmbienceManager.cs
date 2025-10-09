@@ -35,18 +35,12 @@ namespace Ambience
             modules.Add(particlesModule);
         }
 
-        public void ProcessSources() {
-            foreach (AmbienceSource source in sources) {
-                source.DelegateProfiles(modules);
-            }
-        }
-
-        public void AddToSources(AmbienceSource source) {
+        public void AddSource(AmbienceSource source) {
             sources.Add(source);
             source.DelegateProfiles(modules);
         }
 
-        public void RemoveFromSources(AmbienceSource source) {
+        public void RemoveSources(AmbienceSource source) {
             sources.Remove(source);
             source.BanishProfiles(modules);
         }

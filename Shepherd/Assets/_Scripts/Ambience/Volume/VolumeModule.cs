@@ -10,8 +10,7 @@ namespace Ambience
     public class VolumeModule : Module
     {
         public override AmbienceType AmbienceType => AmbienceType.Volume;
-        public override void ProcessProfiles() {
-            throw new NotImplementedException();
+        public override void TotalProfiles() {
         }
 
         [SerializeField] private VolumeData data;

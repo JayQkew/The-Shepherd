@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   seasons:
   - season: 0
-    dayTemp: 0
+    dayTemp: 27.538525
     temp:
       _min: 25
       _max: 30
@@ -23,7 +23,24 @@ MonoBehaviour:
     - {fileID: 11400000, guid: e2d177625df9e974f8616c2f46f66e0a, type: 2}
     - {fileID: 11400000, guid: 09702cb32bb3f224989df48def187838, type: 2}
     - {fileID: 11400000, guid: 14c383d44d2d4b54687707afa8e2f9e7, type: 2}
-    onSeasonStart:
+    ambienceSource:
+      name: Summer
+      lightingProfile:
+        use: 1
+        light:
+          Use: 1
+          color: {r: 1, g: 0.8333334, b: 0, a: 1}
+          intensity: 1
+        skybox:
+          Use: 1
+          color: {r: 1, g: 0.8333334, b: 0, a: 1}
+      volumeProfile:
+        use: 0
+      soundProfile:
+        use: 0
+      particleProfile:
+        use: 0
+    onSeasonBegin:
       m_PersistentCalls:
         m_Calls: []
     onSeasonEnd:
@@ -39,7 +56,24 @@ MonoBehaviour:
     - {fileID: 11400000, guid: de70dd19a10b59f4288bb4037d327197, type: 2}
     - {fileID: 11400000, guid: 76d7c992212cf5740b27a44a1fa6c845, type: 2}
     - {fileID: 11400000, guid: 41aa1633455a6f1499d01ed016f6fdd4, type: 2}
-    onSeasonStart:
+    ambienceSource:
+      name: 
+      lightingProfile:
+        use: 0
+        light:
+          Use: 0
+          color: {r: 1, g: 1, b: 1, a: 1}
+          intensity: 1
+        skybox:
+          Use: 0
+          color: {r: 1, g: 1, b: 1, a: 1}
+      volumeProfile:
+        use: 0
+      soundProfile:
+        use: 0
+      particleProfile:
+        use: 0
+    onSeasonBegin:
       m_PersistentCalls:
         m_Calls: []
     onSeasonEnd:
@@ -55,7 +89,24 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 2035adfa12ac7d249a65e44771984a7a, type: 2}
     - {fileID: 11400000, guid: 41aa1633455a6f1499d01ed016f6fdd4, type: 2}
     - {fileID: 11400000, guid: de70dd19a10b59f4288bb4037d327197, type: 2}
-    onSeasonStart:
+    ambienceSource:
+      name: 
+      lightingProfile:
+        use: 0
+        light:
+          Use: 0
+          color: {r: 1, g: 1, b: 1, a: 1}
+          intensity: 1
+        skybox:
+          Use: 0
+          color: {r: 1, g: 1, b: 1, a: 1}
+      volumeProfile:
+        use: 0
+      soundProfile:
+        use: 0
+      particleProfile:
+        use: 0
+    onSeasonBegin:
       m_PersistentCalls:
         m_Calls: []
     onSeasonEnd:
@@ -71,7 +122,24 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 14c383d44d2d4b54687707afa8e2f9e7, type: 2}
     - {fileID: 11400000, guid: e2d177625df9e974f8616c2f46f66e0a, type: 2}
     - {fileID: 11400000, guid: 09702cb32bb3f224989df48def187838, type: 2}
-    onSeasonStart:
+    ambienceSource:
+      name: 
+      lightingProfile:
+        use: 0
+        light:
+          Use: 0
+          color: {r: 1, g: 1, b: 1, a: 1}
+          intensity: 1
+        skybox:
+          Use: 0
+          color: {r: 1, g: 1, b: 1, a: 1}
+      volumeProfile:
+        use: 0
+      soundProfile:
+        use: 0
+      particleProfile:
+        use: 0
+    onSeasonBegin:
       m_PersistentCalls:
         m_Calls: []
     onSeasonEnd:

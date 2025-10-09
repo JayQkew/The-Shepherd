@@ -30,7 +30,7 @@ namespace Ambience
             particleProfile.AddIfUsed(UsedProfiles);
 
             initialized = true;
-            AmbienceManager.Instance.AddToSources(this);
+            AmbienceManager.Instance.AddSource(this);
         }
 
         public void Subscribe(string name) {
@@ -43,12 +43,12 @@ namespace Ambience
             particleProfile.AddIfUsed(UsedProfiles);
 
             initialized = true;
-            AmbienceManager.Instance.AddToSources(this);
+            AmbienceManager.Instance.AddSource(this);
         }
 
         public void Unsubscribe() {
             if (!initialized) return;
-            AmbienceManager.Instance.RemoveFromSources(this);
+            AmbienceManager.Instance.RemoveSources(this);
         }
 
         /// <summary>
@@ -58,10 +58,12 @@ namespace Ambience
             foreach (Module module in modules) {
                 foreach (Profile profile in UsedProfiles) {
                     if (module.AmbienceType == profile.AmbienceType) {
-                        module.AddToProfiles(profile);
+                        module.AddProfile(profile);
                         break;
                     }
                 }
+
+                module.TotalProfiles();
             }
         }
 
@@ -72,10 +74,12 @@ namespace Ambience
             foreach (Module module in modules) {
                 foreach (Profile profile in UsedProfiles) {
                     if (module.AmbienceType == profile.AmbienceType) {
-                        module.RemoveFromProfiles(profile);
+                        module.RemoveProfile(profile);
                         break;
                     }
                 }
+
+                module.TotalProfiles();
             }
         }
     }

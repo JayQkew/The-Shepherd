@@ -1,5 +1,6 @@
 using System;
 using TimeSystem;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -15,11 +16,15 @@ namespace Ambience
         [SerializeField] private Gradient lightGradient;
         [SerializeField] private Gradient skyboxGradient;
         [Space(15)]
-        [SerializeField] private Light lightProfile;
-        [SerializeField] private Skybox skyboxProfile;
+        [SerializeField] private Gradient currLightGradient;
+        [SerializeField] private Gradient currSkyboxGradient;
+        [Space(15)]
+        [SerializeField] private Light lightProfileData;
+        [SerializeField] private Skybox skyboxProfileData;
         private static readonly int Tint = Shader.PropertyToID("_Tint");
         
-        public override void ProcessProfiles() {
+        public override void TotalProfiles() {
+            base.TotalProfiles();
             Light tempLight = new Light();
             Skybox tempSkybox = new Skybox();
             
@@ -35,37 +40,60 @@ namespace Ambience
 
                 foreach (ProfileData profileData in profileDatas) {
                     if (profileData.Use) {
-                        if (profileData is Light lightData) {
-                            ProcessLighting(lightData, tempLight);
-                        }
-                        else if (profileData is Skybox skyboxData) {
-                            ProcessSkybox(skyboxData, tempSkybox);
-                        }
+                        if (profileData is Light lightData) ProcessLighting(lightData, tempLight);
+                        else if (profileData is Skybox skyboxData) ProcessSkybox(skyboxData, tempSkybox);
                     }
                 }
             }
             
-            lightProfile = tempLight;
-            skyboxProfile = tempSkybox;
+            lightProfileData = tempLight;
+            skyboxProfileData = tempSkybox;
+            
+            ApplyProfiles();
         }
 
-        private void ProcessLighting(Light light, Light tempProfile) {
+        public override void ApplyProfiles() {
+            base.ApplyProfiles();
+            
+            currLightGradient = TintGradient(lightGradient, lightProfileData.color);
+            currSkyboxGradient = TintGradient(skyboxGradient, skyboxProfileData.color);
+        }
+        
+        public Gradient TintGradient(Gradient original, Color tint)
+        {
+            Gradient gradient = new Gradient();
+            
+            GradientColorKey[] tintedColorKeys = original.colorKeys;
+
+            for (int i = 0; i < tintedColorKeys.Length; i++) {
+                tintedColorKeys[i].color = Color.Lerp(tintedColorKeys[i].color, tint, 0.5f);
+            }
+            
+            gradient.SetKeys(
+                tintedColorKeys,
+                original.alphaKeys
+            );
+            return gradient;
+        }
+
+        private void ProcessLighting(Light lightProfileData, Light tempProfileData) {
             Debug.Log("LightingProfile is using Lighting!");
-            tempProfile.color *= light.color;
-            tempProfile.intensity *= light.intensity;
+            tempProfileData.color = Color.Lerp(tempProfileData.color, lightProfileData.color, 0.5f);
+            tempProfileData.color.a = 1;
+            tempProfileData.intensity *= lightProfileData.intensity;
         }
 
-        private void ProcessSkybox(Skybox skybox, Skybox tempProfile) {
+        private void ProcessSkybox(Skybox skyboxProfileData, Skybox tempProfileData) {
             Debug.Log("LightingProfile is Skybox!");
-            tempProfile.color *= skybox.color;
+            tempProfileData.color = Color.Lerp(tempProfileData.color, skyboxProfileData.color, 0.5f);
+            tempProfileData.color.a = 1;
         }
         
         public void UpdateLighting() {
             if (TimeManager.Instance != null) {
-                ProcessProfiles();
                 float t = TimeManager.Instance.time.Progress;
-                light.color = lightGradient.Evaluate(t);
-                RenderSettings.skybox.SetColor(Tint, skyboxGradient.Evaluate(t));
+                light.color = currLightGradient.Evaluate(t);
+                RenderSettings.skybox.SetColor(Tint, currSkyboxGradient.Evaluate(t));
                 LightAngle(t);
                 light.intensity = data.intensityCurve.Evaluate(t);
             }
