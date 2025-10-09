@@ -8,6 +8,9 @@ namespace Ambience
     public class ParticlesModule : Module
     {
         public override AmbienceType AmbienceType => AmbienceType.Particles;
+        public override void ProcessProfiles() {
+            throw new NotImplementedException();
+        }
 
         [SerializeField] private Rain rain;
         [SerializeField] private Snow snow;

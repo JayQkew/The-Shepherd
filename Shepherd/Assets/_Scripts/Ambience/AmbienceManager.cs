@@ -17,7 +17,7 @@ namespace Ambience
         [Space(15)]
         public ParticlesModule particlesModule;
         [Space(15)]
-        public List<AmbienceSource> sources = new();
+        [SerializeField] private List<AmbienceSource> sources = new();
         
         private List<Module> modules = new();
 
@@ -37,8 +37,18 @@ namespace Ambience
 
         public void ProcessSources() {
             foreach (AmbienceSource source in sources) {
-                source.Process(modules);
+                source.DelegateProfiles(modules);
             }
+        }
+
+        public void AddToSources(AmbienceSource source) {
+            sources.Add(source);
+            source.DelegateProfiles(modules);
+        }
+
+        public void RemoveFromSources(AmbienceSource source) {
+            sources.Remove(source);
+            source.BanishProfiles(modules);
         }
 
         private void Start() {

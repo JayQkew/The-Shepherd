@@ -2,6 +2,7 @@ using System;
 using Ambience;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 using Utilities;
 
 namespace Climate
@@ -16,8 +17,9 @@ namespace Climate
         public WeatherTicket[] weatherTickets;
         [Space(10)]
         public AmbienceSource ambienceSource;
+        [FormerlySerializedAs("onSeasonStart")]
         [Space(10)]
-        public UnityEvent onSeasonStart;
+        public UnityEvent onSeasonBegin;
         public UnityEvent onSeasonEnd;
 
         public float SetTemp() {
@@ -25,14 +27,14 @@ namespace Climate
             return dayTemp;
         }
 
-        public void Start() {
-            onSeasonStart.Invoke();
-            ambienceSource.Init(season.ToString());
+        public void Begin() {
+            onSeasonBegin.Invoke();
+            ambienceSource.Subscribe(season.ToString());
         }
 
         public void End() {
             onSeasonEnd.Invoke();
-            ambienceSource.Destroy();
+            ambienceSource.Unsubscribe();
         }
     }
     

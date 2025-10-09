@@ -19,14 +19,14 @@ namespace TimeSystem
         public void UpdateTimer() {
             if (timer.Progress == 0) {
                 onPhaseStart.Invoke();
-                ambienceSource.Init(phase.ToString());
+                ambienceSource.Subscribe(phase.ToString());
             }
             
             timer.Update();
             
             if (timer.IsFinished) {
                 onPhaseEnd.Invoke();
-                ambienceSource.Destroy();
+                ambienceSource.Unsubscribe();
             }
         }
     }

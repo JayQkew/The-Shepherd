@@ -9,7 +9,10 @@ namespace Ambience
     public class SoundModule : Module
     {
         public override AmbienceType AmbienceType => AmbienceType.Sound;
-        
+        public override void ProcessProfiles() {
+            throw new NotImplementedException();
+        }
+
         [SerializeField] private SoundscapeData data;
         [SerializeField] private AmbientSound[] sounds;
 

@@ -187,6 +187,16 @@ MonoBehaviour:
     timer:
       maxTime: 0
       currTime: 0
+    ambienceSource:
+      name: 
+      soundProfile:
+        use: 0
+      lightingProfile:
+        use: 0
+      volumeProfile:
+        use: 0
+      particleProfile:
+        use: 0
     onPhaseStart:
       m_PersistentCalls:
         m_Calls: []
@@ -198,6 +208,16 @@ MonoBehaviour:
     timer:
       maxTime: 45
       currTime: 0
+    ambienceSource:
+      name: Sunrise
+      soundProfile:
+        use: 1
+      lightingProfile:
+        use: 0
+      volumeProfile:
+        use: 1
+      particleProfile:
+        use: 0
     onPhaseStart:
       m_PersistentCalls:
         m_Calls:
@@ -220,6 +240,16 @@ MonoBehaviour:
     timer:
       maxTime: 105
       currTime: 0
+    ambienceSource:
+      name: Day
+      soundProfile:
+        use: 0
+      lightingProfile:
+        use: 1
+      volumeProfile:
+        use: 0
+      particleProfile:
+        use: 1
     onPhaseStart:
       m_PersistentCalls:
         m_Calls: []
@@ -242,6 +272,16 @@ MonoBehaviour:
     timer:
       maxTime: 45
       currTime: 0
+    ambienceSource:
+      name: Sunset
+      soundProfile:
+        use: 0
+      lightingProfile:
+        use: 0
+      volumeProfile:
+        use: 0
+      particleProfile:
+        use: 0
     onPhaseStart:
       m_PersistentCalls:
         m_Calls: []
@@ -252,6 +292,16 @@ MonoBehaviour:
     timer:
       maxTime: 105
       currTime: 0
+    ambienceSource:
+      name: Night
+      soundProfile:
+        use: 0
+      lightingProfile:
+        use: 0
+      volumeProfile:
+        use: 0
+      particleProfile:
+        use: 0
     onPhaseStart:
       m_PersistentCalls:
         m_Calls: []
@@ -16024,7 +16074,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lightingModule:
-    AmbienceType: 2
     data: {fileID: 11400000, guid: b556190d74ec94744bda45693bb24329, type: 2}
     light: {fileID: 410087040}
     lightGradient:
@@ -16088,15 +16137,12 @@ MonoBehaviour:
       m_NumColorKeys: 8
       m_NumAlphaKeys: 2
   volumeModule:
-    AmbienceType: 1
-    data: {fileID: 0}
-    volume: {fileID: 0}
+    data: {fileID: 11400000, guid: 8836b0fff322f0446a9e64a34f0cb61d, type: 2}
+    volume: {fileID: 832575518}
   soundModule:
-    AmbienceType: 0
-    data: {fileID: 0}
+    data: {fileID: 11400000, guid: 5c4277f5e6fdeb3448254da8a1c0499a, type: 2}
     sounds: []
   particlesModule:
-    AmbienceType: 3
     rain:
       particles: {fileID: 0}
       intensity: 0

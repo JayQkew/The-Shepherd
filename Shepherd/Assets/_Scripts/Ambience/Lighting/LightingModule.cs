@@ -8,6 +8,9 @@ namespace Ambience
     public class LightingModule : Module
     {
         public override AmbienceType AmbienceType => AmbienceType.Lighting;
+        public override void ProcessProfiles() {
+            throw new NotImplementedException();
+        }
 
         [SerializeField] private LightingData data;
         [SerializeField] private Light light;

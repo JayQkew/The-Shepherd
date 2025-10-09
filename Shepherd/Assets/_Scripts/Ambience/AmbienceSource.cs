@@ -13,6 +13,7 @@ namespace Ambience
     {
         [Tooltip("To help identify where it came from")]
         public string name;
+
         public SoundProfile soundProfile = new();
         public LightingProfile lightingProfile = new();
         public VolumeProfile volumeProfile = new();
@@ -21,47 +22,57 @@ namespace Ambience
         public List<Profile> UsedProfiles = new();
         private bool initialized;
 
-        public void Init() {
+        public void Subscribe() {
             UsedProfiles.Clear();
             soundProfile.AddIfUsed(UsedProfiles);
             lightingProfile.AddIfUsed(UsedProfiles);
             volumeProfile.AddIfUsed(UsedProfiles);
             particleProfile.AddIfUsed(UsedProfiles);
-            
+
             initialized = true;
-            AmbienceManager.Instance.sources.Add(this);
-        }
-        
-        public void Init(string name) {
-            this.name = name;
-            
-            UsedProfiles.Clear();
-            soundProfile.AddIfUsed(UsedProfiles);
-            lightingProfile.AddIfUsed(UsedProfiles);
-            volumeProfile.AddIfUsed(UsedProfiles);
-            particleProfile.AddIfUsed(UsedProfiles);
-            
-            initialized = true;
-            AmbienceManager.Instance.sources.Add(this);
+            AmbienceManager.Instance.AddToSources(this);
         }
 
-        public void Destroy() {
+        public void Subscribe(string name) {
+            this.name = name;
+
+            UsedProfiles.Clear();
+            soundProfile.AddIfUsed(UsedProfiles);
+            lightingProfile.AddIfUsed(UsedProfiles);
+            volumeProfile.AddIfUsed(UsedProfiles);
+            particleProfile.AddIfUsed(UsedProfiles);
+
+            initialized = true;
+            AmbienceManager.Instance.AddToSources(this);
+        }
+
+        public void Unsubscribe() {
             if (!initialized) return;
-            AmbienceManager.Instance.sources.Remove(this);
+            AmbienceManager.Instance.RemoveFromSources(this);
         }
 
         /// <summary>
-        /// adds the profiles in UsedProfiles into their respective modules
+        /// Adds the profiles in UsedProfiles into their respective modules
         /// </summary>
-        public void Process(List<Module> modules) {
+        public void DelegateProfiles(List<Module> modules) {
             foreach (Module module in modules) {
-                module.Profiles.Clear();
-            }
-            
-            foreach (Profile profile in UsedProfiles) {
-                foreach (Module module in modules) {
+                foreach (Profile profile in UsedProfiles) {
                     if (module.AmbienceType == profile.AmbienceType) {
-                        module.Profiles.Add(profile);
+                        module.AddToProfiles(profile);
+                        break;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Removes the profiles in UsedProfiles from their respective modules
+        /// </summary>
+        public void BanishProfiles(List<Module> modules) {
+            foreach (Module module in modules) {
+                foreach (Profile profile in UsedProfiles) {
+                    if (module.AmbienceType == profile.AmbienceType) {
+                        module.RemoveFromProfiles(profile);
                         break;
                     }
                 }
@@ -69,5 +80,3 @@ namespace Ambience
         }
     }
 }
-
-
