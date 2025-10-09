@@ -189,11 +189,9 @@ MonoBehaviour:
       currTime: 0
     ambienceSource:
       name: 
-      soundProfile:
-        use: 0
       lightingProfile:
         use: 0
-        lighting:
+        light:
           Use: 0
           color: {r: 1, g: 1, b: 1, a: 1}
           intensity: 1
@@ -201,6 +199,8 @@ MonoBehaviour:
           Use: 0
           color: {r: 1, g: 1, b: 1, a: 1}
       volumeProfile:
+        use: 0
+      soundProfile:
         use: 0
       particleProfile:
         use: 0
@@ -217,19 +217,19 @@ MonoBehaviour:
       currTime: 0
     ambienceSource:
       name: Sunrise
-      soundProfile:
-        use: 1
       lightingProfile:
-        use: 0
-        lighting:
-          Use: 0
-          color: {r: 1, g: 1, b: 1, a: 1}
+        use: 1
+        light:
+          Use: 1
+          color: {r: 0, g: 0.03676009, b: 1, a: 1}
           intensity: 1
         skybox:
-          Use: 0
-          color: {r: 1, g: 1, b: 1, a: 1}
+          Use: 1
+          color: {r: 1, g: 0, b: 0, a: 1}
       volumeProfile:
-        use: 1
+        use: 0
+      soundProfile:
+        use: 0
       particleProfile:
         use: 0
     onPhaseStart:
@@ -256,11 +256,9 @@ MonoBehaviour:
       currTime: 0
     ambienceSource:
       name: Day
-      soundProfile:
-        use: 0
       lightingProfile:
         use: 1
-        lighting:
+        light:
           Use: 0
           color: {r: 1, g: 1, b: 1, a: 1}
           intensity: 1
@@ -268,6 +266,8 @@ MonoBehaviour:
           Use: 0
           color: {r: 1, g: 1, b: 1, a: 1}
       volumeProfile:
+        use: 0
+      soundProfile:
         use: 0
       particleProfile:
         use: 1
@@ -295,11 +295,9 @@ MonoBehaviour:
       currTime: 0
     ambienceSource:
       name: Sunset
-      soundProfile:
-        use: 0
       lightingProfile:
         use: 0
-        lighting:
+        light:
           Use: 0
           color: {r: 1, g: 1, b: 1, a: 1}
           intensity: 1
@@ -307,6 +305,8 @@ MonoBehaviour:
           Use: 0
           color: {r: 1, g: 1, b: 1, a: 1}
       volumeProfile:
+        use: 0
+      soundProfile:
         use: 0
       particleProfile:
         use: 0
@@ -322,11 +322,9 @@ MonoBehaviour:
       currTime: 0
     ambienceSource:
       name: Night
-      soundProfile:
-        use: 0
       lightingProfile:
         use: 0
-        lighting:
+        light:
           Use: 0
           color: {r: 1, g: 1, b: 1, a: 1}
           intensity: 1
@@ -334,6 +332,8 @@ MonoBehaviour:
           Use: 0
           color: {r: 1, g: 1, b: 1, a: 1}
       volumeProfile:
+        use: 0
+      soundProfile:
         use: 0
       particleProfile:
         use: 0
@@ -16172,6 +16172,13 @@ MonoBehaviour:
       m_ColorSpace: -1
       m_NumColorKeys: 8
       m_NumAlphaKeys: 2
+    lightProfile:
+      Use: 0
+      color: {r: 1, g: 1, b: 1, a: 1}
+      intensity: 1
+    skyboxProfile:
+      Use: 0
+      color: {r: 1, g: 1, b: 1, a: 1}
   volumeModule:
     numProfiles: 0
     data: {fileID: 11400000, guid: 8836b0fff322f0446a9e64a34f0cb61d, type: 2}

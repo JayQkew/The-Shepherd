@@ -1,6 +1,7 @@
 using System;
 using TimeSystem;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Ambience
 {
@@ -10,17 +11,21 @@ namespace Ambience
         public override AmbienceType AmbienceType => AmbienceType.Lighting;
 
         [SerializeField] private LightingData data;
-        [SerializeField] private Light light;
+        [SerializeField] private UnityEngine.Light light;
         [SerializeField] private Gradient lightGradient;
         [SerializeField] private Gradient skyboxGradient;
-
-        private Color lightingTint;
-        private Color skyboxTint;
+        [Space(15)]
+        [SerializeField] private Light lightProfile;
+        [SerializeField] private Skybox skyboxProfile;
         private static readonly int Tint = Shader.PropertyToID("_Tint");
         
         public override void ProcessProfiles() {
+            Light tempLight = new Light();
+            Skybox tempSkybox = new Skybox();
+            
             foreach (Profile profile in Profiles) {
                 LightingProfile lightingProfile = profile as LightingProfile;
+                
                 if (lightingProfile == null) {
                     Debug.LogWarning("LightingProfile not in LightingProfile!");
                     continue;
@@ -30,14 +35,29 @@ namespace Ambience
 
                 foreach (ProfileData profileData in profileDatas) {
                     if (profileData.Use) {
-                        if (profileData is Lighting) {
-                            Debug.Log("LightingProfile is using Lighting!");
-                        } else if (profileData is Skybox) {
-                            Debug.Log("LightingProfile is Skybox!");
+                        if (profileData is Light lightData) {
+                            ProcessLighting(lightData, tempLight);
+                        }
+                        else if (profileData is Skybox skyboxData) {
+                            ProcessSkybox(skyboxData, tempSkybox);
                         }
                     }
                 }
             }
+            
+            lightProfile = tempLight;
+            skyboxProfile = tempSkybox;
+        }
+
+        private void ProcessLighting(Light light, Light tempProfile) {
+            Debug.Log("LightingProfile is using Lighting!");
+            tempProfile.color *= light.color;
+            tempProfile.intensity *= light.intensity;
+        }
+
+        private void ProcessSkybox(Skybox skybox, Skybox tempProfile) {
+            Debug.Log("LightingProfile is Skybox!");
+            tempProfile.color *= skybox.color;
         }
         
         public void UpdateLighting() {

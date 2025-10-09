@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine.Serialization;
 
 namespace Ambience
 {
@@ -8,13 +9,13 @@ namespace Ambience
     {
         public override AmbienceType AmbienceType => AmbienceType.Lighting;
 
-        public Lighting lighting;
+        [FormerlySerializedAs("lighting")] public Light light;
         public Skybox skybox;
         
         public override ProfileData[] GetProfileDatas() {
             return new ProfileData[]
             {
-                lighting,
+                light,
                 skybox
             };
         }

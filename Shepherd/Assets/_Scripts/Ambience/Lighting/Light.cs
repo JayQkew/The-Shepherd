@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Ambience
 {
     [Serializable]
-    public class Lighting : ProfileData
+    public class Light : ProfileData
     {
         public Color color = Color.white;
         public float intensity = 1f;
