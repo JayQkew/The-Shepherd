@@ -193,6 +193,13 @@ MonoBehaviour:
         use: 0
       lightingProfile:
         use: 0
+        lighting:
+          Use: 0
+          color: {r: 1, g: 1, b: 1, a: 1}
+          intensity: 1
+        skybox:
+          Use: 0
+          color: {r: 1, g: 1, b: 1, a: 1}
       volumeProfile:
         use: 0
       particleProfile:
@@ -214,6 +221,13 @@ MonoBehaviour:
         use: 1
       lightingProfile:
         use: 0
+        lighting:
+          Use: 0
+          color: {r: 1, g: 1, b: 1, a: 1}
+          intensity: 1
+        skybox:
+          Use: 0
+          color: {r: 1, g: 1, b: 1, a: 1}
       volumeProfile:
         use: 1
       particleProfile:
@@ -246,6 +260,13 @@ MonoBehaviour:
         use: 0
       lightingProfile:
         use: 1
+        lighting:
+          Use: 0
+          color: {r: 1, g: 1, b: 1, a: 1}
+          intensity: 1
+        skybox:
+          Use: 0
+          color: {r: 1, g: 1, b: 1, a: 1}
       volumeProfile:
         use: 0
       particleProfile:
@@ -278,6 +299,13 @@ MonoBehaviour:
         use: 0
       lightingProfile:
         use: 0
+        lighting:
+          Use: 0
+          color: {r: 1, g: 1, b: 1, a: 1}
+          intensity: 1
+        skybox:
+          Use: 0
+          color: {r: 1, g: 1, b: 1, a: 1}
       volumeProfile:
         use: 0
       particleProfile:
@@ -298,6 +326,13 @@ MonoBehaviour:
         use: 0
       lightingProfile:
         use: 0
+        lighting:
+          Use: 0
+          color: {r: 1, g: 1, b: 1, a: 1}
+          intensity: 1
+        skybox:
+          Use: 0
+          color: {r: 1, g: 1, b: 1, a: 1}
       volumeProfile:
         use: 0
       particleProfile:
@@ -16074,6 +16109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lightingModule:
+    numProfiles: 0
     data: {fileID: 11400000, guid: b556190d74ec94744bda45693bb24329, type: 2}
     light: {fileID: 410087040}
     lightGradient:
@@ -16137,12 +16173,15 @@ MonoBehaviour:
       m_NumColorKeys: 8
       m_NumAlphaKeys: 2
   volumeModule:
+    numProfiles: 0
     data: {fileID: 11400000, guid: 8836b0fff322f0446a9e64a34f0cb61d, type: 2}
     volume: {fileID: 832575518}
   soundModule:
+    numProfiles: 0
     data: {fileID: 11400000, guid: 5c4277f5e6fdeb3448254da8a1c0499a, type: 2}
     sounds: []
   particlesModule:
+    numProfiles: 0
     rain:
       particles: {fileID: 0}
       intensity: 0

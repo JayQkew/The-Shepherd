@@ -12,12 +12,14 @@ public class InputHandler : MonoBehaviour
     public Vector3 move;
     public Vector3 aim;
     public Vector2 zoom;
+#pragma warning disable CS0414 // Field is assigned but its value is never used
     [SerializeField] private bool isJumping;
     [SerializeField] private bool isCrouching;
     public bool isSprinting;
     [SerializeField] private bool isBarking;
     [SerializeField] private bool isInteracting;
     [SerializeField] private bool isCasting;
+#pragma warning restore CS0414 // Field is assigned but its value is never used
     [Space(10)]
     [SerializeField] private Camera cam;
 

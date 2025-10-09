@@ -8,19 +8,41 @@ namespace Ambience
     public class LightingModule : Module
     {
         public override AmbienceType AmbienceType => AmbienceType.Lighting;
-        public override void ProcessProfiles() {
-            throw new NotImplementedException();
-        }
 
         [SerializeField] private LightingData data;
         [SerializeField] private Light light;
         [SerializeField] private Gradient lightGradient;
         [SerializeField] private Gradient skyboxGradient;
-        
+
+        private Color lightingTint;
+        private Color skyboxTint;
         private static readonly int Tint = Shader.PropertyToID("_Tint");
+        
+        public override void ProcessProfiles() {
+            foreach (Profile profile in Profiles) {
+                LightingProfile lightingProfile = profile as LightingProfile;
+                if (lightingProfile == null) {
+                    Debug.LogWarning("LightingProfile not in LightingProfile!");
+                    continue;
+                }
+
+                ProfileData[] profileDatas = lightingProfile.GetProfileDatas();
+
+                foreach (ProfileData profileData in profileDatas) {
+                    if (profileData.Use) {
+                        if (profileData is Lighting) {
+                            Debug.Log("LightingProfile is using Lighting!");
+                        } else if (profileData is Skybox) {
+                            Debug.Log("LightingProfile is Skybox!");
+                        }
+                    }
+                }
+            }
+        }
         
         public void UpdateLighting() {
             if (TimeManager.Instance != null) {
+                ProcessProfiles();
                 float t = TimeManager.Instance.time.Progress;
                 light.color = lightGradient.Evaluate(t);
                 RenderSettings.skybox.SetColor(Tint, skyboxGradient.Evaluate(t));

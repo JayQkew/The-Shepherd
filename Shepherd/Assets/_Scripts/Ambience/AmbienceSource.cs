@@ -14,9 +14,9 @@ namespace Ambience
         [Tooltip("To help identify where it came from")]
         public string name;
 
-        public SoundProfile soundProfile = new();
         public LightingProfile lightingProfile = new();
         public VolumeProfile volumeProfile = new();
+        public SoundProfile soundProfile = new();
         public ParticleProfile particleProfile = new();
 
         public List<Profile> UsedProfiles = new();

@@ -11,5 +11,7 @@ namespace Ambience
         public void AddIfUsed(List<Profile> usedProfiles) {
             if (use) usedProfiles.Add(this);
         }
+        
+        public abstract ProfileData[] GetProfileDatas();
     }
 }
