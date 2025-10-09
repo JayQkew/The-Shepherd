@@ -15,9 +15,12 @@ namespace Ambience
         [SerializeField] private UnityEngine.Light light;
         [SerializeField] private Gradient lightGradient;
         [SerializeField] private Gradient skyboxGradient;
+
         [Space(15)]
+        [SerializeField, Range(0,1)] private float gradientTint;
         [SerializeField] private Gradient currLightGradient;
         [SerializeField] private Gradient currSkyboxGradient;
+        [SerializeField] private AnimationCurve currIntensityCurve;
         [Space(15)]
         [SerializeField] private Light lightProfileData;
         [SerializeField] private Skybox skyboxProfileData;
@@ -26,6 +29,8 @@ namespace Ambience
         public override void TotalProfiles() {
             base.TotalProfiles();
             Light tempLight = new Light();
+            Light.TotalIntensity = 0;
+            Light.Count = 1;
             Skybox tempSkybox = new Skybox();
             
             foreach (Profile profile in Profiles) {
@@ -57,6 +62,11 @@ namespace Ambience
             
             currLightGradient = TintGradient(lightGradient, lightProfileData.color);
             currSkyboxGradient = TintGradient(skyboxGradient, skyboxProfileData.color);
+
+            currIntensityCurve.keys = data.intensityCurve.keys;
+            for (int i = 0; i < data.intensityCurve.length; i++) {
+                currIntensityCurve.keys[i].value *= lightProfileData.intensity;
+            }
         }
         
         public Gradient TintGradient(Gradient original, Color tint)
@@ -66,7 +76,7 @@ namespace Ambience
             GradientColorKey[] tintedColorKeys = original.colorKeys;
 
             for (int i = 0; i < tintedColorKeys.Length; i++) {
-                tintedColorKeys[i].color = Color.Lerp(tintedColorKeys[i].color, tint, 0.5f);
+                tintedColorKeys[i].color = Color.Lerp(tintedColorKeys[i].color, tint, gradientTint);
             }
             
             gradient.SetKeys(
@@ -76,16 +86,17 @@ namespace Ambience
             return gradient;
         }
 
-        private void ProcessLighting(Light lightProfileData, Light tempProfileData) {
+        private void ProcessLighting(Light lightData, Light tempProfileData) {
             Debug.Log("LightingProfile is using Lighting!");
-            tempProfileData.color = Color.Lerp(tempProfileData.color, lightProfileData.color, 0.5f);
+            tempProfileData.color = Color.Lerp(tempProfileData.color, lightData.color, 0.5f);
             tempProfileData.color.a = 1;
-            tempProfileData.intensity *= lightProfileData.intensity;
+            Light.TotalIntensity += lightData.intensity;
+            Light.Count++;
         }
 
-        private void ProcessSkybox(Skybox skyboxProfileData, Skybox tempProfileData) {
+        private void ProcessSkybox(Skybox skyboxData, Skybox tempProfileData) {
             Debug.Log("LightingProfile is Skybox!");
-            tempProfileData.color = Color.Lerp(tempProfileData.color, skyboxProfileData.color, 0.5f);
+            tempProfileData.color = Color.Lerp(tempProfileData.color, skyboxData.color, 0.5f);
             tempProfileData.color.a = 1;
         }
         
@@ -95,7 +106,7 @@ namespace Ambience
                 light.color = currLightGradient.Evaluate(t);
                 RenderSettings.skybox.SetColor(Tint, currSkyboxGradient.Evaluate(t));
                 LightAngle(t);
-                light.intensity = data.intensityCurve.Evaluate(t);
+                light.intensity = data.intensityCurve.Evaluate(t) * Light.CalculatedIntensity;
             }
         }
 

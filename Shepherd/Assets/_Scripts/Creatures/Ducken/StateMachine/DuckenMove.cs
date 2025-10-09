@@ -32,9 +32,6 @@ namespace Creatures.Ducken
             }
 
             moveTimer.SetMaxTime(hasTarget ? manager.stats.followTime.RandomValue() : manager.stats.walkTime.RandomValue());
-            
-
-            Debug.Log(hasTarget ? "DuckenMove has a Target" : "DuckenMove does not have a Target");
         }
 
         public override void UpdateState(DuckenManager manager) {

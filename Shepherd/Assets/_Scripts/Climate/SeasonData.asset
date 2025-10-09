@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   seasons:
   - season: 0
-    dayTemp: 27.538525
+    dayTemp: 29.428707
     temp:
       _min: 25
       _max: 30
@@ -30,7 +30,7 @@ MonoBehaviour:
         light:
           Use: 1
           color: {r: 1, g: 0.8333334, b: 0, a: 1}
-          intensity: 1
+          intensity: 0.5
         skybox:
           Use: 1
           color: {r: 1, g: 0.8333334, b: 0, a: 1}

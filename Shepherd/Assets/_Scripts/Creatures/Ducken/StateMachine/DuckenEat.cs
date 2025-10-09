@@ -22,7 +22,6 @@ namespace Creatures.Ducken
         }
 
         public override void ExitState(DuckenManager manager) {
-            Debug.Log("Exit -- DuckenEat");
         }
     }
 }
