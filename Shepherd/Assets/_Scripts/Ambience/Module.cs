@@ -23,11 +23,9 @@ namespace Ambience
         }
 
         public virtual void TotalProfiles() {
-            Debug.Log("Totaling Profiles");
+            ApplyProfiles();
         }
 
-        public virtual void ApplyProfiles() {
-            Debug.Log("Applying Profiles");
-        }
+        public abstract void ApplyProfiles();
     }
 }

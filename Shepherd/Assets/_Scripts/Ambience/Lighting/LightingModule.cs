@@ -17,25 +17,26 @@ namespace Ambience
         [SerializeField] private Gradient skyboxGradient;
 
         [Space(15)]
-        [SerializeField, Range(0,1)] private float gradientTint;
+        [SerializeField, Range(0, 1)] private float gradientTint;
+
         [SerializeField] private Gradient currLightGradient;
         [SerializeField] private Gradient currSkyboxGradient;
-        [SerializeField] private AnimationCurve currIntensityCurve;
+
         [Space(15)]
         [SerializeField] private Light lightProfileData;
         [SerializeField] private Skybox skyboxProfileData;
-        private static readonly int Tint = Shader.PropertyToID("_Tint");
         
+        private static readonly int Tint = Shader.PropertyToID("_Tint");
+
         public override void TotalProfiles() {
-            base.TotalProfiles();
             Light tempLight = new Light();
             Light.TotalIntensity = 0;
             Light.Count = 1;
             Skybox tempSkybox = new Skybox();
-            
+
             foreach (Profile profile in Profiles) {
                 LightingProfile lightingProfile = profile as LightingProfile;
-                
+
                 if (lightingProfile == null) {
                     Debug.LogWarning("LightingProfile not in LightingProfile!");
                     continue;
@@ -50,35 +51,27 @@ namespace Ambience
                     }
                 }
             }
-            
+
             lightProfileData = tempLight;
             skyboxProfileData = tempSkybox;
-            
-            ApplyProfiles();
+
+            base.TotalProfiles();
         }
 
         public override void ApplyProfiles() {
-            base.ApplyProfiles();
-            
             currLightGradient = TintGradient(lightGradient, lightProfileData.color);
             currSkyboxGradient = TintGradient(skyboxGradient, skyboxProfileData.color);
-
-            currIntensityCurve.keys = data.intensityCurve.keys;
-            for (int i = 0; i < data.intensityCurve.length; i++) {
-                currIntensityCurve.keys[i].value *= lightProfileData.intensity;
-            }
         }
-        
-        public Gradient TintGradient(Gradient original, Color tint)
-        {
+
+        public Gradient TintGradient(Gradient original, Color tint) {
             Gradient gradient = new Gradient();
-            
+
             GradientColorKey[] tintedColorKeys = original.colorKeys;
 
             for (int i = 0; i < tintedColorKeys.Length; i++) {
                 tintedColorKeys[i].color = Color.Lerp(tintedColorKeys[i].color, tint, gradientTint);
             }
-            
+
             gradient.SetKeys(
                 tintedColorKeys,
                 original.alphaKeys
@@ -87,7 +80,6 @@ namespace Ambience
         }
 
         private void ProcessLighting(Light lightData, Light tempProfileData) {
-            Debug.Log("LightingProfile is using Lighting!");
             tempProfileData.color = Color.Lerp(tempProfileData.color, lightData.color, 0.5f);
             tempProfileData.color.a = 1;
             Light.TotalIntensity += lightData.intensity;
@@ -95,11 +87,10 @@ namespace Ambience
         }
 
         private void ProcessSkybox(Skybox skyboxData, Skybox tempProfileData) {
-            Debug.Log("LightingProfile is Skybox!");
             tempProfileData.color = Color.Lerp(tempProfileData.color, skyboxData.color, 0.5f);
             tempProfileData.color.a = 1;
         }
-        
+
         public void UpdateLighting() {
             if (TimeManager.Instance != null) {
                 float t = TimeManager.Instance.time.Progress;
@@ -116,7 +107,7 @@ namespace Ambience
 
             light.transform.eulerAngles = new Vector3(xAngle, yAngle, light.transform.eulerAngles.z);
         }
-        
+
         private void SetGradient(Gradient gradient, Color[] colors) {
             if (TimeManager.Instance == null) return;
 
@@ -148,7 +139,7 @@ namespace Ambience
             //Night - start
             curr += data.transitionTime / totalSpanTime;
             colorKeys[5] = new GradientColorKey(colors[3], curr);
-        
+
             //Night - end
             curr += (TimeManager.Instance.dayPhases[3].timer.maxTime - data.transitionTime / 2) / totalSpanTime;
             colorKeys[6] = new GradientColorKey(colors[3], curr);
@@ -162,6 +153,7 @@ namespace Ambience
 
             gradient.SetKeys(colorKeys, alphaKeys);
         }
+
         public void OnValidate() {
             if (TimeManager.Instance != null) {
                 SetGradient(lightGradient, data.lightColors);

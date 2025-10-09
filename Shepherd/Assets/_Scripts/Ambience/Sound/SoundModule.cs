@@ -12,6 +12,9 @@ namespace Ambience
         public override void TotalProfiles() {
         }
 
+        public override void ApplyProfiles() {
+        }
+
         [SerializeField] private SoundscapeData data;
         [SerializeField] private AmbientSound[] sounds;
 

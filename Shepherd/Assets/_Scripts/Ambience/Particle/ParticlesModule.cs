@@ -11,6 +11,9 @@ namespace Ambience
         public override void TotalProfiles() {
         }
 
+        public override void ApplyProfiles() {
+        }
+
         [SerializeField] private Rain rain;
         [SerializeField] private Snow snow;
 
