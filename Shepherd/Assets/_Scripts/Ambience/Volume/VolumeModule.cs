@@ -51,18 +51,19 @@ namespace Ambience
         }
 
         public override void ApplyProfiles() {
-            // currHueShift = currHueShift
+            currHueShift = hueShiftProfileData.value;
+            Debug.LogWarning("HueShift Profile Applied");
         }
 
         private void ProcessHueShift(HueShift hueShiftData, HueShift tempProfileData) {
-            tempProfileData.value = hueShiftData.value;
+            tempProfileData.value += hueShiftData.value;
         }
 
         public void UpdateVolume() {
             float year = TimeManager.Instance.yearTimer.Progress;
             
             ClampedFloatParameter hueShift = new ClampedFloatParameter(
-                data.hueShiftCurve.Evaluate(year),
+                data.hueShiftCurve.Evaluate(year) + currHueShift,
                 colorAdjustments.hueShift.min,
                 colorAdjustments.hueShift.max);
                 

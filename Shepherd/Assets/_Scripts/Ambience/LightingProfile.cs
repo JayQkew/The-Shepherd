@@ -9,7 +9,7 @@ namespace Ambience
     {
         public override AmbienceType AmbienceType => AmbienceType.Lighting;
 
-        [FormerlySerializedAs("lighting")] public Light light;
+        public Light light;
         public Skybox skybox;
         
         public override ProfileData[] GetProfileDatas() {

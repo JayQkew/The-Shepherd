@@ -6,8 +6,13 @@ namespace Ambience
     public class VolumeProfile : Profile
     {
         public override AmbienceType AmbienceType => AmbienceType.Volume;
+        
+        public HueShift hueShift;
         public override ProfileData[] GetProfileDatas() {
-            throw new NotImplementedException();
+            return new ProfileData[]
+            {
+                hueShift
+            };
         }
     }
 }
