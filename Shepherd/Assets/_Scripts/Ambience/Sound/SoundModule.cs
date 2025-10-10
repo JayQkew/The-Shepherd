@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using FMOD.Studio;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Ambience
@@ -9,24 +10,20 @@ namespace Ambience
     public class SoundModule : Module
     {
         public override AmbienceType AmbienceType => AmbienceType.Sound;
+
+        [SerializeField] private SoundscapeData data;
+        [SerializeField] private AmbientSound[] sounds;
+        
         public override void TotalProfiles() {
         }
 
         public override void ApplyProfiles() {
         }
 
-        [SerializeField] private SoundscapeData data;
-        [SerializeField] private AmbientSound[] sounds;
-
         public void Init() {
-            sounds = data.sounds.Clone() as AmbientSound[];
-            if (sounds != null) {
-                foreach (AmbientSound ambientSound in sounds) {
-                    ambientSound.Init();
-                }
-            }
-            else {
-                Debug.LogWarning("Ambience Sounds are null!");
+            sounds = new AmbientSound[data.sounds.Length];
+            for (int i = 0; i < data.sounds.Length; i++) {
+                sounds[i] = data.sounds[i].Clone();
             }
         }
 
@@ -52,10 +49,6 @@ namespace Ambience
             foreach (AmbientSound sound in sounds) {
                 sound.EventInstance.stop(STOP_MODE.IMMEDIATE);
             }
-        }
-
-        public void ConvertIntensity(float intensity) {
-            throw new NotImplementedException();
         }
     }
 }

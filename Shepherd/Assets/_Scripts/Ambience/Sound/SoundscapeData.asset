@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SoundscapeData
   m_EditorClassIdentifier: 
   sounds:
-  - ambienceType: 1
+  - ambienceType: 0
     <EventReference>k__BackingField:
       Guid:
         Data1: 997353299
@@ -21,7 +21,7 @@ MonoBehaviour:
         Data3: -1591232634
         Data4: -410735022
       Path: event:/Ambience/Wind
-  - ambienceType: 2
+  - ambienceType: 1
     <EventReference>k__BackingField:
       Guid:
         Data1: 1611969059
@@ -29,7 +29,7 @@ MonoBehaviour:
         Data3: 1980173699
         Data4: -2085391388
       Path: event:/Ambience/Rain
-  - ambienceType: 4
+  - ambienceType: 2
     <EventReference>k__BackingField:
       Guid:
         Data1: -31140569
@@ -37,7 +37,7 @@ MonoBehaviour:
         Data3: -539640644
         Data4: -125883149
       Path: event:/Ambience/Thunder
-  - ambienceType: 8
+  - ambienceType: 3
     <EventReference>k__BackingField:
       Guid:
         Data1: -408384411
@@ -45,7 +45,7 @@ MonoBehaviour:
         Data3: -1921986664
         Data4: 1504470165
       Path: event:/Ambience/Leaves
-  - ambienceType: 16
+  - ambienceType: 4
     <EventReference>k__BackingField:
       Guid:
         Data1: -1915324504
@@ -53,7 +53,7 @@ MonoBehaviour:
         Data3: -355071063
         Data4: -9976531
       Path: event:/Ambience/Birds
-  - ambienceType: 32
+  - ambienceType: 5
     <EventReference>k__BackingField:
       Guid:
         Data1: 1546668437

@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Ambience
 {
@@ -10,15 +8,14 @@ namespace Ambience
         public static AmbienceManager Instance { get; private set; }
         
         public LightingModule lightingModule;
-        [Space(15)]
+        [Space(25)]
         public VolumeModule volumeModule;
-        [Space(15)]
+        [Space(25)]
         public SoundModule soundModule;
-        [Space(15)]
+        [Space(25)]
         public ParticlesModule particlesModule;
-        [Space(15)]
-        [SerializeField] private List<AmbienceSource> sources = new();
         
+        private List<AmbienceSource> sources = new();
         private List<Module> modules = new();
 
         private void Awake() {

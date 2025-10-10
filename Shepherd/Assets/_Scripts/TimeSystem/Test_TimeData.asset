@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b56c517a096e2479723794af19c2c1, type: 3}
   m_Name: Test_TimeData
   m_EditorClassIdentifier: 
+  totalDayTime: 20
   dayPhases:
   - phase: 0
     timer:
