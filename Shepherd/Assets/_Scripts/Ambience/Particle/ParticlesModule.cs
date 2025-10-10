@@ -1,6 +1,7 @@
 using System;
 using Climate;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Ambience
 {
@@ -14,11 +15,11 @@ namespace Ambience
         public override void ApplyProfiles() {
         }
 
-        [SerializeField] private Rain rain;
+        [FormerlySerializedAs("rain")] [SerializeField] private RainParticle rainParticle;
         [SerializeField] private Snow snow;
 
         public void SetAmbientParticles(float intensity) {
-            rain.particles.Stop();
+            rainParticle.particles.Stop();
             snow.particles.Stop();
             
             if (intensity <= 0) return;
@@ -28,7 +29,7 @@ namespace Ambience
                 snow.particles.Play();
             }
             else {
-                rain.SetIntensity(intensity);
+                rainParticle.SetIntensity(intensity);
                 snow.particles.Play();
             }
         }

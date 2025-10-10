@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Ambience
 {
     [Serializable]
-    public class Rain : WeatherParticles, IWeatherIntensity
+    public class RainParticle : WeatherParticles, IWeatherIntensity
     {
         [SerializeField] private RainParticleData rainData;
 

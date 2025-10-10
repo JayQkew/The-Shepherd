@@ -1,8 +1,6 @@
 using System;
 using TimeSystem;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Ambience
 {
@@ -30,8 +28,6 @@ namespace Ambience
 
         public override void TotalProfiles() {
             Light tempLight = new Light();
-            Light.TotalIntensity = 0;
-            Light.Count = 1;
             Skybox tempSkybox = new Skybox();
 
             foreach (Profile profile in Profiles) {

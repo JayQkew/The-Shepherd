@@ -11,5 +11,10 @@ namespace Ambience
         public static float CalculatedIntensity => TotalIntensity / Count;
         public Color color = Color.white;
         public float intensity = 1f;
+
+        public Light() {
+            TotalIntensity = 0;
+            Count = 1;
+        }
     }
 }

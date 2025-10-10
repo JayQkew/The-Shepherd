@@ -3,14 +3,14 @@ using System;
 namespace Ambience
 {
     [Serializable]
-    public class Wind : Sound
+    public class Rain : Sound
     {
-        public override AmbientSoundType SoundType => AmbientSoundType.Wind;
+        public override AmbientSoundType SoundType => AmbientSoundType.Rain;
         public static float TotalIntensity;
         public static int Count;
         public static float CurrIntensity => TotalIntensity / Count;
 
-        public Wind() {
+        public Rain() {
             TotalIntensity = 0;
             Count = 0;
         }
