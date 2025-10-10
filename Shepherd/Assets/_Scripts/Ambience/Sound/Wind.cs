@@ -14,5 +14,10 @@ namespace Ambience
             TotalIntensity = 0;
             Count = 0;
         }
+        
+        protected override void ProcessInternal(ProfileData tempData) {
+            TotalIntensity += Intensity;
+            Count++;
+        }
     }
 }

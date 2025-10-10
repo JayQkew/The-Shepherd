@@ -16,5 +16,13 @@ namespace Ambience
             TotalIntensity = 0;
             Count = 1;
         }
+
+        protected override void ProcessInternal(ProfileData tempData) {
+            Light tempProfileData = tempData as Light;
+            tempProfileData.color = Color.Lerp(tempProfileData.color, color, 0.5f);
+            tempProfileData.color.a = 1;
+            TotalIntensity += intensity;
+            Count++;
+        }
     }
 }

@@ -42,43 +42,65 @@ namespace Ambience
 
                 foreach (ProfileData profileData in profileDatas) {
                     if (profileData.Use) {
-                        if (profileData is Wind windData) ProcessWind(windData, tempWind);
-                        else if (profileData is Rain rainData) ProcessRain(rainData, tempRain);
-                        else if (profileData is Thunder thunderData) ProcessThunder(thunderData, tempThunder);
-                        else if (profileData is Leaves leavesData) ProcessLeaves(leavesData, tempLeaves);
-                        else if (profileData is Birds birdData) ProcessBirds(birdData, tempBirds);
-                        else if (profileData is Insects insectData) ProcessInsect(insectData, tempInsects);
+                        if (profileData is Wind windData) windData.Process(tempWind);
+                        else if (profileData is Rain rainData) rainData.Process(tempRain);
+                        else if (profileData is Thunder thunderData) thunderData.Process(tempThunder);
+                        else if (profileData is Leaves leavesData) leavesData.Process(tempLeaves);
+                        else if (profileData is Birds birdData) birdData.Process(tempBirds);
+                        else if (profileData is Insects insectData) insectData.Process(tempInsects);
                     }
                 }
             }
+
+            windProfileData = tempWind;
+            rainProfileData = tempRain;
+            thunderProfileData = tempThunder;
+            leavesProfileData = tempLeaves;
+            birdProfileData = tempBirds;
+            insectsProfileData = tempInsects;
+
+            base.TotalProfiles();
         }
 
         public override void ApplyProfiles() {
-            throw new NotImplementedException();
+            ApplySoundProfile(windProfileData, Wind.Count);
+            ApplySoundProfile(rainProfileData, Rain.Count);
+            ApplySoundProfile(thunderProfileData, Thunder.Count);
+            ApplySoundProfile(leavesProfileData, Leaves.Count);
+            ApplySoundProfile(birdProfileData, Birds.Count);
+            ApplySoundProfile(insectsProfileData, Insects.Count);
         }
-        
-        public void ProcessWind(Wind windData, Wind tempProfileData){}
-        public void ProcessRain(Rain rainData, Rain tempProfileData){}
-        public void ProcessThunder(Thunder thunderData, Thunder tempProfileData){}
-        public void ProcessLeaves(Leaves leavesData, Leaves tempProfileData){}
-        public void ProcessBirds(Birds birdData, Birds tempProfileData){}
-        public void ProcessInsect(Insects insectData, Insects tempProfileData){}
+
+        public void ApplySoundProfile(Sound sound, int count) {
+            AmbientSoundType soundType = sound.SoundType;
+            EventInstance eventInstance = sounds[(int)soundType].EventInstance;
+
+            if (count > 0) {
+                eventInstance.getPlaybackState(out PLAYBACK_STATE playbackState);
+
+                if (playbackState == PLAYBACK_STATE.STOPPED) {
+                    eventInstance.start();
+                }
+                else if (playbackState == PLAYBACK_STATE.PLAYING) {
+                    eventInstance.getPaused(out bool paused);
+                    if (paused) eventInstance.setPaused(false);
+                }
+            }
+            else {
+                eventInstance.getPlaybackState(out PLAYBACK_STATE playbackState);
+
+                if (playbackState == PLAYBACK_STATE.PLAYING) eventInstance.setPaused(true);
+            }
+        }
 
         public void Init() {
             sounds = new AmbientSound[data.sounds.Length];
             for (int i = 0; i < data.sounds.Length; i++) {
                 sounds[i] = data.sounds[i].Clone();
+                sounds[i].Init();
             }
         }
 
-        public void PlaySoundRequests(Dictionary<AmbientSoundType, float> soundRequests) {
-            StopAllSounds();
-            
-            foreach (KeyValuePair<AmbientSoundType,float> soundRequest in soundRequests) {
-                PlaySound(soundRequest.Key, soundRequest.Value);
-            }
-        }
-        
         public void PlaySound(AmbientSoundType soundType, float intensity) {
             foreach (AmbientSound sound in sounds) {
                 if (sound.ambienceType == soundType) {

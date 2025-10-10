@@ -42,7 +42,7 @@ namespace Ambience
 
                 foreach (ProfileData profileData in profileDatas) {
                     if (profileData.Use) {
-                        if (profileData is HueShift hueShiftData) ProcessHueShift(hueShiftData, tempHueShift);
+                        if (profileData is HueShift hueShiftData) hueShiftData.Process(tempHueShift);
                     }
                 }
             }
@@ -54,10 +54,6 @@ namespace Ambience
 
         public override void ApplyProfiles() {
             currHueShift = hueShiftProfileData.value;
-        }
-
-        private void ProcessHueShift(HueShift hueShiftData, HueShift tempProfileData) {
-            tempProfileData.value += hueShiftData.value;
         }
 
         public void UpdateVolume() {

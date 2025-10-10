@@ -7,5 +7,10 @@ namespace Ambience
     public class Skybox : ProfileData
     {
         public Color color = Color.white;
+        protected override void ProcessInternal(ProfileData tempData) {
+            Skybox tempProfileData = tempData as Skybox;
+            tempProfileData!.color = Color.Lerp(tempProfileData.color, color, 0.5f);
+            tempProfileData.color.a = 1;
+        }
     }
 }

@@ -42,8 +42,8 @@ namespace Ambience
 
                 foreach (ProfileData profileData in profileDatas) {
                     if (profileData.Use) {
-                        if (profileData is Light lightData) ProcessLighting(lightData, tempLight);
-                        else if (profileData is Skybox skyboxData) ProcessSkybox(skyboxData, tempSkybox);
+                        if (profileData is Light lightData) lightData.Process(tempLight);
+                        else if (profileData is Skybox skyboxData) skyboxData.Process(tempSkybox);
                     }
                 }
             }
@@ -73,18 +73,6 @@ namespace Ambience
                 original.alphaKeys
             );
             return gradient;
-        }
-
-        private void ProcessLighting(Light lightData, Light tempProfileData) {
-            tempProfileData.color = Color.Lerp(tempProfileData.color, lightData.color, 0.5f);
-            tempProfileData.color.a = 1;
-            Light.TotalIntensity += lightData.intensity;
-            Light.Count++;
-        }
-
-        private void ProcessSkybox(Skybox skyboxData, Skybox tempProfileData) {
-            tempProfileData.color = Color.Lerp(tempProfileData.color, skyboxData.color, 0.5f);
-            tempProfileData.color.a = 1;
         }
 
         public void UpdateLighting() {
