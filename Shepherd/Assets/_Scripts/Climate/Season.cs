@@ -29,7 +29,9 @@ namespace Climate
                 dayTemp = 0,
                 temp = temp,
                 weatherTickets = (WeatherTicket[])weatherTickets?.Clone(),
-                ambienceSource = ambienceSource
+                ambienceSource = ambienceSource,
+                onSeasonBegin = new UnityEvent(),
+                onSeasonEnd = new UnityEvent()
             };
             return newSeason;
         }

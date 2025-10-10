@@ -93,7 +93,7 @@ namespace Ambience
 
         public void UpdateLighting() {
             if (TimeManager.Instance != null) {
-                float t = TimeManager.Instance.time.Progress;
+                float t = TimeManager.Instance.dayTime.Progress;
                 light.color = currLightGradient.Evaluate(t);
                 RenderSettings.skybox.SetColor(Tint, currSkyboxGradient.Evaluate(t));
                 LightAngle(t);
@@ -111,7 +111,7 @@ namespace Ambience
         private void SetGradient(Gradient gradient, Color[] colors) {
             if (TimeManager.Instance == null) return;
 
-            float totalSpanTime = TimeManager.Instance.time.maxTime + data.transitionTime * 2;
+            float totalSpanTime = TimeManager.Instance.dayTime.maxTime + data.transitionTime * 2;
 
             GradientColorKey[] colorKeys = new GradientColorKey[8];
 

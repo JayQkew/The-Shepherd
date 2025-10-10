@@ -47,12 +47,13 @@ namespace Ambience
                 }
             }
             
+            hueShiftProfileData = tempHueShift;
+            
             base.TotalProfiles();
         }
 
         public override void ApplyProfiles() {
             currHueShift = hueShiftProfileData.value;
-            Debug.LogWarning("HueShift Profile Applied");
         }
 
         private void ProcessHueShift(HueShift hueShiftData, HueShift tempProfileData) {
@@ -60,14 +61,16 @@ namespace Ambience
         }
 
         public void UpdateVolume() {
-            float year = TimeManager.Instance.yearTimer.Progress;
-            
-            ClampedFloatParameter hueShift = new ClampedFloatParameter(
-                data.hueShiftCurve.Evaluate(year) + currHueShift,
-                colorAdjustments.hueShift.min,
-                colorAdjustments.hueShift.max);
-                
-            colorAdjustments.hueShift.value = hueShift.value;
+            if (TimeManager.Instance != null) {
+                float year = TimeManager.Instance.yearTimer.Progress;
+
+                ClampedFloatParameter hueShift = new ClampedFloatParameter(
+                    data.hueShiftCurve.Evaluate(year) + currHueShift,
+                    colorAdjustments.hueShift.min,
+                    colorAdjustments.hueShift.max);
+
+                colorAdjustments.hueShift.value = hueShift.value;
+            }
         }
     }
 }

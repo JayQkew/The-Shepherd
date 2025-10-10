@@ -1,8 +1,9 @@
 using System;
 using Ambience;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
-using Utilities;
+using Timer = Utilities.Timer;
 
 namespace TimeSystem
 {
@@ -29,6 +30,8 @@ namespace TimeSystem
             newPhase.phase = phase;
             newPhase.timer = timer;
             newPhase.ambienceSource = ambienceSource;
+            newPhase.onPhaseStart = new UnityEvent();
+            newPhase.onPhaseEnd = new UnityEvent();
             
             return newPhase;
         }

@@ -1,6 +1,7 @@
 using Climate;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 using Utilities;
 
 namespace TimeSystem
@@ -8,14 +9,14 @@ namespace TimeSystem
     public class TimeManager : MonoBehaviour
     {
         public static TimeManager Instance { get; private set; }
-        public Timer yearTimer;
-        public Timer time;
         public uint dayCount;
         public DayPhaseName currPhase;
-
-        [Space(20)]
-        public DayPhase currDayPhase;
         public TimeData data;
+        [Space(10)]
+        public Timer yearTimer;
+        public Timer dayTime;
+        public DayPhase currDayPhase;
+        
         [HideInInspector] public DayPhase[] dayPhases;
 
         [Space(20)]
@@ -38,12 +39,12 @@ namespace TimeSystem
         }
 
         private void Update() {
-            time.Update();
+            dayTime.Update();
             yearTimer.Update();
             UpdateDayTime(dayPhases[(int)currPhase]);
 
-            if (time.IsFinished) {
-                time.Reset();
+            if (dayTime.IsFinished) {
+                dayTime.Reset();
             }
         }
 
@@ -65,7 +66,7 @@ namespace TimeSystem
 
         private void TotalTime() {
             if (data != null) {
-                time.maxTime = data.totalDayTime;
+                dayTime.maxTime = data.totalDayTime;
                 yearTimer.maxTime = data.totalDayTime * 12;
             }
         }
