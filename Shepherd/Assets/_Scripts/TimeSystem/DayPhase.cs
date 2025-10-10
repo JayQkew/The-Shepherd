@@ -16,6 +16,23 @@ namespace TimeSystem
         [SerializeField] private UnityEvent onPhaseStart;
         [SerializeField] private UnityEvent onPhaseEnd;
 
+        public DayPhase(DayPhaseName phase) {
+            this.phase = phase;
+        }
+
+        public DayPhase() {
+            
+        }
+
+        public DayPhase Clone() {
+            DayPhase newPhase = new DayPhase();
+            newPhase.phase = phase;
+            newPhase.timer = timer;
+            newPhase.ambienceSource = ambienceSource;
+            
+            return newPhase;
+        }
+
         public void UpdateTimer() {
             if (timer.Progress == 0) {
                 onPhaseStart.Invoke();

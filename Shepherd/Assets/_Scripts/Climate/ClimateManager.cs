@@ -36,11 +36,15 @@ namespace Climate
             else {
                 Destroy(gameObject);
             }
+            
+            seasons =  new Season[seasonData.seasons.Length];
+            for (int i = 0; i < seasonData.seasons.Length; i++) {
+                seasons[i] = seasonData.seasons[i].Clone();
+            }
         }
 
         private void Start() {
             timeManager = TimeManager.Instance;
-            seasons = (Season[])seasonData.seasons.Clone();
 
 
             globalTemp = seasons[(int)currSeason].SetTemp();

@@ -22,6 +22,17 @@ namespace Climate
         public UnityEvent onSeasonBegin;
         public UnityEvent onSeasonEnd;
 
+        public Season Clone() {
+            Season newSeason = new Season
+            {
+                season = season,
+                dayTemp = 0,
+                temp = temp,
+                weatherTickets = (WeatherTicket[])weatherTickets?.Clone(),
+                ambienceSource = ambienceSource
+            };
+            return newSeason;
+        }
         public float SetTemp() {
             dayTemp = temp.RandomValue();
             return dayTemp;

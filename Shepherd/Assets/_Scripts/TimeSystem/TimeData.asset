@@ -9,31 +9,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21280d77c65a2c048b7ce69d4661372f, type: 3}
-  m_Name: SeasonData
+  m_Script: {fileID: 11500000, guid: 56b56c517a096e2479723794af19c2c1, type: 3}
+  m_Name: TimeData
   m_EditorClassIdentifier: 
-  seasons:
-  - season: 0
-    dayTemp: 0
-    temp:
-      _min: 25
-      _max: 30
-    weatherTickets:
-    - {fileID: 11400000, guid: b71adf248de4a2e468e41d14ade3317a, type: 2}
-    - {fileID: 11400000, guid: e2d177625df9e974f8616c2f46f66e0a, type: 2}
-    - {fileID: 11400000, guid: 09702cb32bb3f224989df48def187838, type: 2}
-    - {fileID: 11400000, guid: 14c383d44d2d4b54687707afa8e2f9e7, type: 2}
+  dayPhases:
+  - phase: 0
+    timer:
+      maxTime: 45
+      currTime: 0
     ambienceSource:
-      name: Summer
+      name: Sunrise
       lightingProfile:
         use: 1
         light:
           Use: 1
-          color: {r: 1, g: 0.8333334, b: 0, a: 1}
+          color: {r: 0, g: 0.03676009, b: 1, a: 1}
           intensity: 0.5
         skybox:
           Use: 1
-          color: {r: 1, g: 0.8333334, b: 0, a: 1}
+          color: {r: 1, g: 0, b: 0, a: 1}
       volumeProfile:
         use: 0
         hueShift:
@@ -43,24 +37,72 @@ MonoBehaviour:
         use: 0
       particleProfile:
         use: 0
-    onSeasonBegin:
+    onPhaseStart:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: HerdingSystem.HerdManager, Assembly-CSharp
+          m_MethodName: GenerateMissions
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Start pf the DAY
+            m_BoolArgument: 0
+          m_CallState: 2
+    onPhaseEnd:
       m_PersistentCalls:
         m_Calls: []
-    onSeasonEnd:
-      m_PersistentCalls:
-        m_Calls: []
-  - season: 1
-    dayTemp: 0
-    temp:
-      _min: 10
-      _max: 20
-    weatherTickets:
-    - {fileID: 11400000, guid: 14c383d44d2d4b54687707afa8e2f9e7, type: 2}
-    - {fileID: 11400000, guid: de70dd19a10b59f4288bb4037d327197, type: 2}
-    - {fileID: 11400000, guid: 76d7c992212cf5740b27a44a1fa6c845, type: 2}
-    - {fileID: 11400000, guid: 41aa1633455a6f1499d01ed016f6fdd4, type: 2}
+  - phase: 1
+    timer:
+      maxTime: 105
+      currTime: 0
     ambienceSource:
-      name: 
+      name: Day
+      lightingProfile:
+        use: 1
+        light:
+          Use: 0
+          color: {r: 1, g: 1, b: 1, a: 1}
+          intensity: 1
+        skybox:
+          Use: 0
+          color: {r: 1, g: 1, b: 1, a: 1}
+      volumeProfile:
+        use: 0
+        hueShift:
+          Use: 0
+          value: 0
+      soundProfile:
+        use: 0
+      particleProfile:
+        use: 1
+    onPhaseStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onPhaseEnd:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: HerdingSystem.HerdManager, Assembly-CSharp
+          m_MethodName: PenMission
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - phase: 2
+    timer:
+      maxTime: 45
+      currTime: 0
+    ambienceSource:
+      name: Sunset
       lightingProfile:
         use: 0
         light:
@@ -79,24 +121,18 @@ MonoBehaviour:
         use: 0
       particleProfile:
         use: 0
-    onSeasonBegin:
+    onPhaseStart:
       m_PersistentCalls:
         m_Calls: []
-    onSeasonEnd:
+    onPhaseEnd:
       m_PersistentCalls:
         m_Calls: []
-  - season: 2
-    dayTemp: 0
-    temp:
-      _min: -5
-      _max: 5
-    weatherTickets:
-    - {fileID: 11400000, guid: 14c383d44d2d4b54687707afa8e2f9e7, type: 2}
-    - {fileID: 11400000, guid: 2035adfa12ac7d249a65e44771984a7a, type: 2}
-    - {fileID: 11400000, guid: 41aa1633455a6f1499d01ed016f6fdd4, type: 2}
-    - {fileID: 11400000, guid: de70dd19a10b59f4288bb4037d327197, type: 2}
+  - phase: 3
+    timer:
+      maxTime: 105
+      currTime: 0
     ambienceSource:
-      name: 
+      name: Night
       lightingProfile:
         use: 0
         light:
@@ -115,45 +151,9 @@ MonoBehaviour:
         use: 0
       particleProfile:
         use: 0
-    onSeasonBegin:
+    onPhaseStart:
       m_PersistentCalls:
         m_Calls: []
-    onSeasonEnd:
-      m_PersistentCalls:
-        m_Calls: []
-  - season: 3
-    dayTemp: 0
-    temp:
-      _min: 10
-      _max: 20
-    weatherTickets:
-    - {fileID: 11400000, guid: b71adf248de4a2e468e41d14ade3317a, type: 2}
-    - {fileID: 11400000, guid: 14c383d44d2d4b54687707afa8e2f9e7, type: 2}
-    - {fileID: 11400000, guid: e2d177625df9e974f8616c2f46f66e0a, type: 2}
-    - {fileID: 11400000, guid: 09702cb32bb3f224989df48def187838, type: 2}
-    ambienceSource:
-      name: 
-      lightingProfile:
-        use: 0
-        light:
-          Use: 0
-          color: {r: 1, g: 1, b: 1, a: 1}
-          intensity: 1
-        skybox:
-          Use: 0
-          color: {r: 1, g: 1, b: 1, a: 1}
-      volumeProfile:
-        use: 0
-        hueShift:
-          Use: 0
-          value: 0
-      soundProfile:
-        use: 0
-      particleProfile:
-        use: 0
-    onSeasonBegin:
-      m_PersistentCalls:
-        m_Calls: []
-    onSeasonEnd:
+    onPhaseEnd:
       m_PersistentCalls:
         m_Calls: []

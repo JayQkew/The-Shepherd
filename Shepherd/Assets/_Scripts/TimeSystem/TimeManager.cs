@@ -12,17 +12,24 @@ namespace TimeSystem
         public Timer time;
         public uint dayCount;
         public DayPhaseName currPhase;
+
         [Space(20)]
         public DayPhase currDayPhase;
-        public DayPhase[] dayPhases;
-        
+        public TimeData data;
+        [HideInInspector] public DayPhase[] dayPhases;
+
         [Space(20)]
         public UnityEvent onDayPhaseChange;
-    
+
         private void Awake() {
             if (Instance == null) {
                 Instance = this;
                 DontDestroyOnLoad(this);
+            }
+
+            dayPhases = new DayPhase[data.dayPhases.Length];
+            for (int i = 0; i < dayPhases.Length; i++) {
+                dayPhases[i] = data.dayPhases[i].Clone();
             }
         }
 
@@ -34,7 +41,7 @@ namespace TimeSystem
             time.Update();
             yearTimer.Update();
             UpdateDayTime(dayPhases[(int)currPhase]);
-        
+
             if (time.IsFinished) {
                 time.Reset();
             }
@@ -45,10 +52,10 @@ namespace TimeSystem
             if (dayPhase.timer.IsFinished) {
                 dayPhase.timer.Reset();
                 int nextPhase = ((int)dayPhase.phase + 1) % 4;
-            
+
                 currPhase = (DayPhaseName)nextPhase;
                 currDayPhase = dayPhases[nextPhase];
-            
+
                 if (nextPhase == 0) {
                     dayCount++;
                     onDayPhaseChange.Invoke();
@@ -57,17 +64,17 @@ namespace TimeSystem
         }
 
         private void TotalTime() {
-            time.maxTime = 0;
-            foreach (DayPhase dayPhase in dayPhases) {
-                time.maxTime += dayPhase.timer.maxTime;
+            if (data != null) {
+                time.maxTime = data.totalDayTime;
+                yearTimer.maxTime = data.totalDayTime * 12;
             }
-            yearTimer.maxTime = time.maxTime * 12;
-        }  
-    
+        }
+
         private void OnValidate() {
             if (Instance == null) {
                 Instance = this;
             }
+
             TotalTime();
         }
     }
