@@ -29,7 +29,13 @@ namespace Ambience
 
         protected override void ProcessInternal(ProfileData tempData) {
             Light tempProfileData = tempData as Light;
-            tempProfileData.color = Color.Lerp(tempProfileData.color, color, 0.5f);
+            if (Count == 1) {
+                tempProfileData.color = color;
+            } else {
+                // Otherwise, lerp with proper weighting
+                float weight = 1f / Count;
+                tempProfileData.color = Color.Lerp(tempProfileData.color, color, weight);
+            }
             tempProfileData.color.a = 1;
             TotalIntensity += intensity;
             Count++;

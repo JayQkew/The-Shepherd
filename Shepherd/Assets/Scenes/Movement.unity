@@ -16304,7 +16304,7 @@ MonoBehaviour:
       m_ColorSpace: -1
       m_NumColorKeys: 8
       m_NumAlphaKeys: 2
-    gradientTint: 0
+    gradientTint: 0.5
     currLightGradient:
       serializedVersion: 2
       key0: {r: 1, g: 1, b: 1, a: 1}

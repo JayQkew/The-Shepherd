@@ -78,6 +78,7 @@ namespace Ambience
             if (lerpLightTint) {
                 lightTintTimer.Update();
                 currLightTint = Color.Lerp(currLightTint, lightProfileData.color, lightTintTimer.Progress);
+                currLightGradient = TintGradient(lightGradient, currLightTint);
 
                 if (lightTintTimer.IsFinished) {
                     currLightTint = lightProfileData.color;
@@ -90,6 +91,7 @@ namespace Ambience
             if (lerpSkyboxTint) {
                 skyboxTintTimer.Update();
                 currSkyboxTint = Color.Lerp(currSkyboxTint, skyboxProfileData.color, skyboxTintTimer.Progress);
+                currSkyboxGradient = TintGradient(skyboxGradient, currSkyboxTint);
 
                 if (skyboxTintTimer.IsFinished) {
                     currSkyboxTint = skyboxProfileData.color;
@@ -136,15 +138,16 @@ namespace Ambience
         }
 
         public override void ApplyProfiles() {
-            currLightGradient = TintGradient(lightGradient, lightProfileData.color);
-            currSkyboxGradient = TintGradient(skyboxGradient, skyboxProfileData.color);
+            currLightGradient = TintGradient(lightGradient, currLightTint);
+            currSkyboxGradient = TintGradient(skyboxGradient, currSkyboxTint);
         }
 
         public Gradient TintGradient(Gradient original, Color tint) {
+            if (tint == Color.white) return original;
+            
             Gradient gradient = new Gradient();
-
             GradientColorKey[] tintedColorKeys = original.colorKeys;
-
+            
             for (int i = 0; i < tintedColorKeys.Length; i++) {
                 tintedColorKeys[i].color = Color.Lerp(tintedColorKeys[i].color, tint, gradientTint);
             }
