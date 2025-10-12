@@ -21,10 +21,10 @@ MonoBehaviour:
     ambienceSource:
       name: Sunrise
       lightingProfile:
-        use: 0
+        use: 1
         light:
-          Use: 0
-          color: {r: 0, g: 0.03676009, b: 1, a: 1}
+          Use: 1
+          color: {r: 1, g: 1, b: 1, a: 1}
           intensity: 0.5
         skybox:
           Use: 0
@@ -55,9 +55,9 @@ MonoBehaviour:
           Use: 0
           Intensity: 0
       particleProfile:
-        use: 1
+        use: 0
         rainParticle:
-          Use: 1
+          Use: 0
           particles: {fileID: 0}
           intensity: 0.5
           rainData: {fileID: 0}
@@ -79,11 +79,11 @@ MonoBehaviour:
     ambienceSource:
       name: Day
       lightingProfile:
-        use: 0
+        use: 1
         light:
-          Use: 0
+          Use: 1
           color: {r: 1, g: 1, b: 1, a: 1}
-          intensity: 1
+          intensity: 2
         skybox:
           Use: 0
           color: {r: 1, g: 1, b: 1, a: 1}
@@ -137,11 +137,11 @@ MonoBehaviour:
     ambienceSource:
       name: Sunset
       lightingProfile:
-        use: 0
+        use: 1
         light:
           Use: 0
           color: {r: 1, g: 1, b: 1, a: 1}
-          intensity: 1
+          intensity: 0.5
         skybox:
           Use: 0
           color: {r: 1, g: 1, b: 1, a: 1}

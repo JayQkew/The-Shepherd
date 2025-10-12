@@ -1,7 +1,5 @@
 using System;
-using System.Collections.Generic;
 using FMOD.Studio;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Ambience

@@ -1,6 +1,8 @@
 using System;
 using TimeSystem;
 using UnityEngine;
+using UnityEngine.Serialization;
+using Utilities;
 
 namespace Ambience
 {
@@ -20,11 +22,30 @@ namespace Ambience
         [SerializeField] private Gradient currLightGradient;
         [SerializeField] private Gradient currSkyboxGradient;
 
+        [Header("Lerp Values")]
+        [SerializeField] private bool lerpIntensity;
+        [SerializeField] private Timer intensityTimer;
+        [SerializeField] private float currIntensity;
+
+        [SerializeField] private bool lerpLightTint;
+        [SerializeField] private Timer lightTintTimer;
+        [SerializeField] private Color currLightTint;
+
+        [SerializeField] private bool lerpSkyboxTint;
+        [SerializeField] private Timer skyboxTintTimer;
+        [SerializeField] private Color currSkyboxTint;
+        
         [Space(15)]
         [SerializeField] private Light lightProfileData;
         [SerializeField] private Skybox skyboxProfileData;
-        
+
         private static readonly int Tint = Shader.PropertyToID("_Tint");
+
+        public override void Init() {
+            currIntensity = Light.TotalIntensity / (Light.Count == 0 ? 1 : Light.Count);
+            currLightTint = lightProfileData.color;
+            currSkyboxTint = skyboxProfileData.color;
+        }
 
         public override void UpdateModule() {
             if (TimeManager.Instance != null) {
@@ -32,7 +53,48 @@ namespace Ambience
                 light.color = currLightGradient.Evaluate(t);
                 RenderSettings.skybox.SetColor(Tint, currSkyboxGradient.Evaluate(t));
                 LightAngle(t);
-                light.intensity = data.intensityCurve.Evaluate(t) * Light.CalculatedIntensity;
+
+                LerpIntensity();
+                LerpLightTint();
+                LerpSkyboxTint();
+
+                light.intensity = data.intensityCurve.Evaluate(t) * currIntensity;
+            }
+        }
+
+        private void LerpIntensity() {
+            if (lerpIntensity) {
+                intensityTimer.Update();
+                currIntensity = Mathf.Lerp(currIntensity, lightProfileData.intensity, intensityTimer.Progress);
+                
+                if (intensityTimer.IsFinished) {
+                    currIntensity = lightProfileData.intensity;
+                    lerpIntensity = false;
+                }
+            }
+        }
+
+        private void LerpLightTint() {
+            if (lerpLightTint) {
+                lightTintTimer.Update();
+                currLightTint = Color.Lerp(currLightTint, lightProfileData.color, lightTintTimer.Progress);
+
+                if (lightTintTimer.IsFinished) {
+                    currLightTint = lightProfileData.color;
+                    lerpLightTint = false;
+                }
+            }
+        }
+
+        private void LerpSkyboxTint() {
+            if (lerpSkyboxTint) {
+                skyboxTintTimer.Update();
+                currSkyboxTint = Color.Lerp(currSkyboxTint, skyboxProfileData.color, skyboxTintTimer.Progress);
+
+                if (skyboxTintTimer.IsFinished) {
+                    currSkyboxTint = skyboxProfileData.color;
+                    lerpSkyboxTint = false;
+                }
             }
         }
 
@@ -58,8 +120,17 @@ namespace Ambience
                 }
             }
 
-            lightProfileData = tempLight;
-            skyboxProfileData = tempSkybox;
+            lightProfileData = tempLight.Clone();
+            lightProfileData.intensity = Light.TotalIntensity / (Light.Count == 0 ? 1 : Light.Count);
+            skyboxProfileData = tempSkybox.Clone();
+
+            lerpIntensity = !Mathf.Approximately(currIntensity, lightProfileData.intensity);
+            lerpLightTint = lightProfileData.color != currLightTint;
+            lerpSkyboxTint = skyboxProfileData.color != currSkyboxTint;
+            
+            if(lerpIntensity) intensityTimer.Reset();
+            if(lerpLightTint) lightTintTimer.Reset();
+            if(lerpSkyboxTint) skyboxTintTimer.Reset();
 
             base.TotalProfiles();
         }
@@ -84,7 +155,7 @@ namespace Ambience
             );
             return gradient;
         }
-        
+
         private void LightAngle(float t) {
             float xAngle = 15 + Mathf.Abs(Mathf.Sin(t * 2 * Mathf.PI)) * 15;
             float yAngle = Mathf.Lerp(-90f, 90f, Mathf.Repeat(t * 2, 1f));

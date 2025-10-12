@@ -8,13 +8,23 @@ namespace Ambience
     {
         public static float TotalIntensity;
         public static int Count;
-        public static float CalculatedIntensity => TotalIntensity / Count;
         public Color color = Color.white;
         public float intensity = 1f;
 
         public Light() {
-            TotalIntensity = 0;
+            TotalIntensity = 1;
             Count = 1;
+        }
+
+        public Light(Color color, float intensity) {
+            this.color = color;
+            this.intensity = intensity;
+        }
+
+        public Light Clone() {
+            Light newLight = new Light (color, intensity);
+
+            return newLight;
         }
 
         protected override void ProcessInternal(ProfileData tempData) {

@@ -26,7 +26,6 @@ namespace Climate
             if (!Mathf.Approximately(newTemp, currTemp)) {
                 currTemp = newTemp;
                 onTempChange?.Invoke();
-                Debug.Log($"Temp: {currTemp}");
             }
             return currTemp;
         }

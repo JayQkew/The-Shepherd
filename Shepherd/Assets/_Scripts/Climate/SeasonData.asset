@@ -26,13 +26,13 @@ MonoBehaviour:
     ambienceSource:
       name: Summer
       lightingProfile:
-        use: 1
+        use: 0
         light:
-          Use: 1
+          Use: 0
           color: {r: 1, g: 0.8333334, b: 0, a: 1}
-          intensity: 0.5
+          intensity: 1
         skybox:
-          Use: 1
+          Use: 0
           color: {r: 1, g: 0.8333334, b: 0, a: 1}
       volumeProfile:
         use: 0
@@ -61,6 +61,16 @@ MonoBehaviour:
           Intensity: 0
       particleProfile:
         use: 0
+        rainParticle:
+          Use: 0
+          particles: {fileID: 0}
+          intensity: 0
+          rainData: {fileID: 0}
+        snowParticle:
+          Use: 0
+          particles: {fileID: 0}
+          intensity: 0
+          snowData: {fileID: 0}
     onSeasonBegin:
       m_PersistentCalls:
         m_Calls: []
@@ -78,7 +88,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 76d7c992212cf5740b27a44a1fa6c845, type: 2}
     - {fileID: 11400000, guid: 41aa1633455a6f1499d01ed016f6fdd4, type: 2}
     ambienceSource:
-      name: 
+      name: Autumn
       lightingProfile:
         use: 0
         light:
@@ -115,6 +125,16 @@ MonoBehaviour:
           Intensity: 0
       particleProfile:
         use: 0
+        rainParticle:
+          Use: 0
+          particles: {fileID: 0}
+          intensity: 0
+          rainData: {fileID: 0}
+        snowParticle:
+          Use: 0
+          particles: {fileID: 0}
+          intensity: 0
+          snowData: {fileID: 0}
     onSeasonBegin:
       m_PersistentCalls:
         m_Calls: []
@@ -169,6 +189,16 @@ MonoBehaviour:
           Intensity: 0
       particleProfile:
         use: 0
+        rainParticle:
+          Use: 0
+          particles: {fileID: 0}
+          intensity: 0
+          rainData: {fileID: 0}
+        snowParticle:
+          Use: 0
+          particles: {fileID: 0}
+          intensity: 0
+          snowData: {fileID: 0}
     onSeasonBegin:
       m_PersistentCalls:
         m_Calls: []
@@ -223,6 +253,16 @@ MonoBehaviour:
           Intensity: 0
       particleProfile:
         use: 0
+        rainParticle:
+          Use: 0
+          particles: {fileID: 0}
+          intensity: 0
+          rainData: {fileID: 0}
+        snowParticle:
+          Use: 0
+          particles: {fileID: 0}
+          intensity: 0
+          snowData: {fileID: 0}
     onSeasonBegin:
       m_PersistentCalls:
         m_Calls: []
