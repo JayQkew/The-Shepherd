@@ -22,6 +22,14 @@ namespace Ambience
         [SerializeField] private Birds birdProfileData;
         [SerializeField] private Insects insectsProfileData;
         
+        public override void Init() {
+            sounds = new AmbientSound[data.sounds.Length];
+            for (int i = 0; i < data.sounds.Length; i++) {
+                sounds[i] = data.sounds[i].Clone();
+                sounds[i].Init();
+            }
+        }
+
         public override void TotalProfiles() {
             Wind tempWind = new Wind();
             Rain tempRain = new Rain();
@@ -92,15 +100,7 @@ namespace Ambience
                 if (playbackState == PLAYBACK_STATE.PLAYING) eventInstance.setPaused(true);
             }
         }
-
-        public void Init() {
-            sounds = new AmbientSound[data.sounds.Length];
-            for (int i = 0; i < data.sounds.Length; i++) {
-                sounds[i] = data.sounds[i].Clone();
-                sounds[i].Init();
-            }
-        }
-
+        
         public void PlaySound(AmbientSoundType soundType, float intensity) {
             foreach (AmbientSound sound in sounds) {
                 if (sound.ambienceType == soundType) {

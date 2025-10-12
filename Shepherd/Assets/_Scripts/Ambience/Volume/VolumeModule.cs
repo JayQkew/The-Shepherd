@@ -15,15 +15,25 @@ namespace Ambience
         [SerializeField] private Volume volume;
 
         [Space(15)]
-        [SerializeField] private float currHueShift;
-
-        [Space(15)]
         [SerializeField] private HueShift hueShiftProfileData;
         
         private ColorAdjustments colorAdjustments;
-        public void Init() {
+        public override void Init() {
             if (volume != null) {
                 volume.profile.TryGet(out colorAdjustments);
+            }
+        }
+        
+        public override void UpdateModule() {
+            if (TimeManager.Instance != null) {
+                float year = TimeManager.Instance.yearTimer.Progress;
+
+                ClampedFloatParameter hueShift = new ClampedFloatParameter(
+                    data.hueShiftCurve.Evaluate(year) + hueShiftProfileData.value,
+                    colorAdjustments.hueShift.min,
+                    colorAdjustments.hueShift.max);
+
+                colorAdjustments.hueShift.value = hueShift.value;
             }
         }
         
@@ -52,21 +62,6 @@ namespace Ambience
             base.TotalProfiles();
         }
 
-        public override void ApplyProfiles() {
-            currHueShift = hueShiftProfileData.value;
-        }
-
-        public void UpdateVolume() {
-            if (TimeManager.Instance != null) {
-                float year = TimeManager.Instance.yearTimer.Progress;
-
-                ClampedFloatParameter hueShift = new ClampedFloatParameter(
-                    data.hueShiftCurve.Evaluate(year) + currHueShift,
-                    colorAdjustments.hueShift.min,
-                    colorAdjustments.hueShift.max);
-
-                colorAdjustments.hueShift.value = hueShift.value;
-            }
-        }
+        public override void ApplyProfiles() { }
     }
 }

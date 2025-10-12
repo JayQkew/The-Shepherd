@@ -16,7 +16,13 @@ namespace Ambience
         public ParticlesModule particlesModule;
         
         private List<AmbienceSource> sources = new();
-        private List<Module> modules = new();
+        private Module[] modules => new Module[]
+        {
+            lightingModule,
+            volumeModule,
+            soundModule,
+            particlesModule
+        };
 
         private void Awake() {
             if (Instance == null) {
@@ -25,13 +31,20 @@ namespace Ambience
             else {
                 Destroy(this);
             }
-            
-            modules.Add(lightingModule);
-            modules.Add(volumeModule);
-            modules.Add(soundModule);
-            modules.Add(particlesModule);
         }
 
+        private void Start() {
+            foreach (Module module in modules) {
+                module.Init();
+            }
+        }
+
+        private void Update() {
+            foreach (Module module in modules) {
+                module.UpdateModule();
+            }
+        }
+        
         public void AddSource(AmbienceSource source) {
             sources.Add(source);
             source.DelegateProfiles(modules);
@@ -40,16 +53,6 @@ namespace Ambience
         public void RemoveSources(AmbienceSource source) {
             sources.Remove(source);
             source.BanishProfiles(modules);
-        }
-
-        private void Start() {
-            volumeModule.Init();
-            soundModule.Init();
-        }
-
-        private void Update() {
-            lightingModule.UpdateLighting();
-            volumeModule.UpdateVolume();
         }
 
         private void OnValidate() {

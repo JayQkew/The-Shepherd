@@ -54,7 +54,7 @@ namespace Ambience
         /// <summary>
         /// Adds the profiles in UsedProfiles into their respective modules
         /// </summary>
-        public void DelegateProfiles(List<Module> modules) {
+        public void DelegateProfiles(Module[] modules) {
             foreach (Module module in modules) {
                 foreach (Profile profile in UsedProfiles) {
                     if (module.AmbienceType == profile.AmbienceType) {
@@ -70,7 +70,7 @@ namespace Ambience
         /// <summary>
         /// Removes the profiles in UsedProfiles from their respective modules
         /// </summary>
-        public void BanishProfiles(List<Module> modules) {
+        public void BanishProfiles(Module[] modules) {
             foreach (Module module in modules) {
                 foreach (Profile profile in UsedProfiles) {
                     if (module.AmbienceType == profile.AmbienceType) {

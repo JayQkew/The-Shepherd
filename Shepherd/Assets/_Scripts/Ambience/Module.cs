@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Ambience
 {
@@ -10,6 +8,10 @@ namespace Ambience
         public abstract AmbienceType AmbienceType { get;  }
         protected List<Profile> Profiles = new();
         [SerializeField] private int numProfiles;
+
+        public virtual void Init() { }
+
+        public virtual void UpdateModule() { }
 
         public void AddProfile(Profile profile) {
             if (Profiles.Contains(profile)) return;
