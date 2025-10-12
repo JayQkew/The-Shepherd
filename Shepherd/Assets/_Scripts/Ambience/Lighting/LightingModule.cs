@@ -23,17 +23,10 @@ namespace Ambience
         [SerializeField] private Gradient currSkyboxGradient;
 
         [Header("Lerp Values")]
-        [SerializeField] private bool lerpIntensity;
-        [SerializeField] private Timer intensityTimer;
-        [SerializeField] private float currIntensity;
-
-        [SerializeField] private bool lerpLightTint;
-        [SerializeField] private Timer lightTintTimer;
-        [SerializeField] private Color currLightTint;
-
-        [SerializeField] private bool lerpSkyboxTint;
-        [SerializeField] private Timer skyboxTintTimer;
-        [SerializeField] private Color currSkyboxTint;
+        [SerializeField] private float lerpTime;
+        [SerializeField] private AmbienceLerp<float> intensityLerp;
+        [SerializeField] private AmbienceLerp<Color> lightTintLerp;
+        [SerializeField] private AmbienceLerp<Color> skyboxTintLerp;
         
         [Space(15)]
         [SerializeField] private Light lightProfileData;
@@ -42,61 +35,32 @@ namespace Ambience
         private static readonly int Tint = Shader.PropertyToID("_Tint");
 
         public override void Init() {
-            currIntensity = Light.TotalIntensity / (Light.Count == 0 ? 1 : Light.Count);
-            currLightTint = lightProfileData.color;
-            currSkyboxTint = skyboxProfileData.color;
+            float initialIntensity = Light.TotalIntensity / (Light.Count == 0 ? 1 : Light.Count);
+            intensityLerp = new AmbienceLerp<float>(lerpTime, initialIntensity);
+            lightTintLerp = new AmbienceLerp<Color>(lerpTime, lightProfileData.color);
+            skyboxTintLerp = new AmbienceLerp<Color>(lerpTime, skyboxProfileData.color);
         }
 
         public override void UpdateModule() {
             if (TimeManager.Instance != null) {
                 float t = TimeManager.Instance.dayTime.Progress;
+                
+                intensityLerp.Update();
+                lightTintLerp.Update();
+                skyboxTintLerp.Update();
+
+                if (lightTintLerp.IsLerping) {
+                    currLightGradient = TintGradient(lightGradient, lightTintLerp.CurrentValue);
+                }                
+                if (skyboxTintLerp.IsLerping) {
+                    currSkyboxGradient = TintGradient(skyboxGradient, skyboxTintLerp.CurrentValue);
+                }
+                
                 light.color = currLightGradient.Evaluate(t);
                 RenderSettings.skybox.SetColor(Tint, currSkyboxGradient.Evaluate(t));
+                light.intensity = data.intensityCurve.Evaluate(t) * intensityLerp.CurrentValue;
+
                 LightAngle(t);
-
-                LerpIntensity();
-                LerpLightTint();
-                LerpSkyboxTint();
-
-                light.intensity = data.intensityCurve.Evaluate(t) * currIntensity;
-            }
-        }
-
-        private void LerpIntensity() {
-            if (lerpIntensity) {
-                intensityTimer.Update();
-                currIntensity = Mathf.Lerp(currIntensity, lightProfileData.intensity, intensityTimer.Progress);
-                
-                if (intensityTimer.IsFinished) {
-                    currIntensity = lightProfileData.intensity;
-                    lerpIntensity = false;
-                }
-            }
-        }
-
-        private void LerpLightTint() {
-            if (lerpLightTint) {
-                lightTintTimer.Update();
-                currLightTint = Color.Lerp(currLightTint, lightProfileData.color, lightTintTimer.Progress);
-                currLightGradient = TintGradient(lightGradient, currLightTint);
-
-                if (lightTintTimer.IsFinished) {
-                    currLightTint = lightProfileData.color;
-                    lerpLightTint = false;
-                }
-            }
-        }
-
-        private void LerpSkyboxTint() {
-            if (lerpSkyboxTint) {
-                skyboxTintTimer.Update();
-                currSkyboxTint = Color.Lerp(currSkyboxTint, skyboxProfileData.color, skyboxTintTimer.Progress);
-                currSkyboxGradient = TintGradient(skyboxGradient, currSkyboxTint);
-
-                if (skyboxTintTimer.IsFinished) {
-                    currSkyboxTint = skyboxProfileData.color;
-                    lerpSkyboxTint = false;
-                }
             }
         }
 
@@ -126,20 +90,16 @@ namespace Ambience
             lightProfileData.intensity = Light.TotalIntensity / (Light.Count == 0 ? 1 : Light.Count);
             skyboxProfileData = tempSkybox.Clone();
 
-            lerpIntensity = !Mathf.Approximately(currIntensity, lightProfileData.intensity);
-            lerpLightTint = lightProfileData.color != currLightTint;
-            lerpSkyboxTint = skyboxProfileData.color != currSkyboxTint;
-            
-            if(lerpIntensity) intensityTimer.Reset();
-            if(lerpLightTint) lightTintTimer.Reset();
-            if(lerpSkyboxTint) skyboxTintTimer.Reset();
+            intensityLerp.StartLerp(lightProfileData.intensity);
+            lightTintLerp.StartLerp(lightProfileData.color);
+            skyboxTintLerp.StartLerp(skyboxProfileData.color);
 
             base.TotalProfiles();
         }
 
         public override void ApplyProfiles() {
-            currLightGradient = TintGradient(lightGradient, currLightTint);
-            currSkyboxGradient = TintGradient(skyboxGradient, currSkyboxTint);
+            currLightGradient = TintGradient(lightGradient, lightTintLerp.CurrentValue);
+            currSkyboxGradient = TintGradient(skyboxGradient, skyboxTintLerp.CurrentValue);
         }
 
         public Gradient TintGradient(Gradient original, Color tint) {

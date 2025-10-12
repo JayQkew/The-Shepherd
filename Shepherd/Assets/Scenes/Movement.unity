@@ -16365,21 +16365,28 @@ MonoBehaviour:
       m_ColorSpace: -1
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    lerpIntensity: 0
-    intensityTimer:
-      maxTime: 1
-      currTime: 0
-    currIntensity: 1
-    lerpLightTint: 0
-    lightTintTimer:
-      maxTime: 1
-      currTime: 0
-    currLightTint: {r: 0, g: 0, b: 0, a: 0}
-    lerpSkyboxTint: 0
-    skyboxTintTimer:
-      maxTime: 1
-      currTime: 0
-    currSkyboxTint: {r: 0, g: 0, b: 0, a: 0}
+    lerpTime: 1
+    intensityLerp:
+      lerping: 0
+      timer:
+        maxTime: 0
+        currTime: 0
+      currValue: 0
+      targetValue: 0
+    lightTintLerp:
+      lerping: 0
+      timer:
+        maxTime: 0
+        currTime: 0
+      currValue: {r: 0, g: 0, b: 0, a: 0}
+      targetValue: {r: 0, g: 0, b: 0, a: 0}
+    skyboxTintLerp:
+      lerping: 0
+      timer:
+        maxTime: 0
+        currTime: 0
+      currValue: {r: 0, g: 0, b: 0, a: 0}
+      targetValue: {r: 0, g: 0, b: 0, a: 0}
     lightProfileData:
       Use: 0
       color: {r: 1, g: 1, b: 1, a: 1}
@@ -16391,6 +16398,14 @@ MonoBehaviour:
     numProfiles: 0
     data: {fileID: 11400000, guid: 8836b0fff322f0446a9e64a34f0cb61d, type: 2}
     volume: {fileID: 832575518}
+    lerpTime: 1
+    hueShiftLerp:
+      lerping: 0
+      timer:
+        maxTime: 0
+        currTime: 0
+      currValue: 0
+      targetValue: 0
     hueShiftProfileData:
       Use: 0
       value: 0

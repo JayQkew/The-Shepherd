@@ -3,6 +3,8 @@ using TimeSystem;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.Serialization;
+using Utilities;
 
 namespace Ambience
 {
@@ -14,6 +16,10 @@ namespace Ambience
         [SerializeField] private VolumeData data;
         [SerializeField] private Volume volume;
 
+        [Header("Lerp Values")]
+        [SerializeField] private float lerpTime;
+        [SerializeField] private AmbienceLerp<float> hueShiftLerp;
+
         [Space(15)]
         [SerializeField] private HueShift hueShiftProfileData;
         
@@ -22,14 +28,18 @@ namespace Ambience
             if (volume != null) {
                 volume.profile.TryGet(out colorAdjustments);
             }
+            
+            hueShiftLerp = new AmbienceLerp<float>(lerpTime, hueShiftProfileData.value);
         }
         
         public override void UpdateModule() {
             if (TimeManager.Instance != null) {
                 float year = TimeManager.Instance.yearTimer.Progress;
+                
+                hueShiftLerp.Update();
 
                 ClampedFloatParameter hueShift = new ClampedFloatParameter(
-                    data.hueShiftCurve.Evaluate(year) + hueShiftProfileData.value,
+                    data.hueShiftCurve.Evaluate(year) + hueShiftLerp.CurrentValue,
                     colorAdjustments.hueShift.min,
                     colorAdjustments.hueShift.max);
 
@@ -57,7 +67,7 @@ namespace Ambience
                 }
             }
             
-            hueShiftProfileData = tempHueShift;
+            hueShiftLerp.StartLerp(hueShiftProfileData.value);
             
             base.TotalProfiles();
         }
