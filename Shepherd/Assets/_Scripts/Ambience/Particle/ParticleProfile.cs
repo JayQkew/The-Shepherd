@@ -6,8 +6,16 @@ namespace Ambience
     public class ParticleProfile : Profile
     {
         public override AmbienceType AmbienceType => AmbienceType.Particles;
+        
+        public RainParticle rainParticle;
+        public SnowParticle snowParticle;
+        
         public override ProfileData[] GetProfileDatas() {
-            throw new NotImplementedException();
+            return new ProfileData[]
+            {
+                rainParticle,
+                snowParticle
+            };
         }
     }
 }

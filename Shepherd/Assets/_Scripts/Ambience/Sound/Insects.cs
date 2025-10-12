@@ -16,8 +16,10 @@ namespace Ambience
         }
 
         protected override void ProcessInternal(ProfileData tempData) {
+            Insects tempProfileData = tempData as Insects;
             TotalIntensity += Intensity;
             Count++;
+            tempProfileData.Intensity = CurrIntensity;
         }
     }
 }

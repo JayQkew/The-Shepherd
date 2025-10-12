@@ -40,7 +40,25 @@ MonoBehaviour:
           Use: 0
           value: 0
       soundProfile:
-        use: 0
+        use: 1
+        wind:
+          Use: 1
+          Intensity: 1
+        rain:
+          Use: 0
+          Intensity: 0
+        thunder:
+          Use: 0
+          Intensity: 0
+        leaves:
+          Use: 0
+          Intensity: 0
+        birds:
+          Use: 0
+          Intensity: 0
+        insects:
+          Use: 0
+          Intensity: 0
       particleProfile:
         use: 0
     onSeasonBegin:
@@ -77,6 +95,24 @@ MonoBehaviour:
           value: 0
       soundProfile:
         use: 0
+        wind:
+          Use: 0
+          Intensity: 0
+        rain:
+          Use: 0
+          Intensity: 0
+        thunder:
+          Use: 0
+          Intensity: 0
+        leaves:
+          Use: 0
+          Intensity: 0
+        birds:
+          Use: 0
+          Intensity: 0
+        insects:
+          Use: 0
+          Intensity: 0
       particleProfile:
         use: 0
     onSeasonBegin:
@@ -113,6 +149,24 @@ MonoBehaviour:
           value: 0
       soundProfile:
         use: 0
+        wind:
+          Use: 0
+          Intensity: 0
+        rain:
+          Use: 0
+          Intensity: 0
+        thunder:
+          Use: 0
+          Intensity: 0
+        leaves:
+          Use: 0
+          Intensity: 0
+        birds:
+          Use: 0
+          Intensity: 0
+        insects:
+          Use: 0
+          Intensity: 0
       particleProfile:
         use: 0
     onSeasonBegin:
@@ -149,6 +203,24 @@ MonoBehaviour:
           value: 0
       soundProfile:
         use: 0
+        wind:
+          Use: 0
+          Intensity: 0
+        rain:
+          Use: 0
+          Intensity: 0
+        thunder:
+          Use: 0
+          Intensity: 0
+        leaves:
+          Use: 0
+          Intensity: 0
+        birds:
+          Use: 0
+          Intensity: 0
+        insects:
+          Use: 0
+          Intensity: 0
       particleProfile:
         use: 0
     onSeasonBegin:

@@ -53,17 +53,11 @@ namespace Ambience
             }
 
             windProfileData = tempWind;
-            windProfileData.Intensity = Wind.CurrIntensity;
             rainProfileData = tempRain;
-            rainProfileData.Intensity = Rain.CurrIntensity;
             thunderProfileData = tempThunder;
-            thunderProfileData.Intensity = Thunder.CurrIntensity;
             leavesProfileData = tempLeaves;
-            leavesProfileData.Intensity = Leaves.CurrIntensity;
             birdProfileData = tempBirds;
-            birdProfileData.Intensity = Birds.CurrIntensity;
             insectsProfileData = tempInsects;
-            insectsProfileData.Intensity = Insects.CurrIntensity;
 
             base.TotalProfiles();
         }

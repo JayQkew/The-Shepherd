@@ -35,11 +35,5 @@ namespace Climate
             onWeatherEnd.Invoke();
             ambienceSource.Unsubscribe();
         }
-
-        public void ApplyAmbiance() {
-            if (weatherType.HasFlag(WeatherType.Rainy)) {
-                AmbienceManager.Instance.particlesModule.SetAmbientParticles(intensity);
-            }
-        }
     }
 }

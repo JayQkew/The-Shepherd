@@ -174,14 +174,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a39c865d6decf0746b6b919f9ff4788b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dayCount: 0
+  currPhase: 0
+  data: {fileID: 11400000, guid: 901773d6503a38842a166c30eea5b4d2, type: 2}
   yearTimer:
     maxTime: 240
     currTime: 0
-  time:
+  dayTime:
     maxTime: 20
     currTime: 0
-  dayCount: 0
-  currPhase: 0
   currDayPhase:
     phase: 0
     timer:
@@ -205,15 +206,42 @@ MonoBehaviour:
           value: 0
       soundProfile:
         use: 0
+        wind:
+          Use: 0
+          Intensity: 0
+        rain:
+          Use: 0
+          Intensity: 0
+        thunder:
+          Use: 0
+          Intensity: 0
+        leaves:
+          Use: 0
+          Intensity: 0
+        birds:
+          Use: 0
+          Intensity: 0
+        insects:
+          Use: 0
+          Intensity: 0
       particleProfile:
         use: 0
+        rainParticle:
+          Use: 0
+          particles: {fileID: 0}
+          intensity: 0
+          rainData: {fileID: 0}
+        snowParticle:
+          Use: 0
+          particles: {fileID: 0}
+          intensity: 0
+          snowData: {fileID: 0}
     onPhaseStart:
       m_PersistentCalls:
         m_Calls: []
     onPhaseEnd:
       m_PersistentCalls:
         m_Calls: []
-  data: {fileID: 11400000, guid: 901773d6503a38842a166c30eea5b4d2, type: 2}
   dayPhases:
   - phase: 0
     timer:
@@ -237,8 +265,36 @@ MonoBehaviour:
           value: 0
       soundProfile:
         use: 0
+        wind:
+          Use: 0
+          Intensity: 0
+        rain:
+          Use: 0
+          Intensity: 0
+        thunder:
+          Use: 0
+          Intensity: 0
+        leaves:
+          Use: 0
+          Intensity: 0
+        birds:
+          Use: 0
+          Intensity: 0
+        insects:
+          Use: 0
+          Intensity: 0
       particleProfile:
         use: 0
+        rainParticle:
+          Use: 0
+          particles: {fileID: 0}
+          intensity: 0
+          rainData: {fileID: 0}
+        snowParticle:
+          Use: 0
+          particles: {fileID: 0}
+          intensity: 0
+          snowData: {fileID: 0}
     onPhaseStart:
       m_PersistentCalls:
         m_Calls: []
@@ -267,8 +323,36 @@ MonoBehaviour:
           value: 0
       soundProfile:
         use: 0
+        wind:
+          Use: 0
+          Intensity: 0
+        rain:
+          Use: 0
+          Intensity: 0
+        thunder:
+          Use: 0
+          Intensity: 0
+        leaves:
+          Use: 0
+          Intensity: 0
+        birds:
+          Use: 0
+          Intensity: 0
+        insects:
+          Use: 0
+          Intensity: 0
       particleProfile:
         use: 0
+        rainParticle:
+          Use: 0
+          particles: {fileID: 0}
+          intensity: 0
+          rainData: {fileID: 0}
+        snowParticle:
+          Use: 0
+          particles: {fileID: 0}
+          intensity: 0
+          snowData: {fileID: 0}
     onPhaseStart:
       m_PersistentCalls:
         m_Calls: []
@@ -297,8 +381,36 @@ MonoBehaviour:
           value: 0
       soundProfile:
         use: 0
+        wind:
+          Use: 0
+          Intensity: 0
+        rain:
+          Use: 0
+          Intensity: 0
+        thunder:
+          Use: 0
+          Intensity: 0
+        leaves:
+          Use: 0
+          Intensity: 0
+        birds:
+          Use: 0
+          Intensity: 0
+        insects:
+          Use: 0
+          Intensity: 0
       particleProfile:
         use: 0
+        rainParticle:
+          Use: 0
+          particles: {fileID: 0}
+          intensity: 0
+          rainData: {fileID: 0}
+        snowParticle:
+          Use: 0
+          particles: {fileID: 0}
+          intensity: 0
+          snowData: {fileID: 0}
     onPhaseStart:
       m_PersistentCalls:
         m_Calls: []
@@ -327,8 +439,36 @@ MonoBehaviour:
           value: 0
       soundProfile:
         use: 0
+        wind:
+          Use: 0
+          Intensity: 0
+        rain:
+          Use: 0
+          Intensity: 0
+        thunder:
+          Use: 0
+          Intensity: 0
+        leaves:
+          Use: 0
+          Intensity: 0
+        birds:
+          Use: 0
+          Intensity: 0
+        insects:
+          Use: 0
+          Intensity: 0
       particleProfile:
         use: 0
+        rainParticle:
+          Use: 0
+          particles: {fileID: 0}
+          intensity: 0
+          rainData: {fileID: 0}
+        snowParticle:
+          Use: 0
+          particles: {fileID: 0}
+          intensity: 0
+          snowData: {fileID: 0}
     onPhaseStart:
       m_PersistentCalls:
         m_Calls: []
@@ -6264,7 +6404,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 1
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -16244,18 +16384,36 @@ MonoBehaviour:
     numProfiles: 0
     data: {fileID: 11400000, guid: 5c4277f5e6fdeb3448254da8a1c0499a, type: 2}
     sounds: []
+    windProfileData:
+      Use: 0
+      Intensity: 0
+    rainProfileData:
+      Use: 0
+      Intensity: 0
+    thunderProfileData:
+      Use: 0
+      Intensity: 0
+    leavesProfileData:
+      Use: 0
+      Intensity: 0
+    birdProfileData:
+      Use: 0
+      Intensity: 0
+    insectsProfileData:
+      Use: 0
+      Intensity: 0
   particlesModule:
     numProfiles: 0
-    rain:
-      particles: {fileID: 0}
+    rainProfileData:
+      Use: 0
+      particles: {fileID: 1847237634}
       intensity: 0
-      rainData: {fileID: 0}
-    snow:
-      particles: {fileID: 0}
+      rainData: {fileID: 11400000, guid: 1eb3ac8193319a04f9a1bac5602cb7fd, type: 2}
+    snowProfileData:
+      Use: 0
+      particles: {fileID: 845522035}
       intensity: 0
-      snowData: {fileID: 0}
-      thresh: 0
-  sources: []
+      snowData: {fileID: 11400000, guid: 361bcfd6f9766464cad0665ab6912aaf, type: 2}
 --- !u!1001 &1670566537
 PrefabInstance:
   m_ObjectHideFlags: 0
