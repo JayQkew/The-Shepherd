@@ -11,6 +11,7 @@ namespace Ambience
 
         [SerializeField] private SoundscapeData data;
         [SerializeField] private AmbientSound[] sounds;
+        private bool initialized;
 
         [Space(15)]
         [SerializeField] private Wind windProfileData;
@@ -21,14 +22,19 @@ namespace Ambience
         [SerializeField] private Insects insectsProfileData;
         
         public override void Init() {
+            if (initialized) return;
+            
             sounds = new AmbientSound[data.sounds.Length];
             for (int i = 0; i < data.sounds.Length; i++) {
                 sounds[i] = data.sounds[i].Clone();
                 sounds[i].Init();
             }
+            
+            initialized = true;
         }
 
         public override void TotalProfiles() {
+            Init();
             Wind tempWind = new Wind();
             Rain tempRain = new Rain();
             Thunder tempThunder = new Thunder();

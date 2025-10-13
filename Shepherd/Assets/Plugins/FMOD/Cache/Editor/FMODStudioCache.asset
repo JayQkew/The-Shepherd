@@ -424,10 +424,10 @@ MonoBehaviour:
   Path: ../Shepherd_FMod/Build/Desktop/Ambience.bank
   Name: Ambience
   StudioPath: bank:/Ambience
-  lastModified: 638954640064736825
+  lastModified: 638959540737270133
   FileSizes:
   - Name: Desktop
-    Value: 16768384
+    Value: 16768608
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -471,7 +471,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -2396919686633065383}
   cacheVersion: 131849
-  cacheTime: 638954640064834857
+  cacheTime: 638959540737270133
   SerializableEventsDict:
   - key: event:/Ambience/Rain
     index: 0

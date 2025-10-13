@@ -30,11 +30,11 @@ namespace Ambience
 
     public enum AmbientSoundType
     {
-        Wind,
-        Rain,
-        Thunder,
-        Leaves,
-        Birds,
-        Insects
+        Wind = 0,
+        Rain = 1,
+        Thunder = 2,
+        Leaves = 3,
+        Birds = 4,
+        Insects = 5
     }
 }

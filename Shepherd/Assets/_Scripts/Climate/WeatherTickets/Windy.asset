@@ -16,3 +16,51 @@ MonoBehaviour:
   tempDelta:
     _min: -2
     _max: 0
+  ambienceSource:
+    name: 
+    lightingProfile:
+      use: 0
+      light:
+        Use: 0
+        color: {r: 1, g: 1, b: 1, a: 1}
+        intensity: 0
+      skybox:
+        Use: 0
+        color: {r: 1, g: 1, b: 1, a: 1}
+    volumeProfile:
+      use: 0
+      hueShift:
+        Use: 0
+        value: 0
+    soundProfile:
+      use: 1
+      wind:
+        Use: 1
+        Intensity: 0.5
+      rain:
+        Use: 0
+        Intensity: 0
+      thunder:
+        Use: 0
+        Intensity: 0
+      leaves:
+        Use: 0
+        Intensity: 0
+      birds:
+        Use: 0
+        Intensity: 0
+      insects:
+        Use: 0
+        Intensity: 0
+    particleProfile:
+      use: 0
+      rainParticle:
+        Use: 0
+        particles: {fileID: 0}
+        intensity: 0
+        rainData: {fileID: 0}
+      snowParticle:
+        Use: 0
+        particles: {fileID: 0}
+        intensity: 0
+        snowData: {fileID: 0}

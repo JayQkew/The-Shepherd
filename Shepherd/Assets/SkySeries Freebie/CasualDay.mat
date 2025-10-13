@@ -87,6 +87,6 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Tint: {r: 0.2913597, g: 0.11496927, b: 0.17780983, a: 1}
+    - _Tint: {r: 0.2637638, g: 0.10594352, b: 0.17566511, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

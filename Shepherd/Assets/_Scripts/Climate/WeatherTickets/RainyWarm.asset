@@ -16,3 +16,51 @@ MonoBehaviour:
   tempDelta:
     _min: -2
     _max: 0
+  ambienceSource:
+    name: Rainy
+    lightingProfile:
+      use: 1
+      light:
+        Use: 1
+        color: {r: 0.8301887, g: 0.71689343, b: 0.4503382, a: 1}
+        intensity: 0
+      skybox:
+        Use: 0
+        color: {r: 0.3584906, g: 0.3584906, b: 0.3584906, a: 1}
+    volumeProfile:
+      use: 0
+      hueShift:
+        Use: 0
+        value: 0
+    soundProfile:
+      use: 1
+      wind:
+        Use: 0
+        Intensity: 0
+      rain:
+        Use: 1
+        Intensity: 0.5
+      thunder:
+        Use: 0
+        Intensity: 0
+      leaves:
+        Use: 0
+        Intensity: 0
+      birds:
+        Use: 0
+        Intensity: 0
+      insects:
+        Use: 0
+        Intensity: 0
+    particleProfile:
+      use: 1
+      rainParticle:
+        Use: 1
+        particles: {fileID: 0}
+        intensity: 0.5
+        rainData: {fileID: 0}
+      snowParticle:
+        Use: 0
+        particles: {fileID: 0}
+        intensity: 0
+        snowData: {fileID: 0}

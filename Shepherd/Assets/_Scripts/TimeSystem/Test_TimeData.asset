@@ -21,9 +21,9 @@ MonoBehaviour:
     ambienceSource:
       name: Sunrise
       lightingProfile:
-        use: 1
+        use: 0
         light:
-          Use: 1
+          Use: 0
           color: {r: 1, g: 1, b: 1, a: 1}
           intensity: 0.5
         skybox:
@@ -79,9 +79,9 @@ MonoBehaviour:
     ambienceSource:
       name: Day
       lightingProfile:
-        use: 1
+        use: 0
         light:
-          Use: 1
+          Use: 0
           color: {r: 1, g: 0, b: 0, a: 1}
           intensity: 2
         skybox:
@@ -137,7 +137,7 @@ MonoBehaviour:
     ambienceSource:
       name: Sunset
       lightingProfile:
-        use: 1
+        use: 0
         light:
           Use: 0
           color: {r: 1, g: 1, b: 1, a: 1}

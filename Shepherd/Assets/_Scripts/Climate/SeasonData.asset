@@ -40,9 +40,9 @@ MonoBehaviour:
           Use: 0
           value: 0
       soundProfile:
-        use: 1
+        use: 0
         wind:
-          Use: 1
+          Use: 0
           Intensity: 1
         rain:
           Use: 0

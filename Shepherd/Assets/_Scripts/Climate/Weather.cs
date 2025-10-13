@@ -16,25 +16,20 @@ namespace Climate
         public float tempDelta;
         public float intensity;
         public AmbienceSource ambienceSource;
-
-        public UnityEvent onWeatherBegin;
-        public UnityEvent onWeatherEnd;
-
         public Weather(WeatherTicket data) {
             this.data = data;
             intensity = Random.Range(0f, 1f);
             weatherType = data.weatherType;
             tempDelta = data.TempDelta(intensity);
             ambienceSource = data.ambienceSource;
+            Begin();
         }
 
         public void Begin() {
-            onWeatherBegin.Invoke();
             ambienceSource.Subscribe(weatherType.ToString());
         }
 
         public void End() {
-            onWeatherEnd.Invoke();
             ambienceSource.Unsubscribe();
         }
     }

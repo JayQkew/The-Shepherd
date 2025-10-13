@@ -51,11 +51,10 @@ namespace Climate
             currSeason = seasons[0];
             currWeather = currSeason.GetWeather();
             globalTemp = currSeason.SetTemp() + currWeather.tempDelta;
+            
+            currSeason.Begin();
 
             timeManager.onDayPhaseChange.AddListener(SeasonCheck);
-
-            currSeason.Begin();
-            currWeather.Begin();
 
             foreach (TempAffector affector in tempAffectors) {
                 affector.FindReceptors();
@@ -93,7 +92,7 @@ namespace Climate
                 currSeason.Begin();
             }
             
-            WeatherCheck();
+            // WeatherCheck();
             SetTemp();
         }
 
