@@ -1,5 +1,6 @@
 using System;
 using Ambience;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
@@ -21,9 +22,10 @@ namespace Climate
 
         public Weather(WeatherTicket data) {
             this.data = data;
-            intensity = Random.Range(0, 1);
+            intensity = Random.Range(0f, 1f);
             weatherType = data.weatherType;
             tempDelta = data.TempDelta(intensity);
+            ambienceSource = data.ambienceSource;
         }
 
         public void Begin() {

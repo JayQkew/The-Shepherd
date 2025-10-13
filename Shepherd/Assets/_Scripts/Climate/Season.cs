@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
 using Utilities;
+using Random = UnityEngine.Random;
 
 namespace Climate
 {
@@ -48,6 +49,11 @@ namespace Climate
         public void End() {
             onSeasonEnd.Invoke();
             ambienceSource.Unsubscribe();
+        }
+
+        public Weather GetWeather() {
+            int rand = Random.Range(0, weatherTickets.Length);
+            return new Weather(weatherTickets[rand]);
         }
     }
     

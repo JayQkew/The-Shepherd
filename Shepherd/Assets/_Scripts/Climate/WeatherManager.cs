@@ -7,6 +7,7 @@ namespace Climate
     public class WeatherManager
     {
         public WeatherType currWeatherType;
+        
     }
 
     [Flags]

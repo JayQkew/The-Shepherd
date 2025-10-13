@@ -7,6 +7,7 @@ namespace Ambience
     public class Skybox : ProfileData
     {
         public static int Count;
+        [Tooltip("Tint applied on top of gradient")]
         public Color color = Color.white;
 
         public Skybox() {

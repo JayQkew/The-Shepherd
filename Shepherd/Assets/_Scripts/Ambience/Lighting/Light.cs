@@ -8,7 +8,9 @@ namespace Ambience
     {
         public static float TotalIntensity;
         public static int Count;
+        [Tooltip("Tint applied on top of gradient")]
         public Color color = Color.white;
+        [Tooltip("Multiplier for the intensity of the light")]
         public float intensity = 1f;
 
         public Light() {

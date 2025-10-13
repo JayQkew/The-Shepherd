@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TimeSystem;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Timer = Utilities.Timer;
 
 namespace Climate
@@ -19,13 +20,14 @@ namespace Climate
 
         [Space(20)]
         [Header("Seasons")]
-        public SeasonName currSeason;
         public SeasonData seasonData;
+
+        public Season currSeason;
         [SerializeField] private Season[] seasons;
 
         [Space(20)]
         [Header("Weather")]
-        public WeatherManager weatherManager;
+        public Weather currWeather;
 
         private TimeManager timeManager;
 
@@ -36,8 +38,8 @@ namespace Climate
             else {
                 Destroy(gameObject);
             }
-            
-            seasons =  new Season[seasonData.seasons.Length];
+
+            seasons = new Season[seasonData.seasons.Length];
             for (int i = 0; i < seasonData.seasons.Length; i++) {
                 seasons[i] = seasonData.seasons[i].Clone();
             }
@@ -46,11 +48,14 @@ namespace Climate
         private void Start() {
             timeManager = TimeManager.Instance;
 
+            currSeason = seasons[0];
+            currWeather = currSeason.GetWeather();
+            globalTemp = currSeason.SetTemp() + currWeather.tempDelta;
 
-            globalTemp = seasons[(int)currSeason].SetTemp();
             timeManager.onDayPhaseChange.AddListener(SeasonCheck);
-            currSeason = seasons[0].season;
-            seasons[0].Begin();
+
+            currSeason.Begin();
+            currWeather.Begin();
 
             foreach (TempAffector affector in tempAffectors) {
                 affector.FindReceptors();
@@ -82,13 +87,24 @@ namespace Climate
 
         private void SeasonCheck() {
             if (timeManager.dayCount % 3 == 0 && timeManager.dayCount != 0) {
-                seasons[(int)currSeason].End();
-                int nextSeason = ((int)currSeason + 1) % 4;
-                currSeason = (SeasonName)nextSeason;
-                seasons[nextSeason].Begin();
+                currSeason.End();
+                int nextSeason = ((int)currSeason.season + 1) % 4;
+                currSeason = seasons[nextSeason];
+                currSeason.Begin();
             }
+            
+            WeatherCheck();
+            SetTemp();
+        }
 
-            targetTemp = seasons[(int)currSeason].SetTemp();
+        private void WeatherCheck() {
+            currWeather.End();
+            currWeather = currSeason.GetWeather();
+            currWeather.Begin();
+        }
+
+        private void SetTemp() {
+            targetTemp = currSeason.SetTemp() + currWeather.tempDelta;
         }
     }
 }
