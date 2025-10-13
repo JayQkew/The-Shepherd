@@ -22,10 +22,10 @@ MonoBehaviour:
       use: 1
       light:
         Use: 1
-        color: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 1}
+        color: {r: 0.64328945, g: 0.9395116, b: 0.9811321, a: 1}
         intensity: 0
       skybox:
-        Use: 0
+        Use: 1
         color: {r: 0.3584906, g: 0.3584906, b: 0.3584906, a: 1}
     volumeProfile:
       use: 0
@@ -35,10 +35,10 @@ MonoBehaviour:
     soundProfile:
       use: 1
       wind:
-        Use: 0
-        Intensity: 0
-      rain:
         Use: 1
+        Intensity: 0.1
+      rain:
+        Use: 0
         Intensity: 0.5
       thunder:
         Use: 0
@@ -55,12 +55,12 @@ MonoBehaviour:
     particleProfile:
       use: 1
       rainParticle:
-        Use: 1
+        Use: 0
         particles: {fileID: 0}
         intensity: 0.5
         rainData: {fileID: 0}
       snowParticle:
-        Use: 0
+        Use: 1
         particles: {fileID: 0}
-        intensity: 0
+        intensity: 1
         snowData: {fileID: 0}

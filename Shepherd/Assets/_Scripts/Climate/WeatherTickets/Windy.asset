@@ -17,7 +17,7 @@ MonoBehaviour:
     _min: -2
     _max: 0
   ambienceSource:
-    name: 
+    name: Windy
     lightingProfile:
       use: 0
       light:
@@ -36,7 +36,7 @@ MonoBehaviour:
       use: 1
       wind:
         Use: 1
-        Intensity: 0.5
+        Intensity: 0.25
       rain:
         Use: 0
         Intensity: 0

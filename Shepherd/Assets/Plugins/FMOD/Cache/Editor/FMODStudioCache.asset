@@ -175,7 +175,7 @@ MonoBehaviour:
   Path: ../Shepherd_FMod/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638954411073355480
+  lastModified: 638959668942793364
   FileSizes:
   - Name: Desktop
     Value: 716832
@@ -301,10 +301,10 @@ MonoBehaviour:
   Path: ../Shepherd_FMod/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638954640064834857
+  lastModified: 638959668941610157
   FileSizes:
   - Name: Desktop
-    Value: 1614
+    Value: 1686
   Exists: 1
 --- !u!114 &-2285424770398842885
 MonoBehaviour:
@@ -424,10 +424,10 @@ MonoBehaviour:
   Path: ../Shepherd_FMod/Build/Desktop/Ambience.bank
   Name: Ambience
   StudioPath: bank:/Ambience
-  lastModified: 638959540737270133
+  lastModified: 638959668941529937
   FileSizes:
   - Name: Desktop
-    Value: 16768608
+    Value: 16768768
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -471,7 +471,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -2396919686633065383}
   cacheVersion: 131849
-  cacheTime: 638959540737270133
+  cacheTime: 638959668942793364
   SerializableEventsDict:
   - key: event:/Ambience/Rain
     index: 0
@@ -791,8 +791,8 @@ MonoBehaviour:
   Path: ../Shepherd_FMod/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638954640064834857
+  lastModified: 638959668941575050
   FileSizes:
   - Name: Desktop
-    Value: 1074
+    Value: 1378
   Exists: 1

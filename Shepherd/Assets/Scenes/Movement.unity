@@ -176,12 +176,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dayCount: 0
   currPhase: 0
-  data: {fileID: 11400000, guid: 901773d6503a38842a166c30eea5b4d2, type: 2}
+  data: {fileID: 11400000, guid: 00aa56b86c14d1c47bb3de893ab9683d, type: 2}
   yearTimer:
-    maxTime: 240
+    maxTime: 3600
     currTime: 0
   dayTime:
-    maxTime: 20
+    maxTime: 300
     currTime: 0
   currDayPhase:
     phase: 0
@@ -245,7 +245,7 @@ MonoBehaviour:
   dayPhases:
   - phase: 0
     timer:
-      maxTime: 5
+      maxTime: 45
       currTime: 0
     ambienceSource:
       name: Sunrise
@@ -303,7 +303,7 @@ MonoBehaviour:
         m_Calls: []
   - phase: 1
     timer:
-      maxTime: 5
+      maxTime: 105
       currTime: 0
     ambienceSource:
       name: Day
@@ -342,7 +342,7 @@ MonoBehaviour:
           Use: 0
           Intensity: 0
       particleProfile:
-        use: 0
+        use: 1
         rainParticle:
           Use: 0
           particles: {fileID: 0}
@@ -361,8 +361,8 @@ MonoBehaviour:
         m_Calls: []
   - phase: 2
     timer:
-      maxTime: 5
-      currTime: 2.2702644
+      maxTime: 45
+      currTime: 0
     ambienceSource:
       name: Sunset
       lightingProfile:
@@ -419,7 +419,7 @@ MonoBehaviour:
         m_Calls: []
   - phase: 3
     timer:
-      maxTime: 5
+      maxTime: 105
       currTime: 0
     ambienceSource:
       name: Night
@@ -438,7 +438,7 @@ MonoBehaviour:
           Use: 0
           value: 0
       soundProfile:
-        use: 0
+        use: 1
         wind:
           Use: 0
           Intensity: 0
@@ -455,8 +455,8 @@ MonoBehaviour:
           Use: 0
           Intensity: 0
         insects:
-          Use: 0
-          Intensity: 0
+          Use: 1
+          Intensity: 0.5
       particleProfile:
         use: 0
         rainParticle:
@@ -1189,11 +1189,122 @@ MonoBehaviour:
   tempThrottle:
     maxTime: 0.5
     currTime: 0
-  currSeason: 0
   seasonData: {fileID: 11400000, guid: 682ed0ad7ad20ff4ebe2bb0cea0e077f, type: 2}
+  currSeason:
+    season: 0
+    dayTemp: 0
+    temp:
+      _min: 0
+      _max: 0
+    weatherTickets: []
+    ambienceSource:
+      name: 
+      lightingProfile:
+        use: 0
+        light:
+          Use: 0
+          color: {r: 1, g: 1, b: 1, a: 1}
+          intensity: 1
+        skybox:
+          Use: 0
+          color: {r: 1, g: 1, b: 1, a: 1}
+      volumeProfile:
+        use: 0
+        hueShift:
+          Use: 0
+          value: 0
+      soundProfile:
+        use: 0
+        wind:
+          Use: 0
+          Intensity: 0
+        rain:
+          Use: 0
+          Intensity: 0
+        thunder:
+          Use: 0
+          Intensity: 0
+        leaves:
+          Use: 0
+          Intensity: 0
+        birds:
+          Use: 0
+          Intensity: 0
+        insects:
+          Use: 0
+          Intensity: 0
+      particleProfile:
+        use: 0
+        rainParticle:
+          Use: 0
+          particles: {fileID: 0}
+          intensity: 0
+          rainData: {fileID: 0}
+        snowParticle:
+          Use: 0
+          particles: {fileID: 0}
+          intensity: 0
+          snowData: {fileID: 0}
+    onSeasonBegin:
+      m_PersistentCalls:
+        m_Calls: []
+    onSeasonEnd:
+      m_PersistentCalls:
+        m_Calls: []
   seasons: []
-  weatherManager:
-    currWeatherType: 0
+  currWeather:
+    data: {fileID: 0}
+    weatherType: 0
+    tempDelta: 0
+    intensity: 0
+    ambienceSource:
+      name: 
+      lightingProfile:
+        use: 0
+        light:
+          Use: 0
+          color: {r: 1, g: 1, b: 1, a: 1}
+          intensity: 1
+        skybox:
+          Use: 0
+          color: {r: 1, g: 1, b: 1, a: 1}
+      volumeProfile:
+        use: 0
+        hueShift:
+          Use: 0
+          value: 0
+      soundProfile:
+        use: 0
+        wind:
+          Use: 0
+          Intensity: 0
+        rain:
+          Use: 0
+          Intensity: 0
+        thunder:
+          Use: 0
+          Intensity: 0
+        leaves:
+          Use: 0
+          Intensity: 0
+        birds:
+          Use: 0
+          Intensity: 0
+        insects:
+          Use: 0
+          Intensity: 0
+      particleProfile:
+        use: 0
+        rainParticle:
+          Use: 0
+          particles: {fileID: 0}
+          intensity: 0
+          rainData: {fileID: 0}
+        snowParticle:
+          Use: 0
+          particles: {fileID: 0}
+          intensity: 0
+          snowData: {fileID: 0}
 --- !u!4 &111122547 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6282168105920215044, guid: e13266ea803f6fc4889f9e5b0f39eac3, type: 3}
@@ -16254,13 +16365,13 @@ MonoBehaviour:
       key5: {r: 0.3254902, g: 0.3254902, b: 1, a: 0}
       key6: {r: 0.3254902, g: 0.3254902, b: 1, a: 0}
       key7: {r: 1, g: 0.31764707, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 10923
-      ctime2: 16384
-      ctime3: 27306
-      ctime4: 32768
-      ctime5: 43690
-      ctime6: 49151
+      ctime0: 6746
+      ctime1: 10601
+      ctime2: 28913
+      ctime3: 32768
+      ctime4: 39514
+      ctime5: 43369
+      ctime6: 61680
       ctime7: 65535
       atime0: 0
       atime1: 65535
@@ -16284,13 +16395,13 @@ MonoBehaviour:
       key5: {r: 0.06705808, g: 0.041607343, b: 0.16037738, a: 0}
       key6: {r: 0.06705808, g: 0.041607343, b: 0.16037738, a: 0}
       key7: {r: 0.95283014, g: 0.33131522, b: 0.22921851, a: 0}
-      ctime0: 0
-      ctime1: 10923
-      ctime2: 16384
-      ctime3: 27306
-      ctime4: 32768
-      ctime5: 43690
-      ctime6: 49151
+      ctime0: 6746
+      ctime1: 10601
+      ctime2: 28913
+      ctime3: 32768
+      ctime4: 39514
+      ctime5: 43369
+      ctime6: 61680
       ctime7: 65535
       atime0: 0
       atime1: 65535
@@ -16304,7 +16415,7 @@ MonoBehaviour:
       m_ColorSpace: -1
       m_NumColorKeys: 8
       m_NumAlphaKeys: 2
-    gradientTint: 0.5
+    gradientTint: 0.516
     currLightGradient:
       serializedVersion: 2
       key0: {r: 1, g: 1, b: 1, a: 1}

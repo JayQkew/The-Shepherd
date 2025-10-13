@@ -57,7 +57,7 @@ MonoBehaviour:
       rainParticle:
         Use: 1
         particles: {fileID: 0}
-        intensity: 0.5
+        intensity: 0.25
         rainData: {fileID: 0}
       snowParticle:
         Use: 0

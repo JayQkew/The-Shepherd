@@ -19,7 +19,7 @@ MonoBehaviour:
       _min: 25
       _max: 30
     weatherTickets:
-    - {fileID: 11400000, guid: 2035adfa12ac7d249a65e44771984a7a, type: 2}
+    - {fileID: 11400000, guid: 4701c1939d9be0844a698be3ea681366, type: 2}
     ambienceSource:
       name: Summer
       lightingProfile:

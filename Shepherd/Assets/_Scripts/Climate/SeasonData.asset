@@ -23,6 +23,12 @@ MonoBehaviour:
     - {fileID: 11400000, guid: e2d177625df9e974f8616c2f46f66e0a, type: 2}
     - {fileID: 11400000, guid: 09702cb32bb3f224989df48def187838, type: 2}
     - {fileID: 11400000, guid: 14c383d44d2d4b54687707afa8e2f9e7, type: 2}
+    - {fileID: 11400000, guid: 257bafb41acaeee40aafd2400fb2ab3d, type: 2}
+    - {fileID: 11400000, guid: 257bafb41acaeee40aafd2400fb2ab3d, type: 2}
+    - {fileID: 11400000, guid: 257bafb41acaeee40aafd2400fb2ab3d, type: 2}
+    - {fileID: 11400000, guid: 257bafb41acaeee40aafd2400fb2ab3d, type: 2}
+    - {fileID: 11400000, guid: 257bafb41acaeee40aafd2400fb2ab3d, type: 2}
+    - {fileID: 11400000, guid: 257bafb41acaeee40aafd2400fb2ab3d, type: 2}
     ambienceSource:
       name: Summer
       lightingProfile:
@@ -40,7 +46,7 @@ MonoBehaviour:
           Use: 0
           value: 0
       soundProfile:
-        use: 0
+        use: 1
         wind:
           Use: 0
           Intensity: 1
@@ -51,11 +57,11 @@ MonoBehaviour:
           Use: 0
           Intensity: 0
         leaves:
-          Use: 0
-          Intensity: 0
+          Use: 1
+          Intensity: 0.1
         birds:
           Use: 0
-          Intensity: 0
+          Intensity: 0.1
         insects:
           Use: 0
           Intensity: 0
@@ -84,8 +90,12 @@ MonoBehaviour:
       _max: 20
     weatherTickets:
     - {fileID: 11400000, guid: 14c383d44d2d4b54687707afa8e2f9e7, type: 2}
-    - {fileID: 11400000, guid: de70dd19a10b59f4288bb4037d327197, type: 2}
     - {fileID: 11400000, guid: 76d7c992212cf5740b27a44a1fa6c845, type: 2}
+    - {fileID: 11400000, guid: 2035adfa12ac7d249a65e44771984a7a, type: 2}
+    - {fileID: 11400000, guid: de70dd19a10b59f4288bb4037d327197, type: 2}
+    - {fileID: 11400000, guid: de70dd19a10b59f4288bb4037d327197, type: 2}
+    - {fileID: 11400000, guid: 41aa1633455a6f1499d01ed016f6fdd4, type: 2}
+    - {fileID: 11400000, guid: 41aa1633455a6f1499d01ed016f6fdd4, type: 2}
     - {fileID: 11400000, guid: 41aa1633455a6f1499d01ed016f6fdd4, type: 2}
     ambienceSource:
       name: Autumn
@@ -104,10 +114,10 @@ MonoBehaviour:
           Use: 0
           value: 0
       soundProfile:
-        use: 0
+        use: 1
         wind:
-          Use: 0
-          Intensity: 0
+          Use: 1
+          Intensity: 0.125
         rain:
           Use: 0
           Intensity: 0
@@ -115,8 +125,8 @@ MonoBehaviour:
           Use: 0
           Intensity: 0
         leaves:
-          Use: 0
-          Intensity: 0
+          Use: 1
+          Intensity: 0.25
         birds:
           Use: 0
           Intensity: 0
@@ -148,9 +158,15 @@ MonoBehaviour:
       _max: 5
     weatherTickets:
     - {fileID: 11400000, guid: 14c383d44d2d4b54687707afa8e2f9e7, type: 2}
-    - {fileID: 11400000, guid: 2035adfa12ac7d249a65e44771984a7a, type: 2}
     - {fileID: 11400000, guid: 41aa1633455a6f1499d01ed016f6fdd4, type: 2}
     - {fileID: 11400000, guid: de70dd19a10b59f4288bb4037d327197, type: 2}
+    - {fileID: 11400000, guid: de70dd19a10b59f4288bb4037d327197, type: 2}
+    - {fileID: 11400000, guid: 4701c1939d9be0844a698be3ea681366, type: 2}
+    - {fileID: 11400000, guid: 4701c1939d9be0844a698be3ea681366, type: 2}
+    - {fileID: 11400000, guid: 4701c1939d9be0844a698be3ea681366, type: 2}
+    - {fileID: 11400000, guid: 4701c1939d9be0844a698be3ea681366, type: 2}
+    - {fileID: 11400000, guid: 4701c1939d9be0844a698be3ea681366, type: 2}
+    - {fileID: 11400000, guid: 4701c1939d9be0844a698be3ea681366, type: 2}
     ambienceSource:
       name: 
       lightingProfile:
@@ -168,10 +184,10 @@ MonoBehaviour:
           Use: 0
           value: 0
       soundProfile:
-        use: 0
+        use: 1
         wind:
-          Use: 0
-          Intensity: 0
+          Use: 1
+          Intensity: 0.2
         rain:
           Use: 0
           Intensity: 0
@@ -215,6 +231,12 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 14c383d44d2d4b54687707afa8e2f9e7, type: 2}
     - {fileID: 11400000, guid: e2d177625df9e974f8616c2f46f66e0a, type: 2}
     - {fileID: 11400000, guid: 09702cb32bb3f224989df48def187838, type: 2}
+    - {fileID: 11400000, guid: 76d7c992212cf5740b27a44a1fa6c845, type: 2}
+    - {fileID: 11400000, guid: 76d7c992212cf5740b27a44a1fa6c845, type: 2}
+    - {fileID: 11400000, guid: 257bafb41acaeee40aafd2400fb2ab3d, type: 2}
+    - {fileID: 11400000, guid: 257bafb41acaeee40aafd2400fb2ab3d, type: 2}
+    - {fileID: 11400000, guid: 257bafb41acaeee40aafd2400fb2ab3d, type: 2}
+    - {fileID: 11400000, guid: 257bafb41acaeee40aafd2400fb2ab3d, type: 2}
     ambienceSource:
       name: 
       lightingProfile:
@@ -246,8 +268,8 @@ MonoBehaviour:
           Use: 0
           Intensity: 0
         birds:
-          Use: 0
-          Intensity: 0
+          Use: 1
+          Intensity: 0.25
         insects:
           Use: 0
           Intensity: 0

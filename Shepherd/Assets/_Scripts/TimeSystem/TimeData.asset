@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b56c517a096e2479723794af19c2c1, type: 3}
   m_Name: TimeData
   m_EditorClassIdentifier: 
+  totalDayTime: 300
   dayPhases:
   - phase: 0
     timer:
@@ -20,13 +21,13 @@ MonoBehaviour:
     ambienceSource:
       name: Sunrise
       lightingProfile:
-        use: 1
+        use: 0
         light:
-          Use: 1
+          Use: 0
           color: {r: 0, g: 0.03676009, b: 1, a: 1}
           intensity: 0.5
         skybox:
-          Use: 1
+          Use: 0
           color: {r: 1, g: 0, b: 0, a: 1}
       volumeProfile:
         use: 0
@@ -35,23 +36,39 @@ MonoBehaviour:
           value: 0
       soundProfile:
         use: 0
+        wind:
+          Use: 0
+          Intensity: 0
+        rain:
+          Use: 0
+          Intensity: 0
+        thunder:
+          Use: 0
+          Intensity: 0
+        leaves:
+          Use: 0
+          Intensity: 0
+        birds:
+          Use: 0
+          Intensity: 0
+        insects:
+          Use: 0
+          Intensity: 0
       particleProfile:
         use: 0
+        rainParticle:
+          Use: 0
+          particles: {fileID: 0}
+          intensity: 0
+          rainData: {fileID: 0}
+        snowParticle:
+          Use: 0
+          particles: {fileID: 0}
+          intensity: 0
+          snowData: {fileID: 0}
     onPhaseStart:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: HerdingSystem.HerdManager, Assembly-CSharp
-          m_MethodName: GenerateMissions
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: Start pf the DAY
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
     onPhaseEnd:
       m_PersistentCalls:
         m_Calls: []
@@ -62,7 +79,7 @@ MonoBehaviour:
     ambienceSource:
       name: Day
       lightingProfile:
-        use: 1
+        use: 0
         light:
           Use: 0
           color: {r: 1, g: 1, b: 1, a: 1}
@@ -77,26 +94,42 @@ MonoBehaviour:
           value: 0
       soundProfile:
         use: 0
+        wind:
+          Use: 0
+          Intensity: 0
+        rain:
+          Use: 0
+          Intensity: 0
+        thunder:
+          Use: 0
+          Intensity: 0
+        leaves:
+          Use: 0
+          Intensity: 0
+        birds:
+          Use: 0
+          Intensity: 0
+        insects:
+          Use: 0
+          Intensity: 0
       particleProfile:
         use: 1
+        rainParticle:
+          Use: 0
+          particles: {fileID: 0}
+          intensity: 0
+          rainData: {fileID: 0}
+        snowParticle:
+          Use: 0
+          particles: {fileID: 0}
+          intensity: 0
+          snowData: {fileID: 0}
     onPhaseStart:
       m_PersistentCalls:
         m_Calls: []
     onPhaseEnd:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: HerdingSystem.HerdManager, Assembly-CSharp
-          m_MethodName: PenMission
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
+        m_Calls: []
   - phase: 2
     timer:
       maxTime: 45
@@ -119,8 +152,36 @@ MonoBehaviour:
           value: 0
       soundProfile:
         use: 0
+        wind:
+          Use: 0
+          Intensity: 0
+        rain:
+          Use: 0
+          Intensity: 0
+        thunder:
+          Use: 0
+          Intensity: 0
+        leaves:
+          Use: 0
+          Intensity: 0
+        birds:
+          Use: 0
+          Intensity: 0
+        insects:
+          Use: 0
+          Intensity: 0
       particleProfile:
         use: 0
+        rainParticle:
+          Use: 0
+          particles: {fileID: 0}
+          intensity: 0
+          rainData: {fileID: 0}
+        snowParticle:
+          Use: 0
+          particles: {fileID: 0}
+          intensity: 0
+          snowData: {fileID: 0}
     onPhaseStart:
       m_PersistentCalls:
         m_Calls: []
@@ -148,9 +209,37 @@ MonoBehaviour:
           Use: 0
           value: 0
       soundProfile:
-        use: 0
+        use: 1
+        wind:
+          Use: 0
+          Intensity: 0
+        rain:
+          Use: 0
+          Intensity: 0
+        thunder:
+          Use: 0
+          Intensity: 0
+        leaves:
+          Use: 0
+          Intensity: 0
+        birds:
+          Use: 0
+          Intensity: 0
+        insects:
+          Use: 1
+          Intensity: 0.5
       particleProfile:
         use: 0
+        rainParticle:
+          Use: 0
+          particles: {fileID: 0}
+          intensity: 0
+          rainData: {fileID: 0}
+        snowParticle:
+          Use: 0
+          particles: {fileID: 0}
+          intensity: 0
+          snowData: {fileID: 0}
     onPhaseStart:
       m_PersistentCalls:
         m_Calls: []
