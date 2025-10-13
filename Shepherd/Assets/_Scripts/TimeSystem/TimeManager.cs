@@ -77,6 +77,11 @@ namespace TimeSystem
             }
 
             TotalTime();
+            
+            dayPhases = new DayPhase[data.dayPhases.Length];
+            for (int i = 0; i < dayPhases.Length; i++) {
+                dayPhases[i] = data.dayPhases[i].Clone();
+            }
         }
     }
 

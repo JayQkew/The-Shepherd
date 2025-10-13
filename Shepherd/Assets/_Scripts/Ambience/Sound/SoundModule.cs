@@ -92,32 +92,20 @@ namespace Ambience
 
                 if (playbackState == PLAYBACK_STATE.STOPPED) {
                     eventInstance.start();
+                    eventInstance.setParameterByName("intensity", sound.Intensity);
                 }
                 else if (playbackState == PLAYBACK_STATE.PLAYING) {
                     eventInstance.getPaused(out bool paused);
-                    if (paused) eventInstance.setPaused(false);
+                    if (paused) {
+                        eventInstance.setPaused(false);
+                        eventInstance.setParameterByName("intensity", sound.Intensity);
+                    }
                 }
             }
             else {
                 eventInstance.getPlaybackState(out PLAYBACK_STATE playbackState);
 
                 if (playbackState == PLAYBACK_STATE.PLAYING) eventInstance.setPaused(true);
-            }
-        }
-        
-        public void PlaySound(AmbientSoundType soundType, float intensity) {
-            foreach (AmbientSound sound in sounds) {
-                if (sound.ambienceType == soundType) {
-                    sound.EventInstance.setParameterByName("intensity", intensity);
-                    sound.EventInstance.start();
-                    return;
-                }
-            }
-        }
-
-        private void StopAllSounds() {
-            foreach (AmbientSound sound in sounds) {
-                sound.EventInstance.stop(STOP_MODE.IMMEDIATE);
             }
         }
     }
