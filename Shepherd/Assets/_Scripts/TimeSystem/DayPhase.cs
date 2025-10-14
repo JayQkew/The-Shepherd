@@ -14,8 +14,8 @@ namespace TimeSystem
         public Timer timer;
         public AmbienceSource ambienceSource;
         [Space(20)]
-        [SerializeField] private UnityEvent onPhaseStart;
-        [SerializeField] private UnityEvent onPhaseEnd;
+        public UnityEvent onPhaseStart;
+        public UnityEvent onPhaseEnd;
 
         public DayPhase(DayPhaseName phase) {
             this.phase = phase;

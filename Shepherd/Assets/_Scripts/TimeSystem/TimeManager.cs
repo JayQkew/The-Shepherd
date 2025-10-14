@@ -1,4 +1,5 @@
 using Climate;
+using HerdingSystem;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
@@ -36,6 +37,9 @@ namespace TimeSystem
 
         private void Start() {
             currPhase = DayPhaseName.Sunrise;
+            
+            dayPhases[0].onPhaseStart.AddListener(HerdManager.Instance.GenerateMissions);
+            dayPhases[2].onPhaseStart.AddListener(HerdManager.Instance.PenMission);
         }
 
         private void Update() {
