@@ -168,7 +168,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 4701c1939d9be0844a698be3ea681366, type: 2}
     - {fileID: 11400000, guid: 4701c1939d9be0844a698be3ea681366, type: 2}
     ambienceSource:
-      name: 
+      name: Winter
       lightingProfile:
         use: 0
         light:
