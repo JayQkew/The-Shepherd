@@ -1,58 +1,41 @@
+using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Environment
 {
     [RequireComponent(typeof(Rigidbody))]
     public class FloatingRock : MonoBehaviour
     {
-        [Header("Floating")]
-        public float floatHeight = 5f;          // Target height to float at
-        public float floatForce = 50f;          // Upward force to maintain height
-        public float floatDamping = 0.5f;       // Damping to smooth movement
-    
-        [Header("Interaction")]
-        public float pushForce = 100f;          // Force applied when pushed
-        public float dragDamping = 0.3f;        // How quickly velocity decays
-    
         private Rigidbody rb;
-        private Vector3 startPosition;
+        private Vector3 targetPos;
+        [SerializeField] private float angularDamping = 0.2f;
+        [SerializeField] private float linearDamping = 1f;
+        [SerializeField] private float returnForce;
+        private Vector3 returnDir;
 
-        void Start()
-        {
+        private void Awake() {
             rb = GetComponent<Rigidbody>();
-            startPosition = transform.position;
-        
-            // Make sure Rigidbody is set up correctly
-            floatHeight = transform.position.y;
+            
             rb.useGravity = false;
-            // rb.constraints = RigidbodyConstraints.None;
+            rb.linearDamping = linearDamping;
+            rb.angularDamping = angularDamping;
         }
 
-        void FixedUpdate()
-        {
-            // Apply floating force - keeps rock at target height
-            float heightDifference = floatHeight - (transform.position.y - startPosition.y);
-            float upwardForce = heightDifference * floatForce;
-        
-            // Apply damping to smooth the floating
-            Vector3 velocityDamping = -rb.linearVelocity * floatDamping;
-        
-            rb.AddForce(Vector3.up * upwardForce + velocityDamping, ForceMode.Acceleration);
-        
-            // Apply general drag to all velocity
-            rb.linearVelocity *= (1f - dragDamping * Time.fixedDeltaTime);
+        private void Start() {
+            targetPos = transform.position;
         }
 
-        // Call this when something hits the rock (use OnCollisionEnter or raycasts)
-        public void PushRock(Vector3 pushDirection)
-        {
-            rb.AddForce(pushDirection.normalized * pushForce, ForceMode.Impulse);
+        private void Update() {
+            float xDistance = transform.position.x - targetPos.x;
+            float yDistance = transform.position.y - targetPos.y;
+            float zDistance = transform.position.z - targetPos.z;
+            
+            returnDir = new Vector3(xDistance, yDistance, zDistance) * -1;
         }
 
-        // Alternative: push from a specific point
-        public void PushRockFromPoint(Vector3 hitPoint, Vector3 direction)
-        {
-            rb.AddForceAtPosition(direction.normalized * pushForce, hitPoint, ForceMode.Impulse);
+        private void FixedUpdate() {
+            rb.AddForce(returnDir.normalized * returnForce, ForceMode.Acceleration);
         }
     }
 }
