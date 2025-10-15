@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Environment;
 using TimeSystem;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -23,11 +24,14 @@ namespace Climate
         public SeasonData seasonData;
 
         public Season currSeason;
-        [SerializeField] private Season[] seasons;
+        public Season[] seasons;
 
         [Space(20)]
         [Header("Weather")]
         public Weather currWeather;
+        
+        [Header("Climate")]
+        [SerializeField] private TerrainSnow terrainSnow;
 
         private TimeManager timeManager;
 
@@ -48,6 +52,12 @@ namespace Climate
         private void Start() {
             timeManager = TimeManager.Instance;
 
+            terrainSnow.Init();
+            
+            seasons[0].onSeasonBegin.AddListener(terrainSnow.ApplyToZero);
+            seasons[2].onSeasonBegin.AddListener(terrainSnow.FadeToSnow);
+            seasons[2].onSeasonEnd.AddListener(terrainSnow.FadeToGrass);
+            
             currSeason = seasons[0];
             currWeather = currSeason.GetWeather();
             globalTemp = currSeason.SetTemp() + currWeather.tempDelta;
@@ -63,6 +73,8 @@ namespace Climate
             foreach (TempReceptor receptor in tempReceptors) {
                 receptor.CalcTemp();
             }
+            
+
         }
 
         private void Update() {
@@ -82,6 +94,8 @@ namespace Climate
 
                 tempThrottle.Reset();
             }
+            
+            terrainSnow.Update();
         }
 
         private void SeasonCheck() {

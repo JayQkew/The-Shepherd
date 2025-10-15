@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56b56c517a096e2479723794af19c2c1, type: 3}
-  m_Name: Test_TimeData
+  m_Name: TimeData TEST
   m_EditorClassIdentifier: 
-  totalDayTime: 20
+  totalDayTime: 60
   dayPhases:
   - phase: 0
     timer:
-      maxTime: 5
+      maxTime: 15
       currTime: 0
     ambienceSource:
       name: Sunrise
@@ -24,7 +24,7 @@ MonoBehaviour:
         use: 0
         light:
           Use: 0
-          color: {r: 1, g: 1, b: 1, a: 1}
+          color: {r: 0, g: 0.03676009, b: 1, a: 1}
           intensity: 0.5
         skybox:
           Use: 0
@@ -38,7 +38,7 @@ MonoBehaviour:
         use: 0
         wind:
           Use: 0
-          Intensity: 0.5
+          Intensity: 0
         rain:
           Use: 0
           Intensity: 0
@@ -59,7 +59,7 @@ MonoBehaviour:
         rainParticle:
           Use: 0
           particles: {fileID: 0}
-          intensity: 0.5
+          intensity: 0
           rainData: {fileID: 0}
         snowParticle:
           Use: 0
@@ -74,7 +74,7 @@ MonoBehaviour:
         m_Calls: []
   - phase: 1
     timer:
-      maxTime: 5
+      maxTime: 15
       currTime: 0
     ambienceSource:
       name: Day
@@ -82,8 +82,8 @@ MonoBehaviour:
         use: 0
         light:
           Use: 0
-          color: {r: 1, g: 0, b: 0, a: 1}
-          intensity: 2
+          color: {r: 1, g: 1, b: 1, a: 1}
+          intensity: 1
         skybox:
           Use: 0
           color: {r: 1, g: 1, b: 1, a: 1}
@@ -113,7 +113,7 @@ MonoBehaviour:
           Use: 0
           Intensity: 0
       particleProfile:
-        use: 0
+        use: 1
         rainParticle:
           Use: 0
           particles: {fileID: 0}
@@ -132,8 +132,8 @@ MonoBehaviour:
         m_Calls: []
   - phase: 2
     timer:
-      maxTime: 5
-      currTime: 2.2702644
+      maxTime: 15
+      currTime: 0
     ambienceSource:
       name: Sunset
       lightingProfile:
@@ -141,7 +141,7 @@ MonoBehaviour:
         light:
           Use: 0
           color: {r: 1, g: 1, b: 1, a: 1}
-          intensity: 0.5
+          intensity: 1
         skybox:
           Use: 0
           color: {r: 1, g: 1, b: 1, a: 1}
@@ -190,7 +190,7 @@ MonoBehaviour:
         m_Calls: []
   - phase: 3
     timer:
-      maxTime: 5
+      maxTime: 15
       currTime: 0
     ambienceSource:
       name: Night
@@ -209,7 +209,7 @@ MonoBehaviour:
           Use: 0
           value: 0
       soundProfile:
-        use: 0
+        use: 1
         wind:
           Use: 0
           Intensity: 0
@@ -226,8 +226,8 @@ MonoBehaviour:
           Use: 0
           Intensity: 0
         insects:
-          Use: 0
-          Intensity: 0
+          Use: 1
+          Intensity: 0.5
       particleProfile:
         use: 0
         rainParticle:
