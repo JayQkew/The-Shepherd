@@ -1998,13 +1998,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 237167582}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.000000007450581, y: -0.000000014901161, z: 0.11358093, w: 0.9935287}
-  m_LocalPosition: {x: -5, y: 0, z: 0.00000032782555}
-  m_LocalScale: {x: 11.423, y: 10, z: 10}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.02, y: 2.15, z: 4.82}
+  m_LocalScale: {x: 16.65, y: 4.8165197, z: 15.566079}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2039287748}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 13.044}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &237167584
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2078,7 +2078,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 237167582}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &239978955
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2832,7 +2832,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0.20985529, y: 0, z: 0, w: 0.9777325}
-  m_LocalPosition: {x: 165.5, y: 5.6, z: -177.5}
+  m_LocalPosition: {x: 111.9, y: 5.6, z: -171.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4357,7 +4357,7 @@ Transform:
   m_GameObject: {fileID: 480788511}
   serializedVersion: 2
   m_LocalRotation: {x: 0.20985529, y: 0, z: 0, w: 0.9777325}
-  m_LocalPosition: {x: 165.5, y: 5.6, z: -177.5}
+  m_LocalPosition: {x: 111.9, y: 5.6, z: -171.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4503,7 +4503,7 @@ Transform:
   m_GameObject: {fileID: 546409992}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 59.59999, y: 0, z: -42.5}
+  m_LocalPosition: {x: 0.59999084, y: 0, z: -27.199997}
   m_LocalScale: {x: 0.85, y: 0.85, z: 0.85}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -4956,6 +4956,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9919c2541ea675d4192c7045c9216631, type: 3}
+--- !u!1 &595456711
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 595456712}
+  m_Layer: 0
+  m_Name: Sheep Area (New)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &595456712
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595456711}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 128.2, y: 0, z: -179.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 859282239}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &603249807 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4007612967195524354, guid: 9919c2541ea675d4192c7045c9216631, type: 3}
@@ -5134,7 +5165,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &643695141
 Transform:
   m_ObjectHideFlags: 0
@@ -5144,7 +5175,7 @@ Transform:
   m_GameObject: {fileID: 643695140}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 91, y: 0, z: -142}
+  m_LocalPosition: {x: 32, y: 0, z: -126.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11835,6 +11866,7 @@ Transform:
   m_Children:
   - {fileID: 1407472061}
   - {fileID: 876513061}
+  - {fileID: 595456712}
   - {fileID: 643695141}
   - {fileID: 2039287748}
   - {fileID: 1799089227}
@@ -13134,9 +13166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missions: []
-  destinations:
-  - {fileID: 0}
-  - {fileID: 0}
+  destinations: []
   allHerdAnimals: []
   ticketManager:
     tickets:
@@ -18035,7 +18065,7 @@ Transform:
   m_GameObject: {fileID: 1799089223}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 58.34999, y: 1.32, z: -43.35}
+  m_LocalPosition: {x: -0.65000916, y: 1.32, z: -28.049995}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -24004,7 +24034,7 @@ Transform:
   m_GameObject: {fileID: 2039287747}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.20022298, z: -0, w: 0.9797504}
-  m_LocalPosition: {x: 37.3, y: 0, z: -18.8}
+  m_LocalPosition: {x: -21.7, y: 0, z: -3.4999962}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -24117,7 +24147,7 @@ Transform:
   m_GameObject: {fileID: 2080037327}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 165.5, y: 1.1, z: -167.5}
+  m_LocalPosition: {x: 111.9, y: 1.1, z: -161.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
