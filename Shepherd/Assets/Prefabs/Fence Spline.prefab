@@ -192,15 +192,15 @@ MonoBehaviour:
   m_Container: {fileID: 4840925660858560427}
   m_ItemsToInstantiate:
   - prefab: {fileID: 0}
-    Prefab: {fileID: 4349789465013285841, guid: 8f829f10b12fba84f8e49d3f1a6c21c7, type: 3}
+    Prefab: {fileID: 583072619057588509, guid: 74415c2fcb1af124fa62aca079790644, type: 3}
     probability: 0
     Probability: 33
   - prefab: {fileID: 0}
-    Prefab: {fileID: 3162123658905399421, guid: 8f829f10b12fba84f8e49d3f1a6c21c7, type: 3}
+    Prefab: {fileID: 852406508199947006, guid: e13266ea803f6fc4889f9e5b0f39eac3, type: 3}
     probability: 0
     Probability: 33
   - prefab: {fileID: 0}
-    Prefab: {fileID: -7099652151871287892, guid: 8f829f10b12fba84f8e49d3f1a6c21c7, type: 3}
+    Prefab: {fileID: 4965112177734557871, guid: 9919c2541ea675d4192c7045c9216631, type: 3}
     probability: 0
     Probability: 33
   m_Method: 1
