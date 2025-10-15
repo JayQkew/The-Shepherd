@@ -11,7 +11,7 @@ namespace Environment
         private Vector3 targetPos;
         [SerializeField] private float angularDamping = 0.2f;
         [SerializeField] private float linearDamping = 1f;
-        [SerializeField] private float returnForce;
+        [SerializeField] private float returnForce = 2.5f;
         private Vector3 returnDir;
 
         private void Awake() {
