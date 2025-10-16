@@ -64,7 +64,8 @@ namespace Climate
             
             currSeason.Begin();
 
-            timeManager.onDayPhaseChange.AddListener(SeasonCheck);
+            timeManager.onDayPhaseChange.AddListener(WeatherCheck);
+            timeManager.onDayFinish.AddListener(SeasonCheck);
 
             foreach (TempAffector affector in tempAffectors) {
                 affector.FindReceptors();
@@ -106,7 +107,7 @@ namespace Climate
                 currSeason.Begin();
             }
             
-            // WeatherCheck();
+            //WeatherCheck();
             SetTemp();
         }
 

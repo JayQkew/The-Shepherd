@@ -13,15 +13,19 @@ namespace TimeSystem
         public uint dayCount;
         public DayPhaseName currPhase;
         public TimeData data;
+
         [Space(10)]
         public Timer yearTimer;
+
         public Timer dayTime;
         public DayPhase currDayPhase;
-        
+
         [HideInInspector] public DayPhase[] dayPhases;
 
         [Space(20)]
         public UnityEvent onDayPhaseChange;
+
+        public UnityEvent onDayFinish;
 
         private void Awake() {
             if (Instance == null) {
@@ -37,7 +41,7 @@ namespace TimeSystem
 
         private void Start() {
             currPhase = DayPhaseName.Sunrise;
-            
+
             dayPhases[0].onPhaseStart.AddListener(HerdManager.Instance.GenerateMissions);
             dayPhases[2].onPhaseStart.AddListener(HerdManager.Instance.PenMission);
         }
@@ -48,6 +52,8 @@ namespace TimeSystem
             UpdateDayTime(dayPhases[(int)currPhase]);
 
             if (dayTime.IsFinished) {
+                dayCount++;
+                onDayFinish.Invoke();
                 dayTime.Reset();
             }
         }
@@ -61,10 +67,7 @@ namespace TimeSystem
                 currPhase = (DayPhaseName)nextPhase;
                 currDayPhase = dayPhases[nextPhase];
 
-                if (nextPhase == 0) {
-                    dayCount++;
-                    onDayPhaseChange.Invoke();
-                }
+                onDayPhaseChange.Invoke();
             }
         }
 
@@ -81,7 +84,7 @@ namespace TimeSystem
             }
 
             TotalTime();
-            
+
             dayPhases = new DayPhase[data.dayPhases.Length];
             for (int i = 0; i < dayPhases.Length; i++) {
                 dayPhases[i] = data.dayPhases[i].Clone();
