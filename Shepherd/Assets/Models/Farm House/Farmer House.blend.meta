@@ -37,6 +37,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Farmer House Material
+    second: {fileID: 2100000, guid: 2583679d16aecfa4c8e4f994448f3782, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Roof_Tile Material
     second: {fileID: 2100000, guid: 771d0029ad51d0b42a27b25e03984965, type: 2}
   materials:
