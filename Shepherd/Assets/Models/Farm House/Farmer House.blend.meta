@@ -44,6 +44,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Roof_Tile Material
     second: {fileID: 2100000, guid: 771d0029ad51d0b42a27b25e03984965, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tree Material
+    second: {fileID: 2100000, guid: 4c7819f918c2c0446a4173d6052a16d6, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
