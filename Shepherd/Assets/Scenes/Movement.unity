@@ -17387,7 +17387,7 @@ Transform:
   m_GameObject: {fileID: 1407472060}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -250, y: 0, z: -250}
+  m_LocalPosition: {x: -250, y: -20, z: -250}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -32099,6 +32099,7 @@ GameObject:
   - component: {fileID: 3916377246398196096}
   - component: {fileID: 2053184762275951175}
   - component: {fileID: 8962279950959926222}
+  - component: {fileID: 8962279950959926223}
   m_Layer: 0
   m_Name: Fan
   m_TagString: Untagged
@@ -32307,6 +32308,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8962279950959926223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8334924713435548503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b85f05361f9a5194ca18615ce3b0126a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 15
 --- !u!4 &8966787360626001758 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7282980636795715464, guid: 9645dd70af193584f97b0a3c798d9b61, type: 3}
