@@ -42,6 +42,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Grave Material
+    second: {fileID: 2100000, guid: 7699c543fdbd5f745bebea5b95b545e0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Roof_Tile Material
     second: {fileID: 2100000, guid: 771d0029ad51d0b42a27b25e03984965, type: 2}
   - first:
