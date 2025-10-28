@@ -1,0 +1,248 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56b56c517a096e2479723794af19c2c1, type: 3}
+  m_Name: TimeData 36min
+  m_EditorClassIdentifier: 
+  totalDayTime: 180
+  dayPhases:
+  - phase: 0
+    timer:
+      maxTime: 20
+      currTime: 0
+    ambienceSource:
+      name: Sunrise
+      lightingProfile:
+        use: 0
+        light:
+          Use: 0
+          color: {r: 0, g: 0.03676009, b: 1, a: 1}
+          intensity: 0.5
+        skybox:
+          Use: 0
+          color: {r: 1, g: 0, b: 0, a: 1}
+      volumeProfile:
+        use: 0
+        hueShift:
+          Use: 0
+          value: 0
+      soundProfile:
+        use: 0
+        wind:
+          Use: 0
+          Intensity: 0
+        rain:
+          Use: 0
+          Intensity: 0
+        thunder:
+          Use: 0
+          Intensity: 0
+        leaves:
+          Use: 0
+          Intensity: 0
+        birds:
+          Use: 0
+          Intensity: 0
+        insects:
+          Use: 0
+          Intensity: 0
+      particleProfile:
+        use: 0
+        rainParticle:
+          Use: 0
+          particles: {fileID: 0}
+          intensity: 0
+          rainData: {fileID: 0}
+        snowParticle:
+          Use: 0
+          particles: {fileID: 0}
+          intensity: 0
+          snowData: {fileID: 0}
+    onPhaseStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onPhaseEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  - phase: 1
+    timer:
+      maxTime: 70
+      currTime: 0
+    ambienceSource:
+      name: Day
+      lightingProfile:
+        use: 0
+        light:
+          Use: 0
+          color: {r: 1, g: 1, b: 1, a: 1}
+          intensity: 1
+        skybox:
+          Use: 0
+          color: {r: 1, g: 1, b: 1, a: 1}
+      volumeProfile:
+        use: 0
+        hueShift:
+          Use: 0
+          value: 0
+      soundProfile:
+        use: 0
+        wind:
+          Use: 0
+          Intensity: 0
+        rain:
+          Use: 0
+          Intensity: 0
+        thunder:
+          Use: 0
+          Intensity: 0
+        leaves:
+          Use: 0
+          Intensity: 0
+        birds:
+          Use: 0
+          Intensity: 0
+        insects:
+          Use: 0
+          Intensity: 0
+      particleProfile:
+        use: 1
+        rainParticle:
+          Use: 0
+          particles: {fileID: 0}
+          intensity: 0
+          rainData: {fileID: 0}
+        snowParticle:
+          Use: 0
+          particles: {fileID: 0}
+          intensity: 0
+          snowData: {fileID: 0}
+    onPhaseStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onPhaseEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  - phase: 2
+    timer:
+      maxTime: 20
+      currTime: 0
+    ambienceSource:
+      name: Sunset
+      lightingProfile:
+        use: 0
+        light:
+          Use: 0
+          color: {r: 1, g: 1, b: 1, a: 1}
+          intensity: 1
+        skybox:
+          Use: 0
+          color: {r: 1, g: 1, b: 1, a: 1}
+      volumeProfile:
+        use: 0
+        hueShift:
+          Use: 0
+          value: 0
+      soundProfile:
+        use: 0
+        wind:
+          Use: 0
+          Intensity: 0
+        rain:
+          Use: 0
+          Intensity: 0
+        thunder:
+          Use: 0
+          Intensity: 0
+        leaves:
+          Use: 0
+          Intensity: 0
+        birds:
+          Use: 0
+          Intensity: 0
+        insects:
+          Use: 0
+          Intensity: 0
+      particleProfile:
+        use: 0
+        rainParticle:
+          Use: 0
+          particles: {fileID: 0}
+          intensity: 0
+          rainData: {fileID: 0}
+        snowParticle:
+          Use: 0
+          particles: {fileID: 0}
+          intensity: 0
+          snowData: {fileID: 0}
+    onPhaseStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onPhaseEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  - phase: 3
+    timer:
+      maxTime: 70
+      currTime: 0
+    ambienceSource:
+      name: Night
+      lightingProfile:
+        use: 0
+        light:
+          Use: 0
+          color: {r: 1, g: 1, b: 1, a: 1}
+          intensity: 1
+        skybox:
+          Use: 0
+          color: {r: 1, g: 1, b: 1, a: 1}
+      volumeProfile:
+        use: 0
+        hueShift:
+          Use: 0
+          value: 0
+      soundProfile:
+        use: 1
+        wind:
+          Use: 0
+          Intensity: 0
+        rain:
+          Use: 0
+          Intensity: 0
+        thunder:
+          Use: 0
+          Intensity: 0
+        leaves:
+          Use: 0
+          Intensity: 0
+        birds:
+          Use: 0
+          Intensity: 0
+        insects:
+          Use: 1
+          Intensity: 0.5
+      particleProfile:
+        use: 0
+        rainParticle:
+          Use: 0
+          particles: {fileID: 0}
+          intensity: 0
+          rainData: {fileID: 0}
+        snowParticle:
+          Use: 0
+          particles: {fileID: 0}
+          intensity: 0
+          snowData: {fileID: 0}
+    onPhaseStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onPhaseEnd:
+      m_PersistentCalls:
+        m_Calls: []

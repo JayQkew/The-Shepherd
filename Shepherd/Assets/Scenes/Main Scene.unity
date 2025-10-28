@@ -176,12 +176,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dayCount: 4
   currPhase: 0
-  data: {fileID: 11400000, guid: 00aa56b86c14d1c47bb3de893ab9683d, type: 2}
+  data: {fileID: 11400000, guid: 55cbd79afe57c3a47acc660b56cc2366, type: 2}
   yearTimer:
-    maxTime: 3600
+    maxTime: 2160
     currTime: 0
   dayTime:
-    maxTime: 300
+    maxTime: 180
     currTime: 0
   currDayPhase:
     phase: 0
@@ -245,7 +245,7 @@ MonoBehaviour:
   dayPhases:
   - phase: 0
     timer:
-      maxTime: 45
+      maxTime: 20
       currTime: 0
     ambienceSource:
       name: Sunrise
@@ -303,7 +303,7 @@ MonoBehaviour:
         m_Calls: []
   - phase: 1
     timer:
-      maxTime: 105
+      maxTime: 70
       currTime: 0
     ambienceSource:
       name: Day
@@ -361,7 +361,7 @@ MonoBehaviour:
         m_Calls: []
   - phase: 2
     timer:
-      maxTime: 45
+      maxTime: 20
       currTime: 0
     ambienceSource:
       name: Sunset
@@ -419,7 +419,7 @@ MonoBehaviour:
         m_Calls: []
   - phase: 3
     timer:
-      maxTime: 105
+      maxTime: 70
       currTime: 0
     ambienceSource:
       name: Night
@@ -24911,13 +24911,13 @@ MonoBehaviour:
       key5: {r: 0.3254902, g: 0.3254902, b: 1, a: 0}
       key6: {r: 0.3254902, g: 0.3254902, b: 1, a: 0}
       key7: {r: 1, g: 0.31764707, b: 0, a: 0}
-      ctime0: 6746
-      ctime1: 10601
-      ctime2: 28913
+      ctime0: 3901
+      ctime1: 8582
+      ctime2: 28086
       ctime3: 32768
-      ctime4: 39514
-      ctime5: 43369
-      ctime6: 61680
+      ctime4: 36668
+      ctime5: 41349
+      ctime6: 60854
       ctime7: 65535
       atime0: 0
       atime1: 65535
@@ -24941,13 +24941,13 @@ MonoBehaviour:
       key5: {r: 0.06705808, g: 0.041607343, b: 0.16037738, a: 0}
       key6: {r: 0.06705808, g: 0.041607343, b: 0.16037738, a: 0}
       key7: {r: 0.95283014, g: 0.33131522, b: 0.22921851, a: 0}
-      ctime0: 6746
-      ctime1: 10601
-      ctime2: 28913
+      ctime0: 3901
+      ctime1: 8582
+      ctime2: 28086
       ctime3: 32768
-      ctime4: 39514
-      ctime5: 43369
-      ctime6: 61680
+      ctime4: 36668
+      ctime5: 41349
+      ctime6: 60854
       ctime7: 65535
       atime0: 0
       atime1: 65535
@@ -26852,7 +26852,7 @@ Transform:
   m_GameObject: {fileID: 1799089223}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 28.71, y: 12, z: 102.8}
+  m_LocalPosition: {x: 28.71, y: 10.93, z: 102.8}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children:

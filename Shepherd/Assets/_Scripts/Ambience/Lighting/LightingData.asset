@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07a2dad9a32d1b34f84b71bde82da4c7, type: 3}
   m_Name: LightingData
   m_EditorClassIdentifier: 
-  transitionTime: 20
+  transitionTime: 15
   lightColors:
   - {r: 1, g: 0.31764707, b: 0, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
