@@ -42,6 +42,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Fire
+    uniqueID: 4201256267
+    locked: 0
   m_RenderingLayers:
   - Default
   - Light Layer 1
