@@ -18,7 +18,7 @@ namespace Creatures
         }
 
         private void Start() {
-            currState = bugFly;
+            currState = bugFall;
             currState.EnterState(this);
         }
 
