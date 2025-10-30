@@ -13,7 +13,7 @@ namespace Creatures
     {
         [Header("Animal")]
         [Space(10)]
-        [SerializeField] protected AnimalData animalData;
+        [SerializeField] protected AnimalData data;
         public HerdingSystem.Animal animal;
         [HideInInspector] public Rigidbody rb;
         [HideInInspector] public SphereCollider col;
@@ -28,9 +28,9 @@ namespace Creatures
 
         protected virtual void Start() {
             rb.constraints = RigidbodyConstraints.FreezeRotation;
-            rb.mass = animalData.mass.RandomValue();
-            rb.useGravity = animalData.useGravity;
-            rb.linearDamping = animalData.linearDamping;
+            rb.mass = data.mass.RandomValue();
+            rb.useGravity = data.useGravity;
+            rb.linearDamping = data.linearDamping;
             
             audioManager = AudioManager.Instance;
             fmodEvents = FMODEvents.Instance;

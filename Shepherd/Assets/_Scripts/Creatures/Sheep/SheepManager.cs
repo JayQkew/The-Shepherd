@@ -1,6 +1,4 @@
-using TimeSystem;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace Creatures.Sheep
 {
@@ -31,29 +29,6 @@ namespace Creatures.Sheep
             currState = newState;
             currState.EnterState(this);
         }
-
-        // public void MoveTo(Vector3 pos) {
-        //     currState.ExitState(this);
-        //     currState = sheepMove.Target(pos);
-        //     currState.EnterState(this);
-        // }
-        //
-        // public SheepBaseState GetRandomState() {
-        //     SheepBaseState[] dayStates =
-        //     {
-        //         sheepIdle,
-        //         sheepIdle,
-        //         sheepEat,
-        //         sheepSleep,
-        //         sheepMove
-        //     };
-        //
-        //     SheepBaseState[] nightState = { sheepSleep };
-        //
-        //     SheepBaseState[] states = TimeManager.Instance.currPhase == DayPhaseName.Night ? nightState : dayStates;
-        //
-        //     return states[Random.Range(0, states.Length)];
-        // }
 
         public override void BarkedAt(Vector3 sourcePositions) {
             base.BarkedAt(sourcePositions);

@@ -4,21 +4,22 @@ using Utilities;
 
 namespace Creatures.Sheep
 {
-    [CreateAssetMenu(fileName = "SheepStats", menuName = "Creatures/SheepStats")]
-    public class SheepStats : ScriptableObject
+    [CreateAssetMenu(fileName = "SheepData", menuName = "Creatures/Sheep")]
+    public class SheepData : AnimalData
     {
+        [Space(25)]
+        [Header("Sheep Data")]
         public MinMax idleTime;
         public MinMax eatTime;
         public MinMax sleepTime;
         public MinMax suppAnimTimer;
     
-        [FormerlySerializedAs("runTime")]
-        [Space(20)]
+        [Space(10)]
         public MinMax panicTime;
         public MinMax roamTime;
         public MinMax roamSpeed;
 
-        [Space(20)]
+        [Space(10)]
         public MinMax woolTime;
     }
 }

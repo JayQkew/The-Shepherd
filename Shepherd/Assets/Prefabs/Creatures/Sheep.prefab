@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94994497148b2f940b0169541979ad29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animalData: {fileID: 11400000, guid: 32ade72638ff9684689010ce0d1204d4, type: 2}
+  data: {fileID: 11400000, guid: c3f74505ba93f084d8bcf1049dea3409, type: 2}
   animal: 1
   rb: {fileID: 0}
   col: {fileID: 0}
@@ -59,7 +59,6 @@ MonoBehaviour:
   audioManager: {fileID: 0}
   fmodEvents: {fileID: 0}
   currHerdArea: 0
-  stats: {fileID: 11400000, guid: c3f74505ba93f084d8bcf1049dea3409, type: 2}
   barkForce: 10
   mehChance:
     percentage: 0.5
@@ -175,27 +174,15 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   boid: {fileID: 0}
+  stats: {fileID: 11400000, guid: c3f74505ba93f084d8bcf1049dea3409, type: 2}
   gui: {fileID: 0}
-  sheepIdle:
-    idleTimer:
+  sheepChill:
+    currAction: 0
+    timer:
       maxTime: 0
       currTime: 0
-  sheepEat:
-    eatTimer:
-      maxTime: 2.5
-      currTime: 0
-  sheepSleep:
-    sleepTimer:
-      maxTime: 0
-      currTime: 0
-  sheepMove:
-    dir: {x: 0, y: 0, z: 0}
-    speed: 2.5
-    moveTimer:
-      maxTime: 1
-      currTime: 0
-  sheepRun:
-    runTimer:
+  sheepPanic:
+    panicTimer:
       maxTime: 0
       currTime: 0
 --- !u!114 &4642858316876984763
@@ -449,6 +436,10 @@ PrefabInstance:
     - target: {fileID: 141331248500822098, guid: 597608abdf62b494b96de32055b7b911, type: 3}
       propertyPath: m_Name
       value: Puff VFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 5352181474527904491, guid: 597608abdf62b494b96de32055b7b911, type: 3}
+      propertyPath: scalingMode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8237841408596240876, guid: 597608abdf62b494b96de32055b7b911, type: 3}
       propertyPath: m_LocalPosition.x

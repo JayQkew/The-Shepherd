@@ -12100,10 +12100,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 764113701}
     m_Modifications:
-    - target: {fileID: 129761381824354925, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
-      propertyPath: scalingMode
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2499075382680790307, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
       propertyPath: m_Name
       value: Sheep (1)

@@ -1,6 +1,7 @@
 using Boids;
 using HerdingSystem;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Utilities;
 
 namespace Creatures.Sheep
@@ -10,18 +11,26 @@ namespace Creatures.Sheep
         [Space(25)]
         [Header("Sheep")]
         [Space(10)]
-        public SheepStats stats;
         [SerializeField] private float barkForce;
         [SerializeField] private Chance mehChance;
         public Food food;
         [SerializeField] private Wool wool;
         [SerializeField] private Explosion explosion;
         [HideInInspector] public Boid boid;
+        [HideInInspector] public SheepData sheepData;
         public SheepGUI gui;
+        
         
         protected override void Awake() {
             base.Awake();
-            wool.Init(stats.woolTime);
+            sheepData = data as SheepData;
+
+            if (sheepData == null) {
+                Debug.LogWarning("animal data not sheep stats");
+                return;
+            }
+            
+            wool.Init(sheepData.woolTime);
             explosion.Init(transform, col);
             gui = GetComponent<SheepGUI>();
             boid = GetComponent<Boid>();
@@ -38,7 +47,7 @@ namespace Creatures.Sheep
     
         protected virtual void Update() {
             wool.WoolUpdate();
-            rb.mass = animalData.mass.Lerp(wool.woolValue);
+            rb.mass = sheepData.mass.Lerp(wool.woolValue);
         }
 
         public void PuffExplosion() {

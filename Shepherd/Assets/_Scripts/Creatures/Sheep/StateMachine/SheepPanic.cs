@@ -12,7 +12,7 @@ namespace Creatures.Sheep
         public override void EnterState(SheepManager manager) {
             manager.gui.PlayAnim("Idle");
             manager.boid.activeBoids = true;
-            panicTimer.SetMaxTime(manager.stats.panicTime.RandomValue());
+            panicTimer.SetMaxTime(manager.sheepData.panicTime.RandomValue());
         }
 
         public override void UpdateState(SheepManager manager) {

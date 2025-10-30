@@ -53,7 +53,7 @@ namespace Creatures.Sheep
             if (suppAnimTimer.IsFinished) {
                 // choose a random chill animation to play
                 anim.SetTrigger(suppAnims[Random.Range(0, suppAnims.Length)]);
-                suppAnimTimer.SetMaxTime(manager.stats.suppAnimTimer.RandomValue());
+                suppAnimTimer.SetMaxTime(manager.sheepData.suppAnimTimer.RandomValue());
             }
         }
     

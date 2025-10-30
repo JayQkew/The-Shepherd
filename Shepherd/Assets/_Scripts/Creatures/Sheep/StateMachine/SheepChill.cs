@@ -52,21 +52,21 @@ namespace Creatures.Sheep
             manager.gui.PlayAnim(newAction.StringValue());
             switch (newAction) {
                 case Action.Idle:
-                    timer.SetMaxTime(manager.stats.idleTime.RandomValue());
+                    timer.SetMaxTime(manager.sheepData.idleTime.RandomValue());
                     break;
                 case Action.Sleep:
-                    timer.SetMaxTime(manager.stats.sleepTime.RandomValue());
+                    timer.SetMaxTime(manager.sheepData.sleepTime.RandomValue());
                     break;
                 case Action.Eat:
-                    timer.SetMaxTime(manager.stats.eatTime.RandomValue());
+                    timer.SetMaxTime(manager.sheepData.eatTime.RandomValue());
                     manager.food.Eat();
                     manager.emitter.EventReference = manager.fmodEvents.sheepEat;
                     manager.emitter.Play();
                     break;
                 case Action.Roam:
-                    timer.SetMaxTime(manager.stats.roamTime.RandomValue());
+                    timer.SetMaxTime(manager.sheepData.roamTime.RandomValue());
                     noiseSeed = Random.value * 100f;
-                    currSpeed = manager.stats.roamSpeed.RandomValue();
+                    currSpeed = manager.sheepData.roamSpeed.RandomValue();
                     break;
             }
             
