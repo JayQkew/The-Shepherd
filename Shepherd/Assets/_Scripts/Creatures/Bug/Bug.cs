@@ -1,6 +1,3 @@
-using System;
-using Climate;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Creatures
@@ -10,7 +7,7 @@ namespace Creatures
         [Space(25)]
         [Header("Bug")]
         [Space(10)]
-        
+        public BugGUI gui;
         [HideInInspector] public BugData bugData;
 
         protected override void Awake() {

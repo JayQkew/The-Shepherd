@@ -42,10 +42,12 @@ namespace Creatures
 
         private void PickNewAction(BugStateManager manager) {
             if (isIdle) {
+                manager.gui.PlayAnim("Walk");
                 isIdle = false;
                 nextActionTime = Time.time + Random.Range(manager.bugData.wanderIntervalMin, manager.bugData.wanderIntervalMax);
             }
             else {
+                manager.gui.PlayAnim("Idle");
                 isIdle = true;
                 nextActionTime = Time.time + Random.Range(manager.bugData.idleDurationMin, manager.bugData.idleDurationMax);
             }

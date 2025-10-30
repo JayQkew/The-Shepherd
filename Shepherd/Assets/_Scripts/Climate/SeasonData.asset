@@ -29,7 +29,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 257bafb41acaeee40aafd2400fb2ab3d, type: 2}
     - {fileID: 11400000, guid: 257bafb41acaeee40aafd2400fb2ab3d, type: 2}
     ambienceSource:
-      name: None
+      name: Summer
       lightingProfile:
         use: 0
         light:

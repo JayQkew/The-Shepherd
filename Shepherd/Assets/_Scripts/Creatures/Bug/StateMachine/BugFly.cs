@@ -7,7 +7,6 @@ namespace Creatures
     [Serializable]
     public class BugFly : BugBaseState
     {
-
         private Rigidbody rb;
         private Vector3 targetDirection;
         private float noiseSeed;
@@ -18,6 +17,8 @@ namespace Creatures
             rb.useGravity = false;
             noiseSeed = Random.value * 100f;
             targetDirection = manager.transform.forward;
+            manager.gui.PlayAnim("Fly");
+            Debug.Log("Playing Fly Anim");
         }
 
         public override void UpdateState(BugStateManager manager) {
