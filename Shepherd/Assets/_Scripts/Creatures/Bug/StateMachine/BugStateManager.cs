@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Creatures
 {
@@ -13,8 +14,11 @@ namespace Creatures
         public BugFly bugFly;
         public BugFall bugFall;
 
+        private float noiseSeed;
+
         private void Awake() {
             rb = GetComponent<Rigidbody>();
+            noiseSeed = Random.value * 100f;
         }
 
         private void Start() {
@@ -30,6 +34,15 @@ namespace Creatures
             currState.ExitState(this);
             currState = newState;
             currState.EnterState(this);
+        }
+        
+        /// <summary>
+        /// using perlin noise to generate a random direction
+        /// </summary>
+        public Vector3 WanderDirection(float perlinScale) {
+            float x = Mathf.PerlinNoise(noiseSeed, Time.time * perlinScale) * 2f - 1f;
+            float z = Mathf.PerlinNoise(noiseSeed + 10f, Time.time * perlinScale) * 2f - 1f;
+            return new Vector3(x, 0, z).normalized;
         }
     }
 

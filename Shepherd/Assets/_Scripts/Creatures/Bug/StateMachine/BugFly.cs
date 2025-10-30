@@ -15,8 +15,8 @@ namespace Creatures
         private float t;
 
         public override void EnterState(BugStateManager manager) {
-            rb = manager.rb;
-            manager.rb.useGravity = false;
+            if (rb == null) rb = manager.rb;
+            rb.useGravity = false;
             noiseSeed = Random.value * 100f;
             targetDirection = manager.transform.forward;
         }
@@ -25,7 +25,7 @@ namespace Creatures
             if (rb == null) return;
             t = Time.time;
 
-            Vector3 wanderDir = WanderDirection();
+            Vector3 wanderDir = manager.WanderDirection(0.5f);
             targetDirection = Vector3.Lerp(targetDirection, wanderDir, Time.deltaTime * data.turnSpeed);
             Hover(manager);
             float flutter = Mathf.Sin(t * data.flutterFrequency) * data.flutterAmplitude;
@@ -41,15 +41,6 @@ namespace Creatures
         }
 
         public override void ExitState(BugStateManager manager) {
-        }
-
-        /// <summary>
-        /// using perlin noise to generate a random direction
-        /// </summary>
-        private Vector3 WanderDirection() {
-            float x = Mathf.PerlinNoise(noiseSeed, t * 0.5f) * 2f - 1f;
-            float z = Mathf.PerlinNoise(noiseSeed + 10f, t * 0.5f) * 2f - 1f;
-            return new Vector3(x, 0, z).normalized;
         }
 
         private void Hover(BugStateManager manager) {

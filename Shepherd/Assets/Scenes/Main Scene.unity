@@ -7876,7 +7876,7 @@ MonoBehaviour:
   Damping: {x: 0.5, y: 0.5}
   Lookahead:
     Enabled: 1
-    Time: 0.5
+    Time: 0.125
     Smoothing: 15.3
     IgnoreY: 0
 --- !u!1 &481342306 stripped
@@ -9276,16 +9276,7 @@ MonoBehaviour:
   bugFly:
     data: {fileID: 11400000, guid: 373018b7185161c45bbcfde3529ef5c3, type: 2}
   bugFall:
-    walkSpeed: 5
-    turnSpeed: 3
-    wanderIntervalMin: 2
-    wanderIntervalMax: 5
-    idleDurationMin: 1
-    idleDurationMax: 3
-    raycastDistance: 2
-    groundMask:
-      serializedVersion: 2
-      m_Bits: 0
+    data: {fileID: 11400000, guid: 5f2531e5577efc543b7340ea543e93e7, type: 2}
 --- !u!54 &600721984
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -18787,6 +18778,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 991737543}
+  - component: {fileID: 991737544}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -18815,6 +18807,18 @@ Transform:
   - {fileID: 2103852138}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &991737544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991737542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e0a9f0231966ae4ebccc491092ede09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &996635757 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2383737430023205938, guid: 9cc8312e50c90d3439c4c5322d757920, type: 3}
