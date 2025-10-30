@@ -71,7 +71,7 @@ namespace Creatures.Ducken
                     //jump and run around frantically
                     if (IsGrounded()) {
                         Vector3 dir = (transform.position - sourcePosition).normalized;
-                        rb.AddForce(dir * stats.barkForce, ForceMode.Impulse);
+                        rb.AddForce(dir * duckenData.barkForce, ForceMode.Impulse);
                         rb.AddForce(Vector3.up * 10, ForceMode.Impulse);
                     }
                     SwitchState(duckenMove);
@@ -80,7 +80,7 @@ namespace Creatures.Ducken
                     // freeze and turn into ice (slippery)
                     if (IsGrounded()) {
                         Vector3 dir = (transform.position - sourcePosition).normalized;
-                        rb.AddForce(dir * stats.barkForce, ForceMode.Impulse);
+                        rb.AddForce(dir * duckenData.barkForce, ForceMode.Impulse);
                         rb.AddForce(Vector3.up * 10, ForceMode.Impulse);
                     }
                     SwitchState(duckenIdle);

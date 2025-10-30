@@ -11,7 +11,7 @@ namespace Creatures.Ducken
         public override void EnterState(DuckenManager manager) {
             manager.food.Eat();
             manager.boid.activeBoids = false;
-            eatTimer.SetMaxTime(manager.stats.eatTime.RandomValue());
+            eatTimer.SetMaxTime(manager.duckenData.eatTime.RandomValue());
         }
 
         public override void UpdateState(DuckenManager manager) {

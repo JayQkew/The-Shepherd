@@ -10,7 +10,7 @@ namespace Creatures.Ducken
         public Timer sleepTimer;
         public override void EnterState(DuckenManager manager) {
             manager.boid.activeBoids = false;
-            sleepTimer.SetMaxTime(manager.stats.sleepTime.RandomValue());
+            sleepTimer.SetMaxTime(manager.duckenData.sleepTime.RandomValue());
         }
 
         public override void UpdateState(DuckenManager manager) {

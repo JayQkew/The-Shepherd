@@ -28,10 +28,10 @@ namespace Creatures.Ducken
             
             if (!hasTarget) {
                 dir = Random.insideUnitCircle.normalized;
-                speed = manager.stats.walkSpeed.RandomValue();
+                speed = manager.duckenData.walkSpeed.RandomValue();
             }
 
-            moveTimer.SetMaxTime(hasTarget ? manager.stats.followTime.RandomValue() : manager.stats.walkTime.RandomValue());
+            moveTimer.SetMaxTime(hasTarget ? manager.duckenData.followTime.RandomValue() : manager.duckenData.walkTime.RandomValue());
         }
 
         public override void UpdateState(DuckenManager manager) {

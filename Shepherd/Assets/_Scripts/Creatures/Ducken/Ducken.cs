@@ -3,6 +3,7 @@ using Boids;
 using Climate;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Utilities;
 using Timer = Utilities.Timer;
 
@@ -13,7 +14,6 @@ namespace Creatures.Ducken
         [Header("Ducken")]
         public Form currForm;
 
-        public DuckenStats stats;
         public Food food;
         [SerializeField] private LayerMask groundLayer;
         [SerializeField] private float checkDistance;
@@ -22,11 +22,18 @@ namespace Creatures.Ducken
         private TempReceptor tempReceptor;
         private Timer tempThrottle;
         [HideInInspector] public Boid boid;
+        [HideInInspector] public DuckenData duckenData;
         private DuckenGUI gui;
-
-
+        
         protected override void Awake() {
             base.Awake();
+            duckenData = data as DuckenData;
+
+            if (duckenData == null) {
+                Debug.LogWarning("Ducken Data was not a Ducken Data");
+                return;
+            }
+            
             boid = GetComponent<Boid>();
             tempReceptor = GetComponent<TempReceptor>();
             tempReceptor.onTempChange.AddListener(FormCheck);
@@ -40,7 +47,7 @@ namespace Creatures.Ducken
 
         private void FixedUpdate() {
             if (!IsGrounded() && rb.linearVelocity.y <= 0) {
-                rb.AddForce(Vector3.down * stats.gravityForce, ForceMode.Acceleration);
+                rb.AddForce(Vector3.down * duckenData.gravityForce, ForceMode.Acceleration);
             }
         }
 
@@ -65,10 +72,10 @@ namespace Creatures.Ducken
         }
 
         private void FormCheck() {
-            if (tempReceptor.currTemp > stats.duckenThresh.max) {
+            if (tempReceptor.currTemp > duckenData.duckenThresh.max) {
                 currForm = Form.Chicken;
             }
-            else if (tempReceptor.currTemp < stats.duckenThresh.min) {
+            else if (tempReceptor.currTemp < duckenData.duckenThresh.min) {
                 currForm = Form.Duck;
             }
             else {

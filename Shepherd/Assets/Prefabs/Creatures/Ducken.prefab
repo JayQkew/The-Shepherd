@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 659f69f3aa54c9f499ce3b9e4401990d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animalData: {fileID: 11400000, guid: 1affc77545d7f494e810ffef784cc06a, type: 2}
+  data: {fileID: 11400000, guid: 118d6c6c1d7d45942ac5a3640401396d, type: 2}
   animal: 2
   rb: {fileID: 0}
   col: {fileID: 0}
@@ -107,7 +107,6 @@ MonoBehaviour:
   audioManager: {fileID: 0}
   fmodEvents: {fileID: 0}
   currForm: 0
-  stats: {fileID: 11400000, guid: 118d6c6c1d7d45942ac5a3640401396d, type: 2}
   food:
     food: 0
     eat:
@@ -124,6 +123,7 @@ MonoBehaviour:
   soundChance:
     percentage: 0.5
   boid: {fileID: 0}
+  duckenData: {fileID: 0}
   duckenEat:
     eatTimer:
       maxTime: 0
@@ -178,6 +178,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currTemp: 0
   onCalcTemp:
+    m_PersistentCalls:
+      m_Calls: []
+  onTempChange:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &2871207134634357103

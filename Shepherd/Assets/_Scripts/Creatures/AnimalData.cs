@@ -3,8 +3,6 @@ using Utilities;
 
 namespace Creatures
 {
-    [CreateAssetMenu(fileName = "Animal Data",menuName = "Creatures/AnimalData")]
-
     public class AnimalData : ScriptableObject
     {
         [Header("Animal Data")]

@@ -3,20 +3,22 @@ using Utilities;
 
 namespace Creatures.Ducken
 {
-    [CreateAssetMenu(fileName = "DuckenStats", menuName = "Creatures/DuckenStats")]
-    public class DuckenStats : ScriptableObject
+    [CreateAssetMenu(fileName = "DuckenData", menuName = "Creatures/Ducken")]
+    public class DuckenData : AnimalData
     {
+        [Header("Ducken Data")]
+        [Space(10)]
         public MinMax idleTime;
         public MinMax eatTime;
         public MinMax sleepTime;
         
-        [Space(20)]
+        [Space(10)]
         public MinMax runTime;
         public MinMax walkTime;
         public MinMax followTime;
         public MinMax walkSpeed;
 
-        [Space(20)]
+        [Space(10)]
         public MinMax duckenThresh;
         public float barkForce;
         public float gravityForce;
