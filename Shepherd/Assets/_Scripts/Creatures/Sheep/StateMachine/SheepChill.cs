@@ -15,6 +15,7 @@ namespace Creatures.Sheep
         private float noiseSeed;
         private float currSpeed;
         private Vector3 targetDir;
+
         public override void EnterState(SheepManager manager) {
             manager.boid.activeBoids = false;
             PickAction(manager);
@@ -22,13 +23,13 @@ namespace Creatures.Sheep
 
         public override void UpdateState(SheepManager manager) {
             timer.Update();
-            if (currAction is Action.Idle or Action.Roam)manager.gui.UpdateSuppAnims();
+            if (currAction is Action.Idle or Action.Roam) manager.gui.UpdateSuppAnims();
             if (timer.IsFinished) PickAction(manager);
-            
+
             if (currAction != Action.Roam) return;
 
             Vector3 roamDir = RoamDirection(1f);
-            targetDir = Vector3.Lerp(targetDir,roamDir, Time.deltaTime * 0.5f);
+            targetDir = Vector3.Lerp(targetDir, roamDir, Time.deltaTime * 0.5f);
             Vector3 move = targetDir * currSpeed;
             manager.rb.linearVelocity = Vector3.Lerp(manager.rb.linearVelocity, move, Time.deltaTime * 3f);
         }
@@ -48,7 +49,7 @@ namespace Creatures.Sheep
             do {
                 newAction = actions[Random.Range(0, actions.Length)];
             } while (newAction == currAction);
-            
+
             manager.gui.PlayAnim(newAction.StringValue());
             switch (newAction) {
                 case Action.Idle:
@@ -69,7 +70,7 @@ namespace Creatures.Sheep
                     currSpeed = manager.sheepData.roamSpeed.RandomValue();
                     break;
             }
-            
+
             currAction = newAction;
         }
 
@@ -77,10 +78,13 @@ namespace Creatures.Sheep
         {
             [Description("Idle")]
             Idle,
+
             [Description("Sleep")]
             Sleep,
+
             [Description("Eat")]
             Eat,
+
             [Description("Idle")]
             Roam
         }

@@ -51,7 +51,7 @@ namespace Creatures.Ducken
             }
         }
 
-        public virtual void BarkedAt(Vector3 sourcePosition) {
+        public virtual void BarkedAt(Transform sourcePosition) {
             if (soundChance.Roll()) {
                 switch (currForm) {
                     case Form.Ducken:

@@ -2,5 +2,5 @@ using UnityEngine;
 
 public interface IBarkable
 {
-    void BarkedAt(Vector3 sourcePosition);
+    void BarkedAt(Transform source);
 }

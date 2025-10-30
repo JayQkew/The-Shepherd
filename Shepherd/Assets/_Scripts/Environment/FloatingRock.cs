@@ -41,8 +41,8 @@ namespace Environment
             rb.AddTorque(transform.forward * returnForce, ForceMode.Force);
         }
 
-        public void BarkedAt(Vector3 sourcePosition) {
-            Vector3 dir = (transform.position - sourcePosition).normalized;
+        public void BarkedAt(Transform source) {
+            Vector3 dir = (transform.position - source.position).normalized;
             rb.AddForce(dir * returnForce, ForceMode.Impulse);
         }
     }

@@ -30,8 +30,8 @@ namespace Creatures.Sheep
             currState.EnterState(this);
         }
 
-        public override void BarkedAt(Vector3 sourcePositions) {
-            base.BarkedAt(sourcePositions);
+        public override void BarkedAt(Transform source) {
+            base.BarkedAt(source);
             SwitchState(sheepPanic);
         }
     }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 using Utilities;
 
 namespace Creatures.Ducken
@@ -14,9 +15,9 @@ namespace Creatures.Ducken
         
         [Space(10)]
         public MinMax runTime;
-        public MinMax walkTime;
+        public MinMax roamTime;
         public MinMax followTime;
-        public MinMax walkSpeed;
+        public MinMax roamSpeed;
 
         [Space(10)]
         public MinMax duckenThresh;

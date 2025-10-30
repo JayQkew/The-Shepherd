@@ -30,7 +30,7 @@ namespace Creatures.Sheep
             foreach (Collider c in cols) {
                 IBarkable barkable = c.GetComponent<IBarkable>();
                 if (barkable != null) {
-                    barkable.BarkedAt(origin);
+                    barkable.BarkedAt(transform);
                 }
                 else {
                     Rigidbody targetRb = c.GetComponent<Rigidbody>();

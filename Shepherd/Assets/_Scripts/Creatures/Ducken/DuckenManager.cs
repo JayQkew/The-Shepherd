@@ -1,6 +1,7 @@
 using System;
 using TimeSystem;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace Creatures.Ducken
@@ -12,23 +13,14 @@ namespace Creatures.Ducken
         [Space(25)]
         [Header("State Manager")]
         [Space(10)]
-        public DuckenEat duckenEat;
+        public DuckenChill duckenChill;
 
         [Space(10)]
-        public DuckenIdle duckenIdle;
-
-        [Space(10)]
-        public DuckenSleep duckenSleep;
-
-        [Space(10)]
-        public DuckenRun duckenRun;
-
-        [Space(10)]
-        public DuckenMove duckenMove;
+        public DuckenPanic duckenPanic;
 
         protected override void Start() {
             base.Start();
-            currState = duckenIdle;
+            currState = duckenChill;
             currState.EnterState(this);
         }
 
@@ -42,57 +34,42 @@ namespace Creatures.Ducken
             currState.EnterState(this);
         }
 
-        public void SwitchRandomState() {
-            DuckenBaseState[] dayStates =
-            {
-                duckenIdle,
-                duckenEat,
-                duckenSleep,
-                duckenMove,
-                duckenMove,
-                duckenMove
-            };
-
-            DuckenBaseState[] nightStates = { duckenSleep };
-
-            DuckenBaseState[] states = TimeManager.Instance.currPhase == DayPhaseName.Night ? nightStates : dayStates;
-            DuckenBaseState state = states[Random.Range(0, states.Length)];
-            SwitchState(state);
-        }
-
-        public override void BarkedAt(Vector3 sourcePosition) {
-            base.BarkedAt(sourcePosition);
+        public override void BarkedAt(Transform source) {
+            base.BarkedAt(source);
             switch (currForm) {
                 case Form.Ducken:
                     //follow the source
-                    MoveTo(sourcePosition);
+                    MoveTo(source);
                     break;
                 case Form.Chicken:
                     //jump and run around frantically
                     if (IsGrounded()) {
-                        Vector3 dir = (transform.position - sourcePosition).normalized;
+                        Vector3 dir = (transform.position - source.position).normalized;
                         rb.AddForce(dir * duckenData.barkForce, ForceMode.Impulse);
                         rb.AddForce(Vector3.up * 10, ForceMode.Impulse);
                     }
-                    SwitchState(duckenMove);
+
+                    SwitchState(duckenPanic);
                     break;
                 case Form.Duck:
                     // freeze and turn into ice (slippery)
                     if (IsGrounded()) {
-                        Vector3 dir = (transform.position - sourcePosition).normalized;
+                        Vector3 dir = (transform.position - source.position).normalized;
                         rb.AddForce(dir * duckenData.barkForce, ForceMode.Impulse);
                         rb.AddForce(Vector3.up * 10, ForceMode.Impulse);
                     }
-                    SwitchState(duckenIdle);
+
+                    SwitchState(duckenChill);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
         }
 
-        private void MoveTo(Vector3 targetPos) {
+        private void MoveTo(Transform target) {
             currState.ExitState(this);
-            currState = duckenMove.Target(targetPos);
+            duckenChill.Target(target);
+            currState = duckenChill;
             currState.EnterState(this);
         }
     }

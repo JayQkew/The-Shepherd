@@ -35,8 +35,8 @@ namespace Creatures.Sheep
             boid = GetComponent<Boid>();
         }
 
-        public virtual void BarkedAt(Vector3 sourcePosition) {
-            Vector3 dir = (transform.position - sourcePosition).normalized;
+        public virtual void BarkedAt(Transform source) {
+            Vector3 dir = (transform.position - source.position).normalized;
             rb.AddForce(dir * barkForce, ForceMode.Impulse);
 
             if (mehChance.Roll()) {

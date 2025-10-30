@@ -33,7 +33,7 @@ namespace Player
             hitObjects = ConeCast();
             foreach (GameObject hit in hitObjects) {
                 IBarkable b = hit.GetComponent<IBarkable>();
-                if (b != null) b.BarkedAt(transform.position);
+                if (b != null) b.BarkedAt(transform);
             }
 
             StartCoroutine(BarkCooldown());
