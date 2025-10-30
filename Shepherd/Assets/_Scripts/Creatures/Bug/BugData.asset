@@ -9,17 +9,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b92bcaf8697386d418b328625bbf4aef, type: 3}
-  m_Name: BugFlyData
+  m_Script: {fileID: 11500000, guid: 14aed244780473746a2d9b7d5e2fc8fc, type: 3}
+  m_Name: BugData
   m_EditorClassIdentifier: 
-  speed: 5
-  turnSpeed: 2
+  walkSpeed: 5
+  turnSpeed: 3
+  wanderIntervalMin: 2
+  wanderIntervalMax: 5
+  idleDurationMin: 1
+  idleDurationMax: 3
+  flySpeed: 2
+  flyTurnSpeed: 2
   wanderStrength: 1
   targetHeight: 2
   heightAdjustSpeed: 0.5
   raycastDistance: 10
   groundMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
   flutterAmplitude: 0.5
   flutterFrequency: 5

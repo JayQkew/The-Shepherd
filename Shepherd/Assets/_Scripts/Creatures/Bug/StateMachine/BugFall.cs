@@ -7,8 +7,6 @@ namespace Creatures
     [Serializable]
     public class BugFall : BugBaseState
     {
-        [SerializeField] private BugFallData data;
-
         private Rigidbody rb;
         private Vector3 targetDirection;
         private float nextActionTime;
@@ -19,12 +17,12 @@ namespace Creatures
             manager.rb.useGravity = true;
             targetDirection = manager.transform.forward;
             
-            PickNewAction();
+            PickNewAction(manager);
         }
 
         public override void UpdateState(BugStateManager manager) {
             if (rb == null) return;
-            if (Time.time > nextActionTime) PickNewAction();
+            if (Time.time > nextActionTime) PickNewAction(manager);
 
             if (isIdle) {
                 rb.linearVelocity = Vector3.Lerp(rb.linearVelocity, Vector3.zero, Time.deltaTime * 3f);
@@ -32,8 +30,8 @@ namespace Creatures
             }
             
             Vector3 wanderDir = manager.WanderDirection(0.3f);
-            targetDirection = Vector3.Lerp(targetDirection, wanderDir, Time.deltaTime * data.turnSpeed);
-            Vector3 move = targetDirection * data.walkSpeed;
+            targetDirection = Vector3.Lerp(targetDirection, wanderDir, Time.deltaTime * manager.data.turnSpeed);
+            Vector3 move = targetDirection * manager.data.walkSpeed;
             move.y = rb.linearVelocity.y;
             rb.linearVelocity = Vector3.Lerp(rb.linearVelocity, move, Time.deltaTime * 3f);
         }
@@ -42,14 +40,14 @@ namespace Creatures
             if (manager.rb != null) manager.rb.linearVelocity = Vector3.zero;
         }
 
-        private void PickNewAction() {
+        private void PickNewAction(BugStateManager manager) {
             if (isIdle) {
                 isIdle = false;
-                nextActionTime = Time.time + Random.Range(data.wanderIntervalMin, data.wanderIntervalMax);
+                nextActionTime = Time.time + Random.Range(manager.data.wanderIntervalMin, manager.data.wanderIntervalMax);
             }
             else {
                 isIdle = true;
-                nextActionTime = Time.time + Random.Range(data.idleDurationMin, data.idleDurationMax);
+                nextActionTime = Time.time + Random.Range(manager.data.idleDurationMin, manager.data.idleDurationMax);
             }
         }
     }

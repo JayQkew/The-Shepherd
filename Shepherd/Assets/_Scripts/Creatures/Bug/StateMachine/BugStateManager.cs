@@ -6,6 +6,7 @@ namespace Creatures
 {
     public class BugStateManager : MonoBehaviour
     {
+        public BugData data;
         public BugBaseState currState;
         public Rigidbody rb;
 

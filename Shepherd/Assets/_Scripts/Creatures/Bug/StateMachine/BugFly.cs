@@ -7,7 +7,6 @@ namespace Creatures
     [Serializable]
     public class BugFly : BugBaseState
     {
-        [SerializeField] private BugFlyData data;
 
         private Rigidbody rb;
         private Vector3 targetDirection;
@@ -26,11 +25,11 @@ namespace Creatures
             t = Time.time;
 
             Vector3 wanderDir = manager.WanderDirection(0.5f);
-            targetDirection = Vector3.Lerp(targetDirection, wanderDir, Time.deltaTime * data.turnSpeed);
+            targetDirection = Vector3.Lerp(targetDirection, wanderDir, Time.deltaTime * manager.data.flyTurnSpeed);
             Hover(manager);
-            float flutter = Mathf.Sin(t * data.flutterFrequency) * data.flutterAmplitude;
+            float flutter = Mathf.Sin(t * manager.data.flutterFrequency) * manager.data.flutterAmplitude;
 
-            Vector3 horizontalVelocity = targetDirection * data.speed;
+            Vector3 horizontalVelocity = targetDirection * manager.data.flySpeed;
             Vector3 currentVelocity = rb.linearVelocity;
             Vector3 targetVelocity = new Vector3(
                 horizontalVelocity.x,
@@ -46,14 +45,14 @@ namespace Creatures
         private void Hover(BugStateManager manager) {
             float currentHeight = manager.transform.position.y;
             bool foundGround = Physics.Raycast(manager.transform.position, Vector3.down, out RaycastHit hit,
-                data.raycastDistance, data.groundMask);
+                manager.data.raycastDistance, manager.data.groundMask);
 
             if (foundGround) {
                 var groundHeight = hit.point.y;
-                float desiredHeight = groundHeight + data.targetHeight;
+                float desiredHeight = groundHeight + manager.data.targetHeight;
                 float heightError = desiredHeight - currentHeight;
 
-                rb.AddForce(Vector3.up * (heightError * data.heightAdjustSpeed), ForceMode.Acceleration);
+                rb.AddForce(Vector3.up * (heightError * manager.data.heightAdjustSpeed), ForceMode.Acceleration);
             }
         }
     }

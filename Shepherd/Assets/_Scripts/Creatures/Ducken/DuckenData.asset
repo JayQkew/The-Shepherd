@@ -29,15 +29,15 @@ MonoBehaviour:
   runTime:
     _min: 1
     _max: 3
-  walkTime:
-    _min: 0.25
-    _max: 0.5
+  roamTime:
+    _min: 3.5
+    _max: 7
   followTime:
-    _min: 2
-    _max: 3
-  walkSpeed:
-    _min: 4
-    _max: 6
+    _min: 5
+    _max: 7
+  roamSpeed:
+    _min: 5
+    _max: 7
   duckenThresh:
     _min: 7
     _max: 23
