@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 using Utilities;
 
 namespace Creatures.Sheep
@@ -11,10 +12,11 @@ namespace Creatures.Sheep
         public MinMax sleepTime;
         public MinMax suppAnimTimer;
     
+        [FormerlySerializedAs("runTime")]
         [Space(20)]
-        public MinMax runTime;
-        public MinMax walkTime;
-        public MinMax walkSpeed;
+        public MinMax panicTime;
+        public MinMax roamTime;
+        public float roamSpeed;
 
         [Space(20)]
         public MinMax woolTime;

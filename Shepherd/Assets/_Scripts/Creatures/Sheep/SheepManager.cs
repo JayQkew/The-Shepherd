@@ -11,19 +11,13 @@ namespace Creatures.Sheep
         [Space(25)]
         [Header("State Manager")]
         [Space(10)]
-        public SheepIdle sheepIdle;
+        public SheepChill sheepChill;
         [Space(10)]
-        public SheepEat sheepEat;
-        [Space(10)]
-        public SheepSleep sheepSleep;
-        [Space(10)]
-        public SheepMove sheepMove;
-        [Space(10)]
-        public SheepRun sheepRun;
+        public SheepPanic sheepPanic;
 
         protected override void Start() {
             base.Start();
-            currState = sheepIdle;
+            currState = sheepChill;
             currState.EnterState(this);
         }
 
@@ -38,32 +32,32 @@ namespace Creatures.Sheep
             currState.EnterState(this);
         }
 
-        public void MoveTo(Vector3 pos) {
-            currState.ExitState(this);
-            currState = sheepMove.Target(pos);
-            currState.EnterState(this);
-        }
-
-        public SheepBaseState GetRandomState() {
-            SheepBaseState[] dayStates =
-            {
-                sheepIdle,
-                sheepIdle,
-                sheepEat,
-                sheepSleep,
-                sheepMove
-            };
-
-            SheepBaseState[] nightState = { sheepSleep };
-
-            SheepBaseState[] states = TimeManager.Instance.currPhase == DayPhaseName.Night ? nightState : dayStates;
-
-            return states[Random.Range(0, states.Length)];
-        }
+        // public void MoveTo(Vector3 pos) {
+        //     currState.ExitState(this);
+        //     currState = sheepMove.Target(pos);
+        //     currState.EnterState(this);
+        // }
+        //
+        // public SheepBaseState GetRandomState() {
+        //     SheepBaseState[] dayStates =
+        //     {
+        //         sheepIdle,
+        //         sheepIdle,
+        //         sheepEat,
+        //         sheepSleep,
+        //         sheepMove
+        //     };
+        //
+        //     SheepBaseState[] nightState = { sheepSleep };
+        //
+        //     SheepBaseState[] states = TimeManager.Instance.currPhase == DayPhaseName.Night ? nightState : dayStates;
+        //
+        //     return states[Random.Range(0, states.Length)];
+        // }
 
         public override void BarkedAt(Vector3 sourcePositions) {
             base.BarkedAt(sourcePositions);
-            SwitchState(sheepRun);
+            SwitchState(sheepPanic);
         }
     }
 

@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using Notifications;
-using OffScreenIndicator;
 using UnityEngine;
 using Utilities;
 using Random = UnityEngine.Random;
