@@ -1,10 +1,15 @@
+using Climate;
 using UnityEngine;
 
 namespace Creatures
 {
     [CreateAssetMenu(fileName = "BugData", menuName = "Creature/Bug")]
-    public class BugData : ScriptableObject
+    public class BugData : AnimalData
     {
+        [Header("State Data")]
+        public SeasonName flySeason;
+        public SeasonName fallSeason;
+        
         [Header("Walk Settings")]
         public float walkSpeed = 5f;
         public float turnSpeed = 3f;

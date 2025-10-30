@@ -25,11 +25,11 @@ namespace Creatures
             t = Time.time;
 
             Vector3 wanderDir = manager.WanderDirection(0.5f);
-            targetDirection = Vector3.Lerp(targetDirection, wanderDir, Time.deltaTime * manager.data.flyTurnSpeed);
+            targetDirection = Vector3.Lerp(targetDirection, wanderDir, Time.deltaTime * manager.bugData.flyTurnSpeed);
             Hover(manager);
-            float flutter = Mathf.Sin(t * manager.data.flutterFrequency) * manager.data.flutterAmplitude;
+            float flutter = Mathf.Sin(t * manager.bugData.flutterFrequency) * manager.bugData.flutterAmplitude;
 
-            Vector3 horizontalVelocity = targetDirection * manager.data.flySpeed;
+            Vector3 horizontalVelocity = targetDirection * manager.bugData.flySpeed;
             Vector3 currentVelocity = rb.linearVelocity;
             Vector3 targetVelocity = new Vector3(
                 horizontalVelocity.x,
@@ -45,14 +45,14 @@ namespace Creatures
         private void Hover(BugStateManager manager) {
             float currentHeight = manager.transform.position.y;
             bool foundGround = Physics.Raycast(manager.transform.position, Vector3.down, out RaycastHit hit,
-                manager.data.raycastDistance, manager.data.groundMask);
+                manager.bugData.raycastDistance, manager.bugData.groundMask);
 
             if (foundGround) {
                 var groundHeight = hit.point.y;
-                float desiredHeight = groundHeight + manager.data.targetHeight;
+                float desiredHeight = groundHeight + manager.bugData.targetHeight;
                 float heightError = desiredHeight - currentHeight;
 
-                rb.AddForce(Vector3.up * (heightError * manager.data.heightAdjustSpeed), ForceMode.Acceleration);
+                rb.AddForce(Vector3.up * (heightError * manager.bugData.heightAdjustSpeed), ForceMode.Acceleration);
             }
         }
     }

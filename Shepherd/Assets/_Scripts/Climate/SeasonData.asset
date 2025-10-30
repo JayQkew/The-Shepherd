@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SeasonData
   m_EditorClassIdentifier: 
   seasons:
-  - season: 0
+  - season: 1
     dayTemp: 0
     temp:
       _min: 25
@@ -29,7 +29,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 257bafb41acaeee40aafd2400fb2ab3d, type: 2}
     - {fileID: 11400000, guid: 257bafb41acaeee40aafd2400fb2ab3d, type: 2}
     ambienceSource:
-      name: Summer
+      name: None
       lightingProfile:
         use: 0
         light:
@@ -82,7 +82,7 @@ MonoBehaviour:
     onSeasonEnd:
       m_PersistentCalls:
         m_Calls: []
-  - season: 1
+  - season: 2
     dayTemp: 0
     temp:
       _min: 10
@@ -147,7 +147,7 @@ MonoBehaviour:
     onSeasonEnd:
       m_PersistentCalls:
         m_Calls: []
-  - season: 2
+  - season: 4
     dayTemp: 0
     temp:
       _min: -5
@@ -216,7 +216,7 @@ MonoBehaviour:
     onSeasonEnd:
       m_PersistentCalls:
         m_Calls: []
-  - season: 3
+  - season: 8
     dayTemp: 0
     temp:
       _min: 10

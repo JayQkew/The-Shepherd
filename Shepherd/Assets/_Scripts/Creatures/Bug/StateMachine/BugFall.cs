@@ -30,8 +30,8 @@ namespace Creatures
             }
             
             Vector3 wanderDir = manager.WanderDirection(0.3f);
-            targetDirection = Vector3.Lerp(targetDirection, wanderDir, Time.deltaTime * manager.data.turnSpeed);
-            Vector3 move = targetDirection * manager.data.walkSpeed;
+            targetDirection = Vector3.Lerp(targetDirection, wanderDir, Time.deltaTime * manager.bugData.turnSpeed);
+            Vector3 move = targetDirection * manager.bugData.walkSpeed;
             move.y = rb.linearVelocity.y;
             rb.linearVelocity = Vector3.Lerp(rb.linearVelocity, move, Time.deltaTime * 3f);
         }
@@ -43,11 +43,11 @@ namespace Creatures
         private void PickNewAction(BugStateManager manager) {
             if (isIdle) {
                 isIdle = false;
-                nextActionTime = Time.time + Random.Range(manager.data.wanderIntervalMin, manager.data.wanderIntervalMax);
+                nextActionTime = Time.time + Random.Range(manager.bugData.wanderIntervalMin, manager.bugData.wanderIntervalMax);
             }
             else {
                 isIdle = true;
-                nextActionTime = Time.time + Random.Range(manager.data.idleDurationMin, manager.data.idleDurationMax);
+                nextActionTime = Time.time + Random.Range(manager.bugData.idleDurationMin, manager.bugData.idleDurationMax);
             }
         }
     }

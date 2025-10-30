@@ -10,8 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 14aed244780473746a2d9b7d5e2fc8fc, type: 3}
-  m_Name: BugData
+  m_Name: SnowBugData
   m_EditorClassIdentifier: 
+  mass:
+    _min: 0
+    _max: 0
+  useGravity: 0
+  linearDamping: 0
+  flySeason: 6
+  fallSeason: 3
   walkSpeed: 5
   turnSpeed: 3
   wanderIntervalMin: 2
@@ -26,6 +33,6 @@ MonoBehaviour:
   raycastDistance: 10
   groundMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   flutterAmplitude: 0.5
   flutterFrequency: 5

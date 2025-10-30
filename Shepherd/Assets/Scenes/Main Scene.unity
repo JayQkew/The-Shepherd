@@ -9164,6 +9164,8 @@ GameObject:
   - component: {fileID: 600721984}
   - component: {fileID: 600721979}
   - component: {fileID: 600721983}
+  - component: {fileID: 600721986}
+  - component: {fileID: 600721985}
   m_Layer: 0
   m_Name: Bug
   m_TagString: Untagged
@@ -9272,11 +9274,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee22a100c908ee6419d8962a8d31a3e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 64c2bbdce53d4c643be26e5382c3862a, type: 2}
+  animal: 0
   rb: {fileID: 0}
-  bugFly:
-    data: {fileID: 11400000, guid: 373018b7185161c45bbcfde3529ef5c3, type: 2}
-  bugFall:
-    data: {fileID: 11400000, guid: 5f2531e5577efc543b7340ea543e93e7, type: 2}
+  col: {fileID: 0}
+  emitter: {fileID: 0}
+  audioManager: {fileID: 0}
+  fmodEvents: {fileID: 0}
+  bugData: {fileID: 0}
 --- !u!54 &600721984
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9304,6 +9309,58 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &600721985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600721977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: -1
+  OverrideMaxDistance: -1
+--- !u!135 &600721986
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600721977}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &602948168
 PrefabInstance:
   m_ObjectHideFlags: 0

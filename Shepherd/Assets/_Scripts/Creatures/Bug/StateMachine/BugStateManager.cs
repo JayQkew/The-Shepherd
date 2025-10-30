@@ -1,14 +1,14 @@
 using System;
+using Climate;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace Creatures
 {
-    public class BugStateManager : MonoBehaviour
+    public class BugStateManager : Bug
     {
-        public BugData data;
         public BugBaseState currState;
-        public Rigidbody rb;
 
         [Space(25)]
         [Header("State Manager")]
@@ -17,14 +17,24 @@ namespace Creatures
 
         private float noiseSeed;
 
-        private void Awake() {
-            rb = GetComponent<Rigidbody>();
+        protected override void Awake() {
+            base.Awake();
             noiseSeed = Random.value * 100f;
         }
 
-        private void Start() {
-            currState = bugFall;
+        protected override void Start() {
+            base.Start();
+            currState = bugData.fallSeason.HasFlag(ClimateManager.Instance.currSeason.season) ?
+                bugFall : bugFly;
             currState.EnterState(this);
+            
+            foreach (Season season in ClimateManager.Instance.seasons) {
+                if (bugData.fallSeason.HasFlag(season.season)) {
+                    season.onSeasonBegin.AddListener(() => SwitchState(bugFall));
+                } else if (bugData.flySeason.HasFlag(season.season)) {
+                    season.onSeasonBegin.AddListener(() => SwitchState(bugFly));
+                }
+            }
         }
 
         private void Update() {

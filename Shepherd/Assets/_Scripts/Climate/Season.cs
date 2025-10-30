@@ -57,11 +57,13 @@ namespace Climate
         }
     }
     
+    [Flags]
     public enum SeasonName
     {
-        Summer = 0,
-        Autumn = 1,
-        Winter = 2,
-        Spring = 3
+        None = 0,
+        Summer = 1 <<  0,
+        Autumn = 1 << 1,
+        Winter = 1 << 2,
+        Spring = 1 << 3
     }
 }
