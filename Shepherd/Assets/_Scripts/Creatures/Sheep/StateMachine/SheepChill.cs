@@ -13,6 +13,7 @@ namespace Creatures.Sheep
         public Timer timer;
 
         private float noiseSeed;
+        private float currSpeed;
         private Vector3 targetDir;
         public override void EnterState(SheepManager manager) {
             manager.boid.activeBoids = false;
@@ -26,9 +27,9 @@ namespace Creatures.Sheep
             
             if (currAction != Action.Roam) return;
 
-            Vector3 roamDir = RoamDirection(0.5f);
-            targetDir = Vector3.Lerp(targetDir,roamDir, Time.deltaTime * 3f);
-            Vector3 move = targetDir * manager.stats.roamSpeed;
+            Vector3 roamDir = RoamDirection(1f);
+            targetDir = Vector3.Lerp(targetDir,roamDir, Time.deltaTime * 0.5f);
+            Vector3 move = targetDir * currSpeed;
             manager.rb.linearVelocity = Vector3.Lerp(manager.rb.linearVelocity, move, Time.deltaTime * 3f);
         }
 
@@ -64,6 +65,8 @@ namespace Creatures.Sheep
                     break;
                 case Action.Roam:
                     timer.SetMaxTime(manager.stats.roamTime.RandomValue());
+                    noiseSeed = Random.value * 100f;
+                    currSpeed = manager.stats.roamSpeed.RandomValue();
                     break;
             }
             

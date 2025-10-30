@@ -24,15 +24,15 @@ MonoBehaviour:
   suppAnimTimer:
     _min: 2.5
     _max: 5
-  runTime:
+  panicTime:
     _min: 1
     _max: 3
-  walkTime:
+  roamTime:
+    _min: 5
+    _max: 7.5
+  roamSpeed:
     _min: 3
-    _max: 6
-  walkSpeed:
-    _min: 1
-    _max: 1.5
+    _max: 7
   woolTime:
     _min: 60
     _max: 90
