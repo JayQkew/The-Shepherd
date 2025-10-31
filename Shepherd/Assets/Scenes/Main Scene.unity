@@ -6593,6 +6593,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c62c64b82ff3df04cb8cd26d45dff648, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteShader: {fileID: 0}
 --- !u!212 &416859771
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7232,6 +7233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c62c64b82ff3df04cb8cd26d45dff648, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteShader: {fileID: 0}
 --- !u!212 &443424359
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8768,7 +8770,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.015, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 571569415}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8820,6 +8822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c62c64b82ff3df04cb8cd26d45dff648, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteShader: {fileID: 2100000, guid: 2e9add8ca2c5e4349bf6859c51904293, type: 2}
 --- !u!212 &535992845
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8843,7 +8846,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 2100000, guid: 2e9add8ca2c5e4349bf6859c51904293, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -29269,6 +29272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c62c64b82ff3df04cb8cd26d45dff648, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteShader: {fileID: 0}
 --- !u!212 &1495404579
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -31388,7 +31392,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRotation: {x: 0.25881904, y: 0, z: 0, w: 0.9659258}
   guis: []
-  spriteShadowMat: {fileID: 2100000, guid: 1399a32e316a87e4b89f0b8bcd270302, type: 2}
+  defaultMat: {fileID: 2100000, guid: 1399a32e316a87e4b89f0b8bcd270302, type: 2}
 --- !u!1001 &1651130345
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44764,6 +44768,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c62c64b82ff3df04cb8cd26d45dff648, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteShader: {fileID: 2100000, guid: 98eddd05029b984438eba4997927f850, type: 2}
 --- !u!212 &1910736660
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -44787,7 +44792,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 2100000, guid: 98eddd05029b984438eba4997927f850, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

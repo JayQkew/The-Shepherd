@@ -1,13 +1,16 @@
-using System;
 using UnityEngine;
 
-public class GUI : MonoBehaviour
+namespace SpriteSystem
 {
-    private void Start() {
-        SpriteManager.Instance.AddGUI(transform);
-    }
+    public class GUI : MonoBehaviour
+    {
+        [SerializeField] private Material spriteShader;
+        private void Start() {
+            SpriteManager.Instance.AddGUI(transform, spriteShader);
+        }
 
-    private void OnDestroy() {
-        SpriteManager.Instance.RemoveGUI(transform);
+        private void OnDestroy() {
+            SpriteManager.Instance.RemoveGUI(transform);
+        }
     }
 }
