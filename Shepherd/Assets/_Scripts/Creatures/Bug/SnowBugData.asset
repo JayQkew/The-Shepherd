@@ -19,7 +19,7 @@ MonoBehaviour:
   linearDamping: 0
   flySeason: 6
   fallSeason: 3
-  walkSpeed: 5
+  walkSpeed: 4
   turnSpeed: 3
   wanderIntervalMin: 2
   wanderIntervalMax: 5
