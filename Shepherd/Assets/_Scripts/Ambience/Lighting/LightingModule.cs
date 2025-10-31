@@ -15,6 +15,7 @@ namespace Ambience
         [SerializeField] private UnityEngine.Light light;
         [SerializeField] private Gradient lightGradient;
         [SerializeField] private Gradient skyboxGradient;
+        [SerializeField] private Gradient fogGradient;
 
         [Space(15)]
         [SerializeField, Range(0, 1)] private float gradientTint;
@@ -48,6 +49,7 @@ namespace Ambience
                 intensityLerp.Update();
                 lightTintLerp.Update();
                 skyboxTintLerp.Update();
+                RenderSettings.fogColor = fogGradient.Evaluate(t);
 
                 if (lightTintLerp.IsLerping) {
                     currLightGradient = TintGradient(lightGradient, lightTintLerp.CurrentValue);
