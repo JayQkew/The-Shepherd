@@ -1,7 +1,11 @@
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using Notifications;
+using TimeSystem;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using Utilities;
 using Random = UnityEngine.Random;
@@ -19,6 +23,7 @@ namespace HerdingSystem
         private HerdDestination pen;
 
         [SerializeField, Space(25)] TicketManager ticketManager;
+        [SerializeField, Space(25)] SheepSpawn sheepSpawn;
 
         private void Awake() {
             if (Instance == null) {
@@ -38,8 +43,17 @@ namespace HerdingSystem
                 }
             }
 
-            // puts tickets into dictionary
             ticketManager.Init();
+            sheepSpawn.SpawnSheep(3);
+        }
+
+        private void Start() {
+            TimeManager.Instance.dayPhases[^1].onPhaseEnd.AddListener(sheepSpawn.SpawnSheep);
+        }
+
+        private void OnDestroy() {
+            sheepSpawn.ClearSheepCount();
+            TimeManager.Instance.dayPhases[^1].onPhaseEnd.RemoveListener(sheepSpawn.SpawnSheep);
         }
 
         public void AddAnimal(HerdAnimal herdAnimal) {
@@ -186,18 +200,20 @@ namespace HerdingSystem
         }
 
         #endregion
+
+        private void OnDrawGizmos() {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(sheepSpawn.spawnPoint.position, sheepSpawn.spawnRadius);
+        }
     }
 
     public enum Destination
     {
         None,
-
         [Description("the Barn")]
         Barn,
-
         [Description("the Northern Pasture")]
         NorthernPasture,
-
         [Description("the Western Pasture")]
         WesternPasture,
     }
