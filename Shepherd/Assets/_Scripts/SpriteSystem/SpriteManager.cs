@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -43,5 +44,9 @@ namespace SpriteSystem
         }
 
         public void RemoveGUI(Transform t) => guis.Remove(t);
+
+        private void OnValidate() {
+            if (Instance == null) Instance = this;
+        }
     }
 }

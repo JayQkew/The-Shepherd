@@ -5433,13 +5433,13 @@ Camera:
   m_Iso: 200
   m_ShutterSpeed: 0.005
   m_Aperture: 16
-  m_FocusDistance: 10
-  m_FocalLength: 50
+  m_FocusDistance: 28.10406
+  m_FocalLength: 13.858139
   m_BladeCount: 5
   m_Curvature: {x: 2, y: 11}
   m_BarrelClipping: 0.25
   m_Anamorphism: 0
-  m_SensorSize: {x: 36, y: 24}
+  m_SensorSize: {x: 21.946, y: 16.002}
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -5475,8 +5475,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1675435, y: -0.0000000034679692, z: 5.8936656e-10, w: 0.9858647}
-  m_LocalPosition: {x: 58.8, y: 5.6, z: -118.4}
+  m_LocalRotation: {x: 0.22975296, y: 0.000000014502544, z: -0.0000000034235867, w: 0.973249}
+  m_LocalPosition: {x: 58.8, y: 5.5, z: -115.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5509,7 +5509,7 @@ MonoBehaviour:
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
-  m_Dithering: 0
+  m_Dithering: 1
   m_ClearDepth: 1
   m_AllowXRRendering: 1
   m_AllowHDROutput: 1
@@ -8103,8 +8103,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 480788511}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16754349, y: -0.0000000034679692, z: 5.8936617e-10, w: 0.9858647}
-  m_LocalPosition: {x: 58.8, y: 5.6, z: -118.4}
+  m_LocalRotation: {x: 0.22975293, y: 0.000000014502542, z: -0.0000000034235854, w: 0.973249}
+  m_LocalPosition: {x: 58.8, y: 5.5, z: -115.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8128,7 +8128,7 @@ MonoBehaviour:
     AngularDampingMode: 0
     RotationDamping: {x: 0, y: 0, z: 0}
     QuaternionDamping: 1
-  FollowOffset: {x: 0, y: 4.5, z: -10}
+  FollowOffset: {x: 0, y: 5, z: -7}
 --- !u!114 &480788515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8194,7 +8194,7 @@ MonoBehaviour:
       Size: {x: 0.8, y: 0.8}
       Offset: {x: 0, y: 0}
   CenterOnActivate: 1
-  TargetOffset: {x: 0, y: 1, z: 0}
+  TargetOffset: {x: 0, y: 1.5, z: 0}
   Damping: {x: 0.5, y: 0.5}
   Lookahead:
     Enabled: 1
@@ -18051,7 +18051,7 @@ Transform:
   m_GameObject: {fileID: 876513060}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 58.8, y: 11.1, z: -88.4}
+  m_LocalPosition: {x: 58.8, y: 10.5, z: -88.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -52940,6 +52940,7 @@ GameObject:
   - component: {fileID: 2080037330}
   - component: {fileID: 2080037331}
   - component: {fileID: 2080037334}
+  - component: {fileID: 2080037335}
   - component: {fileID: 2080037332}
   - component: {fileID: 2080037333}
   m_Layer: 0
@@ -52958,7 +52959,7 @@ Transform:
   m_GameObject: {fileID: 2080037327}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 58.8, y: 1.1, z: -108.4}
+  m_LocalPosition: {x: 58.8, y: 0.5, z: -108.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -53341,6 +53342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73fba9815c5891740aa8323ef72203f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speedRatio: 0
   maxSpeed: 10
   sprintMaxSpeed: 30
   acceleration: 2
@@ -53416,6 +53418,30 @@ MonoBehaviour:
   force: 0
   range: 90
   hitObjects: []
+--- !u!114 &2080037335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2080037327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c3087158e0196a4c83edf8b8967514c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cinemachineFollow: {fileID: 480788514}
+  movingThresh: 0.5
+  chillOffset: {x: 0, y: 5, z: -7}
+  walkOffset: {x: 0, y: 7.1667, z: -10}
+  sprintOffset: {x: 0, y: 11.5, z: -16}
+  smoothTime: 2
+  idleTimer:
+    maxTime: 2
+    currTime: 0
+  sprintTimer:
+    maxTime: 1
+    currTime: 0
 --- !u!4 &2084453362 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8581794526469322306, guid: 9919c2541ea675d4192c7045c9216631, type: 3}
