@@ -30,7 +30,7 @@ MonoBehaviour:
   wanderStrength: 1
   targetHeight: 2
   heightAdjustSpeed: 0.5
-  raycastDistance: 10
+  raycastDistance: 100
   groundMask:
     serializedVersion: 2
     m_Bits: 8

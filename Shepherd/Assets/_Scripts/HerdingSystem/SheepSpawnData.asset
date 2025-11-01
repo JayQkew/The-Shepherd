@@ -12,3 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a68f9ef223579b44be5fc8a31426357, type: 3}
   m_Name: SheepSpawnData
   m_EditorClassIdentifier: 
+  count: 0
+  clampSheep:
+    _min: 3
+    _max: 15
+  prefab: {fileID: 2499075382680790307, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
