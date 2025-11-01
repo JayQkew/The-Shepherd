@@ -20,8 +20,6 @@ namespace HerdingSystem
 
         [SerializeField, Space(25)] TicketManager ticketManager;
 
-        private Dictionary<Animal, List<HerdAnimal>> animalsByType = new Dictionary<Animal, List<HerdAnimal>>();
-
         private void Awake() {
             if (Instance == null) {
                 Instance = this;
@@ -35,7 +33,7 @@ namespace HerdingSystem
 
             // finds the pen
             foreach (HerdDestination destination in destinations) {
-                if (destination.destination == Destination.Pen) {
+                if (destination.destination == Destination.Barn) {
                     pen = destination;
                 }
             }
@@ -46,40 +44,26 @@ namespace HerdingSystem
 
         public void AddAnimal(HerdAnimal herdAnimal) {
             if (herdAnimal == null || allHerdAnimals.Contains(herdAnimal)) return;
-
             allHerdAnimals.Add(herdAnimal);
-
-            if (!animalsByType.ContainsKey(herdAnimal.animal)) {
-                animalsByType[herdAnimal.animal] = new List<HerdAnimal>();
-            }
-
-            animalsByType[herdAnimal.animal].Add(herdAnimal);
         }
 
         public void RemoveAnimal(HerdAnimal herdAnimal) {
             if (herdAnimal == null) return;
-
             allHerdAnimals.Remove(herdAnimal);
-
-            if (animalsByType.TryGetValue(herdAnimal.animal, out var list)) {
-                list.Remove(herdAnimal);
-            }
         }
 
         public void UpdateMissions(HerdDestination herdDestination) {
             for (int i = 0; i < missions.Count; i++) {
                 HerdMission herdMission = missions[i];
                 if (herdMission.herdDestination == herdDestination) {
-                    if (herdDestination.animalsByType.TryGetValue(herdMission.animal, out List<HerdAnimal> animals)) {
-                        herdMission.curr = animals.Count;
-                        missionUI.missionCards[i].UpdateNumbers();
+                    herdMission.curr = herdMission.herdDestination.animalsIn.Count;
+                    missionUI.missionCards[i].UpdateNumbers();
 
-                        HerdAssist.HerdDirection herdDirection = herdMission.TargetMet
-                            ? HerdAssist.HerdDirection.Out
-                            : HerdAssist.HerdDirection.In;
+                    HerdAssist.HerdDirection herdDirection = herdMission.TargetMet
+                        ? HerdAssist.HerdDirection.Out
+                        : HerdAssist.HerdDirection.In;
 
-                        herdDestination.herdAssist.direction = herdDirection;
-                    }
+                    herdDestination.herdAssist.direction = herdDirection;
                 }
 
                 missions[i] = herdMission;
@@ -111,15 +95,14 @@ namespace HerdingSystem
 
             HerdMission penMission = new HerdMission(
                 pen,
-                Animal.Sheep,
-                animalsByType[Animal.Sheep].Count
+                allHerdAnimals.Count
             );
             missions.Add(penMission);
             missionUI.AddMissionCard(penMission);
 
             Notification notification = new Notification(
                 "Herding",
-                $"Herd {animalsByType[Animal.Sheep].Count} {Animal.Sheep.StringValue()} to {pen.destination.StringValue()}",
+                $"Herd {allHerdAnimals.Count} Sheep to {pen.destination.StringValue()}",
                 5);
 
             MissionGateControl(true, HerdAssist.HerdDirection.In);
@@ -132,41 +115,35 @@ namespace HerdingSystem
 
             List<HerdDestination> allDestinations = destinations.ToList();
 
-            // generate missions for every animal type
-            foreach (Animal animal in animalsByType.Keys) {
-                HerdingTicket ticket = ticketManager.GetTicket();
+            HerdingTicket ticket = ticketManager.GetTicket();
 
-                List<HerdDestination> herdDestinations = AvailableDestinations(animal);
-                int totalAnimals = animalsByType[animal].Count;
+            List<HerdDestination> herdDestinations = destinations.ToList();
+            int totalAnimals = allHerdAnimals.Count;
 
-                int numMissions = ticket.weights.Count;
-                int animalSum = 0;
-                for (int i = 0; i < numMissions; i++) {
-                    HerdDestination herdDestination = herdDestinations[Random.Range(0, herdDestinations.Count)];
-                    int numAnimals = Mathf.RoundToInt(totalAnimals * ticket.weights[i]);
-                    animalSum += numAnimals;
+            int numMissions = ticket.weights.Count;
+            int animalSum = 0;
+            for (int i = 0; i < numMissions; i++) {
+                HerdDestination herdDestination = herdDestinations[Random.Range(0, herdDestinations.Count)];
+                int numAnimals = Mathf.RoundToInt(totalAnimals * ticket.weights[i]);
+                animalSum += numAnimals;
 
-                    HerdMission herdMission = new HerdMission(
-                        herdDestination,
-                        animal,
-                        numAnimals);
+                HerdMission herdMission = new HerdMission(herdDestination, numAnimals);
 
-                    allDestinations.Remove(herdDestination);
-                    herdDestinations.Remove(herdDestination);
-                    missions.Add(herdMission);
-                }
+                allDestinations.Remove(herdDestination);
+                herdDestinations.Remove(herdDestination);
+                missions.Add(herdMission);
+            }
 
-                // this is to account for any rounding errors
-                int diff = totalAnimals - animalSum;
-                missions[numMissions - 1].target += diff;
+            // this is to account for any rounding errors
+            int diff = totalAnimals - animalSum;
+            missions[numMissions - 1].target += diff;
 
-                foreach (HerdMission mission in missions) {
-                    missionUI.AddMissionCard(mission);
-                    Notification notification = new Notification(
-                        "Herding",
-                        $"Herd {mission.target} {animal.StringValue()} to {mission.destination.StringValue()}",
-                        10);
-                }
+            foreach (HerdMission mission in missions) {
+                missionUI.AddMissionCard(mission);
+                Notification notification = new Notification(
+                    "Herding",
+                    $"Herd {mission.target} Sheep to {mission.destination.StringValue()}",
+                    10);
             }
 
             foreach (HerdDestination destination in allDestinations) {
@@ -209,53 +186,19 @@ namespace HerdingSystem
         }
 
         #endregion
-
-        private List<HerdDestination> AvailableDestinations(Animal animal) {
-            List<HerdDestination> herdDestinations = new List<HerdDestination>();
-            Debug.Log(destinations.Length);
-            foreach (HerdDestination destination in destinations) {
-                if (destination.canHost.HasFlag(animal)) {
-                    herdDestinations.Add(destination);
-                }
-            }
-
-            herdDestinations.Remove(pen); // ensures that the pen is never chosen
-            return herdDestinations;
-        }
     }
 
     public enum Destination
     {
         None,
 
-        [Description("the Pen")]
-        Pen,
+        [Description("the Barn")]
+        Barn,
 
-        [Description("Field 1")]
-        Field1,
+        [Description("the Northern Pasture")]
+        NorthernPasture,
 
-        [Description("Field 2")]
-        Field2,
-
-        [Description("Field 3")]
-        Field3,
-
-        [Description("Field 4")]
-        Field4,
-
-        [Description("Field 5")]
-        Field5,
-    }
-
-    [System.Flags]
-    public enum Animal
-    {
-        None = 0,
-
-        [Description("Sheep")]
-        Sheep = 1 << 0,
-
-        [Description("Ducken")]
-        Ducken = 1 << 1
+        [Description("the Western Pasture")]
+        WesternPasture,
     }
 }

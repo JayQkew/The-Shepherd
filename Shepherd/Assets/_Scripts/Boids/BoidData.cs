@@ -1,6 +1,5 @@
 using Creatures;
 using UnityEngine;
-using Animal = HerdingSystem.Animal;
 
 namespace Boids
 {

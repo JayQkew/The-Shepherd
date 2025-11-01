@@ -38,7 +38,7 @@ namespace Boids
         
             for (int i = 0; i < hitCount; i++) {
                 Boid b = colliderBuffer[i].GetComponent<Boid>();
-                if (b && b != this && data.affectedAnimals.HasFlag(b.data.animal)) neighbours.Add(b);
+                if (b && b != this) neighbours.Add(b);
             }
             return neighbours.ToArray();
         }

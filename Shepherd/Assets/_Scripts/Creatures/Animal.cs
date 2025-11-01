@@ -14,7 +14,6 @@ namespace Creatures
         [Header("Animal")]
         [Space(10)]
         [SerializeField] protected AnimalData data;
-        public HerdingSystem.Animal animal;
         [HideInInspector] public Rigidbody rb;
         [HideInInspector] public SphereCollider col;
         [HideInInspector] public StudioEventEmitter emitter;
@@ -35,10 +34,6 @@ namespace Creatures
             audioManager = AudioManager.Instance;
             fmodEvents = FMODEvents.Instance;
             emitter = audioManager.InitializeEventEmitter(gameObject);
-        }
-
-        public override string ToString() {
-            return $"{base.ToString()} : [{animal.ToString()}]";
         }
     }
 }
