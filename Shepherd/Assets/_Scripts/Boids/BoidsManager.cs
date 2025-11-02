@@ -9,7 +9,7 @@ namespace Boids
 
         private void Start() {
             // all boids should be a child of boidsParent
-            boids = boidsParent.GetComponentsInChildren<global::Boids.Boid>();
+            boids = boidsParent.GetComponentsInChildren<Boid>();
         }
 
         private void FixedUpdate() {
