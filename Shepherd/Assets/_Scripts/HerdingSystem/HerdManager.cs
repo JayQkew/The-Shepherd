@@ -1,12 +1,10 @@
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using Notifications;
 using TimeSystem;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Utilities;
 using Random = UnityEngine.Random;
 
@@ -19,19 +17,18 @@ namespace HerdingSystem
 
         public List<HerdMission> missions;
         public HerdDestination[] destinations;
-        public List<HerdAnimal> allHerdAnimals = new List<HerdAnimal>();
+        public List<HerdAnimal> allHerdAnimals = new();
         private HerdDestination pen;
 
         [SerializeField, Space(25)] TicketManager ticketManager;
         [SerializeField, Space(25)] SheepSpawn sheepSpawn;
 
         private void Awake() {
-            if (Instance == null) {
-                Instance = this;
-            }
-            else {
-                Destroy(gameObject);
-            }
+            if (Instance == null) Instance = this;
+            else Destroy(gameObject);
+
+            SceneManager.sceneLoaded += OnSceneLoaded;
+            SceneManager.sceneLoaded += sheepSpawn.OnSceneLoaded;
 
             destinations = FindObjectsByType<HerdDestination>(FindObjectsSortMode.None);
             missionUI = MissionUI.Instance;
@@ -52,8 +49,27 @@ namespace HerdingSystem
         }
 
         private void OnDestroy() {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+            SceneManager.sceneLoaded -= sheepSpawn.OnSceneLoaded;
             sheepSpawn.ClearSheepCount();
             TimeManager.Instance.dayPhases[^1].onPhaseEnd.RemoveListener(sheepSpawn.SpawnSheep);
+        }
+
+        private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode) {
+            if (scene.name == "Main Scene") {
+                destinations = FindObjectsByType<HerdDestination>(FindObjectsSortMode.None);
+                foreach (HerdMission mission in missions) {
+                    foreach (HerdDestination destination in destinations) {
+                        if (destination.destination == Destination.Barn) {
+                            pen = destination;
+                        }
+
+                        if (mission.destination == destination.destination) {
+                            mission.herdDestination = destination;
+                        }
+                    }
+                }
+            }
         }
 
         public void AddAnimal(HerdAnimal herdAnimal) {

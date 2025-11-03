@@ -9,7 +9,7 @@ namespace Scene
     public class BarnSceneTrigger : MonoBehaviour
     {
         private readonly WaitForSeconds waitForSeconds = new(2.2f);
-        [SerializeField] private PolkaDots polkaDots;
+        public PolkaDots polkaDots;
 
         private bool isTransitioning;
 

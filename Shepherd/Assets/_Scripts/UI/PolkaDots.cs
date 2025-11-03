@@ -1,4 +1,5 @@
 using System;
+using Scene;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -36,6 +37,8 @@ namespace UI
 
         private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode) {
             anim.SetTrigger(FadeIn);
+            BarnSceneTrigger barnSceneTrigger = FindFirstObjectByType<BarnSceneTrigger>();
+            barnSceneTrigger.polkaDots = this;
         }
     }
 }

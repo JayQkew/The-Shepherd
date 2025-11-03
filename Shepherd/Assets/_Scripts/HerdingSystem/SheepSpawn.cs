@@ -1,6 +1,7 @@
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
 
@@ -43,5 +44,12 @@ namespace HerdingSystem
         }
 
         public void ClearSheepCount() => data.count = 0;
+        
+        public void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode) {
+            if (scene.name == "Main Scene") {
+                spawnPoint = GameObject.Find("SheepSpawnPoint").transform;
+                parent = GameObject.Find("Sheeps").transform;
+            }
+        }
     }
 }
