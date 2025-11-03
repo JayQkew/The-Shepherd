@@ -10,6 +10,13 @@ namespace Scene
     {
         private readonly WaitForSeconds waitForSeconds = new (2.2f);
         [SerializeField] private PolkaDots polkaDots;
+
+        private void Start() {
+            if (polkaDots == null) {
+                polkaDots = FindFirstObjectByType<PolkaDots>();
+            }
+        }
+
         private void OnTriggerEnter(Collider other) {
             polkaDots.FadeOutTrigger();
             StartCoroutine(ChangeScenes());
