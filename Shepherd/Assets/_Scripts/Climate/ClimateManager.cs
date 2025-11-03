@@ -71,8 +71,6 @@ namespace Climate
             foreach (TempReceptor receptor in tempReceptors) {
                 receptor.CalcTemp();
             }
-            
-
         }
 
         private void Update() {

@@ -8,8 +8,10 @@ namespace Scene
 {
     public class BarnSceneTrigger : MonoBehaviour
     {
-        private readonly WaitForSeconds waitForSeconds = new (2.2f);
+        private readonly WaitForSeconds waitForSeconds = new(2.2f);
         [SerializeField] private PolkaDots polkaDots;
+
+        private bool isTransitioning;
 
         private void Start() {
             if (polkaDots == null) {
@@ -18,13 +20,21 @@ namespace Scene
         }
 
         private void OnTriggerEnter(Collider other) {
+            if (isTransitioning) return;
+            
+            if (!other.CompareTag("Player")) return;
+            
+            isTransitioning = true;
             polkaDots.FadeOutTrigger();
             StartCoroutine(ChangeScenes());
         }
 
         private IEnumerator ChangeScenes() {
             yield return waitForSeconds;
-            SceneManager.LoadScene("Barn");
+            string currentScene = SceneManager.GetActiveScene().name;
+            string targetScene = currentScene == "Barn" ? "Main Scene" : "Barn";
+            
+            SceneManager.LoadScene(targetScene);
         }
     }
 }

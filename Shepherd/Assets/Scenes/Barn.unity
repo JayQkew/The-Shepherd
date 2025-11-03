@@ -192,21 +192,33 @@ PrefabInstance:
       propertyPath: onPausePressed.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 418372909737298687, guid: 7212f530e869e6745894030632094066, type: 3}
+      propertyPath: onMenuPressed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 418372909737298687, guid: 7212f530e869e6745894030632094066, type: 3}
+      propertyPath: onMenuPressed.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 418372909737298687, guid: 7212f530e869e6745894030632094066, type: 3}
+      propertyPath: onPausePressed.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2692573341009956402, guid: 7212f530e869e6745894030632094066, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.9659258
       objectReference: {fileID: 0}
     - target: {fileID: 2692573341009956402, guid: 7212f530e869e6745894030632094066, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.2588191
+      value: 0.25881907
       objectReference: {fileID: 0}
     - target: {fileID: 2692573341009956402, guid: 7212f530e869e6745894030632094066, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2692573341009956402, guid: 7212f530e869e6745894030632094066, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2692573341009956402, guid: 7212f530e869e6745894030632094066, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -244,6 +256,7 @@ GameObject:
   m_Component:
   - component: {fileID: 510403941}
   - component: {fileID: 510403942}
+  - component: {fileID: 510403943}
   m_Layer: 3
   m_Name: Barn Exit
   m_TagString: Untagged
@@ -282,12 +295,25 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &510403943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 510403940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62c21e8ef2e669846adc6222e7ce5789, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  polkaDots: {fileID: 0}
 --- !u!1 &633710307
 GameObject:
   m_ObjectHideFlags: 0
@@ -1994,6 +2020,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRotation: {x: 0.25881907, y: 0, z: 0, w: 0.9659258}
   guis:
+  - {fileID: 52048370}
+  - {fileID: 52048370}
+  - {fileID: 52048370}
+  - {fileID: 52048370}
   - {fileID: 52048370}
   - {fileID: 52048370}
   - {fileID: 52048370}
