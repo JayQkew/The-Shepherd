@@ -48884,6 +48884,20 @@ MonoBehaviour:
       Data3: 516418201
       Data4: -1413938168
     Path: event:/SFX/FireCrackling
+  <buttonHover>k__BackingField:
+    Guid:
+      Data1: 2053148554
+      Data2: 1301434385
+      Data3: 815702690
+      Data4: -2017868064
+    Path: event:/SFX/ButtonHover
+  <buttonClick>k__BackingField:
+    Guid:
+      Data1: 905724257
+      Data2: 1183232935
+      Data3: 483908016
+      Data4: -1423074589
+    Path: event:/SFX/ButtonPress
 --- !u!1 &1862076077
 GameObject:
   m_ObjectHideFlags: 0
@@ -49078,6 +49092,7 @@ GameObject:
   - component: {fileID: 1889053532}
   - component: {fileID: 1889053534}
   - component: {fileID: 1889053533}
+  - component: {fileID: 1889053535}
   m_Layer: 5
   m_Name: Start Button
   m_TagString: Untagged
@@ -49169,6 +49184,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1889053531}
   m_CullTransparentMesh: 1
+--- !u!114 &1889053535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889053531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcd9267f5af50914a8b3adaaa34582ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hover:
+    Guid:
+      Data1: 2053148554
+      Data2: 1301434385
+      Data3: 815702690
+      Data4: -2017868064
+    Path: event:/SFX/ButtonHover
+  pressed:
+    Guid:
+      Data1: -1906484941
+      Data2: 1173510906
+      Data3: 133133964
+      Data4: 1483294978
+    Path: event:/SFX/Bark
 --- !u!1 &1893913774
 GameObject:
   m_ObjectHideFlags: 0
@@ -51626,6 +51667,7 @@ GameObject:
   - component: {fileID: 2086507637}
   - component: {fileID: 2086507639}
   - component: {fileID: 2086507638}
+  - component: {fileID: 2086507640}
   m_Layer: 5
   m_Name: Exit Button
   m_TagString: Untagged
@@ -51717,6 +51759,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2086507636}
   m_CullTransparentMesh: 1
+--- !u!114 &2086507640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2086507636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcd9267f5af50914a8b3adaaa34582ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hover:
+    Guid:
+      Data1: 2053148554
+      Data2: 1301434385
+      Data3: 815702690
+      Data4: -2017868064
+    Path: event:/SFX/ButtonHover
+  pressed:
+    Guid:
+      Data1: 905724257
+      Data2: 1183232935
+      Data3: 483908016
+      Data4: -1423074589
+    Path: event:/SFX/ButtonPress
 --- !u!1001 &2088520755
 PrefabInstance:
   m_ObjectHideFlags: 0
