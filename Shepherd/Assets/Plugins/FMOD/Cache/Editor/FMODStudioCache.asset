@@ -175,10 +175,10 @@ MonoBehaviour:
   Path: ../Shepherd_FMod/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638959668942793364
+  lastModified: 638978743691869650
   FileSizes:
   - Name: Desktop
-    Value: 716832
+    Value: 1172480
   Exists: 1
 --- !u!114 &-4553014013240413427
 MonoBehaviour:
@@ -301,10 +301,10 @@ MonoBehaviour:
   Path: ../Shepherd_FMod/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638959668941610157
+  lastModified: 638978740598477810
   FileSizes:
   - Name: Desktop
-    Value: 1686
+    Value: 1730
   Exists: 1
 --- !u!114 &-2285424770398842885
 MonoBehaviour:
@@ -465,13 +465,14 @@ MonoBehaviour:
   - {fileID: 5391842292026005806}
   - {fileID: 1359199452722965318}
   - {fileID: 6777402026352807364}
+  - {fileID: 8546755972209977084}
   EditorParameters: []
   MasterBanks:
   - {fileID: 8013575224256464752}
   StringsBanks:
   - {fileID: -2396919686633065383}
   cacheVersion: 131849
-  cacheTime: 638959668942793364
+  cacheTime: 638978743691869650
   SerializableEventsDict:
   - key: event:/Ambience/Rain
     index: 0
@@ -509,6 +510,8 @@ MonoBehaviour:
     index: 16
   - key: event:/SFX/WalkGrass
     index: 17
+  - key: event:/SFX/FireCrackling
+    index: 18
 --- !u!114 &467731183027970049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -791,8 +794,35 @@ MonoBehaviour:
   Path: ../Shepherd_FMod/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638959668941575050
+  lastModified: 638978740598457806
   FileSizes:
   - Name: Desktop
     Value: 1378
   Exists: 1
+--- !u!114 &8546755972209977084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/FireCrackling
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/FireCrackling
+  Guid:
+    Data1: -2057825328
+    Data2: 1105006103
+    Data3: 516418201
+    Data4: -1413938168
+  Banks:
+  - {fileID: -4623933728860896192}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 32000

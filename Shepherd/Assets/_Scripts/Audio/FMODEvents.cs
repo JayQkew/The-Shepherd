@@ -26,6 +26,9 @@ namespace Audio
         [field: SerializeField] public EventReference chickenSound { get; private set; }
         [field: SerializeField] public EventReference duckenWalk { get; private set; }
         [field: SerializeField] public EventReference duckenChange { get; private set; }
+        
+        [field: Header("Fire Place Events")]
+        [field: SerializeField] public EventReference fireCrackling { get; private set; }
 
         private void Awake() {
             if (Instance == null) {
