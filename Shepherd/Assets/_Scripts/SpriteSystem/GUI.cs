@@ -7,21 +7,18 @@ namespace SpriteSystem
     {
         [SerializeField] private Material spriteShader;
 
-        private void OnEnable() {
-            if (SpriteManager.Instance != null)
+        private void Start() {
+            if (SpriteManager.Instance != null) {
                 SpriteManager.Instance.AddGUI(transform, spriteShader);
+                Debug.Log("GUI set for: " + name);
+            } else {
+                Debug.LogWarning($"SpriteManager Instance is null when enabling GUI on {name}. Make sure SpriteManager exists in the scene.");
+            }
         }
 
         private void OnDisable() {
             if (SpriteManager.Instance != null)
                 SpriteManager.Instance.RemoveGUI(transform);
         }
-
-#if UNITY_EDITOR
-        private void OnValidate() {
-            if (SpriteManager.Instance != null && isActiveAndEnabled)
-                SpriteManager.Instance.AddGUI(transform, spriteShader);
-        }
-#endif
     }
 }
