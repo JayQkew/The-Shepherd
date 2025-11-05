@@ -71,9 +71,6 @@ MonoBehaviour:
       poopSpawn: {fileID: 0}
       poopForce: 0
   wool:
-    woolTimer:
-      maxTime: 0
-      currTime: 0
     woolEvents:
     - m_PersistentCalls:
         m_Calls:
@@ -166,7 +163,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
   explosion:
-    radius: 0
+    radius: 0.66
     forceMult: 0
     onExplode:
       m_PersistentCalls:

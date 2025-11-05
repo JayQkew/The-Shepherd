@@ -46,3 +46,5 @@ MonoBehaviour:
     currTime: 0
   timerSet: 0
   prevWool: 0
+  explosionRadius: 5
+  explosionForce: 10

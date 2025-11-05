@@ -24,5 +24,9 @@ namespace Creatures.Sheep
         public Timer woolTimer;
         public bool timerSet;
         public float prevWool;
+
+        [Space(10)]
+        public float explosionRadius;
+        public float explosionForce;
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using Boids;
 using HerdingSystem;
 using UnityEngine;
@@ -30,7 +31,7 @@ namespace Creatures.Sheep
             }
 
             wool.Init(sheepData);
-            explosion.Init(transform, col);
+            explosion.Init(transform, col, sheepData);
             gui = GetComponent<SheepGUI>();
             boid = GetComponent<Boid>();
         }
@@ -58,6 +59,12 @@ namespace Creatures.Sheep
         public void PlayMeh() {
             emitter.EventReference = fmodEvents.sheepMeh;
             emitter.Play();
+        }
+
+        private void OnDrawGizmos() {
+            SheepData sData = data as SheepData;
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(transform.position, sData.explosionRadius);
         }
     }
 }
