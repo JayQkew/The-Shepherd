@@ -77,8 +77,10 @@ namespace OffScreenIndicator
         }
 
         public void RemoveTarget(OsiTarget target) {
-            Destroy(targetIndicators[target].gameObject);
-            targetIndicators.Remove(target);
+            if (targetIndicators.ContainsKey(target)) {
+                Destroy(targetIndicators[target].gameObject);
+                targetIndicators.Remove(target);
+            }
         }
 
         private void FollowTarget(OsiTarget target) {

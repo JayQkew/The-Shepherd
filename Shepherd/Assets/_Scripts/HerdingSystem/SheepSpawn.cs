@@ -20,23 +20,16 @@ namespace HerdingSystem
         public float spawnRadius;
 
         private void Awake() {
-            if (Instance == null) Instance = this;
-            else Destroy(this);
-
+            Instance = this;
             SceneManager.sceneLoaded += OnSceneLoaded;
         }
 
         private void Start() {
-            if (TimeManager.Instance.dayCount == 0) {
-                SpawnNewSheep(3);
-            }
-
             TimeManager.Instance.dayPhases[^1].onPhaseEnd.AddListener(SpawnNewSheep);
         }
 
         private void OnDestroy() {
             SceneManager.sceneLoaded -= OnSceneLoaded;
-            ClearSheepCount();
             TimeManager.Instance.dayPhases[^1].onPhaseEnd.RemoveListener(SpawnNewSheep);
         }
 
@@ -50,15 +43,14 @@ namespace HerdingSystem
 
         public void SpawnNewSheep(int num) {
             int numSheep = num;
-            if (data.count + num > data.clampSheep.max) {
-                numSheep = data.clampSheep.max - data.count;
+            if (data.sheepData.Count + num > data.clampSheep.max) {
+                numSheep = data.clampSheep.max - data.sheepData.Count;
             }
 
             for (int i = 0; i < numSheep; i++) {
                 Vector3 spawnPos = GetValidSpawnPoint();
                 GameObject sheep = Instantiate(data.prefab, spawnPos, Quaternion.identity, parent);
                 data.sheepData.Add(sheep.GetComponent<Sheep>().sheepData);
-                data.count++;
             }
         }
 
@@ -78,13 +70,16 @@ namespace HerdingSystem
             return spawnPoint.position;
         }
 
-        public void ClearSheepCount() => data.count = 0;
-
         public void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode) {
             if (scene.name == "Main Scene") {
                 spawnPoint = GameObject.Find("SheepSpawnPoint").transform;
                 parent = GameObject.Find("Sheeps").transform;
-                SpawnSheep();
+                
+                if (data.sheepData.Count == 0) {
+                    SpawnNewSheep(3);
+                } else {
+                    SpawnSheep();
+                }
             }
         }
 
