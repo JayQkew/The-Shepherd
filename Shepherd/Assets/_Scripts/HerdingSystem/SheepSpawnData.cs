@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using Creatures.Sheep;
 using UnityEngine;
 using Utilities;
 
@@ -9,5 +11,6 @@ namespace HerdingSystem
         public int count;
         public MinMaxInt clampSheep;
         public GameObject prefab;
+        [SerializeReference] public List<SheepData> sheepData = new();
     }
 }

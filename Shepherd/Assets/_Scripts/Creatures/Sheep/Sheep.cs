@@ -22,7 +22,7 @@ namespace Creatures.Sheep
         
         protected override void Awake() {
             base.Awake();
-            sheepData = data as SheepData;
+            sheepData = Instantiate(data as SheepData);
 
             if (sheepData == null) {
                 Debug.LogWarning("animal data not sheep stats");

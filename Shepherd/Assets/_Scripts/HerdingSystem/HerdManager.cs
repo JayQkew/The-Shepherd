@@ -21,14 +21,12 @@ namespace HerdingSystem
         private HerdDestination pen;
 
         [SerializeField, Space(25)] TicketManager ticketManager;
-        [SerializeField, Space(25)] SheepSpawn sheepSpawn;
 
         private void Awake() {
             if (Instance == null) Instance = this;
             else Destroy(gameObject);
 
             SceneManager.sceneLoaded += OnSceneLoaded;
-            SceneManager.sceneLoaded += sheepSpawn.OnSceneLoaded;
 
             destinations = FindObjectsByType<HerdDestination>(FindObjectsSortMode.None);
             missionUI = MissionUI.Instance;
@@ -41,18 +39,10 @@ namespace HerdingSystem
             }
 
             ticketManager.Init();
-            sheepSpawn.SpawnSheep(3);
-        }
-
-        private void Start() {
-            TimeManager.Instance.dayPhases[^1].onPhaseEnd.AddListener(sheepSpawn.SpawnSheep);
         }
 
         private void OnDestroy() {
             SceneManager.sceneLoaded -= OnSceneLoaded;
-            SceneManager.sceneLoaded -= sheepSpawn.OnSceneLoaded;
-            sheepSpawn.ClearSheepCount();
-            TimeManager.Instance.dayPhases[^1].onPhaseEnd.RemoveListener(sheepSpawn.SpawnSheep);
         }
 
         private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode) {
@@ -216,11 +206,6 @@ namespace HerdingSystem
         }
 
         #endregion
-
-        private void OnDrawGizmos() {
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawWireSphere(sheepSpawn.spawnPoint.position, sheepSpawn.spawnRadius);
-        }
     }
 
     public enum Destination
