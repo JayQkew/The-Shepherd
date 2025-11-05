@@ -19,26 +19,17 @@ namespace Creatures.Sheep
         [HideInInspector] public Boid boid;
         public SheepData sheepData;
         public SheepGUI gui;
-
-
-        protected override void Awake() {
-            base.Awake();
-        }
         
         public void Init(SheepData existingData = null) {
-            if (existingData != null) {
-                sheepData = existingData;
-            } else if (sheepData == null) {
-                sheepData = Instantiate(data as SheepData);
-                Debug.Log("Making new sheep data");
-            }
+            if (existingData != null) sheepData = existingData;
+            else if (sheepData == null) sheepData = Instantiate(data as SheepData);
 
             if (sheepData == null) {
                 Debug.LogWarning("animal data not sheep stats");
                 return;
             }
 
-            wool.Init(sheepData.woolTime, sheepData);
+            wool.Init(sheepData);
             explosion.Init(transform, col);
             gui = GetComponent<SheepGUI>();
             boid = GetComponent<Boid>();
@@ -55,7 +46,7 @@ namespace Creatures.Sheep
 
         protected virtual void Update() {
             wool.WoolUpdate();
-            rb.mass = sheepData.mass.Lerp(sheepData.woolValue);
+            rb.mass = sheepData.mass.Lerp(sheepData.woolTimer.Progress);
         }
 
         public void PuffExplosion() {

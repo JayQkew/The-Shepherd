@@ -20,12 +20,9 @@ namespace Creatures.Sheep
         public MinMax roamSpeed;
 
         [Space(10)]
-        public float woolValue;
         public MinMax woolTime;
         public Timer woolTimer;
         public bool timerSet;
-        
-        public float savedWoolTimerCurrent;
-        public float savedWoolTimerMax;
+        public float prevWool;
     }
 }

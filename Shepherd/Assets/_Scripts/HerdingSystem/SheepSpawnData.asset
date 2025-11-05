@@ -16,7 +16,4 @@ MonoBehaviour:
     _min: 3
     _max: 15
   prefab: {fileID: 2499075382680790307, guid: 625ebfa9a484e3445abc932aef7174cb, type: 3}
-  sheepData:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  sheepData: []

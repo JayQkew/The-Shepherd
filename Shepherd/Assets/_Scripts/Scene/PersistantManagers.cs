@@ -12,7 +12,7 @@ namespace Scene
                 return;
             }
             _instance = this;
-            DontDestroyOnLoad(this);
+            DontDestroyOnLoad(gameObject);
         }
     }
 }

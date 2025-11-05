@@ -39,5 +39,10 @@ MonoBehaviour:
     _min: 3
     _max: 7
   woolTime:
-    _min: 60
-    _max: 90
+    _min: 20
+    _max: 30
+  woolTimer:
+    maxTime: 0
+    currTime: 0
+  timerSet: 0
+  prevWool: 0

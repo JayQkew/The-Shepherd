@@ -76,6 +76,7 @@ namespace HerdingSystem
         }
 
         public void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode) {
+            Debug.Log($"OnSceneLoaded - Scene: {scene.name}, SheepSpawn Instance: {Instance != null}, Data count: {data.sheepData.Count}");
             if (scene.name == "Main Scene") {
                 if (lastLoadedScene == scene.name) {
                     return;
