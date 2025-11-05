@@ -11,25 +11,34 @@ namespace Creatures.Sheep
         [Header("Sheep")]
         [Space(10)]
         [SerializeField] private float barkForce;
+
         [SerializeField] private Chance mehChance;
         public Food food;
         [SerializeField] private Wool wool;
         [SerializeField] private Explosion explosion;
         [HideInInspector] public Boid boid;
-        [HideInInspector] public SheepData sheepData;
+        public SheepData sheepData;
         public SheepGUI gui;
-        
-        
+
+
         protected override void Awake() {
             base.Awake();
-            sheepData = Instantiate(data as SheepData);
+        }
+        
+        public void Init(SheepData existingData = null) {
+            if (existingData != null) {
+                sheepData = existingData;
+            } else if (sheepData == null) {
+                sheepData = Instantiate(data as SheepData);
+                Debug.Log("Making new sheep data");
+            }
 
             if (sheepData == null) {
                 Debug.LogWarning("animal data not sheep stats");
                 return;
             }
-            
-            wool.Init(sheepData.woolTime);
+
+            wool.Init(sheepData.woolTime, sheepData);
             explosion.Init(transform, col);
             gui = GetComponent<SheepGUI>();
             boid = GetComponent<Boid>();
@@ -43,10 +52,10 @@ namespace Creatures.Sheep
                 PlayMeh();
             }
         }
-    
+
         protected virtual void Update() {
             wool.WoolUpdate();
-            rb.mass = sheepData.mass.Lerp(wool.woolValue);
+            rb.mass = sheepData.mass.Lerp(sheepData.woolValue);
         }
 
         public void PuffExplosion() {

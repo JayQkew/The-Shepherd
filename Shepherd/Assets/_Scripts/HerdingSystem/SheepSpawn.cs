@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Creatures;
 using Creatures.Sheep;
 using TimeSystem;
 using Unity.VisualScripting;
@@ -18,9 +19,11 @@ namespace HerdingSystem
         [SerializeField] private Transform parent;
         public Transform spawnPoint;
         public float spawnRadius;
+        private string lastLoadedScene = "";
 
         private void Awake() {
             Instance = this;
+            SceneManager.sceneLoaded -= OnSceneLoaded;
             SceneManager.sceneLoaded += OnSceneLoaded;
         }
 
@@ -37,7 +40,7 @@ namespace HerdingSystem
             foreach (SheepData sheepData in data.sheepData) {
                 Vector3 spawnPos = GetValidSpawnPoint();
                 GameObject sheep = Instantiate(data.prefab, spawnPos, Quaternion.identity, parent);
-                sheep.GetComponent<Sheep>().sheepData = sheepData;
+                sheep.GetComponent<Sheep>().Init(sheepData);
             }
         }
 
@@ -50,7 +53,9 @@ namespace HerdingSystem
             for (int i = 0; i < numSheep; i++) {
                 Vector3 spawnPos = GetValidSpawnPoint();
                 GameObject sheep = Instantiate(data.prefab, spawnPos, Quaternion.identity, parent);
-                data.sheepData.Add(sheep.GetComponent<Sheep>().sheepData);
+                Sheep sheepComponent = sheep.GetComponent<Sheep>();
+                sheepComponent.Init();  // Create new data
+                data.sheepData.Add(sheepComponent.sheepData);
             }
         }
 
@@ -72,9 +77,14 @@ namespace HerdingSystem
 
         public void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode) {
             if (scene.name == "Main Scene") {
+                if (lastLoadedScene == scene.name) {
+                    return;
+                }
+        
+                lastLoadedScene = scene.name;
                 spawnPoint = GameObject.Find("SheepSpawnPoint").transform;
                 parent = GameObject.Find("Sheeps").transform;
-                
+        
                 if (data.sheepData.Count == 0) {
                     SpawnNewSheep(3);
                 } else {

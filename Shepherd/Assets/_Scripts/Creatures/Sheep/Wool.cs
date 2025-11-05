@@ -8,23 +8,29 @@ namespace Creatures.Sheep
     [Serializable]
     public class Wool
     {
-        public float woolValue;
+        private SheepData sheepData;
         private float prevWool;
-        [SerializeField] private Timer woolTimer;
         [SerializeField] private UnityEvent[] woolEvents = new UnityEvent[3];
 
-        public Wool(MinMax woolTime) {
-            Init(woolTime);
-        }
-
-        public void Init(MinMax woolTime) {
-            woolTimer.SetMaxTime(woolTime.RandomValue());
-            prevWool = woolValue;
+        public void Init(MinMax woolTime, SheepData data) {
+            sheepData = data;
+            if (!sheepData.timerSet) {
+                sheepData.woolTimer.SetMaxTime(woolTime.RandomValue());
+                sheepData.timerSet = true;
+            } else {
+                // Restore timer state from saved values
+                sheepData.woolTimer.maxTime = sheepData.savedWoolTimerMax;
+                sheepData.woolTimer.currTime = sheepData.savedWoolTimerCurrent;
+            }
+            prevWool = sheepData.woolValue;
         }
         
         public void WoolUpdate() {
-            woolTimer.Update();
-            woolValue = woolTimer.Progress;
+            sheepData.woolTimer.Update();
+            sheepData.woolValue = sheepData.woolTimer.Progress;
+            sheepData.savedWoolTimerCurrent = sheepData.woolTimer.currTime;
+            sheepData.savedWoolTimerMax = sheepData.woolTimer.maxTime;
+
             WoolCheck();
         }
         
@@ -32,17 +38,17 @@ namespace Creatures.Sheep
         /// Checks for when the wool meets a threshold
         /// </summary>
         private void WoolCheck() {
-            if (woolValue <= 0.1f) {
+            if (sheepData.woolValue <= 0.1f) {
                 woolEvents[0]?.Invoke();
             }
-            if (prevWool < 0.3f && woolValue >= 0.3f) {
+            if (prevWool < 0.3f && sheepData.woolValue >= 0.3f) {
                 woolEvents[1]?.Invoke();
             }
-            if (prevWool < 0.6f && woolValue >= 0.6f) {
+            if (prevWool < 0.6f && sheepData.woolValue >= 0.6f) {
                 woolEvents[2]?.Invoke();
             }
             
-            prevWool = woolValue;
+            prevWool = sheepData.woolValue;
         }
     }
 }
