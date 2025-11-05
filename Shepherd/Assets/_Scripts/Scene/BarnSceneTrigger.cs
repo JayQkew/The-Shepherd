@@ -8,7 +8,7 @@ namespace Scene
 {
     public class BarnSceneTrigger : MonoBehaviour
     {
-        private readonly WaitForSeconds waitForSeconds = new(2.2f);
+        private readonly WaitForSeconds waitForSeconds = new(1.5f);
         public PolkaDots polkaDots;
 
         private bool isTransitioning;

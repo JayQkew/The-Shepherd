@@ -11,25 +11,19 @@ namespace UI
         private static readonly int Fill = Shader.PropertyToID("_Fill");
         private static readonly int FadeIn = Animator.StringToHash("FadeIn");
         private static readonly int FadeOut = Animator.StringToHash("FadeOut");
-        [SerializeField] private Material polkaDotMaterial;
+        private static readonly int StartScene = Animator.StringToHash("StartScene");
         public float fill;
 
         private void Awake() {
             anim = GetComponent<Animator>();
-        }
-
-        private void Start() {
             SceneManager.sceneLoaded += OnSceneLoaded;
         }
 
-        private void Update() {
-            polkaDotMaterial.SetFloat(Fill, fill);
+        private void Start() {
+            anim.SetBool(StartScene, SceneManager.GetActiveScene().name == "Start Menu");
         }
 
         private void OnDestroy() {
-#if UNITY_EDITOR
-            polkaDotMaterial.SetFloat(Fill, 0);
-#endif
             SceneManager.sceneLoaded -= OnSceneLoaded;
         }
 
