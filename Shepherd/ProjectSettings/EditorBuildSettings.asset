@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Start Menu.unity
     guid: 4515947b0af6a464387737e76ea95b5f
   - enabled: 1
-    path: Assets/Scenes/Main Scene 700.unity
-    guid: 28f701d3cbe198f43a7ea32722044048
+    path: Assets/Scenes/Main Scene.unity
+    guid: 761a133f497a095478b79df945804a28
   - enabled: 1
     path: Assets/Scenes/Barn.unity
     guid: e40dd18b1aee739419a15b8e1c251e70

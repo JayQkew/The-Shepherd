@@ -16,10 +16,10 @@ MonoBehaviour:
   - sceneName: Main Scene
     spawnPoints:
     - fromScene: 
-      position: {x: 58.8, y: 0.5, z: -108.4}
+      position: {x: 39.1, y: 1.3, z: -32.3}
       rotationY: 0
     - fromScene: Barn
-      position: {x: 106.65, y: 0.5, z: -113.6}
+      position: {x: 92.78, y: 0.66, z: -28.62}
       rotationY: 0
   - sceneName: Barn
     spawnPoints:
