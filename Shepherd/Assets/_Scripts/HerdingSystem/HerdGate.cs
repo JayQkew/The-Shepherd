@@ -6,10 +6,12 @@ namespace HerdingSystem
 {
     public class HerdGate : MonoBehaviour
     {
-        [SerializeField] private GameObject gate;
+        private static readonly int Open = Animator.StringToHash("Open");
+        [SerializeField] private Animator anim;
 
         public void GateControl(bool open) {
-            gate.SetActive(!open);
+            string trigger = open ? "Open" : "Close";
+            anim.SetTrigger(trigger);
         }
     }
 }
