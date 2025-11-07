@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -18,7 +19,10 @@ namespace HerdingSystem
         public List<HerdMission> missions;
         public HerdDestination[] destinations;
         public List<HerdAnimal> allHerdAnimals = new();
-        private HerdDestination pen;
+        [SerializeField] private HerdDestination pen;
+        [SerializeField] private List<HerdDestination> nonPenDestination = new();
+
+        [SerializeField] private Timer delay;
 
         [SerializeField, Space(25)] TicketManager ticketManager;
 
@@ -39,6 +43,12 @@ namespace HerdingSystem
             }
 
             ticketManager.Init();
+        }
+
+        private void Update() {
+            if (!delay.IsFinished) {
+                delay.Update();
+            }
         }
 
         private void OnDestroy() {
@@ -89,7 +99,7 @@ namespace HerdingSystem
                 missions[i] = herdMission;
             }
 
-            if (AllMissionsComplete()) {
+            if (AllMissionsComplete() && delay.IsFinished) {
                 MissionGateControl(false, HerdAssist.HerdDirection.None);
                 GateControl(false, HerdAssist.HerdDirection.None);
                 Notification notification = new Notification(
@@ -133,7 +143,7 @@ namespace HerdingSystem
             missions.Clear();
             missionUI.RemoveAllMissionCards();
 
-            List<HerdDestination> allDestinations = destinations.ToList();
+            List<HerdDestination> allDestinations = nonPenDestination.ToList();
 
             HerdingTicket ticket = ticketManager.GetTicket();
 
@@ -180,7 +190,8 @@ namespace HerdingSystem
             foreach (HerdMission mission in missions) {
                 if (open && assitDir == HerdAssist.HerdDirection.In) {
                     mission.herdDestination.osiTarget.Subscribe();
-                } else if (!open && assitDir == HerdAssist.HerdDirection.None) {
+                }
+                else if (!open && assitDir == HerdAssist.HerdDirection.None) {
                     mission.herdDestination.osiTarget.Unsubscribe();
                 }
 
@@ -211,10 +222,13 @@ namespace HerdingSystem
     public enum Destination
     {
         None,
+
         [Description("the Barn")]
         Barn,
+
         [Description("the Northern Pasture")]
         NorthernPasture,
+
         [Description("the Western Pasture")]
         WesternPasture,
     }

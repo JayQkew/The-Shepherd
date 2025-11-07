@@ -19884,7 +19884,6 @@ GameObject:
   m_Component:
   - component: {fileID: 924030534}
   - component: {fileID: 924030536}
-  - component: {fileID: 924030535}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -19907,19 +19906,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 429329347}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &924030535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 924030533}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62c21e8ef2e669846adc6222e7ce5789, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  polkaDots: {fileID: 921345996}
 --- !u!65 &924030536
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19935,7 +19921,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -27400,6 +27386,13 @@ MonoBehaviour:
   missions: []
   destinations: []
   allHerdAnimals: []
+  pen: {fileID: 0}
+  nonPenDestination:
+  - {fileID: 6659014778600322584}
+  - {fileID: 790260038549995816}
+  delay:
+    maxTime: 0.5
+    currTime: 0
   ticketManager:
     tickets:
     - {fileID: 11400000, guid: 05ae05c6e63ce744a9a99b084b298878, type: 2}
@@ -34378,30 +34371,6 @@ MonoBehaviour:
   - {fileID: 1282439013}
   - {fileID: 416859772}
   - {fileID: 443424360}
-  - {fileID: 1282439013}
-  - {fileID: 416859772}
-  - {fileID: 443424360}
-  - {fileID: 1282439013}
-  - {fileID: 416859772}
-  - {fileID: 443424360}
-  - {fileID: 1282439013}
-  - {fileID: 416859772}
-  - {fileID: 443424360}
-  - {fileID: 1282439013}
-  - {fileID: 416859772}
-  - {fileID: 443424360}
-  - {fileID: 1282439013}
-  - {fileID: 416859772}
-  - {fileID: 443424360}
-  - {fileID: 1282439013}
-  - {fileID: 416859772}
-  - {fileID: 443424360}
-  - {fileID: 1282439013}
-  - {fileID: 416859772}
-  - {fileID: 443424360}
-  - {fileID: 1282439013}
-  - {fileID: 416859772}
-  - {fileID: 443424360}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -34436,341 +34405,288 @@ MonoBehaviour:
   - {fileID: 416859772}
   - {fileID: 443424360}
   - {fileID: 1282439013}
+  - {fileID: 416859772}
+  - {fileID: 443424360}
+  - {fileID: 1282439013}
+  - {fileID: 416859772}
+  - {fileID: 443424360}
+  - {fileID: 1282439013}
+  - {fileID: 416859772}
+  - {fileID: 443424360}
+  - {fileID: 1282439013}
+  - {fileID: 416859772}
+  - {fileID: 443424360}
+  - {fileID: 1282439013}
+  - {fileID: 416859772}
+  - {fileID: 443424360}
+  - {fileID: 1282439013}
+  - {fileID: 416859772}
+  - {fileID: 443424360}
+  - {fileID: 1282439013}
+  - {fileID: 416859772}
+  - {fileID: 443424360}
+  - {fileID: 1282439013}
+  - {fileID: 416859772}
+  - {fileID: 443424360}
+  - {fileID: 2083612769}
+  - {fileID: 101376878}
+  - {fileID: 353806683}
   - {fileID: 1353690887}
   - {fileID: 286306463}
-  - {fileID: 353806683}
-  - {fileID: 101376878}
-  - {fileID: 2083612769}
+  - {fileID: 1282439013}
   - {fileID: 416859772}
   - {fileID: 443424360}
-  - {fileID: 1282439013}
+  - {fileID: 2083612769}
+  - {fileID: 101376878}
+  - {fileID: 353806683}
   - {fileID: 1353690887}
   - {fileID: 286306463}
-  - {fileID: 353806683}
-  - {fileID: 101376878}
-  - {fileID: 2083612769}
+  - {fileID: 1282439013}
   - {fileID: 416859772}
   - {fileID: 443424360}
-  - {fileID: 1282439013}
+  - {fileID: 2083612769}
+  - {fileID: 101376878}
+  - {fileID: 353806683}
   - {fileID: 1353690887}
   - {fileID: 286306463}
-  - {fileID: 353806683}
-  - {fileID: 101376878}
-  - {fileID: 2083612769}
+  - {fileID: 1282439013}
   - {fileID: 416859772}
   - {fileID: 443424360}
+  - {fileID: 2083612769}
+  - {fileID: 555776626}
+  - {fileID: 1576905821}
+  - {fileID: 1658639966}
+  - {fileID: 101376878}
+  - {fileID: 752823843}
+  - {fileID: 353806683}
+  - {fileID: 1353690887}
+  - {fileID: 1190734975}
   - {fileID: 1206062489}
   - {fileID: 93301073}
-  - {fileID: 1190734975}
   - {fileID: 16497840}
-  - {fileID: 1576905821}
-  - {fileID: 1246554249}
-  - {fileID: 752823843}
-  - {fileID: 1652109602}
-  - {fileID: 1658639966}
-  - {fileID: 555776626}
-  - {fileID: 1282439013}
-  - {fileID: 1353690887}
   - {fileID: 286306463}
-  - {fileID: 353806683}
-  - {fileID: 101376878}
-  - {fileID: 2083612769}
+  - {fileID: 1652109602}
+  - {fileID: 1282439013}
+  - {fileID: 1246554249}
   - {fileID: 416859772}
   - {fileID: 443424360}
-  - {fileID: 1305509883}
-  - {fileID: 548601389}
-  - {fileID: 1976460759}
-  - {fileID: 2012520663}
-  - {fileID: 1455180527}
-  - {fileID: 1330567779}
-  - {fileID: 1545256689}
-  - {fileID: 951044584}
-  - {fileID: 213947616}
   - {fileID: 398694654}
-  - {fileID: 949182580}
-  - {fileID: 1310350131}
-  - {fileID: 921282315}
-  - {fileID: 1190645802}
-  - {fileID: 2125283486}
+  - {fileID: 1318773316}
+  - {fileID: 2083612769}
+  - {fileID: 555776626}
+  - {fileID: 951044584}
+  - {fileID: 1576905821}
   - {fileID: 436986568}
-  - {fileID: 2063008005}
-  - {fileID: 983259445}
-  - {fileID: 25047605}
-  - {fileID: 552109436}
-  - {fileID: 214646560}
-  - {fileID: 2031227638}
-  - {fileID: 1914148232}
-  - {fileID: 713315638}
-  - {fileID: 1079809496}
-  - {fileID: 1152357902}
-  - {fileID: 825348496}
-  - {fileID: 71926727}
+  - {fileID: 2125283486}
   - {fileID: 1450156999}
-  - {fileID: 1367124176}
-  - {fileID: 2105887801}
-  - {fileID: 47980411}
-  - {fileID: 1650049930}
+  - {fileID: 1960376418}
+  - {fileID: 1658639966}
+  - {fileID: 548601389}
   - {fileID: 349138721}
+  - {fileID: 101376878}
+  - {fileID: 949182580}
+  - {fileID: 752823843}
+  - {fileID: 1914148232}
+  - {fileID: 2063008005}
+  - {fileID: 353806683}
+  - {fileID: 1367124176}
+  - {fileID: 1455180527}
+  - {fileID: 1310350131}
+  - {fileID: 1353690887}
+  - {fileID: 213947616}
+  - {fileID: 71926727}
   - {fileID: 1480590852}
   - {fileID: 571631587}
-  - {fileID: 1652651269}
-  - {fileID: 623701874}
-  - {fileID: 1960376418}
-  - {fileID: 1835912920}
-  - {fileID: 1388055050}
+  - {fileID: 1079809496}
+  - {fileID: 47980411}
+  - {fileID: 25047605}
+  - {fileID: 214646560}
   - {fileID: 1903298219}
-  - {fileID: 1666052724}
-  - {fileID: 812834542}
-  - {fileID: 1235583262}
-  - {fileID: 1318773316}
+  - {fileID: 1330567779}
+  - {fileID: 1652651269}
+  - {fileID: 1190734975}
   - {fileID: 1206062489}
   - {fileID: 93301073}
-  - {fileID: 1190734975}
+  - {fileID: 2105887801}
   - {fileID: 16497840}
-  - {fileID: 1576905821}
-  - {fileID: 1246554249}
-  - {fileID: 1864051837}
-  - {fileID: 752823843}
-  - {fileID: 1652109602}
-  - {fileID: 1658639966}
-  - {fileID: 555776626}
-  - {fileID: 1282439013}
-  - {fileID: 1353690887}
+  - {fileID: 1388055050}
+  - {fileID: 1650049930}
+  - {fileID: 1152357902}
+  - {fileID: 1190645802}
+  - {fileID: 2031227638}
+  - {fileID: 552109436}
+  - {fileID: 1305509883}
   - {fileID: 286306463}
-  - {fileID: 353806683}
-  - {fileID: 101376878}
-  - {fileID: 2083612769}
+  - {fileID: 1652109602}
+  - {fileID: 623701874}
+  - {fileID: 1835912920}
+  - {fileID: 1666052724}
+  - {fileID: 1282439013}
+  - {fileID: 921282315}
+  - {fileID: 1246554249}
+  - {fileID: 812834542}
+  - {fileID: 1235583262}
+  - {fileID: 825348496}
+  - {fileID: 1864051837}
+  - {fileID: 1545256689}
+  - {fileID: 713315638}
+  - {fileID: 2012520663}
+  - {fileID: 983259445}
+  - {fileID: 1976460759}
   - {fileID: 416859772}
   - {fileID: 443424360}
-  - {fileID: 1305509883}
-  - {fileID: 548601389}
-  - {fileID: 1976460759}
-  - {fileID: 2012520663}
-  - {fileID: 1455180527}
-  - {fileID: 1330567779}
-  - {fileID: 1545256689}
-  - {fileID: 951044584}
-  - {fileID: 213947616}
-  - {fileID: 398694654}
-  - {fileID: 949182580}
-  - {fileID: 1310350131}
-  - {fileID: 921282315}
-  - {fileID: 1190645802}
-  - {fileID: 2125283486}
-  - {fileID: 436986568}
-  - {fileID: 2063008005}
-  - {fileID: 983259445}
-  - {fileID: 25047605}
-  - {fileID: 552109436}
-  - {fileID: 214646560}
-  - {fileID: 2031227638}
-  - {fileID: 1914148232}
-  - {fileID: 713315638}
-  - {fileID: 1079809496}
-  - {fileID: 1853632475}
-  - {fileID: 555014513}
-  - {fileID: 1764711879}
-  - {fileID: 1136430265}
-  - {fileID: 610509886}
-  - {fileID: 334341793}
-  - {fileID: 720123698}
-  - {fileID: 590924317}
-  - {fileID: 527945301}
-  - {fileID: 1923254792}
   - {fileID: 1216440270}
-  - {fileID: 1718820128}
-  - {fileID: 1152357902}
-  - {fileID: 825348496}
-  - {fileID: 71926727}
+  - {fileID: 398694654}
+  - {fileID: 1318773316}
+  - {fileID: 2083612769}
+  - {fileID: 555776626}
+  - {fileID: 951044584}
+  - {fileID: 1576905821}
+  - {fileID: 1853632475}
+  - {fileID: 436986568}
+  - {fileID: 2125283486}
   - {fileID: 1450156999}
-  - {fileID: 1367124176}
-  - {fileID: 2105887801}
-  - {fileID: 47980411}
-  - {fileID: 1650049930}
+  - {fileID: 1960376418}
+  - {fileID: 1658639966}
+  - {fileID: 548601389}
   - {fileID: 349138721}
+  - {fileID: 101376878}
+  - {fileID: 555014513}
+  - {fileID: 1136430265}
+  - {fileID: 949182580}
+  - {fileID: 752823843}
+  - {fileID: 1914148232}
+  - {fileID: 1923254792}
+  - {fileID: 2063008005}
+  - {fileID: 1718820128}
+  - {fileID: 353806683}
+  - {fileID: 1367124176}
+  - {fileID: 1455180527}
+  - {fileID: 1310350131}
+  - {fileID: 1353690887}
+  - {fileID: 213947616}
+  - {fileID: 610509886}
+  - {fileID: 71926727}
   - {fileID: 1480590852}
   - {fileID: 571631587}
-  - {fileID: 1652651269}
-  - {fileID: 623701874}
-  - {fileID: 1960376418}
-  - {fileID: 1835912920}
-  - {fileID: 1388055050}
+  - {fileID: 1079809496}
+  - {fileID: 334341793}
+  - {fileID: 47980411}
+  - {fileID: 25047605}
+  - {fileID: 214646560}
   - {fileID: 1903298219}
-  - {fileID: 1666052724}
-  - {fileID: 812834542}
-  - {fileID: 1235583262}
-  - {fileID: 1318773316}
+  - {fileID: 1330567779}
+  - {fileID: 1652651269}
+  - {fileID: 1190734975}
   - {fileID: 1206062489}
   - {fileID: 93301073}
-  - {fileID: 1190734975}
+  - {fileID: 2105887801}
   - {fileID: 16497840}
-  - {fileID: 1576905821}
-  - {fileID: 1246554249}
-  - {fileID: 1864051837}
-  - {fileID: 752823843}
-  - {fileID: 1652109602}
-  - {fileID: 1658639966}
-  - {fileID: 555776626}
-  - {fileID: 1282439013}
-  - {fileID: 1353690887}
+  - {fileID: 1388055050}
+  - {fileID: 1650049930}
+  - {fileID: 1152357902}
+  - {fileID: 1190645802}
+  - {fileID: 2031227638}
+  - {fileID: 552109436}
+  - {fileID: 1305509883}
   - {fileID: 286306463}
-  - {fileID: 353806683}
-  - {fileID: 101376878}
-  - {fileID: 2083612769}
+  - {fileID: 1652109602}
+  - {fileID: 623701874}
+  - {fileID: 1835912920}
+  - {fileID: 1666052724}
+  - {fileID: 1282439013}
+  - {fileID: 527945301}
+  - {fileID: 921282315}
+  - {fileID: 1246554249}
+  - {fileID: 812834542}
+  - {fileID: 1235583262}
+  - {fileID: 825348496}
+  - {fileID: 1864051837}
+  - {fileID: 1764711879}
+  - {fileID: 1545256689}
+  - {fileID: 713315638}
+  - {fileID: 2012520663}
+  - {fileID: 983259445}
+  - {fileID: 720123698}
+  - {fileID: 1976460759}
+  - {fileID: 590924317}
   - {fileID: 416859772}
   - {fileID: 443424360}
-  - {fileID: 1305509883}
-  - {fileID: 548601389}
-  - {fileID: 1976460759}
-  - {fileID: 2012520663}
-  - {fileID: 1455180527}
-  - {fileID: 1330567779}
-  - {fileID: 1545256689}
-  - {fileID: 951044584}
-  - {fileID: 213947616}
-  - {fileID: 398694654}
-  - {fileID: 949182580}
-  - {fileID: 1310350131}
-  - {fileID: 921282315}
-  - {fileID: 1190645802}
-  - {fileID: 2125283486}
-  - {fileID: 436986568}
-  - {fileID: 2063008005}
-  - {fileID: 983259445}
-  - {fileID: 25047605}
-  - {fileID: 552109436}
-  - {fileID: 214646560}
-  - {fileID: 2031227638}
-  - {fileID: 1914148232}
-  - {fileID: 713315638}
-  - {fileID: 1079809496}
-  - {fileID: 1853632475}
-  - {fileID: 555014513}
-  - {fileID: 1764711879}
-  - {fileID: 1136430265}
-  - {fileID: 610509886}
-  - {fileID: 334341793}
-  - {fileID: 720123698}
-  - {fileID: 590924317}
-  - {fileID: 527945301}
-  - {fileID: 1923254792}
   - {fileID: 1216440270}
-  - {fileID: 1718820128}
-  - {fileID: 1152357902}
-  - {fileID: 825348496}
-  - {fileID: 71926727}
+  - {fileID: 398694654}
+  - {fileID: 1318773316}
+  - {fileID: 2083612769}
+  - {fileID: 555776626}
+  - {fileID: 951044584}
+  - {fileID: 1576905821}
+  - {fileID: 1853632475}
+  - {fileID: 436986568}
+  - {fileID: 2125283486}
   - {fileID: 1450156999}
-  - {fileID: 1367124176}
-  - {fileID: 2105887801}
-  - {fileID: 47980411}
-  - {fileID: 1650049930}
+  - {fileID: 1960376418}
+  - {fileID: 1658639966}
+  - {fileID: 548601389}
   - {fileID: 349138721}
+  - {fileID: 101376878}
+  - {fileID: 555014513}
+  - {fileID: 1136430265}
+  - {fileID: 949182580}
+  - {fileID: 752823843}
+  - {fileID: 1914148232}
+  - {fileID: 1923254792}
+  - {fileID: 2063008005}
+  - {fileID: 1718820128}
+  - {fileID: 353806683}
+  - {fileID: 1367124176}
+  - {fileID: 1455180527}
+  - {fileID: 1310350131}
+  - {fileID: 1353690887}
+  - {fileID: 213947616}
+  - {fileID: 610509886}
+  - {fileID: 71926727}
   - {fileID: 1480590852}
   - {fileID: 571631587}
-  - {fileID: 1652651269}
-  - {fileID: 623701874}
-  - {fileID: 1960376418}
-  - {fileID: 1835912920}
-  - {fileID: 1388055050}
-  - {fileID: 1903298219}
-  - {fileID: 1666052724}
-  - {fileID: 812834542}
-  - {fileID: 1235583262}
-  - {fileID: 1318773316}
-  - {fileID: 1206062489}
-  - {fileID: 93301073}
-  - {fileID: 1190734975}
-  - {fileID: 16497840}
-  - {fileID: 1576905821}
-  - {fileID: 1246554249}
-  - {fileID: 1864051837}
-  - {fileID: 752823843}
-  - {fileID: 1652109602}
-  - {fileID: 1658639966}
-  - {fileID: 555776626}
-  - {fileID: 1282439013}
-  - {fileID: 1353690887}
-  - {fileID: 286306463}
-  - {fileID: 353806683}
-  - {fileID: 101376878}
-  - {fileID: 2083612769}
-  - {fileID: 416859772}
-  - {fileID: 443424360}
-  - {fileID: 71926727}
-  - {fileID: 1960376418}
-  - {fileID: 1976460759}
-  - {fileID: 1864051837}
-  - {fileID: 2125283486}
-  - {fileID: 334341793}
-  - {fileID: 1190645802}
-  - {fileID: 983259445}
-  - {fileID: 1576905821}
-  - {fileID: 1310350131}
-  - {fileID: 610509886}
-  - {fileID: 349138721}
-  - {fileID: 921282315}
-  - {fileID: 2031227638}
-  - {fileID: 1330567779}
-  - {fileID: 1450156999}
-  - {fileID: 548601389}
-  - {fileID: 1853632475}
-  - {fileID: 713315638}
   - {fileID: 1079809496}
-  - {fileID: 353806683}
-  - {fileID: 555776626}
-  - {fileID: 1455180527}
-  - {fileID: 1764711879}
-  - {fileID: 1652109602}
-  - {fileID: 1206062489}
-  - {fileID: 1923254792}
-  - {fileID: 25047605}
-  - {fileID: 1545256689}
-  - {fileID: 1666052724}
-  - {fileID: 436986568}
-  - {fileID: 2105887801}
-  - {fileID: 1305509883}
-  - {fileID: 213947616}
-  - {fileID: 1903298219}
-  - {fileID: 590924317}
-  - {fileID: 398694654}
-  - {fileID: 1152357902}
-  - {fileID: 1216440270}
-  - {fileID: 1353690887}
-  - {fileID: 1388055050}
-  - {fileID: 1190734975}
-  - {fileID: 2083612769}
-  - {fileID: 1650049930}
-  - {fileID: 623701874}
-  - {fileID: 1658639966}
-  - {fileID: 812834542}
-  - {fileID: 527945301}
-  - {fileID: 1318773316}
-  - {fileID: 1480590852}
-  - {fileID: 949182580}
-  - {fileID: 101376878}
+  - {fileID: 334341793}
   - {fileID: 47980411}
-  - {fileID: 1136430265}
-  - {fileID: 752823843}
-  - {fileID: 93301073}
-  - {fileID: 2012520663}
-  - {fileID: 1914148232}
-  - {fileID: 1718820128}
-  - {fileID: 555014513}
-  - {fileID: 1367124176}
-  - {fileID: 951044584}
-  - {fileID: 286306463}
+  - {fileID: 25047605}
   - {fileID: 214646560}
-  - {fileID: 552109436}
-  - {fileID: 1246554249}
-  - {fileID: 16497840}
-  - {fileID: 1235583262}
-  - {fileID: 720123698}
-  - {fileID: 571631587}
-  - {fileID: 1835912920}
-  - {fileID: 2063008005}
-  - {fileID: 825348496}
+  - {fileID: 1903298219}
+  - {fileID: 1330567779}
   - {fileID: 1652651269}
+  - {fileID: 1190734975}
+  - {fileID: 1206062489}
+  - {fileID: 93301073}
+  - {fileID: 2105887801}
+  - {fileID: 16497840}
+  - {fileID: 1388055050}
+  - {fileID: 1650049930}
+  - {fileID: 1152357902}
+  - {fileID: 1190645802}
+  - {fileID: 2031227638}
+  - {fileID: 552109436}
+  - {fileID: 1305509883}
+  - {fileID: 286306463}
+  - {fileID: 1652109602}
+  - {fileID: 623701874}
+  - {fileID: 1835912920}
+  - {fileID: 1666052724}
   - {fileID: 1282439013}
+  - {fileID: 527945301}
+  - {fileID: 921282315}
+  - {fileID: 1246554249}
+  - {fileID: 812834542}
+  - {fileID: 1235583262}
+  - {fileID: 825348496}
+  - {fileID: 1864051837}
+  - {fileID: 1764711879}
+  - {fileID: 1545256689}
+  - {fileID: 713315638}
+  - {fileID: 2012520663}
+  - {fileID: 983259445}
+  - {fileID: 720123698}
+  - {fileID: 1976460759}
+  - {fileID: 590924317}
   - {fileID: 416859772}
   - {fileID: 443424360}
   - {fileID: 1216440270}
