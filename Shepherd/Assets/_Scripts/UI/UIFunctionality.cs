@@ -26,7 +26,26 @@ namespace UI
         }
 
         public void ExitGame() {
-            Application.Quit();
+            Time.timeScale = 1f;
+            SceneManager.LoadScene(0);
+            
+            UnityEngine.SceneManagement.Scene tempScene = SceneManager.CreateScene("TempScene");
+            foreach (GameObject go in GetDontDestroyOnLoadObjects())
+            {
+                SceneManager.MoveGameObjectToScene(go, tempScene);
+            }
+            SceneManager.UnloadSceneAsync(tempScene);
+        }
+        
+        private GameObject[] GetDontDestroyOnLoadObjects()
+        {
+            GameObject temp = new GameObject("Temp");
+            DontDestroyOnLoad(temp);
+
+            UnityEngine.SceneManagement.Scene dontDestroyOnLoadScene = temp.scene;
+            DestroyImmediate(temp);
+
+            return dontDestroyOnLoadScene.GetRootGameObjects();
         }
     }
 }
