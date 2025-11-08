@@ -76,6 +76,7 @@ GameObject:
   - component: {fileID: 7067056739620526376}
   - component: {fileID: 8013790926309903713}
   - component: {fileID: 130312898505566764}
+  - component: {fileID: 2518598232441731481}
   m_Layer: 0
   m_Name: PopUp
   m_TagString: Untagged
@@ -164,6 +165,37 @@ MonoBehaviour:
   titleTxt: {fileID: 2021874044496879576}
   messageTxt: {fileID: 7718561035425524960}
   image: {fileID: 7912306140075726917}
+--- !u!114 &2518598232441731481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2949252881669572333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1268952250
+      Data2: 1214535926
+      Data3: 2046669991
+      Data4: -787669205
+    Path: event:/SFX/Notification
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &6006766992745600398
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,7 +261,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: ff5386e68fab40145b89452730e898eb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

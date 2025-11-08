@@ -16,7 +16,7 @@ namespace HerdingSystem
         public void Init(HerdMission herdMission) {
             mission = herdMission;
             string destination = herdMission.destination.StringValue();
-            descriptionTxt.text = $"Herd the Sheep to {destination}";
+            descriptionTxt.text = $"Herd Sheep to {destination}";
             
             numberTxt.text = herdMission.curr + " / " + herdMission.target;
             slider.minValue = herdMission.curr;

@@ -33,6 +33,9 @@ namespace Audio
         [field: Header("Button Events")]
         [field: SerializeField] public EventReference buttonHover { get; private set; }
         [field: SerializeField] public EventReference buttonClick { get; private set; }
+        
+        [field: Header("Notification Events")]
+        [field: SerializeField] public EventReference notification { get; private set; }
 
         private void Awake() {
             if (Instance == null) {
